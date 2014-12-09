@@ -397,9 +397,13 @@ static void initGlobalMutex() {
 U_CAPI void  U_EXPORT2
 umtx_init(UMTX *mutex)
 {
-    if (mutex == NULL || mutex == &gGlobalMutex) {
+    if (mutex == NULL || mutex == &gGlobalMutex)
+    {
         initGlobalMutex();
-    } else {
+        return;
+    }
+
+    {
         umtx_lock(NULL);
         if (*mutex != NULL) {
             /* Another thread initialized this mutex first. */
@@ -414,11 +418,15 @@ umtx_init(UMTX *mutex)
             umtx_unlock(NULL);
             return;
         }
-        else {
+
 #if (ICU_USE_THREADS == 1)
+        {
             /*  Search through our pool of pre-allocated mutexes for one that is not
             *  already in use.    */
             int i;
+
+            U_ASSERT(gMutexPoolInitialized);
+
             for (i=0; i<MAX_MUTEXES; i++) {
                 if (gMutexesInUse[i] == 0) {
                     gMutexesInUse[i] = 1;
@@ -426,8 +434,8 @@ umtx_init(UMTX *mutex)
                     break;
                 }
             }
+        }//local
 #endif
-        }
         umtx_unlock(NULL);
 
 #if (ICU_USE_THREADS == 1)
@@ -435,7 +443,7 @@ umtx_init(UMTX *mutex)
         /*   TODO:  how best to deal with this?                    */
         U_ASSERT(*mutex != NULL);
 #endif
-    }
+    }//local
 }
 
 
@@ -474,6 +482,8 @@ umtx_destroy(UMTX *mutex) {
         int i;
         for (i=0; i<MAX_MUTEXES; i++)  {
             if (*mutex == &gMutexes[i]) {
+                U_ASSERT(gMutexesInUse[i] == 1);
+
                 gMutexesInUse[i] = 0;
                 break;
             }
@@ -629,7 +639,9 @@ U_CFUNC UBool umtx_cleanup(void) {
     if (gMutexPoolInitialized) {
         int i;
         for (i=0; i<MAX_MUTEXES; i++) {
-            if (gMutexesInUse[i]) {
+            U_ASSERT(gMutexesInUse[i] == 0);
+
+            /*if (gMutexesInUse[i])*/ {
 #if defined (WIN32)
                 DeleteCriticalSection(&gMutexes[i]);
 #elif defined (POSIX) && ! defined (SOLARIS_MT)
