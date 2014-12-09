@@ -30,6 +30,7 @@
 #define CLASSES_LOCKS_H
 
 #include "firebird.h"
+#include "../common/classes/fb_null_ptr.h"
 #include "../jrd/gdsassert.h"
 
 #ifdef WIN_NT
@@ -239,31 +240,52 @@ typedef Mutex Spinlock;
 // RAII holder
 class MutexLockGuard
 {
+private:
+	typedef MutexLockGuard					self_type;
+
+	// Forbid copying
+	MutexLockGuard(const self_type&);
+	self_type& operator = (const self_type&);
+
 public:
-	explicit MutexLockGuard(Mutex &alock)
+	explicit MutexLockGuard(Mutex& alock)
 		: lock(&alock)
 	{
-		lock->enter();
+		this->lock->enter();
+	}
+
+	explicit MutexLockGuard(Mutex* const alock)
+		: lock(alock)
+	{
+		if(this->lock!=Firebird::null_ptr)
+			this->lock->enter();
 	}
 
 	~MutexLockGuard()
 	{
-		try {
-			lock->leave();
+		try
+		{
+	        this->Unlock();
 		}
 		catch (const Exception&)
 		{
 			DtorException::devHalt();
 		}
-	}
+	}//~MutexLockGuard
+
+    void Unlock()
+    {
+        Mutex* const tmpLock=this->lock;
+
+        this->lock=Firebird::null_ptr;
+
+        if(tmpLock!=Firebird::null_ptr)
+           tmpLock->leave();
+    }//Unlock
 
 private:
-	// Forbid copying
-	MutexLockGuard(const MutexLockGuard&);
-	MutexLockGuard& operator=(const MutexLockGuard&);
-
 	Mutex* lock;
-};
+};//class MutexLockGuard
 
 class MutexUnlockGuard
 {

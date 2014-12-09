@@ -30,6 +30,7 @@
 
 #include "firebird.h"
 #include "../common/classes/alloc.h"
+#include "../common/classes/fb_null_ptr.h"
 #include "../common/classes/fb_tls.h"
 #include "../jrd/gdsassert.h"
 #ifdef HAVE_MMAP
@@ -373,21 +374,19 @@ void MemoryPool::setStatsGroup(MemoryStats& statsL)
 	// It is deadlock-free only as long other code takes locks in the same order.
 	// There are no other places which need both locks at once so this code seems
 	// to be safe
-	if (parent)
-		parent->lock.enter();
 
-	lock.enter();
-	const size_t sav_used_memory = used_memory.value();
+    const MutexLockGuard parentLock(this->parent?&this->parent->lock:Firebird::null_ptr);
+
+	const MutexLockGuard thisLock(this->lock);
+
+    const size_t sav_used_memory = used_memory.value();
 	const size_t sav_mapped_memory = mapped_memory;
 	decrement_mapping(sav_mapped_memory);
 	decrement_usage(sav_used_memory);
 	this->stats = &statsL;
 	increment_mapping(sav_mapped_memory);
 	increment_usage(sav_used_memory);
-	lock.leave();
-	if (parent)
-		parent->lock.leave();
-}
+}//setStatsGroup
 
 MemoryPool::MemoryPool(MemoryPool* parentL, MemoryStats& statsL, void* first_extent, void* root_page)
 	: //parent_redirect(parentL != NULL),
@@ -693,7 +692,9 @@ void* MemoryPool::allocate_nothrow(size_t size, size_t upper_size
 								   MEM_ALIGN(sizeof(MemoryBlock)) -
 								   MEM_ALIGN(sizeof(MemoryExtent)))
 	{
-		MutexLockGuard g(parent->lock);
+		fb_assert(this->parent!=Firebird::null_ptr);
+
+		const MutexLockGuard g(this->parent->lock);
 
 		// Allocate block from parent
 		void* result = parent->internal_alloc(size + MEM_ALIGN(sizeof(MemoryRedirectList)), 0, 0
@@ -732,7 +733,7 @@ void* MemoryPool::allocate_nothrow(size_t size, size_t upper_size
 		return result;
 	}
 
-	MutexLockGuard g(lock);
+	const MutexLockGuard g(this->lock);
 	// If block cannot fit into extent then allocate it from OS directly
 	if (size > OS_EXTENT_SIZE - PARENT_EXTENT_SIZE - MEM_ALIGN(sizeof(MemoryBlock)) - MEM_ALIGN(sizeof(MemoryExtent)))
 	{
@@ -809,7 +810,7 @@ void* MemoryPool::allocate(size_t size
 
 bool MemoryPool::verify_pool(bool fast_checks_only)
 {
-	lock.enter();
+    MutexLockGuard thisLock(this->lock);
 	mem_assert(!pendingFree || needSpare); // needSpare flag should be set if we are in
 										// a critically low memory condition
 	size_t blk_used_memory = 0;
@@ -994,11 +995,12 @@ bool MemoryPool::verify_pool(bool fast_checks_only)
 
 	// Verify memory usage accounting
 	mem_assert(blk_mapped_memory == mapped_memory);
-	lock.leave();
 
-	if (parent)
+    thisLock.Unlock();
+
+	if (this->parent)
 	{
-		parent->lock.enter();
+		const MutexLockGuard parentLock(this->parent->lock);
 		// Verify redirected blocks
 		size_t blk_redirected = 0;
 		for (MemoryBlock* redirected = parent_redirected; redirected; redirected = block_list_small(redirected)->mrl_next)
@@ -1026,14 +1028,13 @@ bool MemoryPool::verify_pool(bool fast_checks_only)
 		// Check accounting
 		mem_assert(blk_redirected == redirect_amount);
 		mem_assert(blk_used_memory == (size_t) used_memory.value());
-		parent->lock.leave();
 	}
 	else {
 		mem_assert(blk_used_memory == (size_t) used_memory.value());
 	}
 
 	return true;
-}
+}//verify_pool
 
 static void print_block(FILE* file, MemoryBlock* blk, bool used_only,
 	const char* filter_path, const size_t filter_len)
@@ -1086,7 +1087,7 @@ void MemoryPool::print_contents(const char* filename, bool used_only, const char
 // This member function can't be const because there are calls to the mutex.
 void MemoryPool::print_contents(FILE* file, bool used_only, const char* filter_path)
 {
-	lock.enter();
+    MutexLockGuard thisLock(this->lock);
 	fprintf(file, "********* Printing contents of pool %p used=%ld mapped=%ld: parent %p \n",
 		this, (long)used_memory.value(), (long)mapped_memory, parent);
 
@@ -1138,18 +1139,22 @@ void MemoryPool::print_contents(FILE* file, bool used_only, const char* filter_p
 		for (MemoryBlock* blk = os_redirected; blk; blk = block_list_large(blk)->mrl_next)
 			print_block(file, blk, used_only, filter_path, filter_len);
 	}
-	lock.leave();
+
+    thisLock.Unlock();
 
 	// Print redirected blocks
 	if (parent_redirected) {
 		fprintf(file, "REDIRECTED TO PARENT %p:\n", parent);
-		parent->lock.enter();
+
+        fb_assert(this->parent!=Firebird::null_ptr);
+
+        MutexLockGuard parentLock(this->parent->lock);
+
 		for (MemoryBlock* blk = parent_redirected; blk; blk = block_list_small(blk)->mrl_next)
 			print_block(file, blk, used_only, filter_path, filter_len);
-		parent->lock.leave();
 	}
 	fprintf(file, "********* End of output for pool %p.\n\n", this);
-}
+}//print_contents
 
 #ifdef POOL_DUMP
 static MemoryPool* allPools[10240];
@@ -1206,11 +1211,10 @@ MemoryPool* MemoryPool::createPool(MemoryPool* parent, MemoryStats& stats)
 	// difficult to make memory pass through any delayed free list in this case
 	if (parent)
 	{
-		parent->lock.enter();
+		const MutexLockGuard parentLock(this->parent->lock);
 		const size_t size = MEM_ALIGN(sizeof(MemoryPool) + sizeof(MemoryRedirectList));
 		void* mem = parent->internal_alloc(size, 0, TYPE_POOL);
 		if (!mem) {
-			parent->lock.leave();
 			Firebird::BadAlloc::raise();
 		}
 		pool = new(mem) MemoryPool(parent, stats, NULL, NULL);
@@ -1223,8 +1227,6 @@ MemoryPool* MemoryPool::createPool(MemoryPool* parent, MemoryStats& stats)
 		list->mrl_prev = NULL;
 		list->mrl_next = NULL;
 		pool->parent_redirected = blk;
-
-		parent->lock.leave();
 	}
 	else
 #endif
@@ -1353,7 +1355,7 @@ MemoryPool* MemoryPool::createPool(MemoryPool* parent, MemoryStats& stats)
 	return pool;
 }
 
-void MemoryPool::deletePool(MemoryPool* pool)
+void MemoryPool::deletePool(MemoryPool* const pool)
 {
 	if (!pool)
 		return;
@@ -1379,8 +1381,7 @@ void MemoryPool::deletePool(MemoryPool* pool)
 	// we delete our pool in process
 
 	// Deallocate all large blocks redirected to OS
-	MemoryBlock* large = pool->os_redirected;
-	while (large)
+	for(MemoryBlock* large = pool->os_redirected; large!=Firebird::null_ptr;)
 	{
 		MemoryBlock* next = block_list_large(large)->mrl_next;
 		size_t ext_size = large->mbk_large_length;
@@ -1388,27 +1389,30 @@ void MemoryPool::deletePool(MemoryPool* pool)
 		large = next;
 	}
 
-	MemoryPool* parent = pool->parent;
+	MemoryPool* const parent = pool->parent;
 
 	// Delete all extents now
-	MemoryExtent* extent = pool->extents_os;
-	while (extent) {
-		MemoryExtent* next = extent->mxt_next;
+	for(MemoryExtent* extent = pool->extents_os;extent!=Firebird::null_ptr;)
+    {
+		MemoryExtent* const next = extent->mxt_next;
 		size_t ext_size = OS_EXTENT_SIZE;
-		external_free(extent, ext_size, true);
+		external_free(extent, /*in-out*/ext_size, true);
 		fb_assert(ext_size == OS_EXTENT_SIZE); // Make sure exent size is a multiply of page size
 		extent = next;
-	}
+	}//for
+
+    //fb_assert(pool->parent==parent);
 
 	// Deallocate blocks redirected to parent
 	// IF parent is set then pool was allocated from it and is not deleted at this point yet
 	if (parent)
 	{
-		parent->lock.enter();
-		MemoryBlock* redirected = pool->parent_redirected;
-		while (redirected)
 		{
-			MemoryBlock* next = block_list_small(redirected)->mrl_next;
+            const MutexLockGuard parentLock(parent->lock);
+
+		    for (MemoryBlock* redirected = pool->parent_redirected;redirected!=Firebird::null_ptr;)
+		    {
+		    	MemoryBlock* const next = block_list_small(redirected)->mrl_next;
 			redirected->mbk_pool = parent;
 			redirected->mbk_flags &= ~MBK_PARENT;
 #ifdef USE_VALGRIND
@@ -1431,15 +1435,15 @@ void MemoryPool::deletePool(MemoryPool* pool)
 
 			if (parent->needSpare)
 				parent->updateSpare();
-		}
+    		}//for
 		// Our pool does not exist at this point
-		parent->lock.leave();
+        }//local
 
-		MemoryExtent* extent = pool->extents_parent;
-		while (extent) {
-			MemoryExtent* next = extent->mxt_next;
+		for(MemoryExtent* extent = pool->extents_parent;extent!=Firebird::null_ptr;)
+        {
+			MemoryExtent* const next = extent->mxt_next;
 
-			MemoryBlock* blk = ptrToBlock(extent);
+			MemoryBlock* const blk = ptrToBlock(extent);
 			parent->increment_usage(blk->mbk_small.mbk_length);
 			parent->deallocate(extent);
 			extent = next;
@@ -1705,14 +1709,15 @@ void* MemoryPool::internal_alloc(size_t size, size_t upper_size, SSHORT type
 	return result;
 }
 
-inline void MemoryPool::addFreeBlock(MemoryBlock* blk)
+inline void MemoryPool::addFreeBlock(MemoryBlock* const blk)
 {
 	FreeMemoryBlock* fragmentToAdd = blockToPtr<FreeMemoryBlock*>(blk);
 	blk->mbk_prev_fragment = NULL;
 
 	// Cheap case. No modification of tree required
-	if (freeBlocks.locate(blk->mbk_small.mbk_length)) {
-		BlockInfo* current = &freeBlocks.current();
+	if (freeBlocks.locate(blk->mbk_small.mbk_length))
+    {
+		BlockInfo* const current = &freeBlocks.current();
 
 		// Make new block a head of free blocks doubly linked list
 		fragmentToAdd->fbk_next_fragment = current->bli_fragments;
@@ -1724,32 +1729,46 @@ inline void MemoryPool::addFreeBlock(MemoryBlock* blk)
 	// More expensive case. Need to add item to the tree
 	fragmentToAdd->fbk_next_fragment = NULL;
 	BlockInfo info = {blk->mbk_small.mbk_length, fragmentToAdd};
-	try {
+	try
+    {
 		freeBlocks.add(info);
 	}
-	catch (const Firebird::Exception&) {
+	catch (const Firebird::Exception&)
+    {
 		// Add item to the list of pending free blocks in case of critically-low memory condition
 		PendingFreeBlock* temp = blockToPtr<PendingFreeBlock*>(blk);
-		temp->next = pendingFree;
-		pendingFree = temp;
+		temp->next = this->pendingFree;
+		this->pendingFree = temp;
 		// NOTE! Items placed into pendingFree queue have mbk_prev_fragment equal to ZERO.
 	}
-}
+#ifdef DEV_BUILD
+    catch(...)
+    {
+     fb_assert(false);
 
-void MemoryPool::removeFreeBlock(MemoryBlock* blk)
+     throw;
+}
+#endif
+}//addFreeBlock
+
+void MemoryPool::removeFreeBlock(MemoryBlock* const blk)
 {
 	// NOTE! We signal items placed into pendingFree queue via setting their
 	// mbk_prev_fragment to ZERO.
 
-	FreeMemoryBlock* fragmentToRemove = blockToPtr<FreeMemoryBlock*>(blk);
-	FreeMemoryBlock* prev = blk->mbk_prev_fragment;
-	FreeMemoryBlock* next = fragmentToRemove->fbk_next_fragment;
-	if (prev) {
+	FreeMemoryBlock* const fragmentToRemove = blockToPtr<FreeMemoryBlock*>(blk);
+	FreeMemoryBlock* const prev = blk->mbk_prev_fragment;
+	FreeMemoryBlock* const next = fragmentToRemove->fbk_next_fragment;
+
+	if (prev)
+    {
 		// Cheapest case. There is no need to touch B+ tree at all.
 		// Simply remove item from a middle or end of doubly linked list
 		prev->fbk_next_fragment = next;
+
 		if (next)
 			ptrToBlock(next)->mbk_prev_fragment = prev;
+
 		return;
 	}
 
@@ -1758,12 +1777,14 @@ void MemoryPool::removeFreeBlock(MemoryBlock* blk)
 	if (freeBlocks.locate(blk->mbk_small.mbk_length) &&
 		(current = &freeBlocks.current())->bli_fragments == fragmentToRemove)
 	{
-		if (next) {
+		if (next)
+        {
 			// Still moderately fast case. All we need is to replace the head of fragments list
 			ptrToBlock(next)->mbk_prev_fragment = NULL;
 			current->bli_fragments = next;
 		}
-		else {
+		else
+        {
 			// Have to remove item from the tree
 			freeBlocks.fastRemove();
 		}
@@ -1773,24 +1794,27 @@ void MemoryPool::removeFreeBlock(MemoryBlock* blk)
 		// Our block could be in the pending free blocks list if we are in a
 		// critically-low memory condition or if tree_free placed it there.
 		// Find and remove it from there.
-		PendingFreeBlock* itr = pendingFree,
-			*temp = blockToPtr<PendingFreeBlock*>(blk);
+		PendingFreeBlock* itr = this->pendingFree;
+		PendingFreeBlock* temp = blockToPtr<PendingFreeBlock*>(blk);
+
 		if (itr == temp)
-			pendingFree = itr->next;
+			this->pendingFree = itr->next;
 		else
 		{
-			while ( itr ) {
+			while ( itr )
+            {
 				PendingFreeBlock* next2 = itr->next;
-				if (next2 == temp) {
+				if (next2 == temp)
+                {
 					itr->next = temp->next;
 					break;
 				}
 				itr = next2;
-			}
+			}//while
 			fb_assert(itr); // We had to find it somewhere
-		}
-	}
-}
+		}//else
+	}//else
+}//removeFreeBlock
 
 void MemoryPool::free_blk_extent(MemoryBlock* blk)
 {
@@ -1910,7 +1934,8 @@ void MemoryPool::deallocate(void* block)
 
 #ifdef USE_VALGRIND
 	// Synchronize delayed free queue using pool mutex
-	lock.enter();
+	{
+    const MutexLockGuard thisLock(this->lock);
 
 	// Memory usage accounting. Do it before Valgrind delayed queue management
 	size_t blk_size;
@@ -1941,7 +1966,6 @@ void MemoryPool::deallocate(void* block)
 		delayedFree[delayedFreeCount] = block;
 		delayedFreeHandles[delayedFreeCount] = handle;
 		delayedFreeCount++;
-		lock.leave();
 		return;
 	}
 
@@ -1973,13 +1997,14 @@ void MemoryPool::deallocate(void* block)
 	delayedFreePos++;
 	if (delayedFreePos >= FB_NELEM(delayedFree))
 		delayedFreePos = 0;
-
-	lock.leave();
+    }//lock
 #endif
 
 	if (blk->mbk_flags & MBK_PARENT)
 	{
-		parent->lock.enter();
+        fb_assert(this->parent!=Firebird::null_ptr);
+
+		const MutexLockGuard parentLock(this->parent->lock);
 		blk->mbk_pool = parent;
 		blk->mbk_flags &= ~MBK_PARENT;
 		// Delete block from list of redirected blocks
@@ -2005,11 +2030,12 @@ void MemoryPool::deallocate(void* block)
 		parent->internal_deallocate(block);
 		if (parent->needSpare)
 			parent->updateSpare();
-		parent->lock.leave();
+
 		return;
 	}
 
-	lock.enter();
+	{
+        const MutexLockGuard lockThis(this->lock);
 
 	if (blk->mbk_flags & MBK_LARGE)
 	{
@@ -2033,7 +2059,6 @@ void MemoryPool::deallocate(void* block)
 		size_t ext_size = MEM_ALIGN(sizeof(MemoryBlock)) + size + MEM_ALIGN(sizeof(MemoryRedirectList));
 		external_free(blk, ext_size, false);
 		decrement_mapping(ext_size);
-		lock.leave();
 		return;
 	}
 
@@ -2044,9 +2069,8 @@ void MemoryPool::deallocate(void* block)
 	internal_deallocate(block);
 	if (needSpare)
 		updateSpare();
-
-	lock.leave();
-}
+    }//local
+}//deallocate
 
 MemoryPool& AutoStorage::getAutoMemoryPool()
 {
