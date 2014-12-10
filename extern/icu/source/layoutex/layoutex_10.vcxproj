@@ -73,10 +73,10 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
     <_ProjectFileVersion>10.0.30319.1</_ProjectFileVersion>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\..\..\$(Platform)\$(Configuration)\lib\</OutDir>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\..\..\$(Platform)\$(Configuration)\lib\</OutDir>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\..\..\$(Platform)\$(Configuration)\lib\</OutDir>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\..\..\$(Platform)\$(Configuration)\lib\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\$(Platform)\$(Configuration)\bin\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\..\$(Platform)\$(Configuration)\bin\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\..\$(Platform)\$(Configuration)\bin\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\..\$(Platform)\$(Configuration)\bin\</OutDir>
     <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">AllRules.ruleset</CodeAnalysisRuleSet>
     <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" />
     <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" />
@@ -89,6 +89,10 @@
     <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Release|x64'">AllRules.ruleset</CodeAnalysisRuleSet>
     <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Release|x64'" />
     <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Release|x64'" />
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">iculx30</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">iculx30</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">iculx30</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">iculx30</TargetName>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <Midl>
@@ -106,13 +110,11 @@
       <Culture>0x0409</Culture>
     </ResourceCompile>
     <Link>
-      <OutputFile>..\..\$(Platform)\$(Configuration)\bin\iculx30.dll</OutputFile>
-      <ProgramDatabaseFile>$(IntDir)iculx30.pdb</ProgramDatabaseFile>
       <BaseAddress>0x4ac80000</BaseAddress>
       <RandomizedBaseAddress>false</RandomizedBaseAddress>
       <DataExecutionPrevention>
       </DataExecutionPrevention>
-      <ImportLibrary>$(OutDir)iculx.lib</ImportLibrary>
+      <ImportLibrary>..\..\$(Platform)\$(Configuration)\lib\iculx.lib</ImportLibrary>
       <IgnoreSpecificDefaultLibraries>
       </IgnoreSpecificDefaultLibraries>
     </Link>
@@ -133,13 +135,11 @@
       <Culture>0x0409</Culture>
     </ResourceCompile>
     <Link>
-      <OutputFile>..\..\$(Platform)\$(Configuration)\bin\iculx30.dll</OutputFile>
-      <ProgramDatabaseFile>$(IntDir)iculx30.pdb</ProgramDatabaseFile>
       <BaseAddress>0x4ac80000</BaseAddress>
       <RandomizedBaseAddress>false</RandomizedBaseAddress>
       <DataExecutionPrevention>
       </DataExecutionPrevention>
-      <ImportLibrary>$(OutDir)iculx.lib</ImportLibrary>
+      <ImportLibrary>..\..\$(Platform)\$(Configuration)\lib\iculx.lib</ImportLibrary>
       <TargetMachine>MachineX64</TargetMachine>
       <IgnoreSpecificDefaultLibraries>
       </IgnoreSpecificDefaultLibraries>
@@ -162,13 +162,11 @@
       <Culture>0x0409</Culture>
     </ResourceCompile>
     <Link>
-      <OutputFile>..\..\$(Platform)\$(Configuration)\bin\iculx30d.dll</OutputFile>
-      <ProgramDatabaseFile>$(IntDir)iculx30d.pdb</ProgramDatabaseFile>
       <BaseAddress>0x4ac80000</BaseAddress>
       <RandomizedBaseAddress>false</RandomizedBaseAddress>
       <DataExecutionPrevention>
       </DataExecutionPrevention>
-      <ImportLibrary>$(OutDir)iculxd.lib</ImportLibrary>
+      <ImportLibrary>..\..\$(Platform)\$(Configuration)\lib\iculxd.lib</ImportLibrary>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -187,13 +185,11 @@
       <Culture>0x0409</Culture>
     </ResourceCompile>
     <Link>
-      <OutputFile>..\..\$(Platform)\$(Configuration)\bin\iculx30d.dll</OutputFile>
-      <ProgramDatabaseFile>$(IntDir)iculx30d.pdb</ProgramDatabaseFile>
       <BaseAddress>0x4ac80000</BaseAddress>
       <RandomizedBaseAddress>false</RandomizedBaseAddress>
       <DataExecutionPrevention>
       </DataExecutionPrevention>
-      <ImportLibrary>$(OutDir)iculxd.lib</ImportLibrary>
+      <ImportLibrary>..\..\$(Platform)\$(Configuration)\lib\iculxd.lib</ImportLibrary>
       <TargetMachine>MachineX64</TargetMachine>
     </Link>
   </ItemDefinitionGroup>

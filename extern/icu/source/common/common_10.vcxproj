@@ -74,14 +74,10 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
     <_ProjectFileVersion>10.0.30319.1</_ProjectFileVersion>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\..\..\$(Platform)\$(Configuration)\lib\</OutDir>
-    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkIncremental>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\..\..\$(Platform)\$(Configuration)\lib\</OutDir>
-    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkIncremental>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\..\..\$(Platform)\$(Configuration)\lib\</OutDir>
-    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</LinkIncremental>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\..\..\$(Platform)\$(Configuration)\lib\</OutDir>
-    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</LinkIncremental>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\$(Platform)\$(Configuration)\bin\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\..\$(Platform)\$(Configuration)\bin\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\..\$(Platform)\$(Configuration)\bin\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\..\$(Platform)\$(Configuration)\bin\</OutDir>
     <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">AllRules.ruleset</CodeAnalysisRuleSet>
     <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" />
     <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" />
@@ -94,6 +90,10 @@
     <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Release|x64'">AllRules.ruleset</CodeAnalysisRuleSet>
     <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Release|x64'" />
     <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Release|x64'" />
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">icuuc30</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">icuuc30</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">icuuc30</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">icuuc30</TargetName>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <Midl>
@@ -109,13 +109,11 @@
       <Culture>0x0409</Culture>
     </ResourceCompile>
     <Link>
-      <OutputFile>..\..\$(Platform)\$(Configuration)\bin\icuuc30.dll</OutputFile>
-      <ProgramDatabaseFile>$(IntDir)icuuc30.pdb</ProgramDatabaseFile>
       <BaseAddress>0x4a800000</BaseAddress>
       <RandomizedBaseAddress>false</RandomizedBaseAddress>
       <DataExecutionPrevention>
       </DataExecutionPrevention>
-      <ImportLibrary>$(OutDir)icuuc.lib</ImportLibrary>
+      <ImportLibrary>..\..\$(Platform)\$(Configuration)\lib\icuuc.lib</ImportLibrary>
       <SubSystem>
       </SubSystem>
       <IgnoreSpecificDefaultLibraries>
@@ -136,13 +134,11 @@
       <Culture>0x0409</Culture>
     </ResourceCompile>
     <Link>
-      <OutputFile>..\..\$(Platform)\$(Configuration)\bin\icuuc30.dll</OutputFile>
-      <ProgramDatabaseFile>$(IntDir)icuuc30.pdb</ProgramDatabaseFile>
       <BaseAddress>0x4a800000</BaseAddress>
       <RandomizedBaseAddress>false</RandomizedBaseAddress>
       <DataExecutionPrevention>
       </DataExecutionPrevention>
-      <ImportLibrary>$(OutDir)icuuc.lib</ImportLibrary>
+      <ImportLibrary>..\..\$(Platform)\$(Configuration)\lib\icuuc.lib</ImportLibrary>
       <TargetMachine>MachineX64</TargetMachine>
       <IgnoreSpecificDefaultLibraries>
       </IgnoreSpecificDefaultLibraries>
@@ -163,13 +159,11 @@
       <Culture>0x0409</Culture>
     </ResourceCompile>
     <Link>
-      <OutputFile>..\..\$(Platform)\$(Configuration)\bin\icuuc30d.dll</OutputFile>
-      <ProgramDatabaseFile>$(IntDir)icuuc30d.pdb</ProgramDatabaseFile>
       <BaseAddress>0x4a800000</BaseAddress>
       <RandomizedBaseAddress>false</RandomizedBaseAddress>
       <DataExecutionPrevention>
       </DataExecutionPrevention>
-      <ImportLibrary>$(OutDir)icuucd.lib</ImportLibrary>
+      <ImportLibrary>..\..\$(Platform)\$(Configuration)\lib\icuucd.lib</ImportLibrary>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -186,13 +180,11 @@
       <Culture>0x0409</Culture>
     </ResourceCompile>
     <Link>
-      <OutputFile>..\..\$(Platform)\$(Configuration)\bin\icuuc30d.dll</OutputFile>
-      <ProgramDatabaseFile>$(IntDir)icuuc30d.pdb</ProgramDatabaseFile>
       <BaseAddress>0x4a800000</BaseAddress>
       <RandomizedBaseAddress>false</RandomizedBaseAddress>
       <DataExecutionPrevention>
       </DataExecutionPrevention>
-      <ImportLibrary>$(OutDir)icuucd.lib</ImportLibrary>
+      <ImportLibrary>..\..\$(Platform)\$(Configuration)\lib\icuucd.lib</ImportLibrary>
       <TargetMachine>MachineX64</TargetMachine>
     </Link>
   </ItemDefinitionGroup>

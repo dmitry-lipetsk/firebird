@@ -85,6 +85,14 @@
     <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Release|x64'">AllRules.ruleset</CodeAnalysisRuleSet>
     <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Release|x64'" />
     <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Release|x64'" />
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">icudt30</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">icudt30</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">icudt30</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">icudt30</TargetName>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\..\$(PlatformName)\$(Configuration)\bin\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\$(PlatformName)\$(Configuration)\bin\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\..\$(PlatformName)\$(Configuration)\bin\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\..\$(PlatformName)\$(Configuration)\bin\</OutDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <Midl>
@@ -107,12 +115,11 @@
     </PreLinkEvent>
     <Link>
       <AdditionalOptions>/MACHINE:I386 %(AdditionalOptions)</AdditionalOptions>
-      <OutputFile>..\..\$(Platform)\$(Configuration)\bin\icudt30.dll</OutputFile>
-      <ProgramDatabaseFile>$(IntDir)icudt26l.pdb</ProgramDatabaseFile>
+      <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
       <RandomizedBaseAddress>false</RandomizedBaseAddress>
       <DataExecutionPrevention>
       </DataExecutionPrevention>
-      <ImportLibrary>$(OutDir)icudata.lib</ImportLibrary>
+      <ImportLibrary>$(IntDir)icudata.lib</ImportLibrary>
       <NoEntryPoint>true</NoEntryPoint>
       <IgnoreSpecificDefaultLibraries>
       </IgnoreSpecificDefaultLibraries>
@@ -138,12 +145,11 @@
       <Command>echo "File with stubdata build time, used as a dependency to trigger fresh data build, since stubdata dll will overwrite the real one." &gt; "$(ProjectDir)stubdatabuilt.txt"</Command>
     </PreLinkEvent>
     <Link>
-      <OutputFile>..\..\$(Platform)\$(Configuration)\bin\icudt30.dll</OutputFile>
-      <ProgramDatabaseFile>$(IntDir)icudt26l.pdb</ProgramDatabaseFile>
+      <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
       <RandomizedBaseAddress>false</RandomizedBaseAddress>
       <DataExecutionPrevention>
       </DataExecutionPrevention>
-      <ImportLibrary>$(OutDir)icudata.lib</ImportLibrary>
+      <ImportLibrary>$(IntDir)icudata.lib</ImportLibrary>
       <TargetMachine>MachineX64</TargetMachine>
       <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <IgnoreSpecificDefaultLibraries>
@@ -161,7 +167,6 @@
     <ClCompile>
       <AdditionalIncludeDirectories>..\common;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;STUBDATA_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <CompileAs>Default</CompileAs>
     </ClCompile>
     <ResourceCompile>
@@ -172,12 +177,11 @@
       <Command>echo "File with stubdata build time, used as a dependency to trigger fresh data build, since stubdata dll will overwrite the real one." &gt; "$(ProjectDir)stubdatabuilt.txt"</Command>
     </PreLinkEvent>
     <Link>
-      <OutputFile>..\..\$(Platform)\$(Configuration)\bin\icudt30.dll</OutputFile>
-      <ProgramDatabaseFile>$(IntDir)icudt26l.pdb</ProgramDatabaseFile>
+      <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
       <RandomizedBaseAddress>false</RandomizedBaseAddress>
       <DataExecutionPrevention>
       </DataExecutionPrevention>
-      <ImportLibrary>$(OutDir)icudata.lib</ImportLibrary>
+      <ImportLibrary>$(IntDir)icudata.lib</ImportLibrary>
       <NoEntryPoint>true</NoEntryPoint>
     </Link>
   </ItemDefinitionGroup>
@@ -201,12 +205,11 @@
       <Command>echo "File with stubdata build time, used as a dependency to trigger fresh data build, since stubdata dll will overwrite the real one." &gt; "$(ProjectDir)stubdatabuilt.txt"</Command>
     </PreLinkEvent>
     <Link>
-      <OutputFile>..\..\$(Platform)\$(Configuration)\bin\icudt30.dll</OutputFile>
-      <ProgramDatabaseFile>$(IntDir)icudt26l.pdb</ProgramDatabaseFile>
+      <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
       <RandomizedBaseAddress>false</RandomizedBaseAddress>
       <DataExecutionPrevention>
       </DataExecutionPrevention>
-      <ImportLibrary>$(OutDir)icudata.lib</ImportLibrary>
+      <ImportLibrary>$(IntDir)icudata.lib</ImportLibrary>
       <TargetMachine>MachineX64</TargetMachine>
       <NoEntryPoint>true</NoEntryPoint>
     </Link>
