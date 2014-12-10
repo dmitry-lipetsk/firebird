@@ -361,6 +361,7 @@
     <ClCompile Include="utf_impl.c">
       <Filter>strings</Filter>
     </ClCompile>
+    <ClCompile Include="module_initialization.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ubidiimp.h">
