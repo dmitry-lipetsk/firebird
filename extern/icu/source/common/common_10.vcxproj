@@ -50,26 +50,26 @@
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
     <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC71.props" />
-    <Import Project="..\allinone\firebird2intl.props" />
-    <Import Project="..\allinone\firebird2debug.props" />
+    <Import Project="..\allinone\build_msvc10\firebird2intl.props" />
+    <Import Project="..\allinone\build_msvc10\firebird2debug.props" />
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
     <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC71.props" />
-    <Import Project="..\allinone\firebird2intl.props" />
-    <Import Project="..\allinone\firebird2release.props" />
+    <Import Project="..\allinone\build_msvc10\firebird2intl.props" />
+    <Import Project="..\allinone\build_msvc10\firebird2release.props" />
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
     <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC71.props" />
-    <Import Project="..\allinone\firebird2intl.props" />
-    <Import Project="..\allinone\firebird2debug.props" />
+    <Import Project="..\allinone\build_msvc10\firebird2intl.props" />
+    <Import Project="..\allinone\build_msvc10\firebird2debug.props" />
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
     <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC71.props" />
-    <Import Project="..\allinone\firebird2intl.props" />
-    <Import Project="..\allinone\firebird2release.props" />
+    <Import Project="..\allinone\build_msvc10\firebird2intl.props" />
+    <Import Project="..\allinone\build_msvc10\firebird2release.props" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
