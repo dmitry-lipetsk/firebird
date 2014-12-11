@@ -61,6 +61,7 @@
 #include "../jrd/isc_f_proto.h"
 #include "../jrd/sdl_proto.h"
 #include "../common/classes/ClumpletWriter.h"
+#include "../common/utilities/fb_delete_and_set_null.h"
 #include "../common/config/config.h"
 #include "../common/utils_proto.h"
 #include "../auth/trusted/AuthSspi.h"
@@ -658,7 +659,7 @@ ISC_STATUS GDS_COMPILE(ISC_STATUS* user_status,
 
 		send_and_receive(rdb, packet, user_status);
 		if (new_blr != blr) {
-			delete[] new_blr;
+			FB_DeleteArrayAndSetNull(new_blr);
 		}
 		if (user_status[1]) {
 			return user_status[1];
@@ -1276,12 +1277,11 @@ ISC_STATUS GDS_DSQL_EXECUTE2(ISC_STATUS* user_status,
 		// previous executions (possibly with different statement if
 		// isc_dsql_prepare is called multiple times).
 		// This should cure SF#919246
-		delete statement->rsr_bind_format;
-		statement->rsr_bind_format = NULL;
+		FB_DeletePtrAndSetNull(statement->rsr_bind_format);
+
 		if (port->port_statement)
 		{
-			delete port->port_statement->rsr_select_format;
-			port->port_statement->rsr_select_format = NULL;
+			FB_DeletePtrAndSetNull(port->port_statement->rsr_select_format);
 		}
 
 		// Parse the blr describing the message, if there is any.
@@ -1292,7 +1292,7 @@ ISC_STATUS GDS_DSQL_EXECUTE2(ISC_STATUS* user_status,
 			if (message != (RMessage*) - 1)
 			{
 				statement->rsr_bind_format = (rem_fmt*) message->msg_address;
-				delete message;
+				FB_DeletePtrAndSetNull(message);
 			}
 		}
 
@@ -1308,7 +1308,7 @@ ISC_STATUS GDS_DSQL_EXECUTE2(ISC_STATUS* user_status,
 			if (message != (RMessage*) - 1)
 			{
 				port->port_statement->rsr_select_format = (rem_fmt*) message->msg_address;
-				delete message;
+				FB_DeletePtrAndSetNull(message);
 			}
 
 			if (!port->port_statement->rsr_buffer)
@@ -1542,10 +1542,8 @@ ISC_STATUS GDS_DSQL_EXECUTE_IMMED2(ISC_STATUS* user_status,
 
 		REMOTE_reset_statement(statement);
 
-		delete statement->rsr_bind_format;
-		statement->rsr_bind_format = NULL;
-		delete statement->rsr_select_format;
-		statement->rsr_select_format = NULL;
+		FB_DeletePtrAndSetNull(statement->rsr_bind_format);
+		FB_DeletePtrAndSetNull(statement->rsr_select_format);
 
 		if (in_msg_length || out_msg_length)
 		{
@@ -1555,7 +1553,7 @@ ISC_STATUS GDS_DSQL_EXECUTE_IMMED2(ISC_STATUS* user_status,
 				if (message != (RMessage*) - 1)
 				{
 					statement->rsr_bind_format = (rem_fmt*) message->msg_address;
-					delete message;
+					FB_DeletePtrAndSetNull(message);
 				}
 			}
 			if (out_blr_length)
@@ -1564,7 +1562,7 @@ ISC_STATUS GDS_DSQL_EXECUTE_IMMED2(ISC_STATUS* user_status,
 				if (message != (RMessage*) - 1)
 				{
 					statement->rsr_select_format = (rem_fmt*) message->msg_address;
-					delete message;
+					FB_DeletePtrAndSetNull(message);
 				}
 			}
 		}
@@ -1729,13 +1727,13 @@ ISC_STATUS GDS_DSQL_FETCH(ISC_STATUS* user_status,
 			if (statement->rsr_user_select_format &&
 				statement->rsr_user_select_format != statement->rsr_select_format)
 			{
-				delete statement->rsr_user_select_format;
+				FB_DeletePtrAndSetNull(statement->rsr_user_select_format);
 			}
 			RMessage* message = PARSE_messages(blr, blr_length);
 			if (message != (RMessage*) - 1)
 			{
 				statement->rsr_user_select_format = (rem_fmt*) message->msg_address;
-				delete message;
+				FB_DeletePtrAndSetNull(message);
 			}
 			else
 				statement->rsr_user_select_format = NULL;
@@ -1743,7 +1741,7 @@ ISC_STATUS GDS_DSQL_FETCH(ISC_STATUS* user_status,
 				blr_length = 0;
 			else
 			{
-				delete statement->rsr_select_format;
+				FB_DeletePtrAndSetNull(statement->rsr_select_format);
 				statement->rsr_select_format = statement->rsr_user_select_format;
 			}
 		}
@@ -2068,8 +2066,7 @@ ISC_STATUS GDS_DSQL_INSERT(ISC_STATUS* user_status,
 
 		// Free existing format unconditionally.
 		// This is also related to SF#919246
-		delete statement->rsr_bind_format;
-		statement->rsr_bind_format = NULL;
+		FB_DeletePtrAndSetNull(statement->rsr_bind_format);
 
 		// Parse the blr describing the message, if there is any.
 
@@ -2079,7 +2076,7 @@ ISC_STATUS GDS_DSQL_INSERT(ISC_STATUS* user_status,
 			if (message != (RMessage*) - 1)
 			{
 				statement->rsr_bind_format = (rem_fmt*) message->msg_address;
-				delete message;
+				FB_DeletePtrAndSetNull(message);
 			}
 		}
 
@@ -4369,14 +4366,10 @@ ISC_STATUS GDS_TRANSACT_REQUEST(ISC_STATUS* user_status,
 
 		// Parse the blr describing the messages
 
-		delete procedure->rpr_in_msg;
-		procedure->rpr_in_msg = NULL;
-		delete procedure->rpr_in_format;
-		procedure->rpr_in_format = NULL;
-		delete procedure->rpr_out_msg;
-		procedure->rpr_out_msg = NULL;
-		delete procedure->rpr_out_format;
-		procedure->rpr_out_format = NULL;
+		FB_DeletePtrAndSetNull(procedure->rpr_in_msg);
+		FB_DeletePtrAndSetNull(procedure->rpr_in_format);
+		FB_DeletePtrAndSetNull(procedure->rpr_out_msg);
+		FB_DeletePtrAndSetNull(procedure->rpr_out_format);
 
 		RMessage* message = PARSE_messages(blr, blr_length);
 		if (message != (RMessage*) - 1)
@@ -4402,7 +4395,7 @@ ISC_STATUS GDS_TRANSACT_REQUEST(ISC_STATUS* user_status,
 				default:
 					RMessage* temp = message;
 					message = message->msg_next;
-					delete temp;
+					FB_DeletePtrAndSetNull(temp);
 					break;
 				}
 			}
@@ -5350,7 +5343,7 @@ static void disconnect( rem_port* port)
 
 	// Cleanup the queue
 
-	delete port->port_deferred_packets;
+	FB_DeletePtrAndSetNull(port->port_deferred_packets);
 
 	// Clear context reference for the associated event handler
 	// to avoid SEGV during shutdown
@@ -5363,7 +5356,7 @@ static void disconnect( rem_port* port)
 	// memory for remote database context.
 
 	port->disconnect();
-	delete rdb;
+	FB_DeletePtrAndSetNull(rdb);
 }
 
 
@@ -6315,7 +6308,7 @@ static void dequeue_receive( rem_port* port)
 
 	// Add queue entry onto free queue
 
-	delete que_inst;
+	FB_DeletePtrAndSetNull(que_inst);
 }
 
 
@@ -6366,7 +6359,7 @@ static void release_blob( Rbl* blob)
 		}
 	}
 
-	delete blob;
+	FB_DeletePtrAndSetNull(blob);
 }
 
 
@@ -6393,7 +6386,7 @@ static void release_event( Rvnt* event)
 		}
 	}
 
-	delete event;
+	FB_DeletePtrAndSetNull(event);
 }
 
 
@@ -6467,18 +6460,17 @@ static void release_statement( Rsr** statement)
  *
  **************************************/
 
-	delete (*statement)->rsr_bind_format;
+	FB_DeletePtrAndSetNull((*statement)->rsr_bind_format);
 	if ((*statement)->rsr_user_select_format &&
 		(*statement)->rsr_user_select_format != (*statement)->rsr_select_format)
 	{
-		delete (*statement)->rsr_user_select_format;
+		FB_DeletePtrAndSetNull((*statement)->rsr_user_select_format);
 	}
-	delete (*statement)->rsr_select_format;
+	FB_DeletePtrAndSetNull((*statement)->rsr_select_format);
 	(*statement)->releaseException();
 
 	REMOTE_release_messages((*statement)->rsr_message);
-	delete *statement;
-	*statement = NULL;
+	FB_DeletePtrAndSetNull(*statement);
 }
 
 
@@ -6537,7 +6529,7 @@ static void release_transaction( Rtr* transaction)
 		}
 	}
 
-	delete transaction;
+	FB_DeletePtrAndSetNull(transaction);
 }
 
 
