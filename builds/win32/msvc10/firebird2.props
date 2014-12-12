@@ -9,7 +9,6 @@
   <ItemDefinitionGroup>
     <ClCompile>
       <AdditionalOptions>/EHsc- %(AdditionalOptions)</AdditionalOptions>
-      <OmitFramePointers>true</OmitFramePointers>
       <AdditionalIncludeDirectories>../../../src/include;../../../src/include/gen;../../../extern/libtommath;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <ExceptionHandling>
       </ExceptionHandling>
@@ -22,11 +21,11 @@
       <BrowseInformationFile>..\..\..\temp\$(Platform)\$(Configuration)\$(ProjectName)\</BrowseInformationFile>
       <WarningLevel>Level3</WarningLevel>
       <SuppressStartupBanner>true</SuppressStartupBanner>
-      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <CompileAs>Default</CompileAs>
       <UseFullPaths>false</UseFullPaths>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <StringPooling>true</StringPooling>
     </ClCompile>
     <Link>
       <SuppressStartupBanner>true</SuppressStartupBanner>

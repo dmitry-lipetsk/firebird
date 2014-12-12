@@ -75,10 +75,6 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
-      <Optimization>MaxSpeed</Optimization>
-      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
-      <IntrinsicFunctions>true</IntrinsicFunctions>
-      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
       <AdditionalIncludeDirectories>../../../src/include;../../../src/include/gen;../../../src/jrd;../../../src/vulcan;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;NAMESPACE=Vulcan;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
@@ -92,10 +88,6 @@
       <TargetEnvironment>X64</TargetEnvironment>
     </Midl>
     <ClCompile>
-      <Optimization>MaxSpeed</Optimization>
-      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
-      <IntrinsicFunctions>true</IntrinsicFunctions>
-      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
       <AdditionalIncludeDirectories>../../../src/include;../../../src/include/gen;../../../src/jrd;../../../src/vulcan;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;NAMESPACE=Vulcan;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
@@ -106,7 +98,6 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
-      <Optimization>Disabled</Optimization>
       <AdditionalIncludeDirectories>../../../src/include;../../../src/include/gen;../../../src/jrd;../../../src/vulcan;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;DEV_BUILD;NAMESPACE=Vulcan;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PrecompiledHeader>
@@ -122,7 +113,6 @@
       <TargetEnvironment>X64</TargetEnvironment>
     </Midl>
     <ClCompile>
-      <Optimization>Disabled</Optimization>
       <AdditionalIncludeDirectories>../../../src/include;../../../src/include/gen;../../../src/jrd;../../../src/vulcan;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;DEV_BUILD;NAMESPACE=Vulcan;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PrecompiledHeader>
