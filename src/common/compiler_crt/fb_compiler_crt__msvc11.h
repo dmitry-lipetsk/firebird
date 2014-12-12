@@ -10,5 +10,9 @@
 
 #define __FB_COMPILER_CRT__close            _close
 
+#define __FB_COMPILER_CRT__setmode          _setmode
+
+#define __FB_COMPILER_CRT__fileno           _fileno
+
 ////////////////////////////////////////////////////////////////////////////////
 #endif

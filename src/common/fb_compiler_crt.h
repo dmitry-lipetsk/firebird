@@ -15,6 +15,12 @@
 // __FB_COMPILER_CRT__close
 //  - close / _close
 //
+// __FB_COMPILER_CRT__setmode
+//  - setmode / _setmode
+//
+// __FB_COMPILER_CRT__setmode
+//  - fileno / _fileno
+//
 ////////////////////////////////////////////////////////////////////////////////
 
 #define __FB_COMPILER_CRT_ID_UNKNOWN                            0

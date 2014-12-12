@@ -18,6 +18,8 @@
  * See source code repository history for changes.
  */
 
+#include "../../../../src/common/fb_compiler_crt.h"
+
 #include <unicode/utypes.h>
 #include <unicode/ucnv.h>
 #include <unicode/uenum.h>
@@ -639,7 +641,7 @@ ConvertFile::convertFile(const char *pname,
         infilestr = "-";
         infile = stdin;
 #if defined(WIN32) || defined(U_CYGWIN)
-        if (setmode(fileno(stdin), O_BINARY) == -1) {
+        if (__FB_COMPILER_CRT__setmode(__FB_COMPILER_CRT__fileno(stdin), O_BINARY) == -1) {
             initMsg(pname);
             u_wmsg(stderr, "cantSetInBinMode");
             return FALSE;
@@ -1340,7 +1342,7 @@ main(int argc, char **argv)
         outfilestr = "-";
         outfile = stdout;
 #if defined(WIN32) || defined(U_CYGWIN)
-        if (setmode(fileno(outfile), O_BINARY) == -1) {
+        if (__FB_COMPILER_CRT__setmode(__FB_COMPILER_CRT__fileno(outfile), O_BINARY) == -1) {
             u_wmsg(stderr, "cantSetOutBinMode");
             exit(-1);
         }
