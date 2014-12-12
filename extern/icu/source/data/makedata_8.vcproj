@@ -26,9 +26,9 @@
 			>
 			<Tool
 				Name="VCNMakeTool"
-				BuildCommandLine="NMAKE /f makedata.mak ICUMAKE=&quot;$(ProjectDir)\&quot; CFG=$(PlatformName)\$(ConfigurationName)"
-				ReBuildCommandLine="NMAKE /f makedata.mak ICUMAKE=&quot;$(ProjectDir)\&quot; CFG=$(PlatformName)\$(ConfigurationName) clean all"
-				CleanCommandLine="NMAKE /f makedata.mak ICUMAKE=&quot;$(ProjectDir)\&quot; CFG=$(PlatformName)\$(ConfigurationName) clean"
+				BuildCommandLine="NMAKE /f makedata.mak ICUMAKE=&quot;$(ProjectDir)\&quot; CFG=$(PlatformName)\$(ConfigurationName) ICUTOOLS=&quot;$(OutDir)\&quot;"
+				ReBuildCommandLine="NMAKE /f makedata.mak ICUMAKE=&quot;$(ProjectDir)\&quot; CFG=$(PlatformName)\$(ConfigurationName) ICUTOOLS=&quot;$(OutDir)\&quot; clean all"
+				CleanCommandLine="NMAKE /f makedata.mak ICUMAKE=&quot;$(ProjectDir)\&quot; CFG=$(PlatformName)\$(ConfigurationName) ICUTOOLS=&quot;$(OutDir)\&quot; clean"
 				Output=""
 				PreprocessorDefinitions=""
 				IncludeSearchPath=""
@@ -47,9 +47,9 @@
 			>
 			<Tool
 				Name="VCNMakeTool"
-				BuildCommandLine="NMAKE /f makedata.mak ICUMAKE=&quot;$(ProjectDir)\&quot; CFG=$(PlatformName)\$(ConfigurationName)"
-				ReBuildCommandLine="NMAKE /f makedata.mak ICUMAKE=&quot;$(ProjectDir)\&quot; CFG=$(PlatformName)\$(ConfigurationName) clean all"
-				CleanCommandLine="NMAKE /f makedata.mak ICUMAKE=&quot;$(ProjectDir)\&quot; CFG=$(PlatformName)\$(ConfigurationName) clean"
+				BuildCommandLine="NMAKE /f makedata.mak ICUMAKE=&quot;$(ProjectDir)\&quot; CFG=$(PlatformName)\$(ConfigurationName) ICUTOOLS=&quot;$(OutDir)\&quot;"
+				ReBuildCommandLine="NMAKE /f makedata.mak ICUMAKE=&quot;$(ProjectDir)\&quot; CFG=$(PlatformName)\$(ConfigurationName) ICUTOOLS=&quot;$(OutDir)\&quot; clean all"
+				CleanCommandLine="NMAKE /f makedata.mak ICUMAKE=&quot;$(ProjectDir)\&quot; CFG=$(PlatformName)\$(ConfigurationName) ICUTOOLS=&quot;$(OutDir)\&quot; clean"
 				Output=""
 				PreprocessorDefinitions=""
 				IncludeSearchPath=""
@@ -68,9 +68,9 @@
 			>
 			<Tool
 				Name="VCNMakeTool"
-				BuildCommandLine="NMAKE /f makedata.mak ICUMAKE=&quot;$(ProjectDir)\&quot; CFG=$(PlatformName)\$(ConfigurationName)"
-				ReBuildCommandLine="NMAKE /f makedata.mak ICUMAKE=&quot;$(ProjectDir)\&quot; CFG=$(PlatformName)\$(ConfigurationName) clean all"
-				CleanCommandLine="NMAKE /f makedata.mak ICUMAKE=&quot;$(ProjectDir)\&quot; CFG=$(PlatformName)\$(ConfigurationName) clean"
+				BuildCommandLine="NMAKE /f makedata.mak ICUMAKE=&quot;$(ProjectDir)\&quot; CFG=$(PlatformName)\$(ConfigurationName) ICUTOOLS=&quot;$(OutDir)\&quot;"
+				ReBuildCommandLine="NMAKE /f makedata.mak ICUMAKE=&quot;$(ProjectDir)\&quot; CFG=$(PlatformName)\$(ConfigurationName) ICUTOOLS=&quot;$(OutDir)\&quot; clean all"
+				CleanCommandLine="NMAKE /f makedata.mak ICUMAKE=&quot;$(ProjectDir)\&quot; CFG=$(PlatformName)\$(ConfigurationName) ICUTOOLS=&quot;$(OutDir)\&quot; clean"
 				Output=""
 				PreprocessorDefinitions=""
 				IncludeSearchPath=""
@@ -89,9 +89,9 @@
 			>
 			<Tool
 				Name="VCNMakeTool"
-				BuildCommandLine="NMAKE /f makedata.mak ICUMAKE=&quot;$(ProjectDir)\&quot; CFG=$(PlatformName)\$(ConfigurationName)"
-				ReBuildCommandLine="NMAKE /f makedata.mak ICUMAKE=&quot;$(ProjectDir)\&quot; CFG=$(PlatformName)\$(ConfigurationName) clean all"
-				CleanCommandLine="NMAKE /f makedata.mak ICUMAKE=&quot;$(ProjectDir)\&quot; CFG=$(PlatformName)\$(ConfigurationName) clean"
+				BuildCommandLine="NMAKE /f makedata.mak ICUMAKE=&quot;$(ProjectDir)\&quot; CFG=$(PlatformName)\$(ConfigurationName) ICUTOOLS=&quot;$(OutDir)\&quot;"
+				ReBuildCommandLine="NMAKE /f makedata.mak ICUMAKE=&quot;$(ProjectDir)\&quot; CFG=$(PlatformName)\$(ConfigurationName) ICUTOOLS=&quot;$(OutDir)\&quot; clean all"
+				CleanCommandLine="NMAKE /f makedata.mak ICUMAKE=&quot;$(ProjectDir)\&quot; CFG=$(PlatformName)\$(ConfigurationName) ICUTOOLS=&quot;$(OutDir)\&quot; clean"
 				Output=""
 				PreprocessorDefinitions=""
 				IncludeSearchPath=""

@@ -2,8 +2,8 @@
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <_ProjectFileVersion>10.0.30319.1</_ProjectFileVersion>
-    <OutDir>$(PlatformName)\$(Configuration)\</OutDir>
-    <IntDir>$(PlatformName)\$(Configuration)\</IntDir>
+    <OutDir>$(SolutionDir)..\..\..\..\Temp\vs2010\$(PlatformName)\$(Configuration)\icu\bin\</OutDir>
+    <IntDir>$(SolutionDir)..\..\..\..\Temp\vs2010\$(PlatformName)\$(Configuration)\icu\obj\$(ProjectName)\</IntDir>
   </PropertyGroup>
   <ItemDefinitionGroup>
     <ClCompile>

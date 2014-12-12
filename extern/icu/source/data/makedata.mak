@@ -26,6 +26,11 @@ UNICODE_VERSION=4.0.1
 !ENDIF
 !MESSAGE ICU data make path is $(ICUMAKE)
 
+!IF "$(ICUTOOLS)"==""
+!ERROR ICUTOOLS not defined!
+!ENDIF
+!MESSAGE ICUTOOLS path is $(ICUTOOLS)
+
 ICUOUT=$(ICUMAKE)\out
 
 #  the prefix "icudt21_" for use in filenames
@@ -135,7 +140,30 @@ TESTDATABLD=$(ICUP)\source\test\testdata\out\build
 #   ICUTOOLS
 #       Directory under which all of the ICU data building tools live.
 #
-ICUTOOLS=$(ICUP)\source\tools
+
+ICUTOOLS__GENRB_EXE=$(ICUTOOLS)genrb.exe
+!MESSAGE ICUTOOLS__GENRB_EXE = $(ICUTOOLS__GENRB_EXE)
+
+ICUTOOLS__MAKECONV_EXE =$(ICUTOOLS)makeconv.exe
+!MESSAGE ICUTOOLS__MAKECONV_EXE = $(ICUTOOLS__MAKECONV_EXE)
+
+ICUTOOLS__GENNAMES_EXE=$(ICUTOOLS)gennames.exe
+!MESSAGE ICUTOOLS__GENNAMES_EXE = $(ICUTOOLS__GENNAMES_EXE)
+
+ICUTOOLS__GENPNAME_EXE=$(ICUTOOLS)genpname.exe
+!MESSAGE ICUTOOLS__GENPNAME_EXE = $(ICUTOOLS__GENPNAME_EXE)
+
+ICUTOOLS__GENPROPS_EXE=$(ICUTOOLS)genprops.exe
+!MESSAGE ICUTOOLS__GENPROPS_EXE = $(ICUTOOLS__GENPROPS_EXE)
+
+ICUTOOLS__GENNORM_EXE=$(ICUTOOLS)gennorm.exe
+!MESSAGE ICUTOOLS__GENNORM_EXE = $(ICUTOOLS__GENNORM_EXE)
+
+ICUTOOLS__GENCNVAL_EXE=$(ICUTOOLS)gencnval.exe
+!MESSAGE ICUTOOLS__GENCNVAL_EXE = $(ICUTOOLS__GENCNVAL_EXE)
+
+ICUTOOLS__GENUCA_EXE=$(ICUTOOLS)genuca.exe
+!MESSAGE ICUTOOLS__GENUCA_EXE = $(ICUTOOLS__GENUCA_EXE)
 
 # The current ICU tools need to be in the path first.
 PATH = $(ICUPBIN);$(PATH)
@@ -270,10 +298,14 @@ ALL : GODATA "$(DLL_OUTPUT)\$(U_ICUDATA_NAME).dll" "$(TESTDATAOUT)\testdata.dat"
 #
 # testdata - nmake will invoke pkgdata, which will create testdata.dat
 #
-"$(TESTDATAOUT)\testdata.dat": "$(ICUBLD)\ucadata.icu" $(TRANSLIT_FILES) $(MISC_FILES) $(RB_FILES) {"$(ICUTOOLS)\genrb\$(CFG)"}genrb.exe
+# [Dmitry Kovalenko] critical changes:
+#  - was: ..... : ..... {"$(ICUTOOLS)\genrb\$(CFG)"}genrb.exe ....
+#  - was: ICUTOOLS="$(ICUTOOLS)"
+#  - [del] CFG=$(CFG)
+"$(TESTDATAOUT)\testdata.dat": "$(ICUBLD)\ucadata.icu" $(TRANSLIT_FILES) $(MISC_FILES) $(RB_FILES) "$(ICUTOOLS__GENRB_EXE)"
 	@cd "$(TESTDATA)"
 	@echo building testdata...
-	nmake /nologo /f "$(TESTDATA)\testdata.mk" TESTDATA=. ICUPBIN="$(ICUPBIN)" ICUTOOLS="$(ICUTOOLS)" ICUP="$(ICUP)" CFG=$(CFG) TESTDATAOUT="$(TESTDATAOUT)" ICUDATA="$(ICUDATA)" TESTDATABLD="$(TESTDATABLD)"
+	nmake /nologo /f "$(TESTDATA)\testdata.mk" TESTDATA=. ICUPBIN="$(ICUPBIN)" ICUTOOLS=$(ICUTOOLS) ICUP="$(ICUP)" TESTDATAOUT="$(TESTDATAOUT)" ICUDATA="$(ICUDATA)" TESTDATABLD="$(TESTDATABLD)"
 
 #
 #  Break iterator data files.
@@ -388,12 +420,12 @@ CLEAN : GODATA
 # Batch inference rule for creating converters
 {$(ICUSRCDATA_RELATIVE_PATH)\$(ICUUCM)}.ucm.cnv::
 	@echo Generating converters
-	@"$(ICUTOOLS)\makeconv\$(CFG)\makeconv" -c -d"$(ICUBLD)" $<
+	@"$(ICUTOOLS__MAKECONV_EXE)" -c -d"$(ICUBLD)" $<
 
 # Batch inference rule for creating transliterator resource files
 {$(ICUSRCDATA_RELATIVE_PATH)\$(ICUTRNS)}.txt.res::
 	@echo Making Transliterator Resource Bundle files
-	@"$(ICUTOOLS)\genrb\$(CFG)\genrb" -k -d"$(ICUBLD)" $<
+	@"$(ICUTOOLS__GENRB_EXE)" -k -d"$(ICUBLD)" $<
 
 # Batch inference rule for creating miscellaneous resource files
 # TODO: -q option is specified to squelch the 120+ warnings about
@@ -402,11 +434,11 @@ CLEAN : GODATA
 #       way, remove the -q.
 {$(ICUSRCDATA_RELATIVE_PATH)\$(ICUMISC2)}.txt.res::
 	@echo Making Miscellaneous Resource Bundle files
-	@"$(ICUTOOLS)\genrb\$(CFG)\genrb" -k -q -d"$(ICUBLD)" $<
+	@"$(ICUTOOLS__GENRB_EXE)" -k -q -d"$(ICUBLD)" $<
 
 {$(ICUSRCDATA_RELATIVE_PATH)\coll}.txt.crs::
 	@echo Making Collation files
-	@"$(ICUTOOLS)\genrb\$(CFG)\genrb" -k -d"$(ICUBLD)\coll" $<
+	@"$(ICUTOOLS__GENRB_EXE)" -k -d"$(ICUBLD)\coll" $<
 	ren "$(ICUBLD)\coll\*.res" "*.crs"
 	copy "$(ICUBLD)\coll\*.crs" "$(ICUBLD)\"
 	ren "$(ICUBLD)\coll\*.crs" "*.res"
@@ -414,7 +446,7 @@ CLEAN : GODATA
 # Inference rule for creating resource bundle files
 {$(ICUSRCDATA_RELATIVE_PATH)\$(ICULOC)}.txt.res::
 	@echo Making Locale Resource Bundle files
-	@"$(ICUTOOLS)\genrb\$(CFG)\genrb" -k -d"$(ICUBLD)" $<
+	@"$(ICUTOOLS__GENRB_EXE)" -k -d"$(ICUBLD)" $<
 
 $(INDEX_COL_FILES):
 	@echo Generating <<coll\res_index.txt
@@ -426,7 +458,7 @@ res_index {
     }
 }
 <<KEEP
-	@"$(ICUTOOLS)\genrb\$(CFG)\genrb" -k -d"$(ICUBLD)\coll" .\coll\res_index.txt
+	@"$(ICUTOOLS__GENRB_EXE)" -k -d"$(ICUBLD)\coll" .\coll\res_index.txt
 
 
 $(INDEX_RES_FILES):
@@ -439,12 +471,12 @@ res_index {
     }
 }
 <<KEEP
-	@"$(ICUTOOLS)\genrb\$(CFG)\genrb" -k -d"$(ICUBLD)" .\res_index.txt
+	@"$(ICUTOOLS__GENRB_EXE)" -k -d"$(ICUBLD)" .\res_index.txt
 
 # Inference rule for creating resource bundle files
 {$(ICUSRCDATA_RELATIVE_PATH)\$(ICULOC)}.txt.res::
 	@echo Making Locale Resource Bundle files
-	@"$(ICUTOOLS)\genrb\$(CFG)\genrb" -k -d"$(ICUBLD)" $<
+	@"$(ICUTOOLS__GENRB_EXE)" -k -d"$(ICUBLD)" $<
 
 # DLL version information
 # If you modify this, modify winmode.c in pkgdata.
@@ -453,41 +485,41 @@ res_index {
 	@rc.exe /i "..\..\..\..\..\include" /r /fo $@ $**
 
 # Targets for unames.icu
-"$(ICUBLD)\unames.icu": "$(ICUUNIDATA)\*.txt" "$(ICUTOOLS)\gennames\$(CFG)\gennames.exe"
+"$(ICUBLD)\unames.icu": "$(ICUUNIDATA)\*.txt" "$(ICUTOOLS__GENNAMES_EXE)"
 	@echo Creating data file for Unicode Names
 	@set ICU_DATA=$(ICUBLD)
-	@"$(ICUTOOLS)\gennames\$(CFG)\gennames" -1 -u $(UNICODE_VERSION) "$(ICUUNIDATA)\UnicodeData.txt"
+	@"$(ICUTOOLS__GENNAMES_EXE)" -1 -u $(UNICODE_VERSION) "$(ICUUNIDATA)\UnicodeData.txt"
 
 # Targets for pnames.icu
 # >> Depends on the Unicode data as well as uchar.h and uscript.h <<
-"$(ICUBLD)\pnames.icu": "$(ICUUNIDATA)\*.txt" "$(ICUTOOLS)\genpname\$(CFG)\genpname.exe" "$(ICUP)\source\common\unicode\uchar.h" "$(ICUP)\source\common\unicode\uscript.h"
+"$(ICUBLD)\pnames.icu": "$(ICUUNIDATA)\*.txt" "$(ICUTOOLS__GENPNAME_EXE)" "$(ICUP)\source\common\unicode\uchar.h" "$(ICUP)\source\common\unicode\uscript.h"
 	@echo Creating data file for Unicode Property Names
 	@set ICU_DATA=$(ICUBLD)
-	@"$(ICUTOOLS)\genpname\$(CFG)\genpname" -d "$(ICUBLD)"
+	@"$(ICUTOOLS__GENPNAME_EXE)" -d "$(ICUBLD)"
 
 # Targets for uprops.icu
-"$(ICUBLD)\uprops.icu": "$(ICUUNIDATA)\*.txt" "$(ICUTOOLS)\genprops\$(CFG)\genprops.exe" "$(ICUBLD)\pnames.icu"
+"$(ICUBLD)\uprops.icu": "$(ICUUNIDATA)\*.txt" "$(ICUTOOLS__GENPROPS_EXE)" "$(ICUBLD)\pnames.icu"
 	@echo Creating data file for Unicode Character Properties
 	@set ICU_DATA=$(ICUBLD)
-	@"$(ICUTOOLS)\genprops\$(CFG)\genprops" -u $(UNICODE_VERSION) -s "$(ICUUNIDATA)"
+	@"$(ICUTOOLS__GENPROPS_EXE)" -u $(UNICODE_VERSION) -s "$(ICUUNIDATA)"
 
 # Targets for unorm.icu
-"$(ICUBLD)\unorm.icu": "$(ICUUNIDATA)\*.txt" "$(ICUTOOLS)\gennorm\$(CFG)\gennorm.exe"
+"$(ICUBLD)\unorm.icu": "$(ICUUNIDATA)\*.txt" "$(ICUTOOLS__GENNORM_EXE)"
 	@echo Creating data file for Unicode Normalization
 	@set ICU_DATA=$(ICUBLD)
-	@"$(ICUTOOLS)\gennorm\$(CFG)\gennorm" -u $(UNICODE_VERSION) -s "$(ICUUNIDATA)"
+	@"$(ICUTOOLS__GENNORM_EXE)" -u $(UNICODE_VERSION) -s "$(ICUUNIDATA)"
 
 # Targets for converters
-"$(ICUBLD)\cnvalias.icu" : {"$(ICUSRCDATA)\$(ICUUCM)"}\convrtrs.txt "$(ICUTOOLS)\gencnval\$(CFG)\gencnval.exe"
+"$(ICUBLD)\cnvalias.icu" : {"$(ICUSRCDATA)\$(ICUUCM)"}\convrtrs.txt "$(ICUTOOLS__GENCNVAL_EXE)"
 	@echo Creating data file for Converter Aliases
 	@set ICU_DATA=$(ICUBLD)
-	@"$(ICUTOOLS)\gencnval\$(CFG)\gencnval" "$(ICUSRCDATA)\$(ICUUCM)\convrtrs.txt"
+	@"$(ICUTOOLS__GENCNVAL_EXE)" "$(ICUSRCDATA)\$(ICUUCM)\convrtrs.txt"
 
 # Targets for ucadata.icu & invuca.icu
-"$(ICUBLD)\invuca.icu" "$(ICUBLD)\ucadata.icu": "$(ICUUNIDATA)\FractionalUCA.txt" "$(ICUTOOLS)\genuca\$(CFG)\genuca.exe" "$(ICUBLD)\uprops.icu" "$(ICUBLD)\unorm.icu"
+"$(ICUBLD)\invuca.icu" "$(ICUBLD)\ucadata.icu": "$(ICUUNIDATA)\FractionalUCA.txt" "$(ICUTOOLS__GENUCA_EXE)" "$(ICUBLD)\uprops.icu" "$(ICUBLD)\unorm.icu"
 	@echo Creating UCA data files
 	@set ICU_DATA=$(ICUBLD)
-	@"$(ICUTOOLS)\genuca\$(CFG)\genuca" -s "$(ICUUNIDATA)"
+	@"$(ICUTOOLS__GENUCA_EXE)" -s "$(ICUUNIDATA)"
 
 # Targets for uidna.spp
 "$(ICUBLD)\uidna.spp" : "$(ICUUNIDATA)\*.txt" "$(ICUMISC)\NamePrepProfile.txt"
@@ -495,7 +527,11 @@ res_index {
 
 # Dependencies on the tools for the batch inference rules
 
-$(UCM_SOURCE) : {"$(ICUTOOLS)\makeconv\$(CFG)"}makeconv.exe
+# [Dmitry Kovalenko] critical changes:
+#  - was: ..... : {"$(ICUTOOLS)\makeconv\$(CFG)"}makeconv.exe
+$(UCM_SOURCE) : "$(ICUTOOLS__MAKECONV_EXE)"
 
-$(TRANSLIT_SOURCE) $(MISC_SOURCE) $(GENRB_SOURCE) "$(ICUBLD)\root.res" : {"$(ICUTOOLS)\genrb\$(CFG)"}genrb.exe "$(ICUBLD)\ucadata.icu" "$(ICUBLD)\uprops.icu" "$(ICUBLD)\unorm.icu"
+# [Dmitry Kovalenko] critical changes:
+#  - was: ..... : ..... {"$(ICUTOOLS)\genrb\$(CFG)"}genrb.exe ....
+$(TRANSLIT_SOURCE) $(MISC_SOURCE) $(GENRB_SOURCE) "$(ICUBLD)\root.res" : "$(ICUTOOLS__GENRB_EXE)" "$(ICUBLD)\ucadata.icu" "$(ICUBLD)\uprops.icu" "$(ICUBLD)\unorm.icu"
 

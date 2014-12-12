@@ -4,6 +4,7 @@
 	Version="9,00"
 	Name="makedata"
 	ProjectGUID="{D9DF7F2F-93B7-4810-B5CD-96F4F33C079B}"
+	RootNamespace="makedata"
 	Keyword="MakeFileProj"
 	TargetFrameworkVersion="131072"
 	>
@@ -27,9 +28,9 @@
 			>
 			<Tool
 				Name="VCNMakeTool"
-				BuildCommandLine="NMAKE /f makedata.mak ICUMAKE=&quot;$(ProjectDir)\&quot; CFG=$(PlatformName)\$(ConfigurationName)"
-				ReBuildCommandLine="NMAKE /f makedata.mak ICUMAKE=&quot;$(ProjectDir)\&quot; CFG=$(PlatformName)\$(ConfigurationName) clean all"
-				CleanCommandLine="NMAKE /f makedata.mak ICUMAKE=&quot;$(ProjectDir)\&quot; CFG=$(PlatformName)\$(ConfigurationName) clean"
+				BuildCommandLine="NMAKE /f makedata.mak ICUMAKE=&quot;$(ProjectDir)\&quot; CFG=$(PlatformName)\$(ConfigurationName) ICUTOOLS=&quot;$(OutDir)\&quot;"
+				ReBuildCommandLine="NMAKE /f makedata.mak ICUMAKE=&quot;$(ProjectDir)\&quot; CFG=$(PlatformName)\$(ConfigurationName) ICUTOOLS=&quot;$(OutDir)\&quot; clean all"
+				CleanCommandLine="NMAKE /f makedata.mak ICUMAKE=&quot;$(ProjectDir)\&quot; CFG=$(PlatformName)\$(ConfigurationName) ICUTOOLS=&quot;$(OutDir)\&quot; clean"
 				Output=""
 				PreprocessorDefinitions=""
 				IncludeSearchPath=""
@@ -48,9 +49,9 @@
 			>
 			<Tool
 				Name="VCNMakeTool"
-				BuildCommandLine="NMAKE /f makedata.mak ICUMAKE=&quot;$(ProjectDir)\&quot; CFG=$(PlatformName)\$(ConfigurationName)"
-				ReBuildCommandLine="NMAKE /f makedata.mak ICUMAKE=&quot;$(ProjectDir)\&quot; CFG=$(PlatformName)\$(ConfigurationName) clean all"
-				CleanCommandLine="NMAKE /f makedata.mak ICUMAKE=&quot;$(ProjectDir)\&quot; CFG=$(PlatformName)\$(ConfigurationName) clean"
+				BuildCommandLine="NMAKE /f makedata.mak ICUMAKE=&quot;$(ProjectDir)\&quot; CFG=$(PlatformName)\$(ConfigurationName) ICUTOOLS=&quot;$(OutDir)\&quot;"
+				ReBuildCommandLine="NMAKE /f makedata.mak ICUMAKE=&quot;$(ProjectDir)\&quot; CFG=$(PlatformName)\$(ConfigurationName) ICUTOOLS=&quot;$(OutDir)\&quot; clean all"
+				CleanCommandLine="NMAKE /f makedata.mak ICUMAKE=&quot;$(ProjectDir)\&quot; CFG=$(PlatformName)\$(ConfigurationName) ICUTOOLS=&quot;$(OutDir)\&quot; clean"
 				Output=""
 				PreprocessorDefinitions=""
 				IncludeSearchPath=""
@@ -69,9 +70,9 @@
 			>
 			<Tool
 				Name="VCNMakeTool"
-				BuildCommandLine="NMAKE /f makedata.mak ICUMAKE=&quot;$(ProjectDir)\&quot; CFG=$(PlatformName)\$(ConfigurationName)"
-				ReBuildCommandLine="NMAKE /f makedata.mak ICUMAKE=&quot;$(ProjectDir)\&quot; CFG=$(PlatformName)\$(ConfigurationName) clean all"
-				CleanCommandLine="NMAKE /f makedata.mak ICUMAKE=&quot;$(ProjectDir)\&quot; CFG=$(PlatformName)\$(ConfigurationName) clean"
+				BuildCommandLine="NMAKE /f makedata.mak ICUMAKE=&quot;$(ProjectDir)\&quot; CFG=$(PlatformName)\$(ConfigurationName) ICUTOOLS=&quot;$(OutDir)\&quot;"
+				ReBuildCommandLine="NMAKE /f makedata.mak ICUMAKE=&quot;$(ProjectDir)\&quot; CFG=$(PlatformName)\$(ConfigurationName) ICUTOOLS=&quot;$(OutDir)\&quot; clean all"
+				CleanCommandLine="NMAKE /f makedata.mak ICUMAKE=&quot;$(ProjectDir)\&quot; CFG=$(PlatformName)\$(ConfigurationName) ICUTOOLS=&quot;$(OutDir)\&quot; clean"
 				Output=""
 				PreprocessorDefinitions=""
 				IncludeSearchPath=""
@@ -90,9 +91,9 @@
 			>
 			<Tool
 				Name="VCNMakeTool"
-				BuildCommandLine="NMAKE /f makedata.mak ICUMAKE=&quot;$(ProjectDir)\&quot; CFG=$(PlatformName)\$(ConfigurationName)"
-				ReBuildCommandLine="NMAKE /f makedata.mak ICUMAKE=&quot;$(ProjectDir)\&quot; CFG=$(PlatformName)\$(ConfigurationName) clean all"
-				CleanCommandLine="NMAKE /f makedata.mak ICUMAKE=&quot;$(ProjectDir)\&quot; CFG=$(PlatformName)\$(ConfigurationName) clean"
+				BuildCommandLine="NMAKE /f makedata.mak ICUMAKE=&quot;$(ProjectDir)\&quot; CFG=$(PlatformName)\$(ConfigurationName) ICUTOOLS=&quot;$(OutDir)\&quot;"
+				ReBuildCommandLine="NMAKE /f makedata.mak ICUMAKE=&quot;$(ProjectDir)\&quot; CFG=$(PlatformName)\$(ConfigurationName) ICUTOOLS=&quot;$(OutDir)\&quot; clean all"
+				CleanCommandLine="NMAKE /f makedata.mak ICUMAKE=&quot;$(ProjectDir)\&quot; CFG=$(PlatformName)\$(ConfigurationName) ICUTOOLS=&quot;$(OutDir)\&quot; clean"
 				Output=""
 				PreprocessorDefinitions=""
 				IncludeSearchPath=""
