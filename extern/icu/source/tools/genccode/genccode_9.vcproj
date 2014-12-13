@@ -200,7 +200,6 @@
 				AdditionalIncludeDirectories="..\..\common,..\toolutil"
 				PreprocessorDefinitions="WIN32,_DEBUG,_CONSOLE"
 				DisableLanguageExtensions="false"
-				DebugInformationFormat="4"
 				CompileAs="0"
 			/>
 			<Tool

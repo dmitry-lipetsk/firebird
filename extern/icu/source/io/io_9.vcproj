@@ -201,8 +201,6 @@
 				Name="VCCLCompilerTool"
 				AdditionalIncludeDirectories="..\..\include,..\common"
 				PreprocessorDefinitions="WIN32;_DEBUG;_WINDOWS;_USRDLL;U_IO_IMPLEMENTATION"
-				BufferSecurityCheck="true"
-				DebugInformationFormat="4"
 				CompileAs="0"
 			/>
 			<Tool
@@ -279,7 +277,6 @@
 				Name="VCCLCompilerTool"
 				AdditionalIncludeDirectories="..\..\include,..\common"
 				PreprocessorDefinitions="WIN32;_DEBUG;_WINDOWS;_USRDLL;U_IO_IMPLEMENTATION"
-				BufferSecurityCheck="true"
 				CompileAs="0"
 			/>
 			<Tool

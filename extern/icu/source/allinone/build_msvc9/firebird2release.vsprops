@@ -6,12 +6,16 @@
 	>
 	<Tool
 		Name="VCCLCompilerTool"
+		Optimization="3"
 		InlineFunctionExpansion="2"
+		EnableIntrinsicFunctions="true"
+		WholeProgramOptimization="true"
 		EnableFunctionLevelLinking="true"
 	/>
 	<Tool
 		Name="VCLinkerTool"
 		LinkIncremental="1"
 		IgnoreDefaultLibraryNames="msvcrt.lib"
+		LinkTimeCodeGeneration="1"
 	/>
 </VisualStudioPropertySheet>

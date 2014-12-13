@@ -46,8 +46,6 @@
 				Name="VCCLCompilerTool"
 				AdditionalIncludeDirectories="..\..\..\include,..\..\tools\ctestfw,..\..\common"
 				PreprocessorDefinitions="WIN32;_DEBUG;_CONSOLE"
-				BufferSecurityCheck="true"
-				DebugInformationFormat="4"
 				CompileAs="0"
 			/>
 			<Tool
@@ -122,7 +120,6 @@
 				Name="VCCLCompilerTool"
 				AdditionalIncludeDirectories="..\..\..\include,..\..\tools\ctestfw,..\..\common"
 				PreprocessorDefinitions="WIN32;_DEBUG;_CONSOLE"
-				BufferSecurityCheck="true"
 				CompileAs="0"
 			/>
 			<Tool
@@ -193,10 +190,8 @@
 			/>
 			<Tool
 				Name="VCCLCompilerTool"
-				Optimization="3"
 				AdditionalIncludeDirectories="..\..\..\include,..\..\tools\ctestfw,..\..\common"
 				PreprocessorDefinitions="WIN32;NDEBUG;_CONSOLE"
-				BufferSecurityCheck="true"
 				CompileAs="0"
 			/>
 			<Tool
@@ -268,10 +263,8 @@
 			/>
 			<Tool
 				Name="VCCLCompilerTool"
-				Optimization="3"
 				AdditionalIncludeDirectories="..\..\..\include,..\..\tools\ctestfw,..\..\common"
 				PreprocessorDefinitions="WIN32;NDEBUG;_CONSOLE"
-				BufferSecurityCheck="true"
 				CompileAs="0"
 			/>
 			<Tool

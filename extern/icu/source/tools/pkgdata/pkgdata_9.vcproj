@@ -47,7 +47,6 @@
 				Name="VCCLCompilerTool"
 				AdditionalIncludeDirectories="../../../include,../../common,../toolutil"
 				PreprocessorDefinitions="WIN32,_DEBUG,_CONSOLE"
-				DebugInformationFormat="4"
 				CompileAs="0"
 			/>
 			<Tool

@@ -197,7 +197,6 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				PreprocessorDefinitions="_DEBUG;WIN32;_WINDOWS;_USRDLL;U_COMMON_IMPLEMENTATION;RBBI_DEBUG"
-				DebugInformationFormat="4"
 			/>
 			<Tool
 				Name="VCManagedResourceCompilerTool"

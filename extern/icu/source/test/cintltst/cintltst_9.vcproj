@@ -45,9 +45,6 @@
 				Name="VCCLCompilerTool"
 				AdditionalIncludeDirectories="..\..\..\include,..\..\tools\ctestfw,..\..\common,..\..\i18n,..\..\tools\toolutil"
 				PreprocessorDefinitions="WIN32,_DEBUG,_CONSOLE"
-				RuntimeLibrary="1"
-				BufferSecurityCheck="true"
-				DebugInformationFormat="4"
 				CompileAs="0"
 			/>
 			<Tool
@@ -121,8 +118,6 @@
 				Name="VCCLCompilerTool"
 				AdditionalIncludeDirectories="..\..\..\include,..\..\tools\ctestfw,..\..\common,..\..\i18n,..\..\tools\toolutil"
 				PreprocessorDefinitions="WIN32,_DEBUG,_CONSOLE"
-				RuntimeLibrary="1"
-				BufferSecurityCheck="true"
 				CompileAs="0"
 			/>
 			<Tool
@@ -194,11 +189,8 @@
 			/>
 			<Tool
 				Name="VCCLCompilerTool"
-				Optimization="3"
 				AdditionalIncludeDirectories="..\..\..\include,..\..\tools\ctestfw,..\..\common,..\..\i18n,..\..\tools\toolutil"
 				PreprocessorDefinitions="WIN32,NDEBUG,_CONSOLE"
-				RuntimeLibrary="0"
-				BufferSecurityCheck="true"
 				CompileAs="0"
 			/>
 			<Tool
@@ -269,11 +261,8 @@
 			/>
 			<Tool
 				Name="VCCLCompilerTool"
-				Optimization="3"
 				AdditionalIncludeDirectories="..\..\..\include,..\..\tools\ctestfw,..\..\common,..\..\i18n,..\..\tools\toolutil"
 				PreprocessorDefinitions="WIN32,NDEBUG,_CONSOLE"
-				RuntimeLibrary="0"
-				BufferSecurityCheck="true"
 				CompileAs="0"
 			/>
 			<Tool

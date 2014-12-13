@@ -206,7 +206,6 @@
 				AdditionalIncludeDirectories="..\..\..\include,..\..\common"
 				PreprocessorDefinitions="WIN32,_DEBUG,_CONSOLE,UCONVMSG_LINK"
 				DisableLanguageExtensions="false"
-				DebugInformationFormat="4"
 				CompileAs="0"
 			/>
 			<Tool
