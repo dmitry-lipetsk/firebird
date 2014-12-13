@@ -65,7 +65,6 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				OutputFile="$(OutDir)/$(ProjectName).exe"
 				ProgramDatabaseFile="$(IntDir)/derb.pdb"
 				SubSystem="1"
 				RandomizedBaseAddress="1"
@@ -141,7 +140,6 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				OutputFile="$(OutDir)/$(ProjectName).exe"
 				ProgramDatabaseFile="$(IntDir)/derb.pdb"
 				SubSystem="1"
 				RandomizedBaseAddress="1"
@@ -218,7 +216,6 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				OutputFile="$(OutDir)/$(ProjectName).exe"
 				ProgramDatabaseFile="$(IntDir)/derb.pdb"
 				SubSystem="1"
 				RandomizedBaseAddress="1"
@@ -294,7 +291,6 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				OutputFile="$(OutDir)/$(ProjectName).exe"
 				ProgramDatabaseFile="$(IntDir)/derb.pdb"
 				SubSystem="1"
 				RandomizedBaseAddress="1"

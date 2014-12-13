@@ -60,7 +60,6 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				OutputFile="$(OutDir)/$(ProjectName).exe"
 				ProgramDatabaseFile="$(IntDir)/intltest.pdb"
 				SubSystem="1"
 				RandomizedBaseAddress="1"
@@ -133,7 +132,6 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				OutputFile="$(OutDir)/$(ProjectName).exe"
 				ProgramDatabaseFile="$(IntDir)/intltest.pdb"
 				SubSystem="1"
 				RandomizedBaseAddress="1"
@@ -206,7 +204,6 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				OutputFile="$(OutDir)/$(ProjectName).exe"
 				ProgramDatabaseFile="$(IntDir)/intltest.pdb"
 				SubSystem="1"
 				RandomizedBaseAddress="1"
@@ -278,7 +275,6 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				OutputFile="$(OutDir)/$(ProjectName).exe"
 				ProgramDatabaseFile="$(IntDir)/intltest.pdb"
 				SubSystem="1"
 				RandomizedBaseAddress="1"
