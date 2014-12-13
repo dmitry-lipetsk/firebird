@@ -88,9 +88,9 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <CustomBuildStep>
-      <Command>copy "$(TargetPath)" ..\..\..\$(Platform)\$(Configuration)\bin
+      <Command>copy "$(TargetPath)" "$(ICU_OUT_BIN_DIR)"
 </Command>
-      <Outputs>..\..\..\$(Platform)\$(Configuration)\bin\$(TargetFileName);%(Outputs)</Outputs>
+      <Outputs>$(ICU_OUT_BIN_DIR)$(TargetFileName);%(Outputs)</Outputs>
     </CustomBuildStep>
     <Midl>
       <TypeLibraryName>.\decmn_Win32_Release/decmn.tlb</TypeLibraryName>
@@ -116,9 +116,9 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <CustomBuildStep>
-      <Command>copy "$(TargetPath)" ..\..\..\$(Platform)\$(Configuration)\bin
+      <Command>copy "$(TargetPath)" "$(ICU_OUT_BIN_DIR)"
 </Command>
-      <Outputs>..\..\..\$(Platform)\$(Configuration)\bin\$(TargetFileName);%(Outputs)</Outputs>
+      <Outputs>$(ICU_OUT_BIN_DIR)$(TargetFileName);%(Outputs)</Outputs>
     </CustomBuildStep>
     <Midl>
       <TargetEnvironment>X64</TargetEnvironment>
@@ -146,9 +146,9 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <CustomBuildStep>
-      <Command>copy "$(TargetPath)" ..\..\..\$(Platform)\$(Configuration)\bin
+      <Command>copy "$(TargetPath)" "$(ICU_OUT_BIN_DIR)"
 </Command>
-      <Outputs>..\..\..\$(Platform)\$(Configuration)\bin\$(TargetFileName);%(Outputs)</Outputs>
+      <Outputs>$(ICU_OUT_BIN_DIR)$(TargetFileName);%(Outputs)</Outputs>
     </CustomBuildStep>
     <Midl>
       <TypeLibraryName>.\decmn_Win32_Debug/decmn.tlb</TypeLibraryName>
@@ -173,9 +173,9 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <CustomBuildStep>
-      <Command>copy "$(TargetPath)" ..\..\..\$(Platform)\$(Configuration)\bin
+      <Command>copy "$(TargetPath)" "$(ICU_OUT_BIN_DIR)"
 </Command>
-      <Outputs>..\..\..\$(Platform)\$(Configuration)\bin\$(TargetFileName);%(Outputs)</Outputs>
+      <Outputs>$(ICU_OUT_BIN_DIR)$(TargetFileName);%(Outputs)</Outputs>
     </CustomBuildStep>
     <Midl>
       <TargetEnvironment>X64</TargetEnvironment>

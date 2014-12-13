@@ -88,9 +88,9 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <CustomBuildStep>
-      <Command>copy "$(TargetPath)" ..\..\..\$(Platform)\$(Configuration)\bin
+      <Command>copy "$(TargetPath)" "$(ICU_OUT_BIN_DIR)"
 </Command>
-      <Outputs>..\..\..\$(Platform)\$(Configuration)\bin\$(TargetFileName);%(Outputs)</Outputs>
+      <Outputs>$(ICU_OUT_BIN_DIR)$(TargetFileName);%(Outputs)</Outputs>
     </CustomBuildStep>
     <Midl>
       <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -118,9 +118,9 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <CustomBuildStep>
-      <Command>copy "$(TargetPath)" ..\..\..\$(Platform)\$(Configuration)\bin
+      <Command>copy "$(TargetPath)" "$(ICU_OUT_BIN_DIR)"
 </Command>
-      <Outputs>..\..\..\$(Platform)\$(Configuration)\bin\$(TargetFileName);%(Outputs)</Outputs>
+      <Outputs>$(ICU_OUT_BIN_DIR)$(TargetFileName);%(Outputs)</Outputs>
     </CustomBuildStep>
     <Midl>
       <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -149,9 +149,9 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <CustomBuildStep>
-      <Command>copy "$(TargetPath)" ..\..\..\$(Platform)\$(Configuration)\bin
+      <Command>copy "$(TargetPath)" "$(ICU_OUT_BIN_DIR)"
 </Command>
-      <Outputs>..\..\..\$(Platform)\$(Configuration)\bin\$(TargetFileName);%(Outputs)</Outputs>
+      <Outputs>$(ICU_OUT_BIN_DIR)$(TargetFileName);%(Outputs)</Outputs>
     </CustomBuildStep>
     <Midl>
       <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -178,9 +178,9 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <CustomBuildStep>
-      <Command>copy "$(TargetPath)" ..\..\..\$(Platform)\$(Configuration)\bin
+      <Command>copy "$(TargetPath)" "$(ICU_OUT_BIN_DIR)"
 </Command>
-      <Outputs>..\..\..\$(Platform)\$(Configuration)\bin\$(TargetFileName);%(Outputs)</Outputs>
+      <Outputs>$(ICU_OUT_BIN_DIR)$(TargetFileName);%(Outputs)</Outputs>
     </CustomBuildStep>
     <Midl>
       <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
