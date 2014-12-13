@@ -289,10 +289,10 @@ u_fputc(UChar32      uc,
 
 
 U_CAPI int32_t U_EXPORT2
-u_file_write_flush(    const UChar     *chars,
+u_file_write_flush(const UChar   *chars,
                    int32_t        count,
                    UFILE         *f,
-                   UBool         flush)
+                   UBool          flush)
 {
     /* Set up conversion parameters */
     UErrorCode  status       = U_ZERO_ERROR;
