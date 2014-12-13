@@ -12,7 +12,7 @@
 @echo Building ICU %FB_OBJ_DIR% for %FB_TARGET_PLATFORM%
 
 if %MSVC_VERSION% GEQ 8 (
-    @call compile.bat %FB_ROOT_PATH%\extern\icu\source\allinone\allinone_%MSVC_VERSION% make_icu_%FB_TARGET_PLATFORM%.log
+    @call compile.bat %FB_ROOT_PATH%\extern\icu\source\allinone\build_msvc%MSVC_VERSION%\allinone make_icu_%FB_TARGET_PLATFORM%.log
 ) else (
     @call compile.bat %FB_ROOT_PATH%\extern\icu\source\allinone\allinone make_icu_%FB_TARGET_PLATFORM%.log
 )

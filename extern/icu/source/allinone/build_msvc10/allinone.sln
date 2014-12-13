@@ -1,64 +1,64 @@
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "cintltst", "..\test\cintltst\cintltst_10.vcxproj", "{3D1246AE-1B32-479B-BECA-AEFA97BE2321}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "cintltst", "..\..\test\cintltst\cintltst_10.vcxproj", "{3D1246AE-1B32-479B-BECA-AEFA97BE2321}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "common", "..\common\common_10.vcxproj", "{73C0A65B-D1F2-4DE1-B3A6-15DAD2C23F3D}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "common", "..\..\common\common_10.vcxproj", "{73C0A65B-D1F2-4DE1-B3A6-15DAD2C23F3D}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ctestfw", "..\tools\ctestfw\ctestfw_10.vcxproj", "{ECA6B435-B4FA-4F9F-BF95-F451D078FC47}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ctestfw", "..\..\tools\ctestfw\ctestfw_10.vcxproj", "{ECA6B435-B4FA-4F9F-BF95-F451D078FC47}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "decmn", "..\tools\gencmn\decmn_10.vcxproj", "{20869594-A3DD-4A75-8068-99B03A5CF4E4}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "decmn", "..\..\tools\gencmn\decmn_10.vcxproj", "{20869594-A3DD-4A75-8068-99B03A5CF4E4}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "derb", "..\tools\genrb\derb_10.vcxproj", "{D3065ADB-8820-4CC7-9B6C-9510833961A3}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "derb", "..\..\tools\genrb\derb_10.vcxproj", "{D3065ADB-8820-4CC7-9B6C-9510833961A3}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "genbrk", "..\tools\genbrk\genbrk_10.vcxproj", "{C2BE5000-7501-4E87-9724-B8D82494FAE6}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "genbrk", "..\..\tools\genbrk\genbrk_10.vcxproj", "{C2BE5000-7501-4E87-9724-B8D82494FAE6}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "genccode", "..\tools\genccode\genccode_10.vcxproj", "{FDD3C4F2-9805-44EB-9A77-BC1C1C95B547}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "genccode", "..\..\tools\genccode\genccode_10.vcxproj", "{FDD3C4F2-9805-44EB-9A77-BC1C1C95B547}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "gencmn", "..\tools\gencmn\gencmn_10.vcxproj", "{A8D36F8D-09E6-4174-91C3-7BEAA9C3F04F}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "gencmn", "..\..\tools\gencmn\gencmn_10.vcxproj", "{A8D36F8D-09E6-4174-91C3-7BEAA9C3F04F}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "gencnval", "..\tools\gencnval\gencnval_10.vcxproj", "{8B41752B-5A52-41E4-B7E0-07921C0CC6BF}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "gencnval", "..\..\tools\gencnval\gencnval_10.vcxproj", "{8B41752B-5A52-41E4-B7E0-07921C0CC6BF}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "gennames", "..\tools\gennames\gennames_10.vcxproj", "{F5281B04-A9E0-4680-BBA8-1D7F7D115458}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "gennames", "..\..\tools\gennames\gennames_10.vcxproj", "{F5281B04-A9E0-4680-BBA8-1D7F7D115458}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "gennorm", "..\tools\gennorm\gennorm_10.vcxproj", "{F5213103-6CBE-46E6-B4CC-2570B6837D86}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "gennorm", "..\..\tools\gennorm\gennorm_10.vcxproj", "{F5213103-6CBE-46E6-B4CC-2570B6837D86}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "genpname", "..\tools\genpname\genpname_10.vcxproj", "{DBC0AF0B-B9FF-4B23-905B-4D4CDC2A91CB}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "genpname", "..\..\tools\genpname\genpname_10.vcxproj", "{DBC0AF0B-B9FF-4B23-905B-4D4CDC2A91CB}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "genprops", "..\tools\genprops\genprops_10.vcxproj", "{6F744648-D15F-478A-90C6-58E353B5DDB3}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "genprops", "..\..\tools\genprops\genprops_10.vcxproj", "{6F744648-D15F-478A-90C6-58E353B5DDB3}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "genrb", "..\tools\genrb\genrb_10.vcxproj", "{97521D06-EC47-45D4-8BD0-9E16B3F93B2A}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "genrb", "..\..\tools\genrb\genrb_10.vcxproj", "{97521D06-EC47-45D4-8BD0-9E16B3F93B2A}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "gentest", "..\tools\gentest\gentest_10.vcxproj", "{77C78066-746F-4EA6-B3FE-B8C8A4A97891}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "gentest", "..\..\tools\gentest\gentest_10.vcxproj", "{77C78066-746F-4EA6-B3FE-B8C8A4A97891}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "genuca", "..\tools\genuca\genuca_10.vcxproj", "{86829694-A375-4C58-B4EA-96EF514E3225}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "genuca", "..\..\tools\genuca\genuca_10.vcxproj", "{86829694-A375-4C58-B4EA-96EF514E3225}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "i18n", "..\i18n\i18n_10.vcxproj", "{0178B127-6269-407D-B112-93877BB62776}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "i18n", "..\..\i18n\i18n_10.vcxproj", "{0178B127-6269-407D-B112-93877BB62776}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "intltest", "..\test\intltest\intltest_10.vcxproj", "{73632960-B3A6-464D-83A3-4B43365F19B8}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "intltest", "..\..\test\intltest\intltest_10.vcxproj", "{73632960-B3A6-464D-83A3-4B43365F19B8}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "layout", "..\layout\layout_10.vcxproj", "{C920062A-0647-4553-A3B2-37C58065664B}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "layout", "..\..\layout\layout_10.vcxproj", "{C920062A-0647-4553-A3B2-37C58065664B}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "layoutex", "..\layoutex\layoutex_10.vcxproj", "{37FC2C7F-1904-4811-8955-2F478830EAD1}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "layoutex", "..\..\layoutex\layoutex_10.vcxproj", "{37FC2C7F-1904-4811-8955-2F478830EAD1}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "makeconv", "..\tools\makeconv\makeconv_10.vcxproj", "{F5AD9738-1A3D-4906-B9C4-A7D9CE33DC2C}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "makeconv", "..\..\tools\makeconv\makeconv_10.vcxproj", "{F5AD9738-1A3D-4906-B9C4-A7D9CE33DC2C}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "makedata", "..\data\makedata_10.vcxproj", "{D9DF7F2F-93B7-4810-B5CD-96F4F33C079B}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "makedata", "..\..\data\makedata_10.vcxproj", "{D9DF7F2F-93B7-4810-B5CD-96F4F33C079B}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "pkgdata", "..\tools\pkgdata\pkgdata_10.vcxproj", "{4C8454FE-81D3-4CA3-9927-29BA96F03DAC}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "pkgdata", "..\..\tools\pkgdata\pkgdata_10.vcxproj", "{4C8454FE-81D3-4CA3-9927-29BA96F03DAC}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "stubdata", "..\stubdata\stubdata_10.vcxproj", "{203EC78A-0531-43F0-A636-285439BDE025}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "stubdata", "..\..\stubdata\stubdata_10.vcxproj", "{203EC78A-0531-43F0-A636-285439BDE025}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "toolutil", "..\tools\toolutil\toolutil_10.vcxproj", "{6B231032-3CB5-4EED-9210-810D666A23A0}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "toolutil", "..\..\tools\toolutil\toolutil_10.vcxproj", "{6B231032-3CB5-4EED-9210-810D666A23A0}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "uconv", "..\extra\uconv\uconv_10.vcxproj", "{DBA4088D-F6F9-4F8F-8820-082A4765C16C}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "uconv", "..\..\extra\uconv\uconv_10.vcxproj", "{DBA4088D-F6F9-4F8F-8820-082A4765C16C}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "io", "..\io\io_10.vcxproj", "{C2B04507-2521-4801-BF0D-5FD79D6D518C}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "io", "..\..\io\io_10.vcxproj", "{C2B04507-2521-4801-BF0D-5FD79D6D518C}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "gensprep", "..\tools\gensprep\gensprep_10.vcxproj", "{631C23CE-6C1D-4875-88F0-85E0A42B36EA}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "gensprep", "..\..\tools\gensprep\gensprep_10.vcxproj", "{631C23CE-6C1D-4875-88F0-85E0A42B36EA}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "icuswap", "..\tools\icuswap\icuswap_10.vcxproj", "{6FC24387-370C-4561-9582-7A819749E2C5}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "icuswap", "..\..\tools\icuswap\icuswap_10.vcxproj", "{6FC24387-370C-4561-9582-7A819749E2C5}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "iotest", "..\test\iotest\iotest_10.vcxproj", "{E4993E82-D68A-46CA-BAE0-9D35E172E46F}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "iotest", "..\..\test\iotest\iotest_10.vcxproj", "{E4993E82-D68A-46CA-BAE0-9D35E172E46F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

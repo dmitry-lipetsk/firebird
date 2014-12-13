@@ -3,8 +3,8 @@
 	ProjectType="Visual C++"
 	Version="8.00"
 	Name="firebird2intl"
-	OutputDirectory="$(SolutionDir)..\..\..\..\Temp\vs2005\$(PlatformName)\$(ConfigurationName)\icu\bin\"
-	IntermediateDirectory="$(SolutionDir)..\..\..\..\Temp\vs2005\$(PlatformName)\$(ConfigurationName)\icu\obj\$(ProjectName)\"
+	OutputDirectory="$(SolutionDir)..\..\..\..\..\Temp\vs2005\$(PlatformName)\$(ConfigurationName)\icu\bin\"
+	IntermediateDirectory="$(SolutionDir)..\..\..\..\..\Temp\vs2005\$(PlatformName)\$(ConfigurationName)\icu\obj\$(ProjectName)\"
 	>
 	<Tool
 		Name="VCCLCompilerTool"
