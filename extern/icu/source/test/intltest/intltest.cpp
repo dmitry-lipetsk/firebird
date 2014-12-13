@@ -384,8 +384,8 @@ IntlTest::pathnameInContext( char* fullname, int32_t maxsize, const char* relPat
 
     if (relPath[0] == '|')
         relPath++;
-    int32_t lenMainDir = strlen(mainDir);
-    int32_t lenRelPath = strlen(relPath);
+    size_t lenMainDir = strlen(mainDir);
+    size_t lenRelPath = strlen(relPath);
     if (maxsize < lenMainDir + lenRelPath + 2) {
         fullname[0] = 0;
         return;
