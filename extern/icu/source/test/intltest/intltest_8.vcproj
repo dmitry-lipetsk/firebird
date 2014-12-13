@@ -44,9 +44,6 @@
 				Name="VCCLCompilerTool"
 				AdditionalIncludeDirectories="..\..\..\include,..\..\..\source\common,..\..\..\source\i18n,..\..\tools\toolutil,..\..\tools\ctestfw"
 				PreprocessorDefinitions="WIN32,_DEBUG,_CONSOLE"
-				RuntimeLibrary="1"
-				BufferSecurityCheck="true"
-				DebugInformationFormat="4"
 				CompileAs="0"
 			/>
 			<Tool
@@ -62,7 +59,6 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				OutputFile="$(OutDir)/$(ProjectName).exe"
 				ProgramDatabaseFile="$(IntDir)/intltest.pdb"
 				SubSystem="1"
 				FixedBaseAddress="1"
@@ -118,11 +114,8 @@
 			/>
 			<Tool
 				Name="VCCLCompilerTool"
-				Optimization="3"
 				AdditionalIncludeDirectories="..\..\..\include,..\..\..\source\common,..\..\..\source\i18n,..\..\tools\toolutil,..\..\tools\ctestfw"
 				PreprocessorDefinitions="WIN32,NDEBUG,_CONSOLE"
-				RuntimeLibrary="0"
-				BufferSecurityCheck="true"
 				CompileAs="0"
 			/>
 			<Tool
@@ -138,7 +131,6 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				OutputFile="$(OutDir)/$(ProjectName).exe"
 				ProgramDatabaseFile="$(IntDir)/intltest.pdb"
 				SubSystem="1"
 			/>
@@ -196,8 +188,6 @@
 				Name="VCCLCompilerTool"
 				AdditionalIncludeDirectories="..\..\..\include,..\..\..\source\common,..\..\..\source\i18n,..\..\tools\toolutil,..\..\tools\ctestfw"
 				PreprocessorDefinitions="WIN32,_DEBUG,_CONSOLE"
-				RuntimeLibrary="1"
-				BufferSecurityCheck="true"
 				CompileAs="0"
 			/>
 			<Tool
@@ -213,7 +203,6 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				OutputFile="$(OutDir)/$(ProjectName).exe"
 				ProgramDatabaseFile="$(IntDir)/intltest.pdb"
 				SubSystem="1"
 				TargetMachine="17"
@@ -271,11 +260,8 @@
 			/>
 			<Tool
 				Name="VCCLCompilerTool"
-				Optimization="3"
 				AdditionalIncludeDirectories="..\..\..\include,..\..\..\source\common,..\..\..\source\i18n,..\..\tools\toolutil,..\..\tools\ctestfw"
 				PreprocessorDefinitions="WIN32,NDEBUG,_CONSOLE"
-				RuntimeLibrary="0"
-				BufferSecurityCheck="true"
 				CompileAs="0"
 			/>
 			<Tool
@@ -291,7 +277,6 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				OutputFile="$(OutDir)/$(ProjectName).exe"
 				ProgramDatabaseFile="$(IntDir)/intltest.pdb"
 				SubSystem="1"
 				TargetMachine="17"

@@ -62,7 +62,6 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				OutputFile="$(OutDir)/$(ProjectName).exe"
 				LinkIncremental="1"
 				ProgramDatabaseFile="$(IntDir)/genccode.pdb"
 				SubSystem="1"
@@ -139,7 +138,6 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				OutputFile="$(OutDir)/$(ProjectName).exe"
 				LinkIncremental="1"
 				ProgramDatabaseFile="$(IntDir)/genccode.pdb"
 				SubSystem="1"
@@ -201,7 +199,6 @@
 				AdditionalIncludeDirectories="..\..\common,..\toolutil"
 				PreprocessorDefinitions="WIN32,_DEBUG,_CONSOLE"
 				DisableLanguageExtensions="false"
-				DebugInformationFormat="4"
 				CompileAs="0"
 			/>
 			<Tool
@@ -217,7 +214,6 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				OutputFile="$(OutDir)/$(ProjectName).exe"
 				LinkIncremental="2"
 				GenerateDebugInformation="true"
 				ProgramDatabaseFile="$(IntDir)/genccode.pdb"
@@ -295,7 +291,6 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				OutputFile="$(OutDir)/$(ProjectName).exe"
 				LinkIncremental="2"
 				GenerateDebugInformation="true"
 				ProgramDatabaseFile="$(IntDir)/genccode.pdb"

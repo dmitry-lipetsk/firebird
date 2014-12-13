@@ -200,7 +200,6 @@
 				Name="VCCLCompilerTool"
 				AdditionalIncludeDirectories="..\..\include,..\common"
 				PreprocessorDefinitions="_DEBUG;WIN32;_WINDOWS;_USRDLL;U_LAYOUTEX_IMPLEMENTATION"
-				DebugInformationFormat="4"
 				CompileAs="0"
 			/>
 			<Tool

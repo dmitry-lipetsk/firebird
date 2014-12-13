@@ -8,6 +8,7 @@
 	>
 	<Tool
 		Name="VCCLCompilerTool"
+		StringPooling="true"
 		EnableFunctionLevelLinking="false"
 		DisableLanguageExtensions="true"
 		WarningLevel="3"

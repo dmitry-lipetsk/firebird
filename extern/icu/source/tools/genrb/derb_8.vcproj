@@ -64,7 +64,6 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				OutputFile="$(OutDir)/$(ProjectName).exe"
 				ProgramDatabaseFile="$(IntDir)/derb.pdb"
 				SubSystem="1"
 			/>
@@ -126,7 +125,6 @@
 				Name="VCCLCompilerTool"
 				AdditionalIncludeDirectories="..\..\common,..\toolutil"
 				PreprocessorDefinitions="WIN32,_DEBUG,_WINDOWS"
-				DebugInformationFormat="4"
 				CompileAs="0"
 			/>
 			<Tool
@@ -142,7 +140,6 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				OutputFile="$(OutDir)/$(ProjectName).exe"
 				ProgramDatabaseFile="$(IntDir)/derb.pdb"
 				SubSystem="1"
 			/>
@@ -219,7 +216,6 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				OutputFile="$(OutDir)/$(ProjectName).exe"
 				ProgramDatabaseFile="$(IntDir)/derb.pdb"
 				SubSystem="1"
 				TargetMachine="17"
@@ -297,7 +293,6 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				OutputFile="$(OutDir)/$(ProjectName).exe"
 				ProgramDatabaseFile="$(IntDir)/derb.pdb"
 				SubSystem="1"
 				TargetMachine="17"

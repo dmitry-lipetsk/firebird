@@ -65,7 +65,6 @@
 				Name="VCLinkerTool"
 				AdditionalDependencies="$(PlatformName)\$(ConfigurationName)/uconvmsg.lib"
 				ShowProgress="0"
-				OutputFile="$(OutDir)/$(ProjectName).exe"
 				LinkIncremental="1"
 				AdditionalLibraryDirectories="Release"
 				ProgramDatabaseFile="$(IntDir)/uconv.pdb"
@@ -144,7 +143,6 @@
 			<Tool
 				Name="VCLinkerTool"
 				AdditionalDependencies="$(PlatformName)\$(ConfigurationName)/uconvmsg.lib"
-				OutputFile="$(OutDir)/$(ProjectName).exe"
 				LinkIncremental="1"
 				AdditionalLibraryDirectories="Release"
 				ProgramDatabaseFile="$(IntDir)/uconv.pdb"
@@ -207,7 +205,6 @@
 				AdditionalIncludeDirectories="..\..\..\include,..\..\common"
 				PreprocessorDefinitions="WIN32,_DEBUG,_CONSOLE,UCONVMSG_LINK"
 				DisableLanguageExtensions="false"
-				DebugInformationFormat="4"
 				CompileAs="0"
 			/>
 			<Tool
@@ -224,7 +221,6 @@
 			<Tool
 				Name="VCLinkerTool"
 				AdditionalDependencies="$(PlatformName)\$(ConfigurationName)/uconvmsg.lib"
-				OutputFile="$(OutDir)/$(ProjectName).exe"
 				LinkIncremental="2"
 				AdditionalLibraryDirectories="Debug"
 				GenerateDebugInformation="true"
@@ -304,11 +300,9 @@
 			<Tool
 				Name="VCLinkerTool"
 				AdditionalDependencies="$(PlatformName)\$(ConfigurationName)/uconvmsg.lib"
-				OutputFile="$(OutDir)/$(ProjectName).exe"
 				LinkIncremental="2"
 				AdditionalLibraryDirectories="Debug"
 				GenerateDebugInformation="true"
-				ProgramDatabaseFile="$(IntDir)/uconv.pdb"
 				SubSystem="1"
 				TargetMachine="17"
 			/>

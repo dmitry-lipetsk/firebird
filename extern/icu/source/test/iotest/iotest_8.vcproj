@@ -45,8 +45,6 @@
 				Name="VCCLCompilerTool"
 				AdditionalIncludeDirectories="..\..\..\include,..\..\tools\ctestfw,..\..\common"
 				PreprocessorDefinitions="WIN32;_DEBUG;_CONSOLE"
-				BufferSecurityCheck="true"
-				DebugInformationFormat="4"
 				CompileAs="0"
 			/>
 			<Tool
@@ -62,7 +60,6 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				OutputFile="$(OutDir)/$(ProjectName).exe"
 				ProgramDatabaseFile="$(IntDir)/iotest.pdb"
 				SubSystem="1"
 				TargetMachine="1"
@@ -118,10 +115,8 @@
 			/>
 			<Tool
 				Name="VCCLCompilerTool"
-				Optimization="3"
 				AdditionalIncludeDirectories="..\..\..\include,..\..\tools\ctestfw,..\..\common"
 				PreprocessorDefinitions="WIN32;NDEBUG;_CONSOLE"
-				BufferSecurityCheck="true"
 				CompileAs="0"
 			/>
 			<Tool
@@ -137,7 +132,6 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				OutputFile="$(OutDir)/$(ProjectName).exe"
 				ProgramDatabaseFile="$(IntDir)/iotest.pdb"
 				SubSystem="1"
 				TargetMachine="1"
@@ -197,7 +191,6 @@
 				Name="VCCLCompilerTool"
 				AdditionalIncludeDirectories="..\..\..\include,..\..\tools\ctestfw,..\..\common"
 				PreprocessorDefinitions="WIN32;_DEBUG;_CONSOLE"
-				BufferSecurityCheck="true"
 				CompileAs="0"
 			/>
 			<Tool
@@ -213,7 +206,6 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				OutputFile="$(OutDir)/$(ProjectName).exe"
 				ProgramDatabaseFile="$(IntDir)/iotest.pdb"
 				SubSystem="1"
 				TargetMachine="17"
@@ -270,10 +262,8 @@
 			/>
 			<Tool
 				Name="VCCLCompilerTool"
-				Optimization="3"
 				AdditionalIncludeDirectories="..\..\..\include,..\..\tools\ctestfw,..\..\common"
 				PreprocessorDefinitions="WIN32;NDEBUG;_CONSOLE"
-				BufferSecurityCheck="true"
 				CompileAs="0"
 			/>
 			<Tool
@@ -289,7 +279,6 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				OutputFile="$(OutDir)/$(ProjectName).exe"
 				ProgramDatabaseFile="$(IntDir)/iotest.pdb"
 				SubSystem="1"
 				TargetMachine="17"

@@ -208,7 +208,6 @@
 				AdditionalIncludeDirectories="..\..\common"
 				PreprocessorDefinitions="_DEBUG;WIN32;_WINDOWS;_USRDLL"
 				DisableLanguageExtensions="false"
-				DebugInformationFormat="4"
 				CompileAs="0"
 			/>
 			<Tool

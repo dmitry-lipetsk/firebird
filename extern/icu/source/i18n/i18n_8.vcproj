@@ -45,7 +45,6 @@
 			/>
 			<Tool
 				Name="VCCLCompilerTool"
-				EnableIntrinsicFunctions="true"
 				AdditionalIncludeDirectories="..\..\include,..\common"
 				PreprocessorDefinitions="WIN32;NDEBUG;_WINDOWS;_USRDLL;U_I18N_IMPLEMENTATION"
 				CompileAs="0"
@@ -125,7 +124,6 @@
 				Name="VCCLCompilerTool"
 				AdditionalIncludeDirectories="..\..\include,..\common"
 				PreprocessorDefinitions="WIN32;_DEBUG;_WINDOWS;_USRDLL;U_I18N_IMPLEMENTATION"
-				DebugInformationFormat="4"
 				CompileAs="0"
 			/>
 			<Tool
@@ -201,7 +199,6 @@
 			/>
 			<Tool
 				Name="VCCLCompilerTool"
-				EnableIntrinsicFunctions="true"
 				AdditionalIncludeDirectories="..\..\include,..\common"
 				PreprocessorDefinitions="WIN32;NDEBUG;_WINDOWS;_USRDLL;U_I18N_IMPLEMENTATION"
 				CompileAs="0"
