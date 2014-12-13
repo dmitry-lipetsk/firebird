@@ -586,11 +586,13 @@ static void TestStrength(void)
 }
 
 static void TestBreakIterator(void) {
+#if !UCONFIG_NO_BREAK_ITERATION
     UErrorCode      status      = U_ZERO_ERROR;
     UStringSearch  *strsrch; 
     UChar           text[128];
     UChar           pattern[32];
     int             count = 0;
+#endif
 
     CHECK_BREAK("x");
 
