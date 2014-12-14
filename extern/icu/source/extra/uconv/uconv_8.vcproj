@@ -30,8 +30,8 @@
 			/>
 			<Tool
 				Name="VCCustomBuildTool"
-				CommandLine="copy &quot;$(TargetPath)&quot; ..\..\..\$(PlatformName)\$(ConfigurationName)\bin&#x0D;&#x0A;"
-				Outputs="$(ProjectDir)..\..\..\$(PlatformName)\$(ConfigurationName)\bin\$(TargetFileName)"
+				CommandLine="copy &quot;$(TargetPath)&quot; &quot;$(ICU_OUT_BIN_DIR)&quot;&#x0D;&#x0A;"
+				Outputs="$(ICU_OUT_BIN_DIR)$(TargetFileName)"
 			/>
 			<Tool
 				Name="VCXMLDataGeneratorTool"
@@ -107,8 +107,8 @@
 			/>
 			<Tool
 				Name="VCCustomBuildTool"
-				CommandLine="copy &quot;$(TargetPath)&quot; ..\..\..\$(PlatformName)\$(ConfigurationName)\bin&#x0D;&#x0A;"
-				Outputs="$(ProjectDir)..\..\..\$(PlatformName)\$(ConfigurationName)\bin\$(TargetFileName)"
+				CommandLine="copy &quot;$(TargetPath)&quot; &quot;$(ICU_OUT_BIN_DIR)&quot;&#x0D;&#x0A;"
+				Outputs="$(ICU_OUT_BIN_DIR)$(TargetFileName)"
 			/>
 			<Tool
 				Name="VCXMLDataGeneratorTool"
@@ -185,8 +185,8 @@
 			/>
 			<Tool
 				Name="VCCustomBuildTool"
-				CommandLine="copy &quot;$(TargetPath)&quot; ..\..\..\$(PlatformName)\$(ConfigurationName)\bin&#x0D;&#x0A;"
-				Outputs="$(ProjectDir)..\..\..\$(PlatformName)\$(ConfigurationName)\bin\$(TargetFileName)"
+				CommandLine="copy &quot;$(TargetPath)&quot; &quot;$(ICU_OUT_BIN_DIR)&quot;&#x0D;&#x0A;"
+				Outputs="$(ICU_OUT_BIN_DIR)$(TargetFileName)"
 			/>
 			<Tool
 				Name="VCXMLDataGeneratorTool"
@@ -262,8 +262,8 @@
 			/>
 			<Tool
 				Name="VCCustomBuildTool"
-				CommandLine="copy &quot;$(TargetPath)&quot; ..\..\..\$(PlatformName)\$(ConfigurationName)\bin&#x0D;&#x0A;"
-				Outputs="$(ProjectDir)..\..\..\$(PlatformName)\$(ConfigurationName)\bin\$(TargetFileName)"
+				CommandLine="copy &quot;$(TargetPath)&quot; &quot;$(ICU_OUT_BIN_DIR)&quot;&#x0D;&#x0A;"
+				Outputs="$(ICU_OUT_BIN_DIR)$(TargetFileName)"
 			/>
 			<Tool
 				Name="VCXMLDataGeneratorTool"
