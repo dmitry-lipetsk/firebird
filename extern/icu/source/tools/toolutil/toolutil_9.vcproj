@@ -19,7 +19,7 @@
 	<Configurations>
 		<Configuration
 			Name="Release|Win32"
-			OutputDirectory=".\..\..\..\$(PlatformName)\$(ConfigurationName)\lib"
+			OutputDirectory="$(ICU_OUT_BIN_DIR)"
 			ConfigurationType="2"
 			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC71.vsprops;..\..\allinone\build_msvc9\firebird2intl.vsprops;..\..\allinone\build_msvc9\firebird2release.vsprops"
 			UseOfMFC="0"
@@ -65,13 +65,13 @@
 			<Tool
 				Name="VCLinkerTool"
 				AdditionalOptions="/MACHINE:I386"
-				OutputFile="..\..\..\$(PlatformName)\$(ConfigurationName)\bin\icutu30.dll"
+				OutputFile="$(OutDir)icutu30.dll"
 				LinkIncremental="1"
 				AdditionalLibraryDirectories="$(OutDir)"
 				BaseAddress="0x4ac00000"
 				RandomizedBaseAddress="1"
 				DataExecutionPrevention="0"
-				ImportLibrary="$(OutDir)/icutu.lib"
+				ImportLibrary="$(ICU_OUT_LIB_DIR)icutu.lib"
 			/>
 			<Tool
 				Name="VCALinkTool"
@@ -97,7 +97,7 @@
 		</Configuration>
 		<Configuration
 			Name="Release|x64"
-			OutputDirectory=".\..\..\..\$(PlatformName)\$(ConfigurationName)\lib"
+			OutputDirectory="$(ICU_OUT_BIN_DIR)"
 			ConfigurationType="2"
 			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC71.vsprops;..\..\allinone\build_msvc9\firebird2intl.vsprops;..\..\allinone\build_msvc9\firebird2release.vsprops"
 			UseOfMFC="0"
@@ -142,13 +142,13 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				OutputFile="..\..\..\$(PlatformName)\$(ConfigurationName)\bin\icutu30.dll"
+				OutputFile="$(OutDir)icutu30.dll"
 				LinkIncremental="1"
 				AdditionalLibraryDirectories="$(OutDir)"
 				BaseAddress="0x4ac00000"
 				RandomizedBaseAddress="1"
 				DataExecutionPrevention="0"
-				ImportLibrary="$(OutDir)/icutu.lib"
+				ImportLibrary="$(ICU_OUT_LIB_DIR)icutu.lib"
 				TargetMachine="17"
 			/>
 			<Tool
@@ -175,7 +175,7 @@
 		</Configuration>
 		<Configuration
 			Name="Debug|Win32"
-			OutputDirectory=".\..\..\..\$(PlatformName)\$(ConfigurationName)\lib"
+			OutputDirectory="$(ICU_OUT_BIN_DIR)"
 			ConfigurationType="2"
 			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC71.vsprops;..\..\allinone\build_msvc9\firebird2intl.vsprops;..\..\allinone\build_msvc9\firebird2debug.vsprops"
 			UseOfMFC="0"
@@ -220,14 +220,14 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				OutputFile="..\..\..\$(PlatformName)\$(ConfigurationName)\bin\icutu30d.dll"
+				OutputFile="$(OutDir)icutu30.dll"
 				LinkIncremental="2"
 				AdditionalLibraryDirectories="$(OutDir)"
 				GenerateDebugInformation="true"
 				BaseAddress="0x4ac00000"
 				RandomizedBaseAddress="1"
 				DataExecutionPrevention="0"
-				ImportLibrary="$(OutDir)/icutud.lib"
+				ImportLibrary="$(ICU_OUT_LIB_DIR)icutud.lib"
 			/>
 			<Tool
 				Name="VCALinkTool"
@@ -253,7 +253,7 @@
 		</Configuration>
 		<Configuration
 			Name="Debug|x64"
-			OutputDirectory=".\..\..\..\$(PlatformName)\$(ConfigurationName)\lib"
+			OutputDirectory="$(ICU_OUT_BIN_DIR)"
 			ConfigurationType="2"
 			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC71.vsprops;..\..\allinone\build_msvc9\firebird2intl.vsprops;..\..\allinone\build_msvc9\firebird2debug.vsprops"
 			UseOfMFC="0"
@@ -298,14 +298,14 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				OutputFile="..\..\..\$(PlatformName)\$(ConfigurationName)\bin\icutu30d.dll"
+				OutputFile="$(OutDir)icutu30.dll"
 				LinkIncremental="2"
 				AdditionalLibraryDirectories="$(OutDir)"
 				GenerateDebugInformation="true"
 				BaseAddress="0x4ac00000"
 				RandomizedBaseAddress="1"
 				DataExecutionPrevention="0"
-				ImportLibrary="$(OutDir)/icutud.lib"
+				ImportLibrary="$(ICU_OUT_LIB_DIR)icutud.lib"
 				TargetMachine="17"
 			/>
 			<Tool
