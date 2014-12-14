@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="Windows-1252"?>
 <VisualStudioPropertySheet
-	ProjectType="Visual C++"
-	Version="8.00"
-	Name="firebird2release"
-	>
-	<Tool
-		Name="VCCLCompilerTool"
-		Optimization="3"
-		InlineFunctionExpansion="2"
-		EnableIntrinsicFunctions="true"
-		WholeProgramOptimization="true"
-		EnableFunctionLevelLinking="true"
-	/>
-	<Tool
-		Name="VCLinkerTool"
-		LinkIncremental="1"
-		IgnoreDefaultLibraryNames="msvcrt.lib"
-		LinkTimeCodeGeneration="1"
-	/>
+    ProjectType="Visual C++"
+    Version="8.00"
+    Name="firebird2release"
+    >
+    <Tool
+        Name="VCCLCompilerTool"
+        Optimization="3"
+        InlineFunctionExpansion="2"
+        EnableIntrinsicFunctions="true"
+        WholeProgramOptimization="true"
+        EnableFunctionLevelLinking="true"
+    />
+    <Tool
+        Name="VCLinkerTool"
+        LinkIncremental="1"
+        IgnoreDefaultLibraryNames="msvcrt.lib"
+        LinkTimeCodeGeneration="1"
+    />
 </VisualStudioPropertySheet>

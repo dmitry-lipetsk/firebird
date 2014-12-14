@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="Windows-1252"?>
 <VisualStudioPropertySheet
-	ProjectType="Visual C++"
-	Version="8.00"
-	Name="firebird2intl"
-	OutputDirectory="$(SolutionDir)..\..\..\..\..\Temp\vs2005\$(PlatformName)\$(ConfigurationName)\icu\bin\"
-	IntermediateDirectory="$(SolutionDir)..\..\..\..\..\Temp\vs2005\$(PlatformName)\$(ConfigurationName)\icu\obj\$(ProjectName)\"
-	>
-	<Tool
-		Name="VCCLCompilerTool"
-		StringPooling="true"
-		EnableFunctionLevelLinking="false"
-		DisableLanguageExtensions="true"
-		WarningLevel="3"
-		DebugInformationFormat="3"
-		PreprocessorDefinitions="_CRT_SECURE_NO_WARNINGS"
-	/>
-	<Tool
-		Name="VCLinkerTool"
-		GenerateDebugInformation="true"
-	/>
+    ProjectType="Visual C++"
+    Version="8.00"
+    Name="firebird2intl"
+    OutputDirectory="$(SolutionDir)..\..\..\..\..\Temp\vs2005\$(PlatformName)\$(ConfigurationName)\icu\bin\"
+    IntermediateDirectory="$(SolutionDir)..\..\..\..\..\Temp\vs2005\$(PlatformName)\$(ConfigurationName)\icu\obj\$(ProjectName)\"
+    >
+    <Tool
+        Name="VCCLCompilerTool"
+        StringPooling="true"
+        EnableFunctionLevelLinking="false"
+        DisableLanguageExtensions="true"
+        WarningLevel="3"
+        DebugInformationFormat="3"
+        PreprocessorDefinitions="_CRT_SECURE_NO_WARNINGS"
+    />
+    <Tool
+        Name="VCLinkerTool"
+        GenerateDebugInformation="true"
+    />
 </VisualStudioPropertySheet>

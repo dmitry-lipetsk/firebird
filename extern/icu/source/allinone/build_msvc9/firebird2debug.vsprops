@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="Windows-1252"?>
 <VisualStudioPropertySheet
-	ProjectType="Visual C++"
-	Version="8.00"
-	Name="firebird2debug"
-	>
-	<Tool
-		Name="VCCLCompilerTool"
-		Optimization="0"
-		BasicRuntimeChecks="3"
-		RuntimeLibrary="3"
-		BrowseInformation="1"
-		WarningLevel="3"
-	/>
-	<Tool
-		Name="VCLinkerTool"
-		LinkIncremental="2"
-	/>
+    ProjectType="Visual C++"
+    Version="8.00"
+    Name="firebird2debug"
+    >
+    <Tool
+        Name="VCCLCompilerTool"
+        Optimization="0"
+        BasicRuntimeChecks="3"
+        RuntimeLibrary="3"
+        BrowseInformation="1"
+        WarningLevel="3"
+    />
+    <Tool
+        Name="VCLinkerTool"
+        LinkIncremental="2"
+    />
 </VisualStudioPropertySheet>
