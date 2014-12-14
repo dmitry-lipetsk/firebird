@@ -21,15 +21,15 @@ UNICODE_VERSION=4.0.1
 #     Is the directory into which most data is built (prior to packaging)
 #     Is icu\source\data\build
 #
+!MESSAGE ICU data make path is [$(ICUMAKE)]
 !IF "$(ICUMAKE)"==""
 !ERROR Can't find ICUMAKE (ICU Data Make dir, should point to icu\source\data\ )!
 !ENDIF
-!MESSAGE ICU data make path is $(ICUMAKE)
 
+!MESSAGE ICUTOOLS path is [$(ICUTOOLS)]
 !IF "$(ICUTOOLS)"==""
 !ERROR ICUTOOLS not defined!
 !ENDIF
-!MESSAGE ICUTOOLS path is $(ICUTOOLS)
 
 ICUOUT=$(ICUMAKE)\out
 
