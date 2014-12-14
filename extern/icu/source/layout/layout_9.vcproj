@@ -65,7 +65,6 @@
 			<Tool
 				Name="VCLinkerTool"
 				OutputFile="..\..\$(PlatformName)\$(ConfigurationName)\bin\icule30d.dll"
-				ProgramDatabaseFile="$(IntDir)/icule30d.pdb"
 				BaseAddress="0x4ac00000"
 				RandomizedBaseAddress="1"
 				DataExecutionPrevention="0"
@@ -141,7 +140,6 @@
 			<Tool
 				Name="VCLinkerTool"
 				OutputFile="..\..\$(PlatformName)\$(ConfigurationName)\bin\icule30d.dll"
-				ProgramDatabaseFile="$(IntDir)/icule30d.pdb"
 				BaseAddress="0x4ac00000"
 				RandomizedBaseAddress="1"
 				DataExecutionPrevention="0"
@@ -218,7 +216,6 @@
 			<Tool
 				Name="VCLinkerTool"
 				OutputFile="..\..\$(PlatformName)\$(ConfigurationName)\bin\icule30.dll"
-				ProgramDatabaseFile="$(IntDir)/icule30.pdb"
 				BaseAddress="0x4ac00000"
 				RandomizedBaseAddress="1"
 				DataExecutionPrevention="0"
@@ -294,7 +291,6 @@
 			<Tool
 				Name="VCLinkerTool"
 				OutputFile="..\..\$(PlatformName)\$(ConfigurationName)\bin\icule30.dll"
-				ProgramDatabaseFile="$(IntDir)/icule30.pdb"
 				BaseAddress="0x4ac00000"
 				RandomizedBaseAddress="1"
 				DataExecutionPrevention="0"

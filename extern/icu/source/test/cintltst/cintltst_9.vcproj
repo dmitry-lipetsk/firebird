@@ -60,7 +60,6 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				ProgramDatabaseFile="$(IntDir)/cintltst.pdb"
 				SubSystem="1"
 				RandomizedBaseAddress="1"
 				FixedBaseAddress="1"
@@ -132,7 +131,6 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				ProgramDatabaseFile="$(IntDir)/cintltst.pdb"
 				SubSystem="1"
 				RandomizedBaseAddress="1"
 				FixedBaseAddress="1"
@@ -204,7 +202,6 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				ProgramDatabaseFile="$(IntDir)/cintltst.pdb"
 				SubSystem="1"
 				RandomizedBaseAddress="1"
 				DataExecutionPrevention="0"
@@ -275,7 +272,6 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				ProgramDatabaseFile="$(IntDir)/cintltst.pdb"
 				SubSystem="1"
 				RandomizedBaseAddress="1"
 				DataExecutionPrevention="0"

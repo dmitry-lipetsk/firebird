@@ -65,7 +65,6 @@
 			<Tool
 				Name="VCLinkerTool"
 				OutputFile="..\..\$(PlatformName)\$(ConfigurationName)\bin\icuio30.dll"
-				ProgramDatabaseFile="$(IntDir)/icuio30.pdb"
 				BaseAddress="0x4ab00000"
 				RandomizedBaseAddress="1"
 				DataExecutionPrevention="0"
@@ -141,7 +140,6 @@
 			<Tool
 				Name="VCLinkerTool"
 				OutputFile="..\..\$(PlatformName)\$(ConfigurationName)\bin\icuio30.dll"
-				ProgramDatabaseFile="$(IntDir)/icuio30.pdb"
 				BaseAddress="0x4ab00000"
 				RandomizedBaseAddress="1"
 				DataExecutionPrevention="0"
@@ -218,7 +216,6 @@
 			<Tool
 				Name="VCLinkerTool"
 				OutputFile="..\..\$(PlatformName)\$(ConfigurationName)\bin\icuio30d.dll"
-				ProgramDatabaseFile="$(IntDir)/icuio30d.pdb"
 				BaseAddress="0x4ab00000"
 				RandomizedBaseAddress="1"
 				DataExecutionPrevention="0"
@@ -294,7 +291,6 @@
 			<Tool
 				Name="VCLinkerTool"
 				OutputFile="..\..\$(PlatformName)\$(ConfigurationName)\bin\icuio30d.dll"
-				ProgramDatabaseFile="$(IntDir)/icuio30d.pdb"
 				BaseAddress="0x4ab00000"
 				RandomizedBaseAddress="1"
 				DataExecutionPrevention="0"

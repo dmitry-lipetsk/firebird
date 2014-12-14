@@ -60,7 +60,6 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				ProgramDatabaseFile="$(IntDir)/gentest.pdb"
 				SubSystem="1"
 				RandomizedBaseAddress="1"
 				DataExecutionPrevention="0"
@@ -131,7 +130,6 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				ProgramDatabaseFile="$(IntDir)/gentest.pdb"
 				SubSystem="1"
 				RandomizedBaseAddress="1"
 				DataExecutionPrevention="0"
@@ -202,7 +200,6 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				ProgramDatabaseFile="$(IntDir)/gentest.pdb"
 				SubSystem="1"
 				RandomizedBaseAddress="1"
 				DataExecutionPrevention="0"
@@ -273,7 +270,6 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				ProgramDatabaseFile="$(IntDir)/gentest.pdb"
 				SubSystem="1"
 				RandomizedBaseAddress="1"
 				DataExecutionPrevention="0"

@@ -66,7 +66,6 @@
 				Name="VCLinkerTool"
 				AdditionalOptions="/MACHINE:I386"
 				OutputFile="..\..\$(PlatformName)\$(ConfigurationName)\bin\icudt30.dll"
-				ProgramDatabaseFile="$(IntDir)/icudt26l.pdb"
 				RandomizedBaseAddress="1"
 				DataExecutionPrevention="0"
 				ImportLibrary="$(OutDir)\icudata.lib"
@@ -141,7 +140,6 @@
 			<Tool
 				Name="VCLinkerTool"
 				OutputFile="..\..\$(PlatformName)\$(ConfigurationName)\bin\icudt30.dll"
-				ProgramDatabaseFile="$(IntDir)/icudt26l.pdb"
 				RandomizedBaseAddress="1"
 				DataExecutionPrevention="0"
 				ImportLibrary="$(OutDir)\icudata.lib"
@@ -217,7 +215,6 @@
 			<Tool
 				Name="VCLinkerTool"
 				OutputFile="..\..\$(PlatformName)\$(ConfigurationName)\bin\icudt30.dll"
-				ProgramDatabaseFile="$(IntDir)/icudt26l.pdb"
 				RandomizedBaseAddress="1"
 				DataExecutionPrevention="0"
 				ImportLibrary="$(OutDir)\icudata.lib"
@@ -292,7 +289,6 @@
 			<Tool
 				Name="VCLinkerTool"
 				OutputFile="..\..\$(PlatformName)\$(ConfigurationName)\bin\icudt30.dll"
-				ProgramDatabaseFile="$(IntDir)/icudt26l.pdb"
 				RandomizedBaseAddress="1"
 				DataExecutionPrevention="0"
 				ImportLibrary="$(OutDir)\icudata.lib"
