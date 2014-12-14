@@ -63,7 +63,6 @@
 				Name="VCLinkerTool"
 				OutputFile="..\..\$(PlatformName)\$(ConfigurationName)\bin\icuuc30.dll"
 				LinkIncremental="1"
-				ProgramDatabaseFile="$(IntDir)/icuuc30.pdb"
 				BaseAddress="0x4a800000"
 				ImportLibrary="$(OutDir)\icuuc.lib"
 			/>
@@ -102,7 +101,6 @@
 				Name="VCLinkerTool"
 				OutputFile="..\..\$(PlatformName)\$(ConfigurationName)\bin\icuuc30.dll"
 				LinkIncremental="1"
-				ProgramDatabaseFile="$(IntDir)/icuuc30.pdb"
 				BaseAddress="0x4a800000"
 				ImportLibrary="$(OutDir)\icuuc.lib"
 				TargetMachine="17"
@@ -178,7 +176,6 @@
 				Name="VCLinkerTool"
 				OutputFile="..\..\$(PlatformName)\$(ConfigurationName)\bin\icuuc30d.dll"
 				LinkIncremental="2"
-				ProgramDatabaseFile="$(IntDir)/icuuc30d.pdb"
 				BaseAddress="0x4a800000"
 				ImportLibrary="$(OutDir)\icuucd.lib"
 			/>
@@ -253,7 +250,6 @@
 				Name="VCLinkerTool"
 				OutputFile="..\..\$(PlatformName)\$(ConfigurationName)\bin\icuuc30d.dll"
 				LinkIncremental="2"
-				ProgramDatabaseFile="$(IntDir)/icuuc30d.pdb"
 				BaseAddress="0x4a800000"
 				ImportLibrary="$(OutDir)\icuucd.lib"
 				TargetMachine="17"

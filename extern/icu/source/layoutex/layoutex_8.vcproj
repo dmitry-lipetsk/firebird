@@ -63,7 +63,6 @@
 			<Tool
 				Name="VCLinkerTool"
 				OutputFile="..\..\$(PlatformName)\$(ConfigurationName)\bin\iculx30.dll"
-				ProgramDatabaseFile="$(IntDir)/iculx30.pdb"
 				BaseAddress="0x4ac80000"
 				ImportLibrary="$(OutDir)\iculx.lib"
 			/>
@@ -139,7 +138,6 @@
 			<Tool
 				Name="VCLinkerTool"
 				OutputFile="..\..\$(PlatformName)\$(ConfigurationName)\bin\iculx30.dll"
-				ProgramDatabaseFile="$(IntDir)/iculx30.pdb"
 				BaseAddress="0x4ac80000"
 				ImportLibrary="$(OutDir)\iculx.lib"
 				TargetMachine="17"
@@ -216,7 +214,6 @@
 			<Tool
 				Name="VCLinkerTool"
 				OutputFile="..\..\$(PlatformName)\$(ConfigurationName)\bin\iculx30d.dll"
-				ProgramDatabaseFile="$(IntDir)/iculx30d.pdb"
 				BaseAddress="0x4ac80000"
 				ImportLibrary="$(OutDir)\iculxd.lib"
 			/>
@@ -292,7 +289,6 @@
 			<Tool
 				Name="VCLinkerTool"
 				OutputFile="..\..\$(PlatformName)\$(ConfigurationName)\bin\iculx30d.dll"
-				ProgramDatabaseFile="$(IntDir)/iculx30d.pdb"
 				BaseAddress="0x4ac80000"
 				ImportLibrary="$(OutDir)\iculxd.lib"
 				TargetMachine="17"

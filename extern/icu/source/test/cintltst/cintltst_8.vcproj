@@ -59,7 +59,6 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				ProgramDatabaseFile="$(IntDir)/cintltst.pdb"
 				SubSystem="1"
 				FixedBaseAddress="1"
 			/>
@@ -131,7 +130,6 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				ProgramDatabaseFile="$(IntDir)/cintltst.pdb"
 				SubSystem="1"
 			/>
 			<Tool
@@ -203,7 +201,6 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				ProgramDatabaseFile="$(IntDir)/cintltst.pdb"
 				SubSystem="1"
 				TargetMachine="17"
 				FixedBaseAddress="1"
@@ -277,7 +274,6 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				ProgramDatabaseFile="$(IntDir)/cintltst.pdb"
 				SubSystem="1"
 				TargetMachine="17"
 			/>

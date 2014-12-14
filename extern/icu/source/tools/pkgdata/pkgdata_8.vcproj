@@ -61,7 +61,6 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				ProgramDatabaseFile="$(IntDir)/pkgdata.pdb"
 				SubSystem="1"
 			/>
 			<Tool
@@ -134,7 +133,6 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				ProgramDatabaseFile="$(IntDir)/pkgdata.pdb"
 				SubSystem="1"
 			/>
 			<Tool
@@ -208,7 +206,6 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				ProgramDatabaseFile="$(IntDir)/pkgdata.pdb"
 				SubSystem="1"
 				TargetMachine="17"
 			/>
@@ -283,7 +280,6 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				ProgramDatabaseFile="$(IntDir)/pkgdata.pdb"
 				SubSystem="1"
 				TargetMachine="17"
 			/>

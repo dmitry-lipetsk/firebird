@@ -63,7 +63,6 @@
 			<Tool
 				Name="VCLinkerTool"
 				LinkIncremental="1"
-				ProgramDatabaseFile="$(IntDir)/genccode.pdb"
 				SubSystem="1"
 			/>
 			<Tool
@@ -139,7 +138,6 @@
 			<Tool
 				Name="VCLinkerTool"
 				LinkIncremental="1"
-				ProgramDatabaseFile="$(IntDir)/genccode.pdb"
 				SubSystem="1"
 				TargetMachine="17"
 			/>
@@ -216,7 +214,6 @@
 				Name="VCLinkerTool"
 				LinkIncremental="2"
 				GenerateDebugInformation="true"
-				ProgramDatabaseFile="$(IntDir)/genccode.pdb"
 				SubSystem="1"
 			/>
 			<Tool
@@ -293,7 +290,6 @@
 				Name="VCLinkerTool"
 				LinkIncremental="2"
 				GenerateDebugInformation="true"
-				ProgramDatabaseFile="$(IntDir)/genccode.pdb"
 				SubSystem="1"
 				TargetMachine="17"
 			/>

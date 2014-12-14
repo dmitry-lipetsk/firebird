@@ -67,7 +67,6 @@
 				OutputFile="..\..\..\$(PlatformName)\$(ConfigurationName)\bin\icutu30.dll"
 				LinkIncremental="1"
 				AdditionalLibraryDirectories="$(OutDir)"
-				ProgramDatabaseFile="$(OutDir)/icutu30.pdb"
 				BaseAddress="0x4ac00000"
 				ImportLibrary="$(OutDir)/icutu.lib"
 			/>
@@ -146,7 +145,6 @@
 				OutputFile="..\..\..\$(PlatformName)\$(ConfigurationName)\bin\icutu30.dll"
 				LinkIncremental="1"
 				AdditionalLibraryDirectories="$(OutDir)"
-				ProgramDatabaseFile="$(OutDir)/icutu30.pdb"
 				BaseAddress="0x4ac00000"
 				ImportLibrary="$(OutDir)/icutu.lib"
 				TargetMachine="17"
@@ -227,7 +225,6 @@
 				LinkIncremental="2"
 				AdditionalLibraryDirectories="$(OutDir)"
 				GenerateDebugInformation="true"
-				ProgramDatabaseFile="$(OutDir)/icutu30d.pdb"
 				BaseAddress="0x4ac00000"
 				ImportLibrary="$(OutDir)/icutud.lib"
 			/>
@@ -307,7 +304,6 @@
 				LinkIncremental="2"
 				AdditionalLibraryDirectories="$(OutDir)"
 				GenerateDebugInformation="true"
-				ProgramDatabaseFile="$(OutDir)/icutu30d.pdb"
 				BaseAddress="0x4ac00000"
 				ImportLibrary="$(OutDir)/icutud.lib"
 				TargetMachine="17"

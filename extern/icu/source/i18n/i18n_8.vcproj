@@ -64,7 +64,6 @@
 			<Tool
 				Name="VCLinkerTool"
 				OutputFile="..\..\$(PlatformName)\$(ConfigurationName)\bin\icuin30.dll"
-				ProgramDatabaseFile="$(IntDir)/icuin30.pdb"
 				BaseAddress="0x4a900000"
 				ImportLibrary="$(OutDir)\icuin.lib"
 			/>
@@ -141,7 +140,6 @@
 			<Tool
 				Name="VCLinkerTool"
 				OutputFile="..\..\$(PlatformName)\$(ConfigurationName)\bin\icuin30d.dll"
-				ProgramDatabaseFile="$(IntDir)/icuin30d.pdb"
 				BaseAddress="0x4a900000"
 				ImportLibrary="$(OutDir)\icuind.lib"
 			/>
@@ -218,7 +216,6 @@
 			<Tool
 				Name="VCLinkerTool"
 				OutputFile="..\..\$(PlatformName)\$(ConfigurationName)\bin\icuin30.dll"
-				ProgramDatabaseFile="$(IntDir)/icuin30.pdb"
 				BaseAddress="0x4a900000"
 				ImportLibrary="$(OutDir)\icuin.lib"
 				TargetMachine="17"
@@ -296,7 +293,6 @@
 			<Tool
 				Name="VCLinkerTool"
 				OutputFile="..\..\$(PlatformName)\$(ConfigurationName)\bin\icuin30d.dll"
-				ProgramDatabaseFile="$(IntDir)/icuin30d.pdb"
 				BaseAddress="0x4a900000"
 				ImportLibrary="$(OutDir)\icuind.lib"
 				TargetMachine="17"

@@ -64,7 +64,6 @@
 				Name="VCLinkerTool"
 				AdditionalOptions="/MACHINE:I386"
 				OutputFile="..\..\..\$(PlatformName)\$(ConfigurationName)\bin\icutest.dll"
-				ProgramDatabaseFile="$(OutDir)/icutest.pdb"
 				ImportLibrary="$(OutDir)/icutest.lib"
 			/>
 			<Tool
@@ -138,7 +137,6 @@
 			<Tool
 				Name="VCLinkerTool"
 				OutputFile="..\..\..\$(PlatformName)\$(ConfigurationName)\bin\icutest.dll"
-				ProgramDatabaseFile="$(OutDir)/icutest.pdb"
 				ImportLibrary="$(OutDir)/icutest.lib"
 				TargetMachine="17"
 			/>
@@ -214,7 +212,6 @@
 			<Tool
 				Name="VCLinkerTool"
 				OutputFile="..\..\..\$(PlatformName)\$(ConfigurationName)\bin\icutestd.dll"
-				ProgramDatabaseFile="$(OutDir)/icutestd.pdb"
 				ImportLibrary="$(OutDir)/icutestd.lib"
 			/>
 			<Tool
@@ -288,7 +285,6 @@
 			<Tool
 				Name="VCLinkerTool"
 				OutputFile="..\..\..\$(PlatformName)\$(ConfigurationName)\bin\icutestd.dll"
-				ProgramDatabaseFile="$(OutDir)/icutestd.pdb"
 				ImportLibrary="$(OutDir)/icutestd.lib"
 				TargetMachine="17"
 			/>

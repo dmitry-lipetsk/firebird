@@ -67,7 +67,6 @@
 				ShowProgress="0"
 				LinkIncremental="1"
 				AdditionalLibraryDirectories="Release"
-				ProgramDatabaseFile="$(IntDir)/uconv.pdb"
 				SubSystem="1"
 			/>
 			<Tool
@@ -145,7 +144,6 @@
 				AdditionalDependencies="$(PlatformName)\$(ConfigurationName)/uconvmsg.lib"
 				LinkIncremental="1"
 				AdditionalLibraryDirectories="Release"
-				ProgramDatabaseFile="$(IntDir)/uconv.pdb"
 				SubSystem="1"
 				TargetMachine="17"
 			/>
@@ -224,7 +222,6 @@
 				LinkIncremental="2"
 				AdditionalLibraryDirectories="Debug"
 				GenerateDebugInformation="true"
-				ProgramDatabaseFile="$(IntDir)/uconv.pdb"
 				SubSystem="1"
 			/>
 			<Tool

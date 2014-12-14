@@ -15,4 +15,8 @@
 		DebugInformationFormat="3"
 		PreprocessorDefinitions="_CRT_SECURE_NO_WARNINGS"
 	/>
+	<Tool
+		Name="VCLinkerTool"
+		GenerateDebugInformation="true"
+	/>
 </VisualStudioPropertySheet>

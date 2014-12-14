@@ -64,7 +64,6 @@
 			<Tool
 				Name="VCLinkerTool"
 				OutputFile="..\..\$(PlatformName)\$(ConfigurationName)\bin\icule30d.dll"
-				ProgramDatabaseFile="$(IntDir)/icule30d.pdb"
 				BaseAddress="0x4ac00000"
 				ImportLibrary="$(OutDir)\iculed.lib"
 			/>
@@ -141,7 +140,6 @@
 			<Tool
 				Name="VCLinkerTool"
 				OutputFile="..\..\$(PlatformName)\$(ConfigurationName)\bin\icule30.dll"
-				ProgramDatabaseFile="$(IntDir)/icule30.pdb"
 				BaseAddress="0x4ac00000"
 				ImportLibrary="$(OutDir)\icule.lib"
 			/>
@@ -218,7 +216,6 @@
 			<Tool
 				Name="VCLinkerTool"
 				OutputFile="..\..\$(PlatformName)\$(ConfigurationName)\bin\icule30d.dll"
-				ProgramDatabaseFile="$(IntDir)/icule30d.pdb"
 				BaseAddress="0x4ac00000"
 				ImportLibrary="$(OutDir)\iculed.lib"
 				TargetMachine="17"
@@ -296,7 +293,6 @@
 			<Tool
 				Name="VCLinkerTool"
 				OutputFile="..\..\$(PlatformName)\$(ConfigurationName)\bin\icule30.dll"
-				ProgramDatabaseFile="$(IntDir)/icule30.pdb"
 				BaseAddress="0x4ac00000"
 				ImportLibrary="$(OutDir)\icule.lib"
 				TargetMachine="17"
