@@ -56,7 +56,6 @@ ICUP=$(ICUP:\source\data\\..\..=)
 #       The data directory in source
 #
 ICUSRCDATA=$(ICUP)\source\data
-ICUSRCDATA_RELATIVE_PATH=..\..\..\
 
 #  ICUUCM
 #       The directory that contains ucmcore.mk files along with *.ucm files
@@ -418,12 +417,12 @@ CLEAN : GODATA
 
 
 # Batch inference rule for creating converters
-{$(ICUSRCDATA_RELATIVE_PATH)\$(ICUUCM)}.ucm.cnv::
+{$(ICUSRCDATA)\$(ICUUCM)}.ucm.cnv::
 	@echo Generating converters
 	@"$(ICUTOOLS__MAKECONV_EXE)" -c -d"$(ICUBLD)" $<
 
 # Batch inference rule for creating transliterator resource files
-{$(ICUSRCDATA_RELATIVE_PATH)\$(ICUTRNS)}.txt.res::
+{$(ICUSRCDATA)\$(ICUTRNS)}.txt.res::
 	@echo Making Transliterator Resource Bundle files
 	@"$(ICUTOOLS__GENRB_EXE)" -k -d"$(ICUBLD)" $<
 
@@ -432,11 +431,11 @@ CLEAN : GODATA
 #       empty intvectors and binary elements.  Unfortunately, this may
 #       squelch other legitimate warnings.  When there is a better
 #       way, remove the -q.
-{$(ICUSRCDATA_RELATIVE_PATH)\$(ICUMISC2)}.txt.res::
+{$(ICUSRCDATA)\$(ICUMISC2)}.txt.res::
 	@echo Making Miscellaneous Resource Bundle files
 	@"$(ICUTOOLS__GENRB_EXE)" -k -q -d"$(ICUBLD)" $<
 
-{$(ICUSRCDATA_RELATIVE_PATH)\coll}.txt.crs::
+{$(ICUSRCDATA)\coll}.txt.crs::
 	@echo Making Collation files
 	@"$(ICUTOOLS__GENRB_EXE)" -k -d"$(ICUBLD)\coll" $<
 	ren "$(ICUBLD)\coll\*.res" "*.crs"
@@ -444,7 +443,7 @@ CLEAN : GODATA
 	ren "$(ICUBLD)\coll\*.crs" "*.res"
 
 # Inference rule for creating resource bundle files
-{$(ICUSRCDATA_RELATIVE_PATH)\$(ICULOC)}.txt.res::
+{$(ICUSRCDATA)\$(ICULOC)}.txt.res::
 	@echo Making Locale Resource Bundle files
 	@"$(ICUTOOLS__GENRB_EXE)" -k -d"$(ICUBLD)" $<
 
@@ -474,7 +473,7 @@ res_index {
 	@"$(ICUTOOLS__GENRB_EXE)" -k -d"$(ICUBLD)" .\res_index.txt
 
 # Inference rule for creating resource bundle files
-{$(ICUSRCDATA_RELATIVE_PATH)\$(ICULOC)}.txt.res::
+{$(ICUSRCDATA)\$(ICULOC)}.txt.res::
 	@echo Making Locale Resource Bundle files
 	@"$(ICUTOOLS__GENRB_EXE)" -k -d"$(ICUBLD)" $<
 
@@ -482,7 +481,7 @@ res_index {
 # If you modify this, modify winmode.c in pkgdata.
 "$(ICUTMP)\icudata.res": "$(ICUMISC)\icudata.rc"
 	@echo Creating data DLL version information from $**
-	@rc.exe /i "..\..\..\..\..\include" /r /fo $@ $**
+	@rc.exe /i "$(ICUP)\include" /r /fo $@ $**
 
 # Targets for unames.icu
 "$(ICUBLD)\unames.icu": "$(ICUUNIDATA)\*.txt" "$(ICUTOOLS__GENNAMES_EXE)"
