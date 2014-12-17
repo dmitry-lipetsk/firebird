@@ -152,7 +152,6 @@
     </Midl>
     <ClCompile>
       <PreprocessorDefinitions>_DEBUG;WIN32;_WINDOWS;_USRDLL;U_COMMON_IMPLEMENTATION;RBBI_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
