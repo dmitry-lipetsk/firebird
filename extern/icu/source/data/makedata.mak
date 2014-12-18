@@ -126,14 +126,16 @@ TESTDATA=$(ICUP)\source\test\testdata
 #         When running the tests, ICU_DATA environment variable is set to here
 #         so that test data files can be loaded.  (Tests are NOT run from this makefile,
 #         only the data is put in place.)
-TESTDATAOUT=$(ICUP)\source\test\testdata\out\
+TESTDATAOUT=$(ICUP)\source\test\testdata\out
+!MESSAGE TESTDATAOUT is [$(TESTDATAOUT)]
 
 #
 #   TESTDATABLD
 #		The build directory for test data intermidiate files
 #		(Tests are NOT run from this makefile,
 #         only the data is put in place.)
-TESTDATABLD=$(ICUP)\source\test\testdata\out\build
+TESTDATABLD=$(TESTDATAOUT)\build
+!MESSAGE TESTDATABLD is [$(TESTDATABLD)]
 
 #
 #   ICUTOOLS

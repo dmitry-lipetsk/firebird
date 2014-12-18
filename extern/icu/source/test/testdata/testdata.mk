@@ -7,6 +7,11 @@
 
 .SUFFIXES : .res .txt
 
+!MESSAGE ------------------------------ testdata.mk
+!MESSAGE ICUTOOLS is [$(ICUTOOLS)]
+!MESSAGE TESTDATAOUT is [$(TESTDATAOUT)]
+!MESSAGE TESTDATABLD is [$(TESTDATABLD)]
+
 TESTPKG=testdata
 TESTDT=$(TESTPKG)_
 
