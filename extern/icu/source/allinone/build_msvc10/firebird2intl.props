@@ -4,8 +4,8 @@
     <_ProjectFileVersion>10.0.30319.1</_ProjectFileVersion>
     <ICU_OUT_BIN_DIR>$(SolutionDir)..\..\..\$(Platform)\$(Configuration)\bin\</ICU_OUT_BIN_DIR>
     <ICU_OUT_LIB_DIR>$(SolutionDir)..\..\..\$(Platform)\$(Configuration)\lib\</ICU_OUT_LIB_DIR>
-    <OutDir>$(SolutionDir)..\..\..\..\..\Temp\vs2010\$(PlatformName)\$(Configuration)\icu\bin\</OutDir>
-    <IntDir>$(SolutionDir)..\..\..\..\..\Temp\vs2010\$(PlatformName)\$(Configuration)\icu\obj\$(ProjectName)\</IntDir>
+    <OutDir>$(SolutionDir)..\..\..\..\..\Temp\vs2010\$(Platform)\$(Configuration)\icu\bin\</OutDir>
+    <IntDir>$(SolutionDir)..\..\..\..\..\Temp\vs2010\$(Platform)\$(Configuration)\icu\obj\$(ProjectName)\</IntDir>
     <LinkIncremental>false</LinkIncremental>
   </PropertyGroup>
   <ItemDefinitionGroup>
