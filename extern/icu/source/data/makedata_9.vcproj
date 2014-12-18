@@ -28,9 +28,9 @@
 			>
 			<Tool
 				Name="VCNMakeTool"
-				BuildCommandLine="NMAKE /f makedata.mak ICUMAKE=&quot;$(ProjectDir)\&quot; CFG=$(PlatformName)\$(ConfigurationName) ICUTOOLS=&quot;$(OutDir)\&quot;"
-				ReBuildCommandLine="NMAKE /f makedata.mak ICUMAKE=&quot;$(ProjectDir)\&quot; CFG=$(PlatformName)\$(ConfigurationName) ICUTOOLS=&quot;$(OutDir)\&quot; clean all"
-				CleanCommandLine="NMAKE /f makedata.mak ICUMAKE=&quot;$(ProjectDir)\&quot; CFG=$(PlatformName)\$(ConfigurationName) ICUTOOLS=&quot;$(OutDir)\&quot; clean"
+				BuildCommandLine="NMAKE /f makedata.mak ICUMAKE=&quot;$(ProjectDir)\&quot; CFG=$(PlatformName)\$(ConfigurationName) ICUTOOLS=&quot;$(OutDir)\&quot; ICU_ROOT_OUT=&quot;$(ICU_ROOT_TMP_DIR)out\\&quot;"
+				ReBuildCommandLine="NMAKE /f makedata.mak ICUMAKE=&quot;$(ProjectDir)\&quot; CFG=$(PlatformName)\$(ConfigurationName) ICUTOOLS=&quot;$(OutDir)\&quot; ICU_ROOT_OUT=&quot;$(ICU_ROOT_TMP_DIR)out\\&quot; clean all"
+				CleanCommandLine="NMAKE /f makedata.mak ICUMAKE=&quot;$(ProjectDir)\&quot; CFG=$(PlatformName)\$(ConfigurationName) ICUTOOLS=&quot;$(OutDir)\&quot; ICU_ROOT_OUT=&quot;$(ICU_ROOT_TMP_DIR)out\\&quot; clean"
 				Output=""
 				PreprocessorDefinitions=""
 				IncludeSearchPath=""
@@ -49,9 +49,9 @@
 			>
 			<Tool
 				Name="VCNMakeTool"
-				BuildCommandLine="NMAKE /f makedata.mak ICUMAKE=&quot;$(ProjectDir)\&quot; CFG=$(PlatformName)\$(ConfigurationName) ICUTOOLS=&quot;$(OutDir)\&quot;"
-				ReBuildCommandLine="NMAKE /f makedata.mak ICUMAKE=&quot;$(ProjectDir)\&quot; CFG=$(PlatformName)\$(ConfigurationName) ICUTOOLS=&quot;$(OutDir)\&quot; clean all"
-				CleanCommandLine="NMAKE /f makedata.mak ICUMAKE=&quot;$(ProjectDir)\&quot; CFG=$(PlatformName)\$(ConfigurationName) ICUTOOLS=&quot;$(OutDir)\&quot; clean"
+				BuildCommandLine="NMAKE /f makedata.mak ICUMAKE=&quot;$(ProjectDir)\&quot; CFG=$(PlatformName)\$(ConfigurationName) ICUTOOLS=&quot;$(OutDir)\&quot; ICU_ROOT_OUT=&quot;$(ICU_ROOT_TMP_DIR)out\\&quot;"
+				ReBuildCommandLine="NMAKE /f makedata.mak ICUMAKE=&quot;$(ProjectDir)\&quot; CFG=$(PlatformName)\$(ConfigurationName) ICUTOOLS=&quot;$(OutDir)\&quot; ICU_ROOT_OUT=&quot;$(ICU_ROOT_TMP_DIR)out\\&quot; clean all"
+				CleanCommandLine="NMAKE /f makedata.mak ICUMAKE=&quot;$(ProjectDir)\&quot; CFG=$(PlatformName)\$(ConfigurationName) ICUTOOLS=&quot;$(OutDir)\&quot; ICU_ROOT_OUT=&quot;$(ICU_ROOT_TMP_DIR)out\\&quot; clean"
 				Output=""
 				PreprocessorDefinitions=""
 				IncludeSearchPath=""
@@ -70,9 +70,9 @@
 			>
 			<Tool
 				Name="VCNMakeTool"
-				BuildCommandLine="NMAKE /f makedata.mak ICUMAKE=&quot;$(ProjectDir)\&quot; CFG=$(PlatformName)\$(ConfigurationName) ICUTOOLS=&quot;$(OutDir)\&quot;"
-				ReBuildCommandLine="NMAKE /f makedata.mak ICUMAKE=&quot;$(ProjectDir)\&quot; CFG=$(PlatformName)\$(ConfigurationName) ICUTOOLS=&quot;$(OutDir)\&quot; clean all"
-				CleanCommandLine="NMAKE /f makedata.mak ICUMAKE=&quot;$(ProjectDir)\&quot; CFG=$(PlatformName)\$(ConfigurationName) ICUTOOLS=&quot;$(OutDir)\&quot; clean"
+				BuildCommandLine="NMAKE /f makedata.mak ICUMAKE=&quot;$(ProjectDir)\&quot; CFG=$(PlatformName)\$(ConfigurationName) ICUTOOLS=&quot;$(OutDir)\&quot; ICU_ROOT_OUT=&quot;$(ICU_ROOT_TMP_DIR)out\\&quot;"
+				ReBuildCommandLine="NMAKE /f makedata.mak ICUMAKE=&quot;$(ProjectDir)\&quot; CFG=$(PlatformName)\$(ConfigurationName) ICUTOOLS=&quot;$(OutDir)\&quot; ICU_ROOT_OUT=&quot;$(ICU_ROOT_TMP_DIR)out\\&quot; clean all"
+				CleanCommandLine="NMAKE /f makedata.mak ICUMAKE=&quot;$(ProjectDir)\&quot; CFG=$(PlatformName)\$(ConfigurationName) ICUTOOLS=&quot;$(OutDir)\&quot; ICU_ROOT_OUT=&quot;$(ICU_ROOT_TMP_DIR)out\\&quot; clean"
 				Output=""
 				PreprocessorDefinitions=""
 				IncludeSearchPath=""
@@ -91,9 +91,9 @@
 			>
 			<Tool
 				Name="VCNMakeTool"
-				BuildCommandLine="NMAKE /f makedata.mak ICUMAKE=&quot;$(ProjectDir)\&quot; CFG=$(PlatformName)\$(ConfigurationName) ICUTOOLS=&quot;$(OutDir)\&quot;"
-				ReBuildCommandLine="NMAKE /f makedata.mak ICUMAKE=&quot;$(ProjectDir)\&quot; CFG=$(PlatformName)\$(ConfigurationName) ICUTOOLS=&quot;$(OutDir)\&quot; clean all"
-				CleanCommandLine="NMAKE /f makedata.mak ICUMAKE=&quot;$(ProjectDir)\&quot; CFG=$(PlatformName)\$(ConfigurationName) ICUTOOLS=&quot;$(OutDir)\&quot; clean"
+				BuildCommandLine="NMAKE /f makedata.mak ICUMAKE=&quot;$(ProjectDir)\&quot; CFG=$(PlatformName)\$(ConfigurationName) ICUTOOLS=&quot;$(OutDir)\&quot; ICU_ROOT_OUT=&quot;$(ICU_ROOT_TMP_DIR)out\\&quot;"
+				ReBuildCommandLine="NMAKE /f makedata.mak ICUMAKE=&quot;$(ProjectDir)\&quot; CFG=$(PlatformName)\$(ConfigurationName) ICUTOOLS=&quot;$(OutDir)\&quot; ICU_ROOT_OUT=&quot;$(ICU_ROOT_TMP_DIR)out\\&quot; clean all"
+				CleanCommandLine="NMAKE /f makedata.mak ICUMAKE=&quot;$(ProjectDir)\&quot; CFG=$(PlatformName)\$(ConfigurationName) ICUTOOLS=&quot;$(OutDir)\&quot; ICU_ROOT_OUT=&quot;$(ICU_ROOT_TMP_DIR)out\\&quot; clean"
 				Output=""
 				PreprocessorDefinitions=""
 				IncludeSearchPath=""

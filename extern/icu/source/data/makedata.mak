@@ -31,16 +31,22 @@ UNICODE_VERSION=4.0.1
 !ERROR ICUTOOLS not defined!
 !ENDIF
 
-ICUOUT=$(ICUMAKE)\out
+!MESSAGE ICU_ROOT_OUT path is [$(ICU_ROOT_OUT)]
+!IF "$(ICU_ROOT_OUT)"==""
+!ERROR ICU_ROOT_OUT not defined!
+!ENDIF
+
+ICUOUT=$(ICU_ROOT_OUT)makedata
+!MESSAGE ICUOUT path is [$(ICUOUT)]
 
 #  the prefix "icudt21_" for use in filenames
 ICUPKG=$(U_ICUDATA_NAME)$(U_ICUDATA_ENDIAN_SUFFIX)
 
-# need to nuke \\ for .NET...
-ICUOUT=$(ICUOUT:\\=\)
-
 ICUBLD=$(ICUOUT)\build\$(ICUPKG)
 ICUTMP=$(ICUOUT)\tmp
+
+!MESSAGE ICUBLD path is [$(ICUBLD)]
+!MESSAGE ICUTMP path is [$(ICUTMP)]
 
 #  ICUP
 #     The root of the ICU source directory tree
@@ -49,7 +55,7 @@ ICUP=$(ICUMAKE)\..\..
 ICUP=$(ICUP:\source\data\..\..=)
 # In case the first one didn't do it, try this one.  .NET would do the second one.
 ICUP=$(ICUP:\source\data\\..\..=)
-!MESSAGE ICU root path is $(ICUP)
+!MESSAGE ICUP (ICU root path) is [$(ICUP)]
 
 
 #  ICUSRCDATA
@@ -126,7 +132,7 @@ TESTDATA=$(ICUP)\source\test\testdata
 #         When running the tests, ICU_DATA environment variable is set to here
 #         so that test data files can be loaded.  (Tests are NOT run from this makefile,
 #         only the data is put in place.)
-TESTDATAOUT=$(ICUP)\source\test\testdata\out
+TESTDATAOUT=$(ICU_ROOT_OUT)testdata
 !MESSAGE TESTDATAOUT is [$(TESTDATAOUT)]
 
 #

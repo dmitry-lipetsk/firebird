@@ -1,5 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Label="UserMacros">
+    <ICU_ROOT_TMP_DIR>$(SolutionDir)..\..\..\..\..\Temp\vs2010\$(Platform)\$(Configuration)\icu\</ICU_ROOT_TMP_DIR>
+  </PropertyGroup>
   <PropertyGroup>
     <_ProjectFileVersion>10.0.30319.1</_ProjectFileVersion>
     <ICU_OUT_BIN_DIR>$(SolutionDir)..\..\..\$(Platform)\$(Configuration)\bin\</ICU_OUT_BIN_DIR>
@@ -8,6 +11,11 @@
     <IntDir>$(SolutionDir)..\..\..\..\..\Temp\vs2010\$(Platform)\$(Configuration)\icu\obj\$(ProjectName)\</IntDir>
     <LinkIncremental>false</LinkIncremental>
   </PropertyGroup>
+  <ItemGroup>
+    <BuildMacro Include="ICU_ROOT_TMP_DIR">
+      <Value>$(ICU_ROOT_TMP_DIR)</Value>
+    </BuildMacro>
+  </ItemGroup>
   <ItemDefinitionGroup>
     <ClCompile>
       <FunctionLevelLinking>false</FunctionLevelLinking>

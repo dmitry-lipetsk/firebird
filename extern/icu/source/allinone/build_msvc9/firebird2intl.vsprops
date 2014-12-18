@@ -27,4 +27,8 @@
         Name="ICU_OUT_LIB_DIR"
         Value="$(SolutionDir)..\..\..\$(PlatformName)\$(ConfigurationName)\lib\"
     />
+    <UserMacro
+        Name="ICU_ROOT_TMP_DIR"
+        Value="$(SolutionDir)..\..\..\..\..\Temp\vs2008\$(PlatformName)\$(ConfigurationName)\icu\"
+    />
 </VisualStudioPropertySheet>
