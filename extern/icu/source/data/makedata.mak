@@ -307,7 +307,6 @@ ALL : GODATA "$(DLL_OUTPUT)\$(U_ICUDATA_NAME).dll" "$(TESTDATAOUT)\testdata.dat"
 #
 # [Dmitry Kovalenko] critical changes:
 #  - was: ..... : ..... {"$(ICUTOOLS)\genrb\$(CFG)"}genrb.exe ....
-#  - was: ICUTOOLS="$(ICUTOOLS)"
 #  - [del] CFG=$(CFG)
 "$(TESTDATAOUT)\testdata.dat": "$(ICUBLD)\ucadata.icu" $(TRANSLIT_FILES) $(MISC_FILES) $(RB_FILES) "$(ICUTOOLS__GENRB_EXE)"
 	@cd "$(TESTDATA)"
