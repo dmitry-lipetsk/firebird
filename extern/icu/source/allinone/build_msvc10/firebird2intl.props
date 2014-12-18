@@ -9,6 +9,9 @@
     <_ProjectFileVersion>10.0.30319.1</_ProjectFileVersion>
     <OutDir>$(ICU_ROOT_TMP_DIR)bin\</OutDir>
     <IntDir>$(ICU_ROOT_TMP_DIR)obj\$(ProjectName)\</IntDir>
+    <!-- required for mak files -->
+    <BaseIntermediateOutputPath>$(IntDir)</BaseIntermediateOutputPath>
+    <IntermediateOutputPath>$(IntDir)</IntermediateOutputPath>
     <LinkIncremental>false</LinkIncremental>
   </PropertyGroup>
   <ItemGroup>
