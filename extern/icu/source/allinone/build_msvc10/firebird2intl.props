@@ -6,6 +6,7 @@
     <ICU_OUT_LIB_DIR>$(SolutionDir)..\..\..\$(Platform)\$(Configuration)\lib\</ICU_OUT_LIB_DIR>
     <OutDir>$(SolutionDir)..\..\..\..\..\Temp\vs2010\$(PlatformName)\$(Configuration)\icu\bin\</OutDir>
     <IntDir>$(SolutionDir)..\..\..\..\..\Temp\vs2010\$(PlatformName)\$(Configuration)\icu\obj\$(ProjectName)\</IntDir>
+    <LinkIncremental>false</LinkIncremental>
   </PropertyGroup>
   <ItemDefinitionGroup>
     <ClCompile>
@@ -15,5 +16,8 @@
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
   </ItemDefinitionGroup>
 </Project>
