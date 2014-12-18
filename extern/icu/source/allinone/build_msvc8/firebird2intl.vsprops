@@ -22,11 +22,9 @@
     <UserMacro
         Name="ICU_OUT_BIN_DIR"
         Value="$(SolutionDir)..\..\..\$(PlatformName)\$(ConfigurationName)\bin\"
-        PerformEnvironmentSet="false"
     />
     <UserMacro
         Name="ICU_OUT_LIB_DIR"
         Value="$(SolutionDir)..\..\..\$(PlatformName)\$(ConfigurationName)\lib\"
-        PerformEnvironmentSet="false"
     />
 </VisualStudioPropertySheet>
