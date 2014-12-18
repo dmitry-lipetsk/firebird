@@ -112,13 +112,14 @@ ICUDATA=$(ICUP)\source\data
 #      This is the same place that all of the other ICU DLLs go (the code-containing DLLs)
 #      The lib file for the data DLL goes in $(DLL_OUTPUT)/../lib/
 #
-!MESSAGE CFG is $(CFG)
-!IF "$(CFG)" == "Release" || "$(CFG)" == "release"  || "$(CFG)" == "Debug" || "$(CFG)" == "debug" 
-DLL_OUTPUT=$(ICUP)\bin
-ICUPBIN=$(ICUP)\bin
-!ELSE
-DLL_OUTPUT=$(ICUP)\$(CFG)\bin
-ICUPBIN=$(ICUP)\$(CFG)\bin
+!MESSAGE DLL_OUTPUT path is [$(DLL_OUTPUT)]
+!IF "$(DLL_OUTPUT)"==""
+!ERROR DLL_OUTPUT not defined!
+!ENDIF
+
+!MESSAGE ICUPBIN path is [$(ICUPBIN)]
+!IF "$(ICUPBIN)"==""
+!ERROR ICUPBIN not defined!
 !ENDIF
 
 #
@@ -299,7 +300,7 @@ ALL_RES = $(INDEX_RES_FILES) $(RB_FILES) $(TRANSLIT_FILES) $(MISC_FILES)
 #				Building the common dll in $(ICUBLD) unconditionally copies it to $(DLL_OUTPUT) too.
 #
 #############################################################################
-ALL : GODATA "$(DLL_OUTPUT)\$(U_ICUDATA_NAME).dll" "$(TESTDATAOUT)\testdata.dat"
+ALL : GODATA "$(DLL_OUTPUT)$(U_ICUDATA_NAME).dll" "$(TESTDATAOUT)\testdata.dat"
 	@echo All targets are up to date
 
 #
@@ -332,10 +333,10 @@ BRK_FILES = sent.brk char.brk line.brk word.brk title.brk line_th.brk word_th.br
 #  move the .dll and .lib files to their final destination afterwards.
 #  The $(U_ICUDATA_NAME).lib and $(U_ICUDATA_NAME).exp should already be in the right place due to stubdata.
 #
-"$(DLL_OUTPUT)\$(U_ICUDATA_NAME).dll" : "$(ICUPBIN)\pkgdata.exe" $(CNV_FILES) $(BRK_FILES) "$(ICUBLD)\uprops.icu" "$(ICUBLD)\unames.icu" "$(ICUBLD)\pnames.icu" "$(ICUBLD)\unorm.icu" "$(ICUBLD)\cnvalias.icu" "$(ICUBLD)\ucadata.icu" "$(ICUBLD)\invuca.icu" "$(ICUBLD)\uidna.spp" $(INDEX_COL_FILES) $(COL_COL_FILES) $(ALL_RES) "$(ICUTMP)\icudata.res" "$(ICUP)\source\stubdata\stubdatabuilt.txt"
+"$(DLL_OUTPUT)$(U_ICUDATA_NAME).dll" : "$(ICUPBIN)pkgdata.exe" $(CNV_FILES) $(BRK_FILES) "$(ICUBLD)\uprops.icu" "$(ICUBLD)\unames.icu" "$(ICUBLD)\pnames.icu" "$(ICUBLD)\unorm.icu" "$(ICUBLD)\cnvalias.icu" "$(ICUBLD)\ucadata.icu" "$(ICUBLD)\invuca.icu" "$(ICUBLD)\uidna.spp" $(INDEX_COL_FILES) $(COL_COL_FILES) $(ALL_RES) "$(ICUTMP)\icudata.res" "$(ICUP)\source\stubdata\stubdatabuilt.txt"
 	echo Building icu data
 	cd "$(ICUBLD)"
-	@"$(ICUPBIN)\pkgdata" -Z -f -e $(U_ICUDATA_NAME) -v $(ICU_PACKAGE_MODE) -c -p $(ICUPKG) -T "$(ICUTMP)" -L $(U_ICUDATA_NAME) -d "$(ICUBLD)" -s . <<pkgdatain.txt
+	@"$(ICUPBIN)pkgdata" -Z -f -e $(U_ICUDATA_NAME) -v $(ICU_PACKAGE_MODE) -c -p $(ICUPKG) -T "$(ICUTMP)" -L $(U_ICUDATA_NAME) -d "$(ICUBLD)" -s . <<pkgdatain.txt
 unorm.icu
 uprops.icu
 pnames.icu

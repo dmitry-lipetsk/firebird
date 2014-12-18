@@ -11,6 +11,7 @@
 !MESSAGE ICUTOOLS is [$(ICUTOOLS)]
 !MESSAGE TESTDATAOUT is [$(TESTDATAOUT)]
 !MESSAGE TESTDATABLD is [$(TESTDATABLD)]
+!MESSAGE ICUPBIN is [$(ICUPBIN)]
 
 TESTPKG=testdata
 TESTDT=$(TESTPKG)_
@@ -44,7 +45,7 @@ ALL : "$(TESTDATAOUT)\testdata.dat"
 	@copy "$(TESTDATABLD)\$(TESTDT)te.res" "$(TESTDATAOUT)\$(TESTDT)nam.typ"
 	@copy "$(TESTDATA)\$(TESTDT)icu26_testtypes.res" "$(TESTDATABLD)"
 	@copy "$(TESTDATA)\$(TESTDT)icu26e_testtypes.res" "$(TESTDATABLD)"
-	@"$(ICUPBIN)\pkgdata" -f -v -m common -c -p"$(TESTPKG)" -d "$(TESTDATAOUT)" -T "$(TESTDATABLD)" -s "$(TESTDATABLD)" <<
+	@"$(ICUPBIN)pkgdata" -f -v -m common -c -p"$(TESTPKG)" -d "$(TESTDATAOUT)" -T "$(TESTDATABLD)" -s "$(TESTDATABLD)" <<
 $(TESTDT)casing.res
 $(TESTDT)conversion.res
 $(TESTDT)mc.res
