@@ -312,7 +312,16 @@ ALL : GODATA "$(DLL_OUTPUT)\$(U_ICUDATA_NAME).dll" "$(TESTDATAOUT)\testdata.dat"
 "$(TESTDATAOUT)\testdata.dat": "$(ICUBLD)\ucadata.icu" $(TRANSLIT_FILES) $(MISC_FILES) $(RB_FILES) "$(ICUTOOLS__GENRB_EXE)"
 	@cd "$(TESTDATA)"
 	@echo building testdata...
-	nmake /nologo /f "$(TESTDATA)\testdata.mk" TESTDATA=. ICUPBIN="$(ICUPBIN)" ICUTOOLS=$(ICUTOOLS) ICUP="$(ICUP)" TESTDATAOUT="$(TESTDATAOUT)" ICUDATA="$(ICUDATA)" TESTDATABLD="$(TESTDATABLD)"
+    setlocal
+    set TESTDATA=.
+    set ICUPBIN=$(ICUPBIN)
+    set ICUTOOLS=$(ICUTOOLS)
+    set ICUP=$(ICUP)
+    set TESTDATAOUT=$(TESTDATAOUT)
+    set ICUDATA=$(ICUDATA)
+    set TESTDATABLD=$(TESTDATABLD)
+    nmake /nologo /f "$(TESTDATA)\testdata.mk"
+    endlocal
 
 #
 #  Break iterator data files.
