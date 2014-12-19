@@ -748,8 +748,8 @@
 					>
 					<Tool
 						Name="VCCustomBuildTool"
-						CommandLine="copy &quot;$(InputPath)&quot; ..\..\include\layout&#x0D;&#x0A;"
-						Outputs="..\..\include\layout\$(InputFileName)"
+						CommandLine="copy &quot;$(InputPath)&quot; &quot;$(ICU_OUT_INCLUDE_DIR)layout&quot;"
+						Outputs="$(ICU_OUT_INCLUDE_DIR)layout\$(InputFileName)"
 					/>
 				</FileConfiguration>
 				<FileConfiguration
@@ -757,8 +757,8 @@
 					>
 					<Tool
 						Name="VCCustomBuildTool"
-						CommandLine="copy &quot;$(InputPath)&quot; ..\..\include\layout&#x0D;&#x0A;"
-						Outputs="..\..\include\layout\$(InputFileName)"
+						CommandLine="copy &quot;$(InputPath)&quot; &quot;$(ICU_OUT_INCLUDE_DIR)layout&quot;"
+						Outputs="$(ICU_OUT_INCLUDE_DIR)layout\$(InputFileName)"
 					/>
 				</FileConfiguration>
 				<FileConfiguration
@@ -766,8 +766,8 @@
 					>
 					<Tool
 						Name="VCCustomBuildTool"
-						CommandLine="copy &quot;$(InputPath)&quot; ..\..\include\layout&#x0D;&#x0A;"
-						Outputs="..\..\include\layout\$(InputFileName)"
+						CommandLine="copy &quot;$(InputPath)&quot; &quot;$(ICU_OUT_INCLUDE_DIR)layout&quot;"
+						Outputs="$(ICU_OUT_INCLUDE_DIR)layout\$(InputFileName)"
 					/>
 				</FileConfiguration>
 				<FileConfiguration
@@ -775,8 +775,8 @@
 					>
 					<Tool
 						Name="VCCustomBuildTool"
-						CommandLine="copy &quot;$(InputPath)&quot; ..\..\include\layout&#x0D;&#x0A;"
-						Outputs="..\..\include\layout\$(InputFileName)"
+						CommandLine="copy &quot;$(InputPath)&quot; &quot;$(ICU_OUT_INCLUDE_DIR)layout&quot;"
+						Outputs="$(ICU_OUT_INCLUDE_DIR)layout\$(InputFileName)"
 					/>
 				</FileConfiguration>
 			</File>
@@ -792,8 +792,8 @@
 					>
 					<Tool
 						Name="VCCustomBuildTool"
-						CommandLine="copy &quot;$(InputPath)&quot; ..\..\include\layout&#x0D;&#x0A;"
-						Outputs="..\..\include\layout\$(InputFileName)"
+						CommandLine="copy &quot;$(InputPath)&quot; &quot;$(ICU_OUT_INCLUDE_DIR)layout&quot;"
+						Outputs="$(ICU_OUT_INCLUDE_DIR)layout\$(InputFileName)"
 					/>
 				</FileConfiguration>
 				<FileConfiguration
@@ -801,8 +801,8 @@
 					>
 					<Tool
 						Name="VCCustomBuildTool"
-						CommandLine="copy &quot;$(InputPath)&quot; ..\..\include\layout&#x0D;&#x0A;"
-						Outputs="..\..\include\layout\$(InputFileName)"
+						CommandLine="copy &quot;$(InputPath)&quot; &quot;$(ICU_OUT_INCLUDE_DIR)layout&quot;"
+						Outputs="$(ICU_OUT_INCLUDE_DIR)layout\$(InputFileName)"
 					/>
 				</FileConfiguration>
 				<FileConfiguration
@@ -810,8 +810,8 @@
 					>
 					<Tool
 						Name="VCCustomBuildTool"
-						CommandLine="copy &quot;$(InputPath)&quot; ..\..\include\layout&#x0D;&#x0A;"
-						Outputs="..\..\include\layout\$(InputFileName)"
+						CommandLine="copy &quot;$(InputPath)&quot; &quot;$(ICU_OUT_INCLUDE_DIR)layout&quot;"
+						Outputs="$(ICU_OUT_INCLUDE_DIR)layout\$(InputFileName)"
 					/>
 				</FileConfiguration>
 				<FileConfiguration
@@ -819,8 +819,8 @@
 					>
 					<Tool
 						Name="VCCustomBuildTool"
-						CommandLine="copy &quot;$(InputPath)&quot; ..\..\include\layout&#x0D;&#x0A;"
-						Outputs="..\..\include\layout\$(InputFileName)"
+						CommandLine="copy &quot;$(InputPath)&quot; &quot;$(ICU_OUT_INCLUDE_DIR)layout&quot;"
+						Outputs="$(ICU_OUT_INCLUDE_DIR)layout\$(InputFileName)"
 					/>
 				</FileConfiguration>
 			</File>
@@ -832,8 +832,8 @@
 					>
 					<Tool
 						Name="VCCustomBuildTool"
-						CommandLine="copy &quot;$(InputPath)&quot; ..\..\include\layout&#x0D;&#x0A;"
-						Outputs="..\..\include\layout\$(InputFileName)"
+						CommandLine="copy &quot;$(InputPath)&quot; &quot;$(ICU_OUT_INCLUDE_DIR)layout&quot;"
+						Outputs="$(ICU_OUT_INCLUDE_DIR)layout\$(InputFileName)"
 					/>
 				</FileConfiguration>
 				<FileConfiguration
@@ -841,8 +841,8 @@
 					>
 					<Tool
 						Name="VCCustomBuildTool"
-						CommandLine="copy &quot;$(InputPath)&quot; ..\..\include\layout&#x0D;&#x0A;"
-						Outputs="..\..\include\layout\$(InputFileName)"
+						CommandLine="copy &quot;$(InputPath)&quot; &quot;$(ICU_OUT_INCLUDE_DIR)layout&quot;"
+						Outputs="$(ICU_OUT_INCLUDE_DIR)layout\$(InputFileName)"
 					/>
 				</FileConfiguration>
 				<FileConfiguration
@@ -850,8 +850,8 @@
 					>
 					<Tool
 						Name="VCCustomBuildTool"
-						CommandLine="copy &quot;$(InputPath)&quot; ..\..\include\layout&#x0D;&#x0A;"
-						Outputs="..\..\include\layout\$(InputFileName)"
+						CommandLine="copy &quot;$(InputPath)&quot; &quot;$(ICU_OUT_INCLUDE_DIR)layout&quot;"
+						Outputs="$(ICU_OUT_INCLUDE_DIR)layout\$(InputFileName)"
 					/>
 				</FileConfiguration>
 				<FileConfiguration
@@ -859,8 +859,8 @@
 					>
 					<Tool
 						Name="VCCustomBuildTool"
-						CommandLine="copy &quot;$(InputPath)&quot; ..\..\include\layout&#x0D;&#x0A;"
-						Outputs="..\..\include\layout\$(InputFileName)"
+						CommandLine="copy &quot;$(InputPath)&quot; &quot;$(ICU_OUT_INCLUDE_DIR)layout&quot;"
+						Outputs="$(ICU_OUT_INCLUDE_DIR)layout\$(InputFileName)"
 					/>
 				</FileConfiguration>
 			</File>
@@ -872,8 +872,8 @@
 					>
 					<Tool
 						Name="VCCustomBuildTool"
-						CommandLine="copy &quot;$(InputPath)&quot; ..\..\include\layout&#x0D;&#x0A;"
-						Outputs="..\..\include\layout\$(InputFileName)"
+						CommandLine="copy &quot;$(InputPath)&quot; &quot;$(ICU_OUT_INCLUDE_DIR)layout&quot;"
+						Outputs="$(ICU_OUT_INCLUDE_DIR)layout\$(InputFileName)"
 					/>
 				</FileConfiguration>
 				<FileConfiguration
@@ -881,8 +881,8 @@
 					>
 					<Tool
 						Name="VCCustomBuildTool"
-						CommandLine="copy &quot;$(InputPath)&quot; ..\..\include\layout&#x0D;&#x0A;"
-						Outputs="..\..\include\layout\$(InputFileName)"
+						CommandLine="copy &quot;$(InputPath)&quot; &quot;$(ICU_OUT_INCLUDE_DIR)layout&quot;"
+						Outputs="$(ICU_OUT_INCLUDE_DIR)layout\$(InputFileName)"
 					/>
 				</FileConfiguration>
 				<FileConfiguration
@@ -890,8 +890,8 @@
 					>
 					<Tool
 						Name="VCCustomBuildTool"
-						CommandLine="copy &quot;$(InputPath)&quot; ..\..\include\layout&#x0D;&#x0A;"
-						Outputs="..\..\include\layout\$(InputFileName)"
+						CommandLine="copy &quot;$(InputPath)&quot; &quot;$(ICU_OUT_INCLUDE_DIR)layout&quot;"
+						Outputs="$(ICU_OUT_INCLUDE_DIR)layout\$(InputFileName)"
 					/>
 				</FileConfiguration>
 				<FileConfiguration
@@ -899,8 +899,8 @@
 					>
 					<Tool
 						Name="VCCustomBuildTool"
-						CommandLine="copy &quot;$(InputPath)&quot; ..\..\include\layout&#x0D;&#x0A;"
-						Outputs="..\..\include\layout\$(InputFileName)"
+						CommandLine="copy &quot;$(InputPath)&quot; &quot;$(ICU_OUT_INCLUDE_DIR)layout&quot;"
+						Outputs="$(ICU_OUT_INCLUDE_DIR)layout\$(InputFileName)"
 					/>
 				</FileConfiguration>
 			</File>
@@ -912,8 +912,8 @@
 					>
 					<Tool
 						Name="VCCustomBuildTool"
-						CommandLine="copy &quot;$(InputPath)&quot; ..\..\include\layout&#x0D;&#x0A;"
-						Outputs="..\..\include\layout\$(InputFileName)"
+						CommandLine="copy &quot;$(InputPath)&quot; &quot;$(ICU_OUT_INCLUDE_DIR)layout&quot;"
+						Outputs="$(ICU_OUT_INCLUDE_DIR)layout\$(InputFileName)"
 					/>
 				</FileConfiguration>
 				<FileConfiguration
@@ -921,8 +921,8 @@
 					>
 					<Tool
 						Name="VCCustomBuildTool"
-						CommandLine="copy &quot;$(InputPath)&quot; ..\..\include\layout&#x0D;&#x0A;"
-						Outputs="..\..\include\layout\$(InputFileName)"
+						CommandLine="copy &quot;$(InputPath)&quot; &quot;$(ICU_OUT_INCLUDE_DIR)layout&quot;"
+						Outputs="$(ICU_OUT_INCLUDE_DIR)layout\$(InputFileName)"
 					/>
 				</FileConfiguration>
 				<FileConfiguration
@@ -930,8 +930,8 @@
 					>
 					<Tool
 						Name="VCCustomBuildTool"
-						CommandLine="copy &quot;$(InputPath)&quot; ..\..\include\layout&#x0D;&#x0A;"
-						Outputs="..\..\include\layout\$(InputFileName)"
+						CommandLine="copy &quot;$(InputPath)&quot; &quot;$(ICU_OUT_INCLUDE_DIR)layout&quot;"
+						Outputs="$(ICU_OUT_INCLUDE_DIR)layout\$(InputFileName)"
 					/>
 				</FileConfiguration>
 				<FileConfiguration
@@ -939,8 +939,8 @@
 					>
 					<Tool
 						Name="VCCustomBuildTool"
-						CommandLine="copy &quot;$(InputPath)&quot; ..\..\include\layout&#x0D;&#x0A;"
-						Outputs="..\..\include\layout\$(InputFileName)"
+						CommandLine="copy &quot;$(InputPath)&quot; &quot;$(ICU_OUT_INCLUDE_DIR)layout&quot;"
+						Outputs="$(ICU_OUT_INCLUDE_DIR)layout\$(InputFileName)"
 					/>
 				</FileConfiguration>
 			</File>
@@ -952,8 +952,8 @@
 					>
 					<Tool
 						Name="VCCustomBuildTool"
-						CommandLine="copy &quot;$(InputPath)&quot; ..\..\include\layout&#x0D;&#x0A;"
-						Outputs="..\..\include\layout\$(InputFileName)"
+						CommandLine="copy &quot;$(InputPath)&quot; &quot;$(ICU_OUT_INCLUDE_DIR)layout&quot;"
+						Outputs="$(ICU_OUT_INCLUDE_DIR)layout\$(InputFileName)"
 					/>
 				</FileConfiguration>
 				<FileConfiguration
@@ -961,8 +961,8 @@
 					>
 					<Tool
 						Name="VCCustomBuildTool"
-						CommandLine="copy &quot;$(InputPath)&quot; ..\..\include\layout&#x0D;&#x0A;"
-						Outputs="..\..\include\layout\$(InputFileName)"
+						CommandLine="copy &quot;$(InputPath)&quot; &quot;$(ICU_OUT_INCLUDE_DIR)layout&quot;"
+						Outputs="$(ICU_OUT_INCLUDE_DIR)layout\$(InputFileName)"
 					/>
 				</FileConfiguration>
 				<FileConfiguration
@@ -970,8 +970,8 @@
 					>
 					<Tool
 						Name="VCCustomBuildTool"
-						CommandLine="copy &quot;$(InputPath)&quot; ..\..\include\layout&#x0D;&#x0A;"
-						Outputs="..\..\include\layout\$(InputFileName)"
+						CommandLine="copy &quot;$(InputPath)&quot; &quot;$(ICU_OUT_INCLUDE_DIR)layout&quot;"
+						Outputs="$(ICU_OUT_INCLUDE_DIR)layout\$(InputFileName)"
 					/>
 				</FileConfiguration>
 				<FileConfiguration
@@ -979,8 +979,8 @@
 					>
 					<Tool
 						Name="VCCustomBuildTool"
-						CommandLine="copy &quot;$(InputPath)&quot; ..\..\include\layout&#x0D;&#x0A;"
-						Outputs="..\..\include\layout\$(InputFileName)"
+						CommandLine="copy &quot;$(InputPath)&quot; &quot;$(ICU_OUT_INCLUDE_DIR)layout&quot;"
+						Outputs="$(ICU_OUT_INCLUDE_DIR)layout\$(InputFileName)"
 					/>
 				</FileConfiguration>
 			</File>
@@ -992,8 +992,8 @@
 					>
 					<Tool
 						Name="VCCustomBuildTool"
-						CommandLine="copy &quot;$(InputPath)&quot; ..\..\include\layout&#x0D;&#x0A;"
-						Outputs="..\..\include\layout\$(InputFileName)"
+						CommandLine="copy &quot;$(InputPath)&quot; &quot;$(ICU_OUT_INCLUDE_DIR)layout&quot;"
+						Outputs="$(ICU_OUT_INCLUDE_DIR)layout\$(InputFileName)"
 					/>
 				</FileConfiguration>
 				<FileConfiguration
@@ -1001,8 +1001,8 @@
 					>
 					<Tool
 						Name="VCCustomBuildTool"
-						CommandLine="copy &quot;$(InputPath)&quot; ..\..\include\layout&#x0D;&#x0A;"
-						Outputs="..\..\include\layout\$(InputFileName)"
+						CommandLine="copy &quot;$(InputPath)&quot; &quot;$(ICU_OUT_INCLUDE_DIR)layout&quot;"
+						Outputs="$(ICU_OUT_INCLUDE_DIR)layout\$(InputFileName)"
 					/>
 				</FileConfiguration>
 				<FileConfiguration
@@ -1010,8 +1010,8 @@
 					>
 					<Tool
 						Name="VCCustomBuildTool"
-						CommandLine="copy &quot;$(InputPath)&quot; ..\..\include\layout&#x0D;&#x0A;"
-						Outputs="..\..\include\layout\$(InputFileName)"
+						CommandLine="copy &quot;$(InputPath)&quot; &quot;$(ICU_OUT_INCLUDE_DIR)layout&quot;"
+						Outputs="$(ICU_OUT_INCLUDE_DIR)layout\$(InputFileName)"
 					/>
 				</FileConfiguration>
 				<FileConfiguration
@@ -1019,8 +1019,8 @@
 					>
 					<Tool
 						Name="VCCustomBuildTool"
-						CommandLine="copy &quot;$(InputPath)&quot; ..\..\include\layout&#x0D;&#x0A;"
-						Outputs="..\..\include\layout\$(InputFileName)"
+						CommandLine="copy &quot;$(InputPath)&quot; &quot;$(ICU_OUT_INCLUDE_DIR)layout&quot;"
+						Outputs="$(ICU_OUT_INCLUDE_DIR)layout\$(InputFileName)"
 					/>
 				</FileConfiguration>
 			</File>
@@ -1032,8 +1032,8 @@
 					>
 					<Tool
 						Name="VCCustomBuildTool"
-						CommandLine="copy &quot;$(InputPath)&quot; ..\..\include\layout&#x0D;&#x0A;"
-						Outputs="..\..\include\layout\$(InputFileName)"
+						CommandLine="copy &quot;$(InputPath)&quot; &quot;$(ICU_OUT_INCLUDE_DIR)layout&quot;"
+						Outputs="$(ICU_OUT_INCLUDE_DIR)layout\$(InputFileName)"
 					/>
 				</FileConfiguration>
 				<FileConfiguration
@@ -1041,8 +1041,8 @@
 					>
 					<Tool
 						Name="VCCustomBuildTool"
-						CommandLine="copy &quot;$(InputPath)&quot; ..\..\include\layout&#x0D;&#x0A;"
-						Outputs="..\..\include\layout\$(InputFileName)"
+						CommandLine="copy &quot;$(InputPath)&quot; &quot;$(ICU_OUT_INCLUDE_DIR)layout&quot;"
+						Outputs="$(ICU_OUT_INCLUDE_DIR)layout\$(InputFileName)"
 					/>
 				</FileConfiguration>
 				<FileConfiguration
@@ -1050,8 +1050,8 @@
 					>
 					<Tool
 						Name="VCCustomBuildTool"
-						CommandLine="copy &quot;$(InputPath)&quot; ..\..\include\layout&#x0D;&#x0A;"
-						Outputs="..\..\include\layout\$(InputFileName)"
+						CommandLine="copy &quot;$(InputPath)&quot; &quot;$(ICU_OUT_INCLUDE_DIR)layout&quot;"
+						Outputs="$(ICU_OUT_INCLUDE_DIR)layout\$(InputFileName)"
 					/>
 				</FileConfiguration>
 				<FileConfiguration
@@ -1059,8 +1059,8 @@
 					>
 					<Tool
 						Name="VCCustomBuildTool"
-						CommandLine="copy &quot;$(InputPath)&quot; ..\..\include\layout&#x0D;&#x0A;"
-						Outputs="..\..\include\layout\$(InputFileName)"
+						CommandLine="copy &quot;$(InputPath)&quot; &quot;$(ICU_OUT_INCLUDE_DIR)layout&quot;"
+						Outputs="$(ICU_OUT_INCLUDE_DIR)layout\$(InputFileName)"
 					/>
 				</FileConfiguration>
 			</File>
@@ -1072,8 +1072,8 @@
 					>
 					<Tool
 						Name="VCCustomBuildTool"
-						CommandLine="copy &quot;$(InputPath)&quot; ..\..\include\layout&#x0D;&#x0A;"
-						Outputs="..\..\include\layout\$(InputFileName)"
+						CommandLine="copy &quot;$(InputPath)&quot; &quot;$(ICU_OUT_INCLUDE_DIR)layout&quot;"
+						Outputs="$(ICU_OUT_INCLUDE_DIR)layout\$(InputFileName)"
 					/>
 				</FileConfiguration>
 				<FileConfiguration
@@ -1081,8 +1081,8 @@
 					>
 					<Tool
 						Name="VCCustomBuildTool"
-						CommandLine="copy &quot;$(InputPath)&quot; ..\..\include\layout&#x0D;&#x0A;"
-						Outputs="..\..\include\layout\$(InputFileName)"
+						CommandLine="copy &quot;$(InputPath)&quot; &quot;$(ICU_OUT_INCLUDE_DIR)layout&quot;"
+						Outputs="$(ICU_OUT_INCLUDE_DIR)layout\$(InputFileName)"
 					/>
 				</FileConfiguration>
 				<FileConfiguration
@@ -1090,8 +1090,8 @@
 					>
 					<Tool
 						Name="VCCustomBuildTool"
-						CommandLine="copy &quot;$(InputPath)&quot; ..\..\include\layout&#x0D;&#x0A;"
-						Outputs="..\..\include\layout\$(InputFileName)"
+						CommandLine="copy &quot;$(InputPath)&quot; &quot;$(ICU_OUT_INCLUDE_DIR)layout&quot;"
+						Outputs="$(ICU_OUT_INCLUDE_DIR)layout\$(InputFileName)"
 					/>
 				</FileConfiguration>
 				<FileConfiguration
@@ -1099,8 +1099,8 @@
 					>
 					<Tool
 						Name="VCCustomBuildTool"
-						CommandLine="copy &quot;$(InputPath)&quot; ..\..\include\layout&#x0D;&#x0A;"
-						Outputs="..\..\include\layout\$(InputFileName)"
+						CommandLine="copy &quot;$(InputPath)&quot; &quot;$(ICU_OUT_INCLUDE_DIR)layout&quot;"
+						Outputs="$(ICU_OUT_INCLUDE_DIR)layout\$(InputFileName)"
 					/>
 				</FileConfiguration>
 			</File>
@@ -1124,8 +1124,8 @@
 					>
 					<Tool
 						Name="VCCustomBuildTool"
-						CommandLine="copy &quot;$(InputPath)&quot; ..\..\include\unicode&#x0D;&#x0A;"
-						Outputs="..\..\include\unicode\$(InputFileName)"
+						CommandLine="copy &quot;$(InputPath)&quot; &quot;$(ICU_OUT_INCLUDE_DIR)unicode&quot;"
+						Outputs="$(ICU_OUT_INCLUDE_DIR)unicode\$(InputFileName)"
 					/>
 				</FileConfiguration>
 				<FileConfiguration
@@ -1133,8 +1133,8 @@
 					>
 					<Tool
 						Name="VCCustomBuildTool"
-						CommandLine="copy &quot;$(InputPath)&quot; ..\..\include\unicode&#x0D;&#x0A;"
-						Outputs="..\..\include\unicode\$(InputFileName)"
+						CommandLine="copy &quot;$(InputPath)&quot; &quot;$(ICU_OUT_INCLUDE_DIR)unicode&quot;"
+						Outputs="$(ICU_OUT_INCLUDE_DIR)unicode\$(InputFileName)"
 					/>
 				</FileConfiguration>
 				<FileConfiguration
@@ -1142,8 +1142,8 @@
 					>
 					<Tool
 						Name="VCCustomBuildTool"
-						CommandLine="copy &quot;$(InputPath)&quot; ..\..\include\unicode&#x0D;&#x0A;"
-						Outputs="..\..\include\unicode\$(InputFileName)"
+						CommandLine="copy &quot;$(InputPath)&quot; &quot;$(ICU_OUT_INCLUDE_DIR)unicode&quot;"
+						Outputs="$(ICU_OUT_INCLUDE_DIR)unicode\$(InputFileName)"
 					/>
 				</FileConfiguration>
 				<FileConfiguration
@@ -1151,8 +1151,8 @@
 					>
 					<Tool
 						Name="VCCustomBuildTool"
-						CommandLine="copy &quot;$(InputPath)&quot; ..\..\include\unicode&#x0D;&#x0A;"
-						Outputs="..\..\include\unicode\$(InputFileName)"
+						CommandLine="copy &quot;$(InputPath)&quot; &quot;$(ICU_OUT_INCLUDE_DIR)unicode&quot;"
+						Outputs="$(ICU_OUT_INCLUDE_DIR)unicode\$(InputFileName)"
 					/>
 				</FileConfiguration>
 			</File>

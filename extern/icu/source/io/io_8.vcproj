@@ -439,8 +439,8 @@
 					>
 					<Tool
 						Name="VCCustomBuildTool"
-						CommandLine="copy &quot;$(InputPath)&quot; ..\..\include\unicode&#x0D;&#x0A;"
-						Outputs="..\..\include\unicode\$(InputFileName)"
+						CommandLine="copy &quot;$(InputPath)&quot; &quot;$(ICU_OUT_INCLUDE_DIR)unicode&quot;&#x0D;&#x0A;"
+						Outputs="$(ICU_OUT_INCLUDE_DIR)unicode\$(InputFileName)"
 					/>
 				</FileConfiguration>
 				<FileConfiguration
@@ -448,8 +448,8 @@
 					>
 					<Tool
 						Name="VCCustomBuildTool"
-						CommandLine="copy &quot;$(InputPath)&quot; ..\..\include\unicode&#x0D;&#x0A;"
-						Outputs="..\..\include\unicode\$(InputFileName)"
+						CommandLine="copy &quot;$(InputPath)&quot; &quot;$(ICU_OUT_INCLUDE_DIR)unicode&quot;&#x0D;&#x0A;"
+						Outputs="$(ICU_OUT_INCLUDE_DIR)unicode\$(InputFileName)"
 					/>
 				</FileConfiguration>
 				<FileConfiguration
@@ -457,8 +457,8 @@
 					>
 					<Tool
 						Name="VCCustomBuildTool"
-						CommandLine="copy &quot;$(InputPath)&quot; ..\..\include\unicode&#x0D;&#x0A;"
-						Outputs="..\..\include\unicode\$(InputFileName)"
+						CommandLine="copy &quot;$(InputPath)&quot; &quot;$(ICU_OUT_INCLUDE_DIR)unicode&quot;&#x0D;&#x0A;"
+						Outputs="$(ICU_OUT_INCLUDE_DIR)unicode\$(InputFileName)"
 					/>
 				</FileConfiguration>
 				<FileConfiguration
@@ -466,8 +466,8 @@
 					>
 					<Tool
 						Name="VCCustomBuildTool"
-						CommandLine="copy &quot;$(InputPath)&quot; ..\..\include\unicode&#x0D;&#x0A;"
-						Outputs="..\..\include\unicode\$(InputFileName)"
+						CommandLine="copy &quot;$(InputPath)&quot; &quot;$(ICU_OUT_INCLUDE_DIR)unicode&quot;&#x0D;&#x0A;"
+						Outputs="$(ICU_OUT_INCLUDE_DIR)unicode\$(InputFileName)"
 					/>
 				</FileConfiguration>
 			</File>
@@ -479,8 +479,8 @@
 					>
 					<Tool
 						Name="VCCustomBuildTool"
-						CommandLine="copy &quot;$(InputPath)&quot; ..\..\include\unicode&#x0D;&#x0A;"
-						Outputs="..\..\include\unicode\$(InputFileName)"
+						CommandLine="copy &quot;$(InputPath)&quot; &quot;$(ICU_OUT_INCLUDE_DIR)unicode&quot;&#x0D;&#x0A;"
+						Outputs="$(ICU_OUT_INCLUDE_DIR)unicode\$(InputFileName)"
 					/>
 				</FileConfiguration>
 				<FileConfiguration
@@ -488,8 +488,8 @@
 					>
 					<Tool
 						Name="VCCustomBuildTool"
-						CommandLine="copy &quot;$(InputPath)&quot; ..\..\include\unicode&#x0D;&#x0A;"
-						Outputs="..\..\include\unicode\$(InputFileName)"
+						CommandLine="copy &quot;$(InputPath)&quot; &quot;$(ICU_OUT_INCLUDE_DIR)unicode&quot;&#x0D;&#x0A;"
+						Outputs="$(ICU_OUT_INCLUDE_DIR)unicode\$(InputFileName)"
 					/>
 				</FileConfiguration>
 				<FileConfiguration
@@ -497,8 +497,8 @@
 					>
 					<Tool
 						Name="VCCustomBuildTool"
-						CommandLine="copy &quot;$(InputPath)&quot; ..\..\include\unicode&#x0D;&#x0A;"
-						Outputs="..\..\include\unicode\$(InputFileName)"
+						CommandLine="copy &quot;$(InputPath)&quot; &quot;$(ICU_OUT_INCLUDE_DIR)unicode&quot;&#x0D;&#x0A;"
+						Outputs="$(ICU_OUT_INCLUDE_DIR)unicode\$(InputFileName)"
 					/>
 				</FileConfiguration>
 				<FileConfiguration
@@ -506,8 +506,8 @@
 					>
 					<Tool
 						Name="VCCustomBuildTool"
-						CommandLine="copy &quot;$(InputPath)&quot; ..\..\include\unicode&#x0D;&#x0A;"
-						Outputs="..\..\include\unicode\$(InputFileName)"
+						CommandLine="copy &quot;$(InputPath)&quot; &quot;$(ICU_OUT_INCLUDE_DIR)unicode&quot;&#x0D;&#x0A;"
+						Outputs="$(ICU_OUT_INCLUDE_DIR)unicode\$(InputFileName)"
 					/>
 				</FileConfiguration>
 			</File>

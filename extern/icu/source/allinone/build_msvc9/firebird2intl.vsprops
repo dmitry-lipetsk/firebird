@@ -31,4 +31,8 @@
         Name="ICU_OUT_LIB_DIR"
         Value="$(SolutionDir)..\..\..\$(PlatformName)\$(ConfigurationName)\lib\"
     />
+    <UserMacro
+        Name="ICU_OUT_INCLUDE_DIR"
+        Value="$(SolutionDir)..\..\..\include\"
+    />
 </VisualStudioPropertySheet>

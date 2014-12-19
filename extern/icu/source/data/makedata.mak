@@ -31,6 +31,11 @@ UNICODE_VERSION=4.0.1
 !ERROR ICUTOOLS not defined!
 !ENDIF
 
+!MESSAGE ICU_INCLUDE_DIR path is [$(ICU_INCLUDE_DIR)]
+!IF "$(ICU_INCLUDE_DIR)"==""
+!ERROR ICU_INCLUDE_DIR not defined!
+!ENDIF
+
 !MESSAGE INT_ROOT_DIR path is [$(INT_ROOT_DIR)]
 !IF "$(INT_ROOT_DIR)"==""
 !ERROR INT_ROOT_DIR not defined!
@@ -503,7 +508,7 @@ res_index {
 # If you modify this, modify winmode.c in pkgdata.
 "$(ICUTMP)\icudata.res": "$(ICUMISC)\icudata.rc"
 	@echo Creating data DLL version information from $**
-	@rc.exe /i "$(ICUP)\include" /r /fo $@ $**
+	@rc.exe /i "$(ICU_INCLUDE_DIR)\" /r /fo $@ $**
 
 # Targets for unames.icu
 "$(ICUBLD)\unames.icu": "$(ICUUNIDATA)\*.txt" "$(ICUTOOLS__GENNAMES_EXE)"
