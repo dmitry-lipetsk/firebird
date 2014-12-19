@@ -45,7 +45,7 @@
 			/>
 			<Tool
 				Name="VCCLCompilerTool"
-				AdditionalIncludeDirectories="..\..\include,..\common"
+				AdditionalIncludeDirectories="..,..\common"
 				PreprocessorDefinitions="WIN32;_DEBUG;_WINDOWS;_USRDLL;U_LAYOUT_IMPLEMENTATION"
 				CompileAs="0"
 			/>
@@ -121,7 +121,7 @@
 			/>
 			<Tool
 				Name="VCCLCompilerTool"
-				AdditionalIncludeDirectories="..\..\include,..\common"
+				AdditionalIncludeDirectories="..,..\common"
 				PreprocessorDefinitions="WIN32;NDEBUG;_WINDOWS;_USRDLL;U_LAYOUT_IMPLEMENTATION"
 				CompileAs="0"
 			/>
@@ -197,7 +197,7 @@
 			/>
 			<Tool
 				Name="VCCLCompilerTool"
-				AdditionalIncludeDirectories="..\..\include,..\common"
+				AdditionalIncludeDirectories="..,..\common"
 				PreprocessorDefinitions="WIN32;_DEBUG;_WINDOWS;_USRDLL;U_LAYOUT_IMPLEMENTATION"
 				CompileAs="0"
 			/>
@@ -274,7 +274,7 @@
 			/>
 			<Tool
 				Name="VCCLCompilerTool"
-				AdditionalIncludeDirectories="..\..\include,..\common"
+				AdditionalIncludeDirectories="..,..\common"
 				PreprocessorDefinitions="WIN32;NDEBUG;_WINDOWS;_USRDLL;U_LAYOUT_IMPLEMENTATION"
 				CompileAs="0"
 			/>

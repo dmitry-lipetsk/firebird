@@ -44,7 +44,7 @@
 			/>
 			<Tool
 				Name="VCCLCompilerTool"
-				AdditionalIncludeDirectories="..\..\..\include,..\..\tools\ctestfw,..\..\common"
+				AdditionalIncludeDirectories="..\..\i18n,..\..\io,..\..\tools\ctestfw,..\..\common"
 				PreprocessorDefinitions="WIN32;_DEBUG;_CONSOLE"
 				CompileAs="0"
 			/>
@@ -116,7 +116,7 @@
 			/>
 			<Tool
 				Name="VCCLCompilerTool"
-				AdditionalIncludeDirectories="..\..\..\include,..\..\tools\ctestfw,..\..\common"
+				AdditionalIncludeDirectories="..\..\i18n,..\..\io,..\..\tools\ctestfw,..\..\common"
 				PreprocessorDefinitions="WIN32;_DEBUG;_CONSOLE"
 				CompileAs="0"
 			/>
@@ -186,7 +186,7 @@
 			/>
 			<Tool
 				Name="VCCLCompilerTool"
-				AdditionalIncludeDirectories="..\..\..\include,..\..\tools\ctestfw,..\..\common"
+				AdditionalIncludeDirectories="..\..\i18n,..\..\io,..\..\tools\ctestfw,..\..\common"
 				PreprocessorDefinitions="WIN32;NDEBUG;_CONSOLE"
 				CompileAs="0"
 			/>
@@ -257,7 +257,7 @@
 			/>
 			<Tool
 				Name="VCCLCompilerTool"
-				AdditionalIncludeDirectories="..\..\..\include,..\..\tools\ctestfw,..\..\common"
+				AdditionalIncludeDirectories="..\..\i18n,..\..\io,..\..\tools\ctestfw,..\..\common"
 				PreprocessorDefinitions="WIN32;NDEBUG;_CONSOLE"
 				CompileAs="0"
 			/>

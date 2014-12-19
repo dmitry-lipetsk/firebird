@@ -46,7 +46,7 @@
 			/>
 			<Tool
 				Name="VCCLCompilerTool"
-				AdditionalIncludeDirectories="..\..\..\include,..\..\common"
+				AdditionalIncludeDirectories="..\..\i18n,..\..\common"
 				PreprocessorDefinitions="WIN32,NDEBUG,_CONSOLE,UCONVMSG_LINK"
 				DisableLanguageExtensions="false"
 				CompileAs="0"
@@ -123,7 +123,7 @@
 			/>
 			<Tool
 				Name="VCCLCompilerTool"
-				AdditionalIncludeDirectories="..\..\..\include,..\..\common"
+				AdditionalIncludeDirectories="..\..\i18n,..\..\common"
 				PreprocessorDefinitions="WIN32,NDEBUG,_CONSOLE,UCONVMSG_LINK"
 				DisableLanguageExtensions="false"
 				CompileAs="0"
@@ -199,7 +199,7 @@
 			/>
 			<Tool
 				Name="VCCLCompilerTool"
-				AdditionalIncludeDirectories="..\..\..\include,..\..\common"
+				AdditionalIncludeDirectories="..\..\i18n,..\..\common"
 				PreprocessorDefinitions="WIN32,_DEBUG,_CONSOLE,UCONVMSG_LINK"
 				DisableLanguageExtensions="false"
 				CompileAs="0"
@@ -276,7 +276,7 @@
 			/>
 			<Tool
 				Name="VCCLCompilerTool"
-				AdditionalIncludeDirectories="..\..\..\include,..\..\common"
+				AdditionalIncludeDirectories="..\..\i18n,..\..\common"
 				PreprocessorDefinitions="WIN32,_DEBUG,_CONSOLE,UCONVMSG_LINK"
 				DisableLanguageExtensions="false"
 				CompileAs="0"
