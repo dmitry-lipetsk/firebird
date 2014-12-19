@@ -64,7 +64,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="$(PlatformName)\$(ConfigurationName)/uconvmsg.lib"
+				AdditionalDependencies="$(OutDir)uconvmsg.lib"
 				ShowProgress="0"
 				LinkIncremental="1"
 				AdditionalLibraryDirectories="Release"
@@ -141,7 +141,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="$(PlatformName)\$(ConfigurationName)/uconvmsg.lib"
+				AdditionalDependencies="$(OutDir)uconvmsg.lib"
 				LinkIncremental="1"
 				AdditionalLibraryDirectories="Release"
 				SubSystem="1"
@@ -217,7 +217,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="$(PlatformName)\$(ConfigurationName)/uconvmsg.lib"
+				AdditionalDependencies="$(OutDir)uconvmsg.lib"
 				LinkIncremental="2"
 				AdditionalLibraryDirectories="Debug"
 				GenerateDebugInformation="true"
@@ -294,7 +294,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="$(PlatformName)\$(ConfigurationName)/uconvmsg.lib"
+				AdditionalDependencies="$(OutDir)uconvmsg.lib"
 				LinkIncremental="2"
 				AdditionalLibraryDirectories="Debug"
 				GenerateDebugInformation="true"
@@ -376,8 +376,8 @@
 					>
 					<Tool
 						Name="VCCustomBuildTool"
-						CommandLine="nmake /nologo /f $(InputName).mak icup=&quot;$(ProjectDir)..\..\..&quot; CFG=$(PlatformName)\$(ConfigurationName)&#x0D;&#x0A;"
-						Outputs="$(PlatformName)\$(ConfigurationName)/uconvmsg.lib"
+						CommandLine="nmake /nologo /f $(InputName).mak icup=&quot;$(SolutionDir)..\..\..&quot; ICUTOOLS=&quot;$(ICU_OUT_BIN_DIR)\&quot; ICU_ROOT_OUT=&quot;$(ICU_ROOT_TMP_DIR)out\\&quot; DLL_OUTPUT=&quot;$(OutDir)\&quot;"
+						Outputs="$(OutDir)uconvmsg.lib"
 					/>
 				</FileConfiguration>
 				<FileConfiguration
@@ -385,8 +385,8 @@
 					>
 					<Tool
 						Name="VCCustomBuildTool"
-						CommandLine="nmake /nologo /f $(InputName).mak icup=&quot;$(ProjectDir)..\..\..&quot; CFG=$(PlatformName)\$(ConfigurationName)&#x0D;&#x0A;"
-						Outputs="$(PlatformName)\$(ConfigurationName)/uconvmsg.lib"
+						CommandLine="nmake /nologo /f $(InputName).mak icup=&quot;$(SolutionDir)..\..\..&quot; ICUTOOLS=&quot;$(ICU_OUT_BIN_DIR)\&quot; ICU_ROOT_OUT=&quot;$(ICU_ROOT_TMP_DIR)out\\&quot; DLL_OUTPUT=&quot;$(OutDir)\&quot;"
+						Outputs="$(OutDir)uconvmsg.lib"
 					/>
 				</FileConfiguration>
 				<FileConfiguration
@@ -394,8 +394,8 @@
 					>
 					<Tool
 						Name="VCCustomBuildTool"
-						CommandLine="nmake /nologo /f $(InputName).mak icup=&quot;$(ProjectDir)..\..\..&quot; CFG=$(PlatformName)\$(ConfigurationName)&#x0D;&#x0A;"
-						Outputs="$(PlatformName)\$(ConfigurationName)/uconvmsg.lib"
+						CommandLine="nmake /nologo /f $(InputName).mak icup=&quot;$(SolutionDir)..\..\..&quot; ICUTOOLS=&quot;$(ICU_OUT_BIN_DIR)\&quot; ICU_ROOT_OUT=&quot;$(ICU_ROOT_TMP_DIR)out\\&quot; DLL_OUTPUT=&quot;$(OutDir)\&quot;"
+						Outputs="$(OutDir)uconvmsg.lib"
 					/>
 				</FileConfiguration>
 				<FileConfiguration
@@ -403,8 +403,8 @@
 					>
 					<Tool
 						Name="VCCustomBuildTool"
-						CommandLine="nmake /nologo /f $(InputName).mak icup=&quot;$(ProjectDir)..\..\..&quot; CFG=$(PlatformName)\$(ConfigurationName)&#x0D;&#x0A;"
-						Outputs="$(PlatformName)\$(ConfigurationName)/uconvmsg.lib"
+						CommandLine="nmake /nologo /f $(InputName).mak icup=&quot;$(SolutionDir)..\..\..&quot; ICUTOOLS=&quot;$(ICU_OUT_BIN_DIR)\&quot; ICU_ROOT_OUT=&quot;$(ICU_ROOT_TMP_DIR)out\\&quot; DLL_OUTPUT=&quot;$(OutDir)\&quot;"
+						Outputs="$(OutDir)uconvmsg.lib"
 					/>
 				</FileConfiguration>
 			</File>

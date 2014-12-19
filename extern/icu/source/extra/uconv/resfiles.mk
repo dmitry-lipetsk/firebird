@@ -5,5 +5,4 @@
 # The variable FILESEPCHAR is defined by the caller to be
 # the character separating components of a filename.
 
-RESOURCESDIR = resources
-RESSRC = $(RESOURCESDIR)$(FILESEPCHAR)root.txt $(RESOURCESDIR)$(FILESEPCHAR)fr.txt
+RESSRC = root.txt fr.txt
