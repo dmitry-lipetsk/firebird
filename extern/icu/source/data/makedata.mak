@@ -31,6 +31,11 @@ UNICODE_VERSION=4.0.1
 !ERROR ICUTOOLS not defined!
 !ENDIF
 
+!MESSAGE INT_ROOT_DIR path is [$(INT_ROOT_DIR)]
+!IF "$(INT_ROOT_DIR)"==""
+!ERROR INT_ROOT_DIR not defined!
+!ENDIF
+
 !MESSAGE ICU_ROOT_OUT path is [$(ICU_ROOT_OUT)]
 !IF "$(ICU_ROOT_OUT)"==""
 !ERROR ICU_ROOT_OUT not defined!
@@ -333,7 +338,7 @@ BRK_FILES = sent.brk char.brk line.brk word.brk title.brk line_th.brk word_th.br
 #  move the .dll and .lib files to their final destination afterwards.
 #  The $(U_ICUDATA_NAME).lib and $(U_ICUDATA_NAME).exp should already be in the right place due to stubdata.
 #
-"$(DLL_OUTPUT)$(U_ICUDATA_NAME).dll" : "$(ICUPBIN)pkgdata.exe" $(CNV_FILES) $(BRK_FILES) "$(ICUBLD)\uprops.icu" "$(ICUBLD)\unames.icu" "$(ICUBLD)\pnames.icu" "$(ICUBLD)\unorm.icu" "$(ICUBLD)\cnvalias.icu" "$(ICUBLD)\ucadata.icu" "$(ICUBLD)\invuca.icu" "$(ICUBLD)\uidna.spp" $(INDEX_COL_FILES) $(COL_COL_FILES) $(ALL_RES) "$(ICUTMP)\icudata.res" "$(ICUP)\source\stubdata\stubdatabuilt.txt"
+"$(DLL_OUTPUT)$(U_ICUDATA_NAME).dll" : "$(ICUPBIN)pkgdata.exe" $(CNV_FILES) $(BRK_FILES) "$(ICUBLD)\uprops.icu" "$(ICUBLD)\unames.icu" "$(ICUBLD)\pnames.icu" "$(ICUBLD)\unorm.icu" "$(ICUBLD)\cnvalias.icu" "$(ICUBLD)\ucadata.icu" "$(ICUBLD)\invuca.icu" "$(ICUBLD)\uidna.spp" $(INDEX_COL_FILES) $(COL_COL_FILES) $(ALL_RES) "$(ICUTMP)\icudata.res" "$(INT_ROOT_DIR)stubdata\stubdatabuilt.txt"
 	echo Building icu data
 	cd "$(ICUBLD)"
 	@"$(ICUPBIN)pkgdata" -Z -f -e $(U_ICUDATA_NAME) -v $(ICU_PACKAGE_MODE) -c -p $(ICUPKG) -T "$(ICUTMP)" -L $(U_ICUDATA_NAME) -d "$(ICUBLD)" -s . <<pkgdatain.txt

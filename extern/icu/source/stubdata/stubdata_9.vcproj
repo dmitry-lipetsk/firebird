@@ -61,7 +61,7 @@
 			/>
 			<Tool
 				Name="VCPreLinkEventTool"
-				CommandLine="echo &quot;File with stubdata build time, used as a dependency to trigger fresh data build, since stubdata dll will overwrite the real one.&quot; &gt; &quot;$(ProjectDir)stubdatabuilt.txt&quot;"
+				CommandLine="echo &quot;File with stubdata build time, used as a dependency to trigger fresh data build, since stubdata dll will overwrite the real one.&quot; &gt; &quot;$(IntDir)stubdatabuilt.txt&quot;"
 			/>
 			<Tool
 				Name="VCLinkerTool"
@@ -137,7 +137,7 @@
 			/>
 			<Tool
 				Name="VCPreLinkEventTool"
-				CommandLine="echo &quot;File with stubdata build time, used as a dependency to trigger fresh data build, since stubdata dll will overwrite the real one.&quot; &gt; &quot;$(ProjectDir)stubdatabuilt.txt&quot;"
+				CommandLine="echo &quot;File with stubdata build time, used as a dependency to trigger fresh data build, since stubdata dll will overwrite the real one.&quot; &gt; &quot;$(IntDir)stubdatabuilt.txt&quot;"
 			/>
 			<Tool
 				Name="VCLinkerTool"
@@ -213,7 +213,7 @@
 			/>
 			<Tool
 				Name="VCPreLinkEventTool"
-				CommandLine="echo &quot;File with stubdata build time, used as a dependency to trigger fresh data build, since stubdata dll will overwrite the real one.&quot; &gt; &quot;$(ProjectDir)stubdatabuilt.txt&quot;"
+				CommandLine="echo &quot;File with stubdata build time, used as a dependency to trigger fresh data build, since stubdata dll will overwrite the real one.&quot; &gt; &quot;$(IntDir)stubdatabuilt.txt&quot;"
 			/>
 			<Tool
 				Name="VCLinkerTool"
@@ -288,7 +288,7 @@
 			/>
 			<Tool
 				Name="VCPreLinkEventTool"
-				CommandLine="echo &quot;File with stubdata build time, used as a dependency to trigger fresh data build, since stubdata dll will overwrite the real one.&quot; &gt; &quot;$(ProjectDir)stubdatabuilt.txt&quot;"
+				CommandLine="echo &quot;File with stubdata build time, used as a dependency to trigger fresh data build, since stubdata dll will overwrite the real one.&quot; &gt; &quot;$(IntDir)stubdatabuilt.txt&quot;"
 			/>
 			<Tool
 				Name="VCLinkerTool"

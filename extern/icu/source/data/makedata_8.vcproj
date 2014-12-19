@@ -26,9 +26,9 @@
 			>
 			<Tool
 				Name="VCNMakeTool"
-				BuildCommandLine="NMAKE /f makedata.mak ICUMAKE=&quot;$(ProjectDir)\&quot; ICUTOOLS=&quot;$(OutDir)\&quot; ICU_ROOT_OUT=&quot;$(ICU_ROOT_TMP_DIR)out\\&quot; DLL_OUTPUT=&quot;$(ICU_OUT_BIN_DIR)\&quot; ICUPBIN=&quot;$(ICU_OUT_BIN_DIR)\&quot;"
-				ReBuildCommandLine="NMAKE /f makedata.mak ICUMAKE=&quot;$(ProjectDir)\&quot; ICUTOOLS=&quot;$(OutDir)\&quot; ICU_ROOT_OUT=&quot;$(ICU_ROOT_TMP_DIR)out\\&quot; DLL_OUTPUT=&quot;$(ICU_OUT_BIN_DIR)\&quot; ICUPBIN=&quot;$(ICU_OUT_BIN_DIR)\&quot; clean all"
-				CleanCommandLine="NMAKE /f makedata.mak ICUMAKE=&quot;$(ProjectDir)\&quot; ICUTOOLS=&quot;$(OutDir)\&quot; ICU_ROOT_OUT=&quot;$(ICU_ROOT_TMP_DIR)out\\&quot; DLL_OUTPUT=&quot;$(ICU_OUT_BIN_DIR)\&quot; ICUPBIN=&quot;$(ICU_OUT_BIN_DIR)\&quot; clean"
+				BuildCommandLine="NMAKE /f makedata.mak ICUMAKE=&quot;$(ProjectDir)\&quot; ICUTOOLS=&quot;$(OutDir)\&quot; INT_ROOT_DIR=&quot;$(IntDir)..\\&quot; ICU_ROOT_OUT=&quot;$(ICU_ROOT_TMP_DIR)out\\&quot; DLL_OUTPUT=&quot;$(ICU_OUT_BIN_DIR)\&quot; ICUPBIN=&quot;$(ICU_OUT_BIN_DIR)\&quot;"
+				ReBuildCommandLine="NMAKE /f makedata.mak ICUMAKE=&quot;$(ProjectDir)\&quot; ICUTOOLS=&quot;$(OutDir)\&quot; INT_ROOT_DIR=&quot;$(IntDir)..\\&quot; ICU_ROOT_OUT=&quot;$(ICU_ROOT_TMP_DIR)out\\&quot; DLL_OUTPUT=&quot;$(ICU_OUT_BIN_DIR)\&quot; ICUPBIN=&quot;$(ICU_OUT_BIN_DIR)\&quot; clean all"
+				CleanCommandLine="NMAKE /f makedata.mak ICUMAKE=&quot;$(ProjectDir)\&quot; ICUTOOLS=&quot;$(OutDir)\&quot; INT_ROOT_DIR=&quot;$(IntDir)..\\&quot; ICU_ROOT_OUT=&quot;$(ICU_ROOT_TMP_DIR)out\\&quot; DLL_OUTPUT=&quot;$(ICU_OUT_BIN_DIR)\&quot; ICUPBIN=&quot;$(ICU_OUT_BIN_DIR)\&quot; clean"
 				Output=""
 				PreprocessorDefinitions=""
 				IncludeSearchPath=""
@@ -47,9 +47,9 @@
 			>
 			<Tool
 				Name="VCNMakeTool"
-				BuildCommandLine="NMAKE /f makedata.mak ICUMAKE=&quot;$(ProjectDir)\&quot; ICUTOOLS=&quot;$(OutDir)\&quot; ICU_ROOT_OUT=&quot;$(ICU_ROOT_TMP_DIR)out\\&quot; DLL_OUTPUT=&quot;$(ICU_OUT_BIN_DIR)\&quot; ICUPBIN=&quot;$(ICU_OUT_BIN_DIR)\&quot;"
-				ReBuildCommandLine="NMAKE /f makedata.mak ICUMAKE=&quot;$(ProjectDir)\&quot; ICUTOOLS=&quot;$(OutDir)\&quot; ICU_ROOT_OUT=&quot;$(ICU_ROOT_TMP_DIR)out\\&quot; DLL_OUTPUT=&quot;$(ICU_OUT_BIN_DIR)\&quot; ICUPBIN=&quot;$(ICU_OUT_BIN_DIR)\&quot; clean all"
-				CleanCommandLine="NMAKE /f makedata.mak ICUMAKE=&quot;$(ProjectDir)\&quot; ICUTOOLS=&quot;$(OutDir)\&quot; ICU_ROOT_OUT=&quot;$(ICU_ROOT_TMP_DIR)out\\&quot; DLL_OUTPUT=&quot;$(ICU_OUT_BIN_DIR)\&quot; ICUPBIN=&quot;$(ICU_OUT_BIN_DIR)\&quot; clean"
+				BuildCommandLine="NMAKE /f makedata.mak ICUMAKE=&quot;$(ProjectDir)\&quot; ICUTOOLS=&quot;$(OutDir)\&quot; INT_ROOT_DIR=&quot;$(IntDir)..\\&quot; ICU_ROOT_OUT=&quot;$(ICU_ROOT_TMP_DIR)out\\&quot; DLL_OUTPUT=&quot;$(ICU_OUT_BIN_DIR)\&quot; ICUPBIN=&quot;$(ICU_OUT_BIN_DIR)\&quot;"
+				ReBuildCommandLine="NMAKE /f makedata.mak ICUMAKE=&quot;$(ProjectDir)\&quot; ICUTOOLS=&quot;$(OutDir)\&quot; INT_ROOT_DIR=&quot;$(IntDir)..\\&quot; ICU_ROOT_OUT=&quot;$(ICU_ROOT_TMP_DIR)out\\&quot; DLL_OUTPUT=&quot;$(ICU_OUT_BIN_DIR)\&quot; ICUPBIN=&quot;$(ICU_OUT_BIN_DIR)\&quot; clean all"
+				CleanCommandLine="NMAKE /f makedata.mak ICUMAKE=&quot;$(ProjectDir)\&quot; ICUTOOLS=&quot;$(OutDir)\&quot; INT_ROOT_DIR=&quot;$(IntDir)..\\&quot; ICU_ROOT_OUT=&quot;$(ICU_ROOT_TMP_DIR)out\\&quot; DLL_OUTPUT=&quot;$(ICU_OUT_BIN_DIR)\&quot; ICUPBIN=&quot;$(ICU_OUT_BIN_DIR)\&quot; clean"
 				Output=""
 				PreprocessorDefinitions=""
 				IncludeSearchPath=""
@@ -68,9 +68,9 @@
 			>
 			<Tool
 				Name="VCNMakeTool"
-				BuildCommandLine="NMAKE /f makedata.mak ICUMAKE=&quot;$(ProjectDir)\&quot; ICUTOOLS=&quot;$(OutDir)\&quot; ICU_ROOT_OUT=&quot;$(ICU_ROOT_TMP_DIR)out\\&quot; DLL_OUTPUT=&quot;$(ICU_OUT_BIN_DIR)\&quot; ICUPBIN=&quot;$(ICU_OUT_BIN_DIR)\&quot;"
-				ReBuildCommandLine="NMAKE /f makedata.mak ICUMAKE=&quot;$(ProjectDir)\&quot; ICUTOOLS=&quot;$(OutDir)\&quot; ICU_ROOT_OUT=&quot;$(ICU_ROOT_TMP_DIR)out\\&quot; DLL_OUTPUT=&quot;$(ICU_OUT_BIN_DIR)\&quot; ICUPBIN=&quot;$(ICU_OUT_BIN_DIR)\&quot; clean all"
-				CleanCommandLine="NMAKE /f makedata.mak ICUMAKE=&quot;$(ProjectDir)\&quot; ICUTOOLS=&quot;$(OutDir)\&quot; ICU_ROOT_OUT=&quot;$(ICU_ROOT_TMP_DIR)out\\&quot; DLL_OUTPUT=&quot;$(ICU_OUT_BIN_DIR)\&quot; ICUPBIN=&quot;$(ICU_OUT_BIN_DIR)\&quot; clean"
+				BuildCommandLine="NMAKE /f makedata.mak ICUMAKE=&quot;$(ProjectDir)\&quot; ICUTOOLS=&quot;$(OutDir)\&quot; INT_ROOT_DIR=&quot;$(IntDir)..\\&quot; ICU_ROOT_OUT=&quot;$(ICU_ROOT_TMP_DIR)out\\&quot; DLL_OUTPUT=&quot;$(ICU_OUT_BIN_DIR)\&quot; ICUPBIN=&quot;$(ICU_OUT_BIN_DIR)\&quot;"
+				ReBuildCommandLine="NMAKE /f makedata.mak ICUMAKE=&quot;$(ProjectDir)\&quot; ICUTOOLS=&quot;$(OutDir)\&quot; INT_ROOT_DIR=&quot;$(IntDir)..\\&quot; ICU_ROOT_OUT=&quot;$(ICU_ROOT_TMP_DIR)out\\&quot; DLL_OUTPUT=&quot;$(ICU_OUT_BIN_DIR)\&quot; ICUPBIN=&quot;$(ICU_OUT_BIN_DIR)\&quot; clean all"
+				CleanCommandLine="NMAKE /f makedata.mak ICUMAKE=&quot;$(ProjectDir)\&quot; ICUTOOLS=&quot;$(OutDir)\&quot; INT_ROOT_DIR=&quot;$(IntDir)..\\&quot; ICU_ROOT_OUT=&quot;$(ICU_ROOT_TMP_DIR)out\\&quot; DLL_OUTPUT=&quot;$(ICU_OUT_BIN_DIR)\&quot; ICUPBIN=&quot;$(ICU_OUT_BIN_DIR)\&quot; clean"
 				Output=""
 				PreprocessorDefinitions=""
 				IncludeSearchPath=""
@@ -89,9 +89,9 @@
 			>
 			<Tool
 				Name="VCNMakeTool"
-				BuildCommandLine="NMAKE /f makedata.mak ICUMAKE=&quot;$(ProjectDir)\&quot; ICUTOOLS=&quot;$(OutDir)\&quot; ICU_ROOT_OUT=&quot;$(ICU_ROOT_TMP_DIR)out\\&quot; DLL_OUTPUT=&quot;$(ICU_OUT_BIN_DIR)\&quot; ICUPBIN=&quot;$(ICU_OUT_BIN_DIR)\&quot;"
-				ReBuildCommandLine="NMAKE /f makedata.mak ICUMAKE=&quot;$(ProjectDir)\&quot; ICUTOOLS=&quot;$(OutDir)\&quot; ICU_ROOT_OUT=&quot;$(ICU_ROOT_TMP_DIR)out\\&quot; DLL_OUTPUT=&quot;$(ICU_OUT_BIN_DIR)\&quot; ICUPBIN=&quot;$(ICU_OUT_BIN_DIR)\&quot; clean all"
-				CleanCommandLine="NMAKE /f makedata.mak ICUMAKE=&quot;$(ProjectDir)\&quot; ICUTOOLS=&quot;$(OutDir)\&quot; ICU_ROOT_OUT=&quot;$(ICU_ROOT_TMP_DIR)out\\&quot; DLL_OUTPUT=&quot;$(ICU_OUT_BIN_DIR)\&quot; ICUPBIN=&quot;$(ICU_OUT_BIN_DIR)\&quot; clean"
+				BuildCommandLine="NMAKE /f makedata.mak ICUMAKE=&quot;$(ProjectDir)\&quot; ICUTOOLS=&quot;$(OutDir)\&quot; INT_ROOT_DIR=&quot;$(IntDir)..\\&quot; ICU_ROOT_OUT=&quot;$(ICU_ROOT_TMP_DIR)out\\&quot; DLL_OUTPUT=&quot;$(ICU_OUT_BIN_DIR)\&quot; ICUPBIN=&quot;$(ICU_OUT_BIN_DIR)\&quot;"
+				ReBuildCommandLine="NMAKE /f makedata.mak ICUMAKE=&quot;$(ProjectDir)\&quot; ICUTOOLS=&quot;$(OutDir)\&quot; INT_ROOT_DIR=&quot;$(IntDir)..\\&quot; ICU_ROOT_OUT=&quot;$(ICU_ROOT_TMP_DIR)out\\&quot; DLL_OUTPUT=&quot;$(ICU_OUT_BIN_DIR)\&quot; ICUPBIN=&quot;$(ICU_OUT_BIN_DIR)\&quot; clean all"
+				CleanCommandLine="NMAKE /f makedata.mak ICUMAKE=&quot;$(ProjectDir)\&quot; ICUTOOLS=&quot;$(OutDir)\&quot; INT_ROOT_DIR=&quot;$(IntDir)..\\&quot; ICU_ROOT_OUT=&quot;$(ICU_ROOT_TMP_DIR)out\\&quot; DLL_OUTPUT=&quot;$(ICU_OUT_BIN_DIR)\&quot; ICUPBIN=&quot;$(ICU_OUT_BIN_DIR)\&quot; clean"
 				Output=""
 				PreprocessorDefinitions=""
 				IncludeSearchPath=""
