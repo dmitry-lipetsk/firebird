@@ -35,7 +35,7 @@ ICUOUT=$(ICU_ROOT_OUT)\uconv
 !MESSAGE ICUP is [$(ICUP)]
 
 RESNAME=uconvmsg
-RESFILES=resfiles.mk
+RESFILES=$(ICUP)\source\extra\uconv\resfiles.mk
 #ICUDATA=$(ICUP)\data
 
 # set the following to 'static' or 'dll' depending
@@ -85,7 +85,7 @@ CLEAN :
 	@echo Making Resource Bundle files
     -md "$(ICUOUT)"
 	@echo EXEC: "$(ICUTOOLS)genrb.exe" -t -p $(RESNAME) -s resources -d $(ICUOUT) $(?F)
-    "$(ICUTOOLS)genrb.exe" -t -p $(RESNAME) -s resources -d $(ICUOUT) $(?F)
+    "$(ICUTOOLS)genrb.exe" -t -p $(RESNAME) -s $(ICUP)\source\extra\uconv\resources -d $(ICUOUT) $(?F)
 
 $(RESSRC) : "$(ICUTOOLS)genrb.exe"
 
