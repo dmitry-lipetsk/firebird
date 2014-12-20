@@ -141,7 +141,7 @@
 				Name="VCLinkerTool"
 				OutputFile="$(OutDir)icuin30.dll"
 				BaseAddress="0x4a900000"
-				ImportLibrary="$(ICU_OUT_LIB_DIR)icuind.lib"
+				ImportLibrary="$(ICU_OUT_LIB_DIR)icuin.lib"
 			/>
 			<Tool
 				Name="VCALinkTool"
@@ -294,7 +294,7 @@
 				Name="VCLinkerTool"
 				OutputFile="$(OutDir)icuin30.dll"
 				BaseAddress="0x4a900000"
-				ImportLibrary="$(ICU_OUT_LIB_DIR)icuind.lib"
+				ImportLibrary="$(ICU_OUT_LIB_DIR)icuin.lib"
 				TargetMachine="17"
 			/>
 			<Tool

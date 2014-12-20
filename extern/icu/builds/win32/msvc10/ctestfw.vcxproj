@@ -163,7 +163,7 @@
       <RandomizedBaseAddress>false</RandomizedBaseAddress>
       <DataExecutionPrevention>
       </DataExecutionPrevention>
-      <ImportLibrary>$(ICU_OUT_LIB_DIR)icutestd.lib</ImportLibrary>
+      <ImportLibrary>$(ICU_OUT_LIB_DIR)icutest.lib</ImportLibrary>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -185,7 +185,7 @@
       <RandomizedBaseAddress>false</RandomizedBaseAddress>
       <DataExecutionPrevention>
       </DataExecutionPrevention>
-      <ImportLibrary>$(ICU_OUT_LIB_DIR)icutestd.lib</ImportLibrary>
+      <ImportLibrary>$(ICU_OUT_LIB_DIR)icutest.lib</ImportLibrary>
       <TargetMachine>MachineX64</TargetMachine>
     </Link>
   </ItemDefinitionGroup>

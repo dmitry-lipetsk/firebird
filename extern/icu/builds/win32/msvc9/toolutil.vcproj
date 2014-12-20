@@ -227,7 +227,7 @@
 				BaseAddress="0x4ac00000"
 				RandomizedBaseAddress="1"
 				DataExecutionPrevention="0"
-				ImportLibrary="$(ICU_OUT_LIB_DIR)icutud.lib"
+				ImportLibrary="$(ICU_OUT_LIB_DIR)icutu.lib"
 			/>
 			<Tool
 				Name="VCALinkTool"
@@ -305,7 +305,7 @@
 				BaseAddress="0x4ac00000"
 				RandomizedBaseAddress="1"
 				DataExecutionPrevention="0"
-				ImportLibrary="$(ICU_OUT_LIB_DIR)icutud.lib"
+				ImportLibrary="$(ICU_OUT_LIB_DIR)icutu.lib"
 				TargetMachine="17"
 			/>
 			<Tool

@@ -65,7 +65,7 @@
 				Name="VCLinkerTool"
 				OutputFile="$(OutDir)icule30.dll"
 				BaseAddress="0x4ac00000"
-				ImportLibrary="$(ICU_OUT_LIB_DIR)iculed.lib"
+				ImportLibrary="$(ICU_OUT_LIB_DIR)icule.lib"
 			/>
 			<Tool
 				Name="VCALinkTool"
@@ -217,7 +217,7 @@
 				Name="VCLinkerTool"
 				OutputFile="$(OutDir)icule30.dll"
 				BaseAddress="0x4ac00000"
-				ImportLibrary="$(ICU_OUT_LIB_DIR)iculed.lib"
+				ImportLibrary="$(ICU_OUT_LIB_DIR)icule.lib"
 				TargetMachine="17"
 			/>
 			<Tool
