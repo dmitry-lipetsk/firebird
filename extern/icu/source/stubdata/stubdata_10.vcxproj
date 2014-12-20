@@ -89,10 +89,10 @@
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">icudt30</TargetName>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">icudt30</TargetName>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">icudt30</TargetName>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\..\$(PlatformName)\$(Configuration)\bin\</OutDir>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\$(PlatformName)\$(Configuration)\bin\</OutDir>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\..\$(PlatformName)\$(Configuration)\bin\</OutDir>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\..\$(PlatformName)\$(Configuration)\bin\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(ICU_OUT_BIN_DIR)</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(ICU_OUT_BIN_DIR)</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(ICU_OUT_BIN_DIR)</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(ICU_OUT_BIN_DIR)</OutDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <Midl>
