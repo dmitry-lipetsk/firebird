@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<VisualStudioProject
+	ProjectType="Visual C++"
+	Version="8,00"
+	Name="makedata"
+	ProjectGUID="{D9DF7F2F-93B7-4810-B5CD-96F4F33C079B}"
+	Keyword="MakeFileProj"
+	>
+	<Platforms>
+		<Platform
+			Name="Win32"
+		/>
+		<Platform
+			Name="x64"
+		/>
+	</Platforms>
+	<ToolFiles>
+	</ToolFiles>
+	<Configurations>
+		<Configuration
+			Name="Release|Win32"
+			ConfigurationType="0"
+			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC71.vsprops;firebird2intl.vsprops;firebird2release.vsprops"
+			UseOfMFC="0"
+			ATLMinimizesCRunTimeLibraryUsage="false"
+			>
+			<Tool
+				Name="VCNMakeTool"
+				BuildCommandLine="NMAKE /f ..\..\..\source\data\makedata.mak ICUMAKE=&quot;$(ProjectDir)..\..\..\source\data\\&quot; ICUTOOLS=&quot;$(OutDir)\&quot; INT_ROOT_DIR=&quot;$(IntDir)..\\&quot; ICU_ROOT_OUT=&quot;$(ICU_ROOT_TMP_DIR)out\\&quot; DLL_OUTPUT=&quot;$(ICU_OUT_BIN_DIR)\&quot; ICUPBIN=&quot;$(ICU_OUT_BIN_DIR)\&quot; ICU_INCLUDE_DIR=&quot;$(ICU_OUT_INCLUDE_DIR)\&quot;"
+				ReBuildCommandLine="NMAKE /f ..\..\..\source\data\makedata.mak ICUMAKE=&quot;$(ProjectDir)..\..\..\source\data\\&quot; ICUTOOLS=&quot;$(OutDir)\&quot; INT_ROOT_DIR=&quot;$(IntDir)..\\&quot; ICU_ROOT_OUT=&quot;$(ICU_ROOT_TMP_DIR)out\\&quot; DLL_OUTPUT=&quot;$(ICU_OUT_BIN_DIR)\&quot; ICUPBIN=&quot;$(ICU_OUT_BIN_DIR)\&quot; ICU_INCLUDE_DIR=&quot;$(ICU_OUT_INCLUDE_DIR)\&quot; clean all"
+				CleanCommandLine="NMAKE /f ..\..\..\source\data\makedata.mak ICUMAKE=&quot;$(ProjectDir)..\..\..\source\data\\&quot; ICUTOOLS=&quot;$(OutDir)\&quot; INT_ROOT_DIR=&quot;$(IntDir)..\\&quot; ICU_ROOT_OUT=&quot;$(ICU_ROOT_TMP_DIR)out\\&quot; DLL_OUTPUT=&quot;$(ICU_OUT_BIN_DIR)\&quot; ICUPBIN=&quot;$(ICU_OUT_BIN_DIR)\&quot; ICU_INCLUDE_DIR=&quot;$(ICU_OUT_INCLUDE_DIR)\&quot; clean"
+				Output=""
+				PreprocessorDefinitions=""
+				IncludeSearchPath=""
+				ForcedIncludes=""
+				AssemblySearchPath=""
+				ForcedUsingAssemblies=""
+				CompileAsManaged=""
+			/>
+		</Configuration>
+		<Configuration
+			Name="Debug|Win32"
+			ConfigurationType="0"
+			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC71.vsprops;firebird2intl.vsprops;firebird2debug.vsprops"
+			UseOfMFC="0"
+			ATLMinimizesCRunTimeLibraryUsage="false"
+			>
+			<Tool
+				Name="VCNMakeTool"
+				BuildCommandLine="NMAKE /f ..\..\..\source\data\makedata.mak ICUMAKE=&quot;$(ProjectDir)..\..\..\source\data\\&quot; ICUTOOLS=&quot;$(OutDir)\&quot; INT_ROOT_DIR=&quot;$(IntDir)..\\&quot; ICU_ROOT_OUT=&quot;$(ICU_ROOT_TMP_DIR)out\\&quot; DLL_OUTPUT=&quot;$(ICU_OUT_BIN_DIR)\&quot; ICUPBIN=&quot;$(ICU_OUT_BIN_DIR)\&quot; ICU_INCLUDE_DIR=&quot;$(ICU_OUT_INCLUDE_DIR)\&quot;"
+				ReBuildCommandLine="NMAKE /f ..\..\..\source\data\makedata.mak ICUMAKE=&quot;$(ProjectDir)..\..\..\source\data\\&quot; ICUTOOLS=&quot;$(OutDir)\&quot; INT_ROOT_DIR=&quot;$(IntDir)..\\&quot; ICU_ROOT_OUT=&quot;$(ICU_ROOT_TMP_DIR)out\\&quot; DLL_OUTPUT=&quot;$(ICU_OUT_BIN_DIR)\&quot; ICUPBIN=&quot;$(ICU_OUT_BIN_DIR)\&quot; ICU_INCLUDE_DIR=&quot;$(ICU_OUT_INCLUDE_DIR)\&quot; clean all"
+				CleanCommandLine="NMAKE /f ..\..\..\source\data\makedata.mak ICUMAKE=&quot;$(ProjectDir)..\..\..\source\data\\&quot; ICUTOOLS=&quot;$(OutDir)\&quot; INT_ROOT_DIR=&quot;$(IntDir)..\\&quot; ICU_ROOT_OUT=&quot;$(ICU_ROOT_TMP_DIR)out\\&quot; DLL_OUTPUT=&quot;$(ICU_OUT_BIN_DIR)\&quot; ICUPBIN=&quot;$(ICU_OUT_BIN_DIR)\&quot; ICU_INCLUDE_DIR=&quot;$(ICU_OUT_INCLUDE_DIR)\&quot; clean"
+				Output=""
+				PreprocessorDefinitions=""
+				IncludeSearchPath=""
+				ForcedIncludes=""
+				AssemblySearchPath=""
+				ForcedUsingAssemblies=""
+				CompileAsManaged=""
+			/>
+		</Configuration>
+		<Configuration
+			Name="Release|x64"
+			ConfigurationType="0"
+			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC71.vsprops;firebird2intl.vsprops;firebird2release.vsprops"
+			UseOfMFC="0"
+			ATLMinimizesCRunTimeLibraryUsage="false"
+			>
+			<Tool
+				Name="VCNMakeTool"
+				BuildCommandLine="NMAKE /f ..\..\..\source\data\makedata.mak ICUMAKE=&quot;$(ProjectDir)..\..\..\source\data\\&quot; ICUTOOLS=&quot;$(OutDir)\&quot; INT_ROOT_DIR=&quot;$(IntDir)..\\&quot; ICU_ROOT_OUT=&quot;$(ICU_ROOT_TMP_DIR)out\\&quot; DLL_OUTPUT=&quot;$(ICU_OUT_BIN_DIR)\&quot; ICUPBIN=&quot;$(ICU_OUT_BIN_DIR)\&quot; ICU_INCLUDE_DIR=&quot;$(ICU_OUT_INCLUDE_DIR)\&quot;"
+				ReBuildCommandLine="NMAKE /f ..\..\..\source\data\makedata.mak ICUMAKE=&quot;$(ProjectDir)..\..\..\source\data\\&quot; ICUTOOLS=&quot;$(OutDir)\&quot; INT_ROOT_DIR=&quot;$(IntDir)..\\&quot; ICU_ROOT_OUT=&quot;$(ICU_ROOT_TMP_DIR)out\\&quot; DLL_OUTPUT=&quot;$(ICU_OUT_BIN_DIR)\&quot; ICUPBIN=&quot;$(ICU_OUT_BIN_DIR)\&quot; ICU_INCLUDE_DIR=&quot;$(ICU_OUT_INCLUDE_DIR)\&quot; clean all"
+				CleanCommandLine="NMAKE /f ..\..\..\source\data\makedata.mak ICUMAKE=&quot;$(ProjectDir)..\..\..\source\data\\&quot; ICUTOOLS=&quot;$(OutDir)\&quot; INT_ROOT_DIR=&quot;$(IntDir)..\\&quot; ICU_ROOT_OUT=&quot;$(ICU_ROOT_TMP_DIR)out\\&quot; DLL_OUTPUT=&quot;$(ICU_OUT_BIN_DIR)\&quot; ICUPBIN=&quot;$(ICU_OUT_BIN_DIR)\&quot; ICU_INCLUDE_DIR=&quot;$(ICU_OUT_INCLUDE_DIR)\&quot; clean"
+				Output=""
+				PreprocessorDefinitions=""
+				IncludeSearchPath=""
+				ForcedIncludes=""
+				AssemblySearchPath=""
+				ForcedUsingAssemblies=""
+				CompileAsManaged=""
+			/>
+		</Configuration>
+		<Configuration
+			Name="Debug|x64"
+			ConfigurationType="0"
+			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC71.vsprops;firebird2intl.vsprops;firebird2debug.vsprops"
+			UseOfMFC="0"
+			ATLMinimizesCRunTimeLibraryUsage="false"
+			>
+			<Tool
+				Name="VCNMakeTool"
+				BuildCommandLine="NMAKE /f ..\..\..\source\data\makedata.mak ICUMAKE=&quot;$(ProjectDir)..\..\..\source\data\\&quot; ICUTOOLS=&quot;$(OutDir)\&quot; INT_ROOT_DIR=&quot;$(IntDir)..\\&quot; ICU_ROOT_OUT=&quot;$(ICU_ROOT_TMP_DIR)out\\&quot; DLL_OUTPUT=&quot;$(ICU_OUT_BIN_DIR)\&quot; ICUPBIN=&quot;$(ICU_OUT_BIN_DIR)\&quot; ICU_INCLUDE_DIR=&quot;$(ICU_OUT_INCLUDE_DIR)\&quot;"
+				ReBuildCommandLine="NMAKE /f ..\..\..\source\data\makedata.mak ICUMAKE=&quot;$(ProjectDir)..\..\..\source\data\\&quot; ICUTOOLS=&quot;$(OutDir)\&quot; INT_ROOT_DIR=&quot;$(IntDir)..\\&quot; ICU_ROOT_OUT=&quot;$(ICU_ROOT_TMP_DIR)out\\&quot; DLL_OUTPUT=&quot;$(ICU_OUT_BIN_DIR)\&quot; ICUPBIN=&quot;$(ICU_OUT_BIN_DIR)\&quot; ICU_INCLUDE_DIR=&quot;$(ICU_OUT_INCLUDE_DIR)\&quot; clean all"
+				CleanCommandLine="NMAKE /f ..\..\..\source\data\makedata.mak ICUMAKE=&quot;$(ProjectDir)..\..\..\source\data\\&quot; ICUTOOLS=&quot;$(OutDir)\&quot; INT_ROOT_DIR=&quot;$(IntDir)..\\&quot; ICU_ROOT_OUT=&quot;$(ICU_ROOT_TMP_DIR)out\\&quot; DLL_OUTPUT=&quot;$(ICU_OUT_BIN_DIR)\&quot; ICUPBIN=&quot;$(ICU_OUT_BIN_DIR)\&quot; ICU_INCLUDE_DIR=&quot;$(ICU_OUT_INCLUDE_DIR)\&quot; clean"
+				Output=""
+				PreprocessorDefinitions=""
+				IncludeSearchPath=""
+				ForcedIncludes=""
+				AssemblySearchPath=""
+				ForcedUsingAssemblies=""
+				CompileAsManaged=""
+			/>
+		</Configuration>
+	</Configurations>
+	<References>
+	</References>
+	<Files>
+		<Filter
+			Name="Resource Files"
+			Filter="ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe"
+			>
+		</Filter>
+		<Filter
+			Name="Make Files"
+			Filter="mak;mk"
+			>
+			<File
+				RelativePath="..\..\..\source\data\makedata.mak"
+				>
+			</File>
+			<File
+				RelativePath="..\..\..\source\data\misc\miscfiles.mk"
+				>
+			</File>
+			<File
+				RelativePath="..\..\..\source\data\locales\resfiles.mk"
+				>
+			</File>
+			<File
+				RelativePath="..\..\..\source\test\testdata\testdata.mk"
+				>
+			</File>
+			<File
+				RelativePath="..\..\..\source\data\translit\trnsfiles.mk"
+				>
+			</File>
+			<File
+				RelativePath="..\..\..\source\data\mappings\ucmcore.mk"
+				>
+			</File>
+			<File
+				RelativePath="..\..\..\source\data\mappings\ucmebcdic.mk"
+				>
+			</File>
+			<File
+				RelativePath="..\..\..\source\data\mappings\ucmfiles.mk"
+				>
+			</File>
+		</Filter>
+	</Files>
+	<Globals>
+	</Globals>
+</VisualStudioProject>
