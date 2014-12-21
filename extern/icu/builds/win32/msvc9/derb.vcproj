@@ -122,6 +122,7 @@
 			/>
 			<Tool
 				Name="VCCLCompilerTool"
+				AdditionalIncludeDirectories="..\..\..\source\common,..\..\..\source\tools\toolutil"
 				PreprocessorDefinitions="WIN32,NDEBUG,_WINDOWS"
 				CompileAs="0"
 			/>
