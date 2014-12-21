@@ -3,7 +3,7 @@
     ProjectType="Visual C++"
     Version="8.00"
     Name="firebird2intl"
-    OutputDirectory="$(ICU_ROOT_TMP_DIR)bin\"
+    OutputDirectory="$(ICU_ROOT_TMP_DIR)bin_tmp\"
     IntermediateDirectory="$(ICU_ROOT_TMP_DIR)obj\$(ProjectName)\"
     >
     <Tool
@@ -21,15 +21,15 @@
     />
     <UserMacro
         Name="ICU_ROOT_TMP_DIR"
-        Value="$(SolutionDir)..\..\..\..\..\Temp\vs2005\$(PlatformName)\$(ConfigurationName)\icu\"
+        Value="$(SolutionDir)..\..\..\..\..\Temp\msvc8\$(PlatformName)\$(ConfigurationName)\icu\"
     />
     <UserMacro
         Name="ICU_OUT_BIN_DIR"
-        Value="$(SolutionDir)..\..\..\$(PlatformName)\$(ConfigurationName)\bin\"
+        Value="$(ICU_ROOT_TMP_DIR)bin\"
     />
     <UserMacro
         Name="ICU_OUT_LIB_DIR"
-        Value="$(SolutionDir)..\..\..\$(PlatformName)\$(ConfigurationName)\lib\"
+        Value="$(ICU_ROOT_TMP_DIR)lib\"
     />
     <UserMacro
         Name="ICU_OUT_INCLUDE_DIR"

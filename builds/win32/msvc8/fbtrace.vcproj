@@ -58,7 +58,7 @@
 				AdditionalDependencies="mpr.lib icuuc.lib"
 				OutputFile="..\..\..\temp\$(PlatformName)\$(ConfigurationName)\firebird\plugins\$(ProjectName).dll"
 				LinkIncremental="1"
-				AdditionalLibraryDirectories="../../../extern/icu/$(PlatformName)/release/lib"
+				AdditionalLibraryDirectories="$(ICU_LIB_DIR)"
 			/>
 			<Tool
 				Name="VCALinkTool"
@@ -130,7 +130,7 @@
 				AdditionalDependencies="mpr.lib icuuc.lib"
 				OutputFile="..\..\..\temp\$(PlatformName)\$(ConfigurationName)\firebird\plugins\$(ProjectName).dll"
 				LinkIncremental="1"
-				AdditionalLibraryDirectories="../../../extern/icu/$(PlatformName)/release/lib"
+				AdditionalLibraryDirectories="$(ICU_LIB_DIR)"
 			/>
 			<Tool
 				Name="VCALinkTool"
@@ -200,7 +200,7 @@
 				AdditionalDependencies="mpr.lib icuuc.lib"
 				OutputFile="..\..\..\temp\$(PlatformName)\$(ConfigurationName)\firebird\plugins\$(ProjectName).dll"
 				LinkIncremental="1"
-				AdditionalLibraryDirectories="../../../extern/icu/$(PlatformName)/release/lib"
+				AdditionalLibraryDirectories="$(ICU_LIB_DIR)"
 				TargetMachine="17"
 			/>
 			<Tool
@@ -274,7 +274,7 @@
 				AdditionalDependencies="mpr.lib icuuc.lib"
 				OutputFile="..\..\..\temp\$(PlatformName)\$(ConfigurationName)\firebird\plugins\$(ProjectName).dll"
 				LinkIncremental="1"
-				AdditionalLibraryDirectories="../../../extern/icu/$(PlatformName)/release/lib"
+				AdditionalLibraryDirectories="$(ICU_LIB_DIR)"
 				TargetMachine="17"
 			/>
 			<Tool

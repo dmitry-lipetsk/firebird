@@ -38,4 +38,12 @@
 		ProgramDatabaseFile="$(IntDir)\$(TargetName).pdb"
 		ImportLibrary="$(IntDir)\$(TargetName).lib"
 	/>
+	<UserMacro
+		Name="ROOT_TMP_DIR"
+		Value="$(SolutionDir)..\..\..\temp\msvc8\$(PlatformName)\$(ConfigurationName)\"
+	/>
+	<UserMacro
+		Name="ICU_LIB_DIR"
+		Value="$(ROOT_TMP_DIR)icu\lib\"
+	/>
 </VisualStudioPropertySheet>

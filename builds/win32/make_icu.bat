@@ -4,14 +4,14 @@
 :: Set env vars
 @call setenvvar.bat
 
-@call set_build_target.bat %* icu
+@call set_build_target.bat %*
 
 ::==========
 :: MAIN
 
 @echo Building ICU %FB_OBJ_DIR% for %FB_TARGET_PLATFORM%
 
-@call compile.bat %FB_ROOT_PATH%\extern\icu\builds\win32\msvc%MSVC_VERSION%\allinone make_icu_%FB_TARGET_PLATFORM%.log
+@call compile.bat %FB_ROOT_PATH%\extern\icu\builds\win32\msvc%MSVC_VERSION%\allinone make_icu.log
 
 if errorlevel 1 call :ERROR build failed - see make_icu_%FB_TARGET_PLATFORM%.log for details
 @goto :EOF
