@@ -21,7 +21,7 @@
     />
     <UserMacro
         Name="ICU_ROOT_TMP_DIR"
-        Value="$(SolutionDir)..\..\..\..\..\Temp\msvc8\$(PlatformName)\$(ConfigurationName)\icu\"
+        Value="$(SolutionDir)..\..\..\..\..\Temp\msvc8_$(PlatformName)_$(ConfigurationName)\icu\"
     />
     <UserMacro
         Name="ICU_OUT_BIN_DIR"

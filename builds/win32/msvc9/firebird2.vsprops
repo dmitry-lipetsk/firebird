@@ -44,7 +44,7 @@
 	/>
 	<UserMacro
 		Name="ROOT_TMP_DIR"
-		Value="$(SolutionDir)..\..\..\temp\$(FB_COMPILER_SIGN)\$(PlatformName)\$(ConfigurationName)\"
+		Value="$(SolutionDir)..\..\..\temp\$(FB_COMPILER_SIGN)_$(PlatformName)_$(ConfigurationName)\"
 	/>
 	<UserMacro
 		Name="ICU_LIB_DIR"

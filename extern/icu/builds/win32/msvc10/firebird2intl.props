@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup Label="UserMacros">
-    <ICU_ROOT_TMP_DIR>$(SolutionDir)..\..\..\..\..\Temp\msvc10\$(Platform)\$(Configuration)\icu\</ICU_ROOT_TMP_DIR>
+    <ICU_ROOT_TMP_DIR>$(SolutionDir)..\..\..\..\..\Temp\msvc10_$(Platform)_$(Configuration)\icu\</ICU_ROOT_TMP_DIR>
     <ICU_OUT_BIN_DIR>$(ICU_ROOT_TMP_DIR)bin\</ICU_OUT_BIN_DIR>
     <ICU_OUT_LIB_DIR>$(ICU_ROOT_TMP_DIR)lib\</ICU_OUT_LIB_DIR>
     <ICU_OUT_INCLUDE_DIR>$(SolutionDir)..\..\..\include\</ICU_OUT_INCLUDE_DIR>
