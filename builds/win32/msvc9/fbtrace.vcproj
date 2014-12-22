@@ -57,7 +57,7 @@
 			<Tool
 				Name="VCLinkerTool"
 				AdditionalDependencies="mpr.lib icuuc.lib"
-				OutputFile="..\..\..\temp\$(PlatformName)\$(ConfigurationName)\firebird\plugins\$(ProjectName).dll"
+				OutputFile="$(FB_ROOT_OUT_DIR)\plugins\$(ProjectName).dll"
 				LinkIncremental="1"
 				AdditionalLibraryDirectories="$(ICU_LIB_DIR)"
 				RandomizedBaseAddress="1"
@@ -126,7 +126,7 @@
 			<Tool
 				Name="VCLinkerTool"
 				AdditionalDependencies="mpr.lib icuuc.lib"
-				OutputFile="..\..\..\temp\$(PlatformName)\$(ConfigurationName)\firebird\plugins\$(ProjectName).dll"
+				OutputFile="$(FB_ROOT_OUT_DIR)\plugins\$(ProjectName).dll"
 				LinkIncremental="1"
 				AdditionalLibraryDirectories="$(ICU_LIB_DIR)"
 				RandomizedBaseAddress="1"
@@ -198,7 +198,7 @@
 			<Tool
 				Name="VCLinkerTool"
 				AdditionalDependencies="mpr.lib icuuc.lib"
-				OutputFile="..\..\..\temp\$(PlatformName)\$(ConfigurationName)\firebird\plugins\$(ProjectName).dll"
+				OutputFile="$(FB_ROOT_OUT_DIR)\plugins\$(ProjectName).dll"
 				LinkIncremental="1"
 				AdditionalLibraryDirectories="$(ICU_LIB_DIR)"
 				RandomizedBaseAddress="1"
@@ -270,7 +270,7 @@
 			<Tool
 				Name="VCLinkerTool"
 				AdditionalDependencies="mpr.lib icuuc.lib"
-				OutputFile="..\..\..\temp\$(PlatformName)\$(ConfigurationName)\firebird\plugins\$(ProjectName).dll"
+				OutputFile="$(FB_ROOT_OUT_DIR)\plugins\$(ProjectName).dll"
 				LinkIncremental="1"
 				AdditionalLibraryDirectories="$(ICU_LIB_DIR)"
 				RandomizedBaseAddress="1"

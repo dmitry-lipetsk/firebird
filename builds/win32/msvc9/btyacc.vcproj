@@ -21,6 +21,7 @@
 	<Configurations>
 		<Configuration
 			Name="Debug|Win32"
+			OutputDirectory="$(FB_ROOT_OUT_DIR)bin"
 			ConfigurationType="1"
 			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC71.vsprops;.\firebird2.vsprops;.\firebird2debug.vsprops"
 			CharacterSet="2"
@@ -60,7 +61,6 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				OutputFile="..\..\..\temp\$(PlatformName)\$(ConfigurationName)\firebird\bin\$(ProjectName).exe"
 				LinkIncremental="2"
 				AssemblyDebug="1"
 				RandomizedBaseAddress="1"
@@ -90,6 +90,7 @@
 		</Configuration>
 		<Configuration
 			Name="Release|Win32"
+			OutputDirectory="$(FB_ROOT_OUT_DIR)bin"
 			ConfigurationType="1"
 			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC71.vsprops;.\firebird2.vsprops;.\firebird2release.vsprops"
 			CharacterSet="2"
@@ -127,7 +128,6 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				OutputFile="..\..\..\temp\$(PlatformName)\$(ConfigurationName)\firebird\bin\$(ProjectName).exe"
 				LinkIncremental="1"
 				RandomizedBaseAddress="1"
 				DataExecutionPrevention="0"
@@ -156,6 +156,7 @@
 		</Configuration>
 		<Configuration
 			Name="Debug|x64"
+			OutputDirectory="$(FB_ROOT_OUT_DIR)bin"
 			ConfigurationType="1"
 			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC71.vsprops;.\firebird2.vsprops;.\firebird2debug.vsprops"
 			CharacterSet="2"
@@ -196,7 +197,6 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				OutputFile="..\..\..\temp\$(PlatformName)\$(ConfigurationName)\firebird\bin\$(ProjectName).exe"
 				LinkIncremental="2"
 				AssemblyDebug="1"
 				RandomizedBaseAddress="1"
@@ -227,6 +227,7 @@
 		</Configuration>
 		<Configuration
 			Name="Release|x64"
+			OutputDirectory="$(FB_ROOT_OUT_DIR)bin"
 			ConfigurationType="1"
 			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC71.vsprops;.\firebird2.vsprops;.\firebird2release.vsprops"
 			CharacterSet="2"
@@ -265,7 +266,6 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				OutputFile="..\..\..\temp\$(PlatformName)\$(ConfigurationName)\firebird\bin\$(ProjectName).exe"
 				LinkIncremental="1"
 				RandomizedBaseAddress="1"
 				DataExecutionPrevention="0"

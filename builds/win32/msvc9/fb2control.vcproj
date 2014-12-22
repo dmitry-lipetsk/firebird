@@ -68,7 +68,7 @@
 			<Tool
 				Name="VCLinkerTool"
 				AdditionalDependencies="shlwapi.lib version.lib"
-				OutputFile="..\..\..\temp\$(PlatformName)\$(ConfigurationName)\firebird\system32\Firebird2Control.cpl"
+				OutputFile="$(FB_ROOT_OUT_DIR)\system32\Firebird2Control.cpl"
 				Version="1.0"
 				LinkIncremental="1"
 				ModuleDefinitionFile="..\..\..\src\utilities\fbcpl\FBControl.def"
@@ -148,7 +148,7 @@
 			<Tool
 				Name="VCLinkerTool"
 				AdditionalDependencies="shlwapi.lib version.lib"
-				OutputFile="..\..\..\temp\$(PlatformName)\$(ConfigurationName)\firebird\system32\Firebird2Control.cpl"
+				OutputFile="$(FB_ROOT_OUT_DIR)\system32\Firebird2Control.cpl"
 				Version="1.0"
 				LinkIncremental="1"
 				ModuleDefinitionFile="..\..\..\src\utilities\fbcpl\FBControl.def"
@@ -228,7 +228,7 @@
 			<Tool
 				Name="VCLinkerTool"
 				AdditionalDependencies="shlwapi.lib version.lib"
-				OutputFile="..\..\..\temp\$(PlatformName)\$(ConfigurationName)\firebird\system32\Firebird2Control.cpl"
+				OutputFile="$(FB_ROOT_OUT_DIR)\system32\Firebird2Control.cpl"
 				Version="1.0"
 				LinkIncremental="1"
 				ModuleDefinitionFile="..\..\..\src\utilities\fbcpl\FBControl.def"
@@ -306,7 +306,7 @@
 			<Tool
 				Name="VCLinkerTool"
 				AdditionalDependencies="shlwapi.lib version.lib"
-				OutputFile="..\..\..\temp\$(PlatformName)\$(ConfigurationName)\firebird\system32\Firebird2Control.cpl"
+				OutputFile="$(FB_ROOT_OUT_DIR)\system32\Firebird2Control.cpl"
 				Version="1.0"
 				LinkIncremental="1"
 				ModuleDefinitionFile="..\..\..\src\utilities\fbcpl\FBControl.def"

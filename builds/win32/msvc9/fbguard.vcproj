@@ -65,7 +65,7 @@
 			<Tool
 				Name="VCLinkerTool"
 				AdditionalDependencies="comctl32.lib ws2_32.lib mpr.lib version.lib"
-				OutputFile="..\..\..\temp\$(PlatformName)\$(ConfigurationName)\firebird\bin\$(ProjectName).exe"
+				OutputFile="$(FB_ROOT_OUT_DIR)bin\$(ProjectName).exe"
 				LinkIncremental="1"
 				SubSystem="2"
 				RandomizedBaseAddress="1"
@@ -141,7 +141,7 @@
 			<Tool
 				Name="VCLinkerTool"
 				AdditionalDependencies="comctl32.lib ws2_32.lib mpr.lib version.lib"
-				OutputFile="..\..\..\temp\$(PlatformName)\$(ConfigurationName)\firebird\bin\$(ProjectName).exe"
+				OutputFile="$(FB_ROOT_OUT_DIR)bin\$(ProjectName).exe"
 				LinkIncremental="1"
 				SubSystem="2"
 				RandomizedBaseAddress="1"
@@ -215,7 +215,7 @@
 			<Tool
 				Name="VCLinkerTool"
 				AdditionalDependencies="comctl32.lib ws2_32.lib mpr.lib version.lib"
-				OutputFile="..\..\..\temp\$(PlatformName)\$(ConfigurationName)\firebird\bin\$(ProjectName).exe"
+				OutputFile="$(FB_ROOT_OUT_DIR)bin\$(ProjectName).exe"
 				LinkIncremental="1"
 				SubSystem="2"
 				RandomizedBaseAddress="1"
@@ -289,7 +289,7 @@
 			<Tool
 				Name="VCLinkerTool"
 				AdditionalDependencies="comctl32.lib ws2_32.lib mpr.lib version.lib"
-				OutputFile="..\..\..\temp\$(PlatformName)\$(ConfigurationName)\firebird\bin\$(ProjectName).exe"
+				OutputFile="$(FB_ROOT_OUT_DIR)bin\$(ProjectName).exe"
 				LinkIncremental="1"
 				SubSystem="2"
 				RandomizedBaseAddress="1"

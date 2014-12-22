@@ -3,8 +3,8 @@
 	ProjectType="Visual C++"
 	Version="8.00"
 	Name="firebird2"
-	OutputDirectory="..\..\..\temp\$(PlatformName)\$(ConfigurationName)\$(ProjectName)"
-	IntermediateDirectory="..\..\..\temp\$(PlatformName)\$(ConfigurationName)\$(ProjectName)"
+	OutputDirectory="$(FB_ROOT_TMP_DIR)$(ProjectName)"
+	IntermediateDirectory="$(FB_ROOT_TMP_DIR)$(ProjectName)"
 	>
 	<Tool
 		Name="VCCLCompilerTool"
@@ -13,12 +13,12 @@
 		AdditionalIncludeDirectories="../../../src/include,../../../src/include/gen"
 		ExceptionHandling="0"
 		RuntimeTypeInfo="false"
-		PrecompiledHeaderFile="..\..\..\temp\$(PlatformName)\$(ConfigurationName)\$(ProjectName)\$(ProjectName).pch"
-		AssemblerListingLocation="..\..\..\temp\$(PlatformName)\$(ConfigurationName)\$(ProjectName)/"
-		ObjectFile="..\..\..\temp\$(PlatformName)\$(ConfigurationName)\$(ProjectName)/"
-		ProgramDataBaseFileName="..\..\..\temp\$(PlatformName)\$(ConfigurationName)\$(ProjectName)/"
+		PrecompiledHeaderFile="$(FB_ROOT_TMP_DIR)$(ProjectName)\$(ProjectName).pch"
+		AssemblerListingLocation="$(FB_ROOT_TMP_DIR)$(ProjectName)/"
+		ObjectFile="$(FB_ROOT_TMP_DIR)$(ProjectName)/"
+		ProgramDataBaseFileName="$(FB_ROOT_TMP_DIR)$(ProjectName)/"
 		BrowseInformation="0"
-		BrowseInformationFile="..\..\..\temp\$(PlatformName)\$(ConfigurationName)\$(ProjectName)\"
+		BrowseInformationFile="$(FB_ROOT_TMP_DIR)$(ProjectName)\"
 		WarningLevel="3"
 		SuppressStartupBanner="true"
 		DebugInformationFormat="3"
@@ -45,5 +45,13 @@
 	<UserMacro
 		Name="ICU_LIB_DIR"
 		Value="$(ROOT_TMP_DIR)icu\lib\"
+	/>
+	<UserMacro
+		Name="FB_ROOT_TMP_DIR"
+		Value="$(SolutionDir)..\..\..\temp\$(PlatformName)\$(ConfigurationName)\"
+	/>
+	<UserMacro
+		Name="FB_ROOT_OUT_DIR"
+		Value="$(SolutionDir)..\..\..\temp\$(PlatformName)\$(ConfigurationName)\firebird\"
 	/>
 </VisualStudioPropertySheet>
