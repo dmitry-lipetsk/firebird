@@ -3,11 +3,13 @@
   <PropertyGroup Label="UserMacros">
     <ROOT_TMP_DIR>$(SolutionDir)..\..\..\temp\msvc10\$(Platform)\$(Configuration)\</ROOT_TMP_DIR>
     <ICU_LIB_DIR>$(ROOT_TMP_DIR)icu\lib\</ICU_LIB_DIR>
+    <FB_ROOT_TMP_DIR>$(SolutionDir)..\..\..\temp\$(Platform)\$(Configuration)\</FB_ROOT_TMP_DIR>
+    <FB_ROOT_OUT_DIR>$(SolutionDir)..\..\..\temp\$(Platform)\$(Configuration)\firebird\</FB_ROOT_OUT_DIR>
   </PropertyGroup>
   <PropertyGroup>
     <_ProjectFileVersion>10.0.30319.1</_ProjectFileVersion>
-    <OutDir>..\..\..\temp\$(PlatformName)\$(Configuration)\$(ProjectName)\</OutDir>
-    <IntDir>..\..\..\temp\$(PlatformName)\$(Configuration)\$(ProjectName)\</IntDir>
+    <OutDir>$(FB_ROOT_TMP_DIR)$(ProjectName)\</OutDir>
+    <IntDir>$(FB_ROOT_TMP_DIR)$(ProjectName)\</IntDir>
     <LinkIncremental>false</LinkIncremental>
   </PropertyGroup>
   <ItemDefinitionGroup>
@@ -17,12 +19,12 @@
       <ExceptionHandling>
       </ExceptionHandling>
       <RuntimeTypeInfo>false</RuntimeTypeInfo>
-      <PrecompiledHeaderOutputFile>..\..\..\temp\$(Platform)\$(Configuration)\$(ProjectName)\$(ProjectName).pch</PrecompiledHeaderOutputFile>
-      <AssemblerListingLocation>..\..\..\temp\$(Platform)\$(Configuration)\$(ProjectName)/</AssemblerListingLocation>
-      <ObjectFileName>..\..\..\temp\$(Platform)\$(Configuration)\$(ProjectName)/</ObjectFileName>
-      <ProgramDataBaseFileName>..\..\..\temp\$(Platform)\$(Configuration)\$(ProjectName)/</ProgramDataBaseFileName>
+      <PrecompiledHeaderOutputFile>$(FB_ROOT_TMP_DIR)$(ProjectName)\$(ProjectName).pch</PrecompiledHeaderOutputFile>
+      <AssemblerListingLocation>$(FB_ROOT_TMP_DIR)$(ProjectName)/</AssemblerListingLocation>
+      <ObjectFileName>$(FB_ROOT_TMP_DIR)$(ProjectName)/</ObjectFileName>
+      <ProgramDataBaseFileName>$(FB_ROOT_TMP_DIR)$(ProjectName)/</ProgramDataBaseFileName>
       <BrowseInformation>true</BrowseInformation>
-      <BrowseInformationFile>..\..\..\temp\$(Platform)\$(Configuration)\$(ProjectName)\</BrowseInformationFile>
+      <BrowseInformationFile>$(FB_ROOT_TMP_DIR)$(ProjectName)\</BrowseInformationFile>
       <WarningLevel>Level3</WarningLevel>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <CompileAs>Default</CompileAs>
