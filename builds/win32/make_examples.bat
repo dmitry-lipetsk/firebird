@@ -2,13 +2,11 @@
 
 
 :: Set env vars
-@call setenvvar.bat
+@call helper__setenvvar.bat %*
 @if errorlevel 1 (goto :EOF)
 
 :: verify that boot was run before
 @if not exist %FB_GEN_DIR%\gpre_boot.exe (goto :HELP_BOOT & goto :EOF)
-
-@call set_build_target.bat %*
 
 ::Uncomment this to build intlemp
 ::set FB2_INTLEMP=1
@@ -21,14 +19,12 @@
 
 @echo.
 @echo Building %FB_OBJ_DIR%
-if "%VS_VER%"=="msvc6" (
-    @call compile.bat %FB_ROOT_PATH%\builds\win32\%VS_VER%\Firebird2 examples_%FB_TARGET_PLATFORM%.log empbuild intlbld
-) else (
-    @call compile.bat %FB_ROOT_PATH%\builds\win32\%VS_VER%\Firebird2_Examples empbuild_%FB_TARGET_PLATFORM%.log empbuild
-    @if defined FB2_INTLEMP (
-      @call compile.bat %FB_ROOT_PATH%\builds\win32\%VS_VER%\Firebird2_Examples intlbuild_%FB_TARGET_PLATFORM%.log intlbuild
-    )
+
+@call helper__compile.bat.bat %FB_ROOT_PATH%\builds\win32\%VS_VER%\Firebird2_Examples empbuild_%FB_TARGET_PLATFORM%.log empbuild
+@if defined FB2_INTLEMP (
+  @call helper__compile.bat.bat %FB_ROOT_PATH%\builds\win32\%VS_VER%\Firebird2_Examples intlbuild_%FB_TARGET_PLATFORM%.log intlbuild
 )
+
 @echo.
 @call :MOVE
 @call :BUILD_EMPLOYEE

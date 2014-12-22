@@ -3,8 +3,8 @@
 
 @echo.
 
-@call setenvvar.bat
-@if errorlevel 1 (goto :END)
+::@call setenvvar.bat
+::@if errorlevel 1 (goto :END)
 
 @echo Generating parse.cpp and dsql.tab.h
 

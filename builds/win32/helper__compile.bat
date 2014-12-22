@@ -13,15 +13,7 @@ set solution=%1
 set output=%2
 set projects=
 
-@if "%FB_DBG%"=="" (
-	set config=release
-) else (
-	set config=debug
-)
-
-if %MSVC_VERSION% GEQ 8 (
-	set config="%config%|%FB_TARGET_PLATFORM%"
-)
+if %MSVC_VERSION% GEQ 8 (set config="%FB_CFG_NAME%|%FB_TARGET_PLATFORM%") ELSE (set config="%FB_CFG_NAME%")
 
 if "%VS_VER_EXPRESS%"=="1" (
 	set exec=vcexpress

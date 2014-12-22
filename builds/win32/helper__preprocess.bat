@@ -15,7 +15,7 @@
 ::===========
 :MAIN
 
-@call setenvvar.bat
+::@call setenvvar.bat
 
 @if "%1"=="BOOT" (set BOOTBUILD=1) else (set BOOTBUILD=0)
 @echo.

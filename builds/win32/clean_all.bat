@@ -2,14 +2,11 @@
 
 @setlocal
 
-@call setenvvar.bat
+@call helper__setenvvar.bat %*
 @if errorlevel 1 (goto :END)
-
-@call set_build_target.bat %*
 
 @echo Cleaning temporary directories...
 @rmdir /S /Q %FB_OUTPUT_DIR% 2>nul
-@rmdir /S /Q %FB_TEMP_DIR% 2>nul
 @rmdir /S /Q %FB_TEMP_DIR2% 2>nul
 
 @echo Cleaning gen...

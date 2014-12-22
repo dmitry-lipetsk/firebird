@@ -39,8 +39,12 @@
 		ImportLibrary="$(IntDir)\$(TargetName).lib"
 	/>
 	<UserMacro
+		Name="FB_COMPILER_SIGN"
+		Value="msvc8"
+	/>
+	<UserMacro
 		Name="ROOT_TMP_DIR"
-		Value="$(SolutionDir)..\..\..\temp\msvc8\$(PlatformName)\$(ConfigurationName)\"
+		Value="$(SolutionDir)..\..\..\temp\$(FB_COMPILER_SIGN)\$(PlatformName)\$(ConfigurationName)\"
 	/>
 	<UserMacro
 		Name="ICU_LIB_DIR"
@@ -48,10 +52,10 @@
 	/>
 	<UserMacro
 		Name="FB_ROOT_TMP_DIR"
-		Value="$(SolutionDir)..\..\..\temp\$(PlatformName)\$(ConfigurationName)\"
+		Value="$(ROOT_TMP_DIR)fb_tmp\"
 	/>
 	<UserMacro
 		Name="FB_ROOT_OUT_DIR"
-		Value="$(SolutionDir)..\..\..\temp\$(PlatformName)\$(ConfigurationName)\firebird\"
+		Value="$(ROOT_TMP_DIR)fb_out\"
 	/>
 </VisualStudioPropertySheet>
