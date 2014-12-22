@@ -66,7 +66,7 @@
 			<Tool
 				Name="VCLinkerTool"
 				AdditionalDependencies="comctl32.lib ws2_32.lib mpr.lib version.lib icuuc.lib"
-				OutputFile="..\..\..\temp\$(PlatformName)\$(ConfigurationName)\firebird\$(ProjectName)\fb$(ProjectName).dll"
+				OutputFile="$(FB_ROOT_OUT_DIR)\$(ProjectName)\fb$(ProjectName).dll"
 				LinkIncremental="1"
 				AdditionalLibraryDirectories="$(ICU_LIB_DIR)"
 			/>
@@ -145,7 +145,7 @@
 			<Tool
 				Name="VCLinkerTool"
 				AdditionalDependencies="comctl32.lib ws2_32.lib mpr.lib version.lib icuuc.lib"
-				OutputFile="..\..\..\temp\$(PlatformName)\$(ConfigurationName)\firebird\$(ProjectName)\fb$(ProjectName).dll"
+				OutputFile="$(FB_ROOT_OUT_DIR)\$(ProjectName)\fb$(ProjectName).dll"
 				LinkIncremental="1"
 				AdditionalLibraryDirectories="$(ICU_LIB_DIR)"
 				TargetMachine="17"
@@ -222,7 +222,7 @@
 			<Tool
 				Name="VCLinkerTool"
 				AdditionalDependencies="comctl32.lib ws2_32.lib mpr.lib version.lib icuuc.lib"
-				OutputFile="..\..\..\temp\$(PlatformName)\$(ConfigurationName)\firebird\$(ProjectName)\fb$(ProjectName).dll"
+				OutputFile="$(FB_ROOT_OUT_DIR)\$(ProjectName)\fb$(ProjectName).dll"
 				LinkIncremental="1"
 				AdditionalLibraryDirectories="$(ICU_LIB_DIR)"
 			/>
@@ -299,7 +299,7 @@
 			<Tool
 				Name="VCLinkerTool"
 				AdditionalDependencies="comctl32.lib ws2_32.lib mpr.lib version.lib icuuc.lib"
-				OutputFile="..\..\..\temp\$(PlatformName)\$(ConfigurationName)\firebird\$(ProjectName)\fb$(ProjectName).dll"
+				OutputFile="$(FB_ROOT_OUT_DIR)\$(ProjectName)\fb$(ProjectName).dll"
 				LinkIncremental="1"
 				AdditionalLibraryDirectories="$(ICU_LIB_DIR)"
 				TargetMachine="17"

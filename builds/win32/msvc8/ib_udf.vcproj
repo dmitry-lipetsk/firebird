@@ -61,7 +61,7 @@
 			<Tool
 				Name="VCLinkerTool"
 				AdditionalDependencies="comctl32.lib ws2_32.lib mpr.lib version.lib"
-				OutputFile="..\..\..\temp\$(PlatformName)\$(ConfigurationName)\firebird\udf\$(ProjectName).dll"
+				OutputFile="$(FB_ROOT_OUT_DIR)\udf\$(ProjectName).dll"
 				LinkIncremental="1"
 				ModuleDefinitionFile="..\defs\ib_udf.def"
 			/>
@@ -136,7 +136,7 @@
 			<Tool
 				Name="VCLinkerTool"
 				AdditionalDependencies="comctl32.lib ws2_32.lib mpr.lib version.lib"
-				OutputFile="..\..\..\temp\$(PlatformName)\$(ConfigurationName)\firebird\udf\$(ProjectName).dll"
+				OutputFile="$(FB_ROOT_OUT_DIR)\udf\$(ProjectName).dll"
 				LinkIncremental="1"
 				ModuleDefinitionFile="..\defs\ib_udf.def"
 				TargetMachine="17"
@@ -214,7 +214,7 @@
 			<Tool
 				Name="VCLinkerTool"
 				AdditionalDependencies="comctl32.lib ws2_32.lib mpr.lib version.lib"
-				OutputFile="..\..\..\temp\$(PlatformName)\$(ConfigurationName)\firebird\udf\$(ProjectName).dll"
+				OutputFile="$(FB_ROOT_OUT_DIR)\udf\$(ProjectName).dll"
 				LinkIncremental="1"
 				ModuleDefinitionFile="..\defs\ib_udf.def"
 			/>
@@ -291,7 +291,7 @@
 			<Tool
 				Name="VCLinkerTool"
 				AdditionalDependencies="comctl32.lib ws2_32.lib mpr.lib version.lib"
-				OutputFile="..\..\..\temp\$(PlatformName)\$(ConfigurationName)\firebird\udf\$(ProjectName).dll"
+				OutputFile="$(FB_ROOT_OUT_DIR)\udf\$(ProjectName).dll"
 				LinkIncremental="1"
 				ModuleDefinitionFile="..\defs\ib_udf.def"
 				TargetMachine="17"
