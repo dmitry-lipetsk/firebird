@@ -51,6 +51,10 @@
 		Value="$(ROOT_TMP_DIR)icu\lib\"
 	/>
 	<UserMacro
+		Name="ICU_INCLUDE_DIR"
+		Value="$(SolutionDir)..\..\..\extern\icu\include\"
+	/>
+	<UserMacro
 		Name="FB_ROOT_TMP_DIR"
 		Value="$(ROOT_TMP_DIR)fb_tmp\"
 	/>
