@@ -7,7 +7,7 @@
 
 @echo Cleaning temporary directories...
 @rmdir /S /Q %FB_OUTPUT_DIR% 2>nul
-@rmdir /S /Q %FB_BUILD__TEMP_DIR% 2>nul
+@rmdir /S /Q %FB_BUILD__ROOT_TEMP_DIR% 2>nul
 
 @echo Cleaning gen...
 @rmdir /S /Q %FB_GEN_DIR% 2>nul
