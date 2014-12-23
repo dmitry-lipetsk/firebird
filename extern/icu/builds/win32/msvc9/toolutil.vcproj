@@ -69,8 +69,6 @@
 				LinkIncremental="1"
 				AdditionalLibraryDirectories="$(OutDir)"
 				BaseAddress="0x4ac00000"
-				RandomizedBaseAddress="1"
-				DataExecutionPrevention="0"
 				ImportLibrary="$(ICU_OUT_LIB_DIR)icutu.lib"
 			/>
 			<Tool
@@ -146,8 +144,6 @@
 				LinkIncremental="1"
 				AdditionalLibraryDirectories="$(OutDir)"
 				BaseAddress="0x4ac00000"
-				RandomizedBaseAddress="1"
-				DataExecutionPrevention="0"
 				ImportLibrary="$(ICU_OUT_LIB_DIR)icutu.lib"
 				TargetMachine="17"
 			/>
@@ -225,8 +221,6 @@
 				AdditionalLibraryDirectories="$(OutDir)"
 				GenerateDebugInformation="true"
 				BaseAddress="0x4ac00000"
-				RandomizedBaseAddress="1"
-				DataExecutionPrevention="0"
 				ImportLibrary="$(ICU_OUT_LIB_DIR)icutu.lib"
 			/>
 			<Tool
@@ -303,8 +297,6 @@
 				AdditionalLibraryDirectories="$(OutDir)"
 				GenerateDebugInformation="true"
 				BaseAddress="0x4ac00000"
-				RandomizedBaseAddress="1"
-				DataExecutionPrevention="0"
 				ImportLibrary="$(ICU_OUT_LIB_DIR)icutu.lib"
 				TargetMachine="17"
 			/>

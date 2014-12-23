@@ -65,8 +65,6 @@
 				Name="VCLinkerTool"
 				AdditionalOptions="/MACHINE:I386"
 				OutputFile="$(OutDir)icutest.dll"
-				RandomizedBaseAddress="1"
-				DataExecutionPrevention="0"
 				ImportLibrary="$(ICU_OUT_LIB_DIR)icutest.lib"
 			/>
 			<Tool
@@ -138,8 +136,6 @@
 			<Tool
 				Name="VCLinkerTool"
 				OutputFile="$(OutDir)icutest.dll"
-				RandomizedBaseAddress="1"
-				DataExecutionPrevention="0"
 				ImportLibrary="$(ICU_OUT_LIB_DIR)icutest.lib"
 				TargetMachine="17"
 			/>
@@ -212,8 +208,6 @@
 			<Tool
 				Name="VCLinkerTool"
 				OutputFile="$(OutDir)icutest.dll"
-				RandomizedBaseAddress="1"
-				DataExecutionPrevention="0"
 				ImportLibrary="$(ICU_OUT_LIB_DIR)icutest.lib"
 			/>
 			<Tool
@@ -285,8 +279,6 @@
 			<Tool
 				Name="VCLinkerTool"
 				OutputFile="$(OutDir)icutest.dll"
-				RandomizedBaseAddress="1"
-				DataExecutionPrevention="0"
 				ImportLibrary="$(ICU_OUT_LIB_DIR)icutest.lib"
 				TargetMachine="17"
 			/>

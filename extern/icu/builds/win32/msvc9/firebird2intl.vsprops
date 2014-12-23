@@ -18,6 +18,8 @@
     <Tool
         Name="VCLinkerTool"
         GenerateDebugInformation="true"
+        RandomizedBaseAddress="1"
+        DataExecutionPrevention="0"
     />
     <UserMacro
         Name="ICU_COMPILER_SIGN"

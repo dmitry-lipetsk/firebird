@@ -69,8 +69,6 @@
 				LinkIncremental="1"
 				AdditionalLibraryDirectories="Release"
 				SubSystem="1"
-				RandomizedBaseAddress="1"
-				DataExecutionPrevention="0"
 			/>
 			<Tool
 				Name="VCALinkTool"
@@ -145,8 +143,6 @@
 				LinkIncremental="1"
 				AdditionalLibraryDirectories="Release"
 				SubSystem="1"
-				RandomizedBaseAddress="1"
-				DataExecutionPrevention="0"
 				TargetMachine="17"
 			/>
 			<Tool
@@ -222,8 +218,6 @@
 				AdditionalLibraryDirectories="Debug"
 				GenerateDebugInformation="true"
 				SubSystem="1"
-				RandomizedBaseAddress="1"
-				DataExecutionPrevention="0"
 			/>
 			<Tool
 				Name="VCALinkTool"
@@ -299,8 +293,6 @@
 				AdditionalLibraryDirectories="Debug"
 				GenerateDebugInformation="true"
 				SubSystem="1"
-				RandomizedBaseAddress="1"
-				DataExecutionPrevention="0"
 				TargetMachine="17"
 			/>
 			<Tool

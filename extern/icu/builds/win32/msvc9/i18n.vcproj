@@ -66,8 +66,6 @@
 				Name="VCLinkerTool"
 				OutputFile="$(OutDir)icuin30.dll"
 				BaseAddress="0x4a900000"
-				RandomizedBaseAddress="1"
-				DataExecutionPrevention="0"
 				ImportLibrary="$(ICU_OUT_LIB_DIR)icuin.lib"
 			/>
 			<Tool
@@ -141,8 +139,6 @@
 				Name="VCLinkerTool"
 				OutputFile="$(OutDir)icuin30.dll"
 				BaseAddress="0x4a900000"
-				RandomizedBaseAddress="1"
-				DataExecutionPrevention="0"
 				ImportLibrary="$(ICU_OUT_LIB_DIR)icuin.lib"
 			/>
 			<Tool
@@ -216,8 +212,6 @@
 				Name="VCLinkerTool"
 				OutputFile="$(OutDir)icuin30.dll"
 				BaseAddress="0x4a900000"
-				RandomizedBaseAddress="1"
-				DataExecutionPrevention="0"
 				ImportLibrary="$(ICU_OUT_LIB_DIR)icuin.lib"
 				TargetMachine="17"
 			/>
@@ -292,8 +286,6 @@
 				Name="VCLinkerTool"
 				OutputFile="$(OutDir)icuin30.dll"
 				BaseAddress="0x4a900000"
-				RandomizedBaseAddress="1"
-				DataExecutionPrevention="0"
 				ImportLibrary="$(ICU_OUT_LIB_DIR)icuin.lib"
 				TargetMachine="17"
 			/>

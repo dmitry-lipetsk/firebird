@@ -66,8 +66,6 @@
 				Name="VCLinkerTool"
 				OutputFile="$(OutDir)icule30.dll"
 				BaseAddress="0x4ac00000"
-				RandomizedBaseAddress="1"
-				DataExecutionPrevention="0"
 				ImportLibrary="$(ICU_OUT_LIB_DIR)icule.lib"
 			/>
 			<Tool
@@ -141,8 +139,6 @@
 				Name="VCLinkerTool"
 				OutputFile="$(OutDir)icule30.dll"
 				BaseAddress="0x4ac00000"
-				RandomizedBaseAddress="1"
-				DataExecutionPrevention="0"
 				ImportLibrary="$(ICU_OUT_LIB_DIR)icule.lib"
 			/>
 			<Tool
@@ -216,8 +212,6 @@
 				Name="VCLinkerTool"
 				OutputFile="$(OutDir)icule30.dll"
 				BaseAddress="0x4ac00000"
-				RandomizedBaseAddress="1"
-				DataExecutionPrevention="0"
 				ImportLibrary="$(ICU_OUT_LIB_DIR)icule.lib"
 				TargetMachine="17"
 			/>
@@ -292,8 +286,6 @@
 				Name="VCLinkerTool"
 				OutputFile="$(OutDir)icule30.dll"
 				BaseAddress="0x4ac00000"
-				RandomizedBaseAddress="1"
-				DataExecutionPrevention="0"
 				ImportLibrary="$(ICU_OUT_LIB_DIR)icule.lib"
 				TargetMachine="17"
 			/>

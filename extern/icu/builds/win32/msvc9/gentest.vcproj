@@ -61,8 +61,6 @@
 			<Tool
 				Name="VCLinkerTool"
 				SubSystem="1"
-				RandomizedBaseAddress="1"
-				DataExecutionPrevention="0"
 			/>
 			<Tool
 				Name="VCALinkTool"
@@ -130,8 +128,6 @@
 			<Tool
 				Name="VCLinkerTool"
 				SubSystem="1"
-				RandomizedBaseAddress="1"
-				DataExecutionPrevention="0"
 			/>
 			<Tool
 				Name="VCALinkTool"
@@ -200,8 +196,6 @@
 			<Tool
 				Name="VCLinkerTool"
 				SubSystem="1"
-				RandomizedBaseAddress="1"
-				DataExecutionPrevention="0"
 				TargetMachine="17"
 			/>
 			<Tool
@@ -271,8 +265,6 @@
 			<Tool
 				Name="VCLinkerTool"
 				SubSystem="1"
-				RandomizedBaseAddress="1"
-				DataExecutionPrevention="0"
 				TargetMachine="17"
 			/>
 			<Tool
