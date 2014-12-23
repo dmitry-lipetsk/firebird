@@ -44,7 +44,7 @@
 			/>
 			<Tool
 				Name="VCCLCompilerTool"
-				AdditionalIncludeDirectories="..\..\..\source\\common,..\..\..\source\i18n,..\..\..\source\tools\toolutil"
+				AdditionalIncludeDirectories="..\..\..\source\common,..\..\..\source\i18n,..\..\..\source\tools\toolutil"
 				PreprocessorDefinitions="WIN32,NDEBUG,_CONSOLE"
 				CompileAs="0"
 			/>
@@ -82,9 +82,6 @@
 				Name="VCAppVerifierTool"
 			/>
 			<Tool
-				Name="VCWebDeploymentTool"
-			/>
-			<Tool
 				Name="VCPostBuildEventTool"
 			/>
 		</Configuration>
@@ -116,7 +113,7 @@
 			/>
 			<Tool
 				Name="VCCLCompilerTool"
-				AdditionalIncludeDirectories="..\..\..\source\\common,..\..\..\source\i18n,..\..\..\source\tools\toolutil"
+				AdditionalIncludeDirectories="..\..\..\source\common,..\..\..\source\i18n,..\..\..\source\tools\toolutil"
 				PreprocessorDefinitions="WIN32,_DEBUG,_CONSOLE"
 				CompileAs="0"
 			/>
@@ -152,9 +149,6 @@
 			/>
 			<Tool
 				Name="VCAppVerifierTool"
-			/>
-			<Tool
-				Name="VCWebDeploymentTool"
 			/>
 			<Tool
 				Name="VCPostBuildEventTool"
@@ -189,7 +183,7 @@
 			/>
 			<Tool
 				Name="VCCLCompilerTool"
-				AdditionalIncludeDirectories="..\..\..\source\\common,..\..\..\source\i18n,..\..\..\source\tools\toolutil"
+				AdditionalIncludeDirectories="..\..\..\source\common,..\..\..\source\i18n,..\..\..\source\tools\toolutil"
 				PreprocessorDefinitions="WIN32,NDEBUG,_CONSOLE"
 				CompileAs="0"
 			/>
@@ -228,9 +222,6 @@
 				Name="VCAppVerifierTool"
 			/>
 			<Tool
-				Name="VCWebDeploymentTool"
-			/>
-			<Tool
 				Name="VCPostBuildEventTool"
 			/>
 		</Configuration>
@@ -263,7 +254,7 @@
 			/>
 			<Tool
 				Name="VCCLCompilerTool"
-				AdditionalIncludeDirectories="..\..\..\source\\common,..\..\..\source\i18n,..\..\..\source\tools\toolutil"
+				AdditionalIncludeDirectories="..\..\..\source\common,..\..\..\source\i18n,..\..\..\source\tools\toolutil"
 				PreprocessorDefinitions="WIN32,_DEBUG,_CONSOLE"
 				CompileAs="0"
 			/>
@@ -300,9 +291,6 @@
 			/>
 			<Tool
 				Name="VCAppVerifierTool"
-			/>
-			<Tool
-				Name="VCWebDeploymentTool"
 			/>
 			<Tool
 				Name="VCPostBuildEventTool"
