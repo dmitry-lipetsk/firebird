@@ -162,12 +162,12 @@
   <ItemGroup>
     <ClCompile Include="..\..\..\src\isql\ColList.cpp" />
     <ClCompile Include="..\..\..\src\isql\Extender.cpp" />
-    <ClCompile Include="..\..\..\gen\$(Platform)\isql\extract.cpp" />
+    <ClCompile Include="$(FB_ROOT_GEN_DIR)isql\extract.cpp" />
     <ClCompile Include="..\..\..\src\common\fb_exception.cpp" />
     <ClCompile Include="..\..\..\src\isql\InputDevices.cpp" />
-    <ClCompile Include="..\..\..\gen\$(Platform)\isql\isql.cpp" />
+    <ClCompile Include="$(FB_ROOT_GEN_DIR)isql\isql.cpp" />
     <ClCompile Include="..\..\..\src\isql\OptionsBase.cpp" />
-    <ClCompile Include="..\..\..\gen\$(Platform)\isql\show.cpp" />
+    <ClCompile Include="$(FB_ROOT_GEN_DIR)isql\show.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\..\src\isql\extract.epp" />

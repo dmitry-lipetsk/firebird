@@ -58,4 +58,8 @@
 		Name="FB_ROOT_OUT_DIR"
 		Value="$(ROOT_TMP_DIR)fb_out\"
 	/>
+	<UserMacro
+		Name="FB_ROOT_GEN_DIR"
+		Value="$(SolutionDir)..\..\..\gen\$(PlatformName)\"
+	/>
 </VisualStudioPropertySheet>

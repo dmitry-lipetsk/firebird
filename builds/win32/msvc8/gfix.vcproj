@@ -324,7 +324,7 @@
 				>
 			</File>
 			<File
-				RelativePath="..\..\..\gen\$(PlatformName)\alice\alice_meta.cpp"
+				RelativePath="$(FB_ROOT_GEN_DIR)alice\alice_meta.cpp"
 				>
 			</File>
 			<File

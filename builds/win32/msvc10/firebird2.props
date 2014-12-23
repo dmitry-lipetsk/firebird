@@ -6,6 +6,7 @@
     <ICU_LIB_DIR>$(ROOT_TMP_DIR)icu\lib\</ICU_LIB_DIR>
     <FB_ROOT_TMP_DIR>$(ROOT_TMP_DIR)fb_tmp\</FB_ROOT_TMP_DIR>
     <FB_ROOT_OUT_DIR>$(ROOT_TMP_DIR)fb_out\</FB_ROOT_OUT_DIR>
+    <FB_ROOT_GEN_DIR>$(SolutionDir)..\..\..\gen\$(Platform)\</FB_ROOT_GEN_DIR>
   </PropertyGroup>
   <PropertyGroup>
     <_ProjectFileVersion>10.0.30319.1</_ProjectFileVersion>

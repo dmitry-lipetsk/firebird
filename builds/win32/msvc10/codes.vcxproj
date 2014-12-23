@@ -164,7 +164,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\gen\$(Platform)\misc\codes.cpp" />
+    <ClCompile Include="$(FB_ROOT_GEN_DIR)misc\codes.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="..\..\..\src\jrd\version.rc">

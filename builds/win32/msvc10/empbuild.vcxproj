@@ -178,7 +178,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\gen\$(Platform)\examples\empbuild.c" />
+    <ClCompile Include="$(FB_ROOT_GEN_DIR)examples\empbuild.c" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

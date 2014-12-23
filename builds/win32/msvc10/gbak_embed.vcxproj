@@ -165,8 +165,8 @@
     <ClCompile Include="..\..\..\src\burp\canonical.cpp" />
     <ClCompile Include="..\..\..\src\burp\misc.cpp" />
     <ClCompile Include="..\..\..\src\burp\mvol.cpp" />
-    <ClCompile Include="..\..\..\gen\$(Platform)\burp\backup.cpp" />
-    <ClCompile Include="..\..\..\gen\$(Platform)\burp\restore.cpp" />
+    <ClCompile Include="$(FB_ROOT_GEN_DIR)burp\backup.cpp" />
+    <ClCompile Include="$(FB_ROOT_GEN_DIR)burp\restore.cpp" />
     <ClCompile Include="..\..\..\src\jrd\sdl.cpp" />
     <ClCompile Include="..\..\..\src\jrd\ThreadData.cpp" />
     <ClCompile Include="..\..\..\src\remote\xdr.cpp" />

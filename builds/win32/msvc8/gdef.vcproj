@@ -324,7 +324,7 @@
 				>
 			</File>
 			<File
-				RelativePath="..\..\..\gen\$(PlatformName)\dudley\exe.cpp"
+				RelativePath="$(FB_ROOT_GEN_DIR)dudley\exe.cpp"
 				>
 			</File>
 			<File
@@ -336,7 +336,7 @@
 				>
 			</File>
 			<File
-				RelativePath="..\..\..\gen\$(PlatformName)\dudley\extract.cpp"
+				RelativePath="$(FB_ROOT_GEN_DIR)dudley\extract.cpp"
 				>
 			</File>
 			<File

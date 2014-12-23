@@ -119,7 +119,7 @@
     <ClCompile Include="..\..\..\src\alice\alice.cpp" />
     <ClCompile Include="..\..\..\src\alice\exe.cpp" />
     <ClCompile Include="..\..\..\src\alice\tdr.cpp" />
-    <ClCompile Include="..\..\..\gen\$(Platform)\alice\alice_meta.cpp" />
+    <ClCompile Include="$(FB_ROOT_GEN_DIR)alice\alice_meta.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\..\src\alice\alice_meta.epp" />

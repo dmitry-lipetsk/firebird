@@ -314,7 +314,7 @@
 			Filter="cpp;c;cxx;rc;def;r;odl;idl;hpj;bat"
 			>
 			<File
-				RelativePath="..\..\..\gen\$(PlatformName)\misc\codes.cpp"
+				RelativePath="$(FB_ROOT_GEN_DIR)misc\codes.cpp"
 				>
 			</File>
 		</Filter>

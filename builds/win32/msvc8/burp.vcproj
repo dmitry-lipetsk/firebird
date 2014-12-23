@@ -298,11 +298,11 @@
 				Name="Generated files"
 				>
 				<File
-					RelativePath="..\..\..\gen\$(PlatformName)\burp\backup.cpp"
+					RelativePath="$(FB_ROOT_GEN_DIR)burp\backup.cpp"
 					>
 				</File>
 				<File
-					RelativePath="..\..\..\gen\$(PlatformName)\burp\restore.cpp"
+					RelativePath="$(FB_ROOT_GEN_DIR)burp\restore.cpp"
 					>
 				</File>
 			</Filter>

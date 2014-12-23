@@ -173,10 +173,10 @@
     <ClCompile Include="..\..\..\src\qli\parse.cpp" />
     <ClCompile Include="..\..\..\src\qli\picstr.cpp" />
     <ClCompile Include="..\..\..\src\qli\report.cpp" />
-    <ClCompile Include="..\..\..\gen\$(Platform)\qli\help.cpp" />
-    <ClCompile Include="..\..\..\gen\$(Platform)\qli\meta.cpp" />
-    <ClCompile Include="..\..\..\gen\$(Platform)\qli\proc.cpp" />
-    <ClCompile Include="..\..\..\gen\$(Platform)\qli\show.cpp" />
+    <ClCompile Include="$(FB_ROOT_GEN_DIR)qli\help.cpp" />
+    <ClCompile Include="$(FB_ROOT_GEN_DIR)qli\meta.cpp" />
+    <ClCompile Include="$(FB_ROOT_GEN_DIR)qli\proc.cpp" />
+    <ClCompile Include="$(FB_ROOT_GEN_DIR)qli\show.cpp" />
     <ClCompile Include="..\..\..\src\jrd\dsc.cpp" />
     <ClCompile Include="..\..\..\src\jrd\isc.cpp" />
     <ClCompile Include="..\..\..\src\jrd\isc_file.cpp" />

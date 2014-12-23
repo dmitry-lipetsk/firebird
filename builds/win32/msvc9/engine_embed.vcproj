@@ -336,7 +336,7 @@
 				>
 			</File>
 			<File
-				RelativePath="..\..\..\gen\$(PlatformName)\jrd\dfw.cpp"
+				RelativePath="$(FB_ROOT_GEN_DIR)jrd\dfw.cpp"
 				>
 			</File>
 			<File
@@ -344,7 +344,7 @@
 				>
 			</File>
 			<File
-				RelativePath="..\..\..\gen\$(PlatformName)\jrd\dpm.cpp"
+				RelativePath="$(FB_ROOT_GEN_DIR)jrd\dpm.cpp"
 				>
 			</File>
 			<File
@@ -352,23 +352,23 @@
 				>
 			</File>
 			<File
-				RelativePath="..\..\..\gen\$(PlatformName)\jrd\dyn.cpp"
+				RelativePath="$(FB_ROOT_GEN_DIR)jrd\dyn.cpp"
 				>
 			</File>
 			<File
-				RelativePath="..\..\..\gen\$(PlatformName)\jrd\dyn_def.cpp"
+				RelativePath="$(FB_ROOT_GEN_DIR)jrd\dyn_def.cpp"
 				>
 			</File>
 			<File
-				RelativePath="..\..\..\gen\$(PlatformName)\jrd\dyn_del.cpp"
+				RelativePath="$(FB_ROOT_GEN_DIR)jrd\dyn_del.cpp"
 				>
 			</File>
 			<File
-				RelativePath="..\..\..\gen\$(PlatformName)\jrd\dyn_mod.cpp"
+				RelativePath="$(FB_ROOT_GEN_DIR)jrd\dyn_mod.cpp"
 				>
 			</File>
 			<File
-				RelativePath="..\..\..\gen\$(PlatformName)\jrd\dyn_util.cpp"
+				RelativePath="$(FB_ROOT_GEN_DIR)jrd\dyn_util.cpp"
 				>
 			</File>
 			<File
@@ -412,7 +412,7 @@
 				>
 			</File>
 			<File
-				RelativePath="..\..\..\gen\$(PlatformName)\jrd\fun.cpp"
+				RelativePath="$(FB_ROOT_GEN_DIR)jrd\fun.cpp"
 				>
 			</File>
 			<File
@@ -428,7 +428,7 @@
 				>
 			</File>
 			<File
-				RelativePath="..\..\..\gen\$(PlatformName)\jrd\grant.cpp"
+				RelativePath="$(FB_ROOT_GEN_DIR)jrd\grant.cpp"
 				>
 			</File>
 			<File
@@ -444,7 +444,7 @@
 				>
 			</File>
 			<File
-				RelativePath="..\..\..\gen\$(PlatformName)\jrd\ini.cpp"
+				RelativePath="$(FB_ROOT_GEN_DIR)jrd\ini.cpp"
 				>
 			</File>
 			<File
@@ -496,7 +496,7 @@
 				>
 			</File>
 			<File
-				RelativePath="..\..\..\gen\$(PlatformName)\jrd\met.cpp"
+				RelativePath="$(FB_ROOT_GEN_DIR)jrd\met.cpp"
 				>
 			</File>
 			<File
@@ -540,7 +540,7 @@
 				>
 			</File>
 			<File
-				RelativePath="..\..\..\gen\$(PlatformName)\jrd\pcmet.cpp"
+				RelativePath="$(FB_ROOT_GEN_DIR)jrd\pcmet.cpp"
 				>
 			</File>
 			<File
@@ -584,7 +584,7 @@
 				>
 			</File>
 			<File
-				RelativePath="..\..\..\gen\$(PlatformName)\jrd\scl.cpp"
+				RelativePath="$(FB_ROOT_GEN_DIR)jrd\scl.cpp"
 				>
 			</File>
 			<File

@@ -330,7 +330,7 @@
 			Filter="cpp;c;cxx;rc;def;r;odl;idl;hpj;bat"
 			>
 			<File
-				RelativePath="..\..\..\gen\$(PlatformName)\examples\empbuild.c"
+				RelativePath="$(FB_ROOT_GEN_DIR)examples\empbuild.c"
 				>
 			</File>
 		</Filter>

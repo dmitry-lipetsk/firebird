@@ -338,7 +338,7 @@
 			Name="UTILITIES files"
 			>
 			<File
-				RelativePath="..\..\..\gen\$(PlatformName)\utilities\gstat\dba.cpp"
+				RelativePath="$(FB_ROOT_GEN_DIR)utilities\gstat\dba.cpp"
 				>
 			</File>
 			<File

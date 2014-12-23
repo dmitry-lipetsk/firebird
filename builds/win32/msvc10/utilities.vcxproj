@@ -119,7 +119,7 @@
   <ItemGroup>
     <ClCompile Include="..\..\..\src\utilities\gsec\call_service.cpp" />
     <ClCompile Include="..\..\..\src\utilities\gsec\gsec.cpp" />
-    <ClCompile Include="..\..\..\gen\$(Platform)\utilities\gsec\security.cpp" />
+    <ClCompile Include="$(FB_ROOT_GEN_DIR)utilities\gsec\security.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\..\src\utilities\gstat.epp" />

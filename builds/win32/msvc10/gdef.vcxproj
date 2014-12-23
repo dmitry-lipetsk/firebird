@@ -156,10 +156,10 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\src\dudley\ddl.cpp" />
-    <ClCompile Include="..\..\..\gen\$(Platform)\dudley\exe.cpp" />
+    <ClCompile Include="$(FB_ROOT_GEN_DIR)dudley\exe.cpp" />
     <ClCompile Include="..\..\..\src\dudley\expand.cpp" />
     <ClCompile Include="..\..\..\src\dudley\expr.cpp" />
-    <ClCompile Include="..\..\..\gen\$(Platform)\dudley\extract.cpp" />
+    <ClCompile Include="$(FB_ROOT_GEN_DIR)dudley\extract.cpp" />
     <ClCompile Include="..\..\..\src\common\fb_exception.cpp" />
     <ClCompile Include="..\..\..\src\dudley\generate.cpp" />
     <ClCompile Include="..\..\..\src\dudley\hsh.cpp" />

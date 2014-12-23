@@ -132,10 +132,10 @@
     <ClCompile Include="..\..\..\src\dsql\StmtNodes.cpp" />
     <ClCompile Include="..\..\..\src\dsql\user_dsql.cpp" />
     <ClCompile Include="..\..\..\src\dsql\utld.cpp" />
-    <ClCompile Include="..\..\..\gen\$(Platform)\dsql\array.cpp" />
-    <ClCompile Include="..\..\..\gen\$(Platform)\dsql\blob.cpp" />
-    <ClCompile Include="..\..\..\gen\$(Platform)\dsql\DdlNodes.cpp" />
-    <ClCompile Include="..\..\..\gen\$(Platform)\dsql\metd.cpp" />
+    <ClCompile Include="$(FB_ROOT_GEN_DIR)dsql\array.cpp" />
+    <ClCompile Include="$(FB_ROOT_GEN_DIR)dsql\blob.cpp" />
+    <ClCompile Include="$(FB_ROOT_GEN_DIR)dsql\DdlNodes.cpp" />
+    <ClCompile Include="$(FB_ROOT_GEN_DIR)dsql\metd.cpp" />
     <ClCompile Include="..\..\..\src\gpre\pretty.cpp" />
   </ItemGroup>
   <ItemGroup>

@@ -423,11 +423,11 @@
 			Name="DSQL files"
 			>
 			<File
-				RelativePath="..\..\..\gen\$(PlatformName)\dsql\array.cpp"
+				RelativePath="$(FB_ROOT_GEN_DIR)dsql\array.cpp"
 				>
 			</File>
 			<File
-				RelativePath="..\..\..\gen\$(PlatformName)\dsql\blob.cpp"
+				RelativePath="$(FB_ROOT_GEN_DIR)dsql\blob.cpp"
 				>
 			</File>
 			<File

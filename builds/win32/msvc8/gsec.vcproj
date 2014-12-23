@@ -332,7 +332,7 @@
 				>
 			</File>
 			<File
-				RelativePath="..\..\..\gen\$(PlatformName)\utilities\gsec\security.cpp"
+				RelativePath="$(FB_ROOT_GEN_DIR)utilities\gsec\security.cpp"
 				>
 			</File>
 		</Filter>

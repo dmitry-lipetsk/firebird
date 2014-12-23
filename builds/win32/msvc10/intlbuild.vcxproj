@@ -170,7 +170,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\gen\$(Platform)\examples\intlbld.c" />
+    <ClCompile Include="$(FB_ROOT_GEN_DIR)examples\intlbld.c" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

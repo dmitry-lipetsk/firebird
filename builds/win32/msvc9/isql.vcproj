@@ -329,7 +329,7 @@
 				>
 			</File>
 			<File
-				RelativePath="..\..\..\gen\$(PlatformName)\isql\extract.cpp"
+				RelativePath="$(FB_ROOT_GEN_DIR)isql\extract.cpp"
 				>
 			</File>
 			<File
@@ -341,7 +341,7 @@
 				>
 			</File>
 			<File
-				RelativePath="..\..\..\gen\$(PlatformName)\isql\isql.cpp"
+				RelativePath="$(FB_ROOT_GEN_DIR)isql\isql.cpp"
 				>
 			</File>
 			<File
@@ -349,7 +349,7 @@
 				>
 			</File>
 			<File
-				RelativePath="..\..\..\gen\$(PlatformName)\isql\show.cpp"
+				RelativePath="$(FB_ROOT_GEN_DIR)isql\show.cpp"
 				>
 			</File>
 			<Filter

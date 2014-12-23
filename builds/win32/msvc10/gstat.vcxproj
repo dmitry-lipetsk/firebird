@@ -155,7 +155,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\gen\$(Platform)\utilities\gstat\dba.cpp" />
+    <ClCompile Include="$(FB_ROOT_GEN_DIR)utilities\gstat\dba.cpp" />
     <ClCompile Include="..\..\..\src\common\fb_exception.cpp" />
     <ClCompile Include="..\..\..\src\jrd\os\win32\os_utils.cpp" />
     <ClCompile Include="..\..\..\src\utilities\gstat\gstatMain.cpp" />

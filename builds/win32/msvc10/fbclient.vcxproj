@@ -194,8 +194,8 @@
     <ClCompile Include="..\..\..\src\jrd\ThreadStart.cpp" />
     <ClCompile Include="..\..\..\src\jrd\utl.cpp" />
     <ClCompile Include="..\..\..\src\jrd\why.cpp" />
-    <ClCompile Include="..\..\..\gen\$(Platform)\dsql\array.cpp" />
-    <ClCompile Include="..\..\..\gen\$(Platform)\dsql\blob.cpp" />
+    <ClCompile Include="$(FB_ROOT_GEN_DIR)dsql\array.cpp" />
+    <ClCompile Include="$(FB_ROOT_GEN_DIR)dsql\blob.cpp" />
     <ClCompile Include="..\..\..\src\dsql\keywords.cpp" />
     <ClCompile Include="..\..\..\src\dsql\preparse.cpp" />
     <ClCompile Include="..\..\..\src\dsql\user_dsql.cpp" />

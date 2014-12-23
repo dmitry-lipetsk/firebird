@@ -185,7 +185,7 @@
     <ClCompile Include="..\..\..\src\gpre\rmc.cpp" />
     <ClCompile Include="..\..\..\src\gpre\sqe.cpp" />
     <ClCompile Include="..\..\..\src\gpre\sql.cpp" />
-    <ClCompile Include="..\..\..\gen\$(Platform)\gpre\gpre_meta.cpp" />
+    <ClCompile Include="$(FB_ROOT_GEN_DIR)gpre\gpre_meta.cpp" />
     <ClCompile Include="..\..\..\src\jrd\dsc.cpp" />
   </ItemGroup>
   <ItemGroup>
