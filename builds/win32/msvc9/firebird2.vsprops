@@ -52,7 +52,7 @@
 	/>
 	<UserMacro
 		Name="ICU_INCLUDE_DIR"
-		Value="$(SolutionDir)..\..\..\extern\icu\include\"
+		Value="$(SolutionDir)..\..\..\gen\$(FB_COMPILER_SIGN)_$(PlatformName)_$(ConfigurationName)\icu\include\"
 	/>
 	<UserMacro
 		Name="FB_ROOT_TMP_DIR"

@@ -20,8 +20,12 @@
         GenerateDebugInformation="true"
     />
     <UserMacro
+        Name="ICU_COMPILER_SIGN"
+        Value="msvc8"
+    />
+    <UserMacro
         Name="ICU_ROOT_TMP_DIR"
-        Value="$(SolutionDir)..\..\..\..\..\Temp\msvc8_$(PlatformName)_$(ConfigurationName)\icu\"
+        Value="$(SolutionDir)..\..\..\..\..\Temp\$(ICU_COMPILER_SIGN)_$(PlatformName)_$(ConfigurationName)\icu\"
     />
     <UserMacro
         Name="ICU_OUT_BIN_DIR"
@@ -33,6 +37,6 @@
     />
     <UserMacro
         Name="ICU_OUT_INCLUDE_DIR"
-        Value="$(SolutionDir)..\..\..\include\"
+        Value="$(SolutionDir)..\..\..\..\..\gen\$(ICU_COMPILER_SIGN)_$(PlatformName)_$(ConfigurationName)\icu\include\"
     />
 </VisualStudioPropertySheet>
