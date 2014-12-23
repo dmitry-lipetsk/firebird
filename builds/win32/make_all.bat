@@ -117,6 +117,23 @@ copy %FB_ROOT_PATH%\src\extlib\fbudf\fbudf.sql %FB_OUTPUT_DIR%\udf > nul
 @copy %FB_INSTALL_SCRIPTS%\install_superclassic.bat %FB_OUTPUT_DIR%\bin >nul
 @copy %FB_INSTALL_SCRIPTS%\uninstall.bat %FB_OUTPUT_DIR%\bin >nul
 
+:: ------------------------------------------ MSVC runtime 2012
+if %MSVC_VERSION% == 11 if %FB_PROCESSOR_ARCHITECTURE%==AMD64 if %FB_CFG_NAME%==Release (
+@copy "%VS110COMNTOOLS%..\..\VC\redist\x64\Microsoft.VC110.CRT\msvcr110.dll" %FB_OUTPUT_DIR%\bin >nul
+)
+
+if %MSVC_VERSION% == 11 if %FB_PROCESSOR_ARCHITECTURE%==AMD64 if %FB_CFG_NAME%==Debug (
+@copy "%VS110COMNTOOLS%..\..\VC\redist\Debug_NonRedist\x64\Microsoft.VC110.DebugCRT\msvcr110d.dll" %FB_OUTPUT_DIR%\bin >nul
+)
+
+if %MSVC_VERSION% == 11 if %FB_PROCESSOR_ARCHITECTURE%==x86 if %FB_CFG_NAME%==Release (
+@copy "%VS110COMNTOOLS%..\..\VC\redist\x86\Microsoft.VC110.CRT\msvcr110.dll" %FB_OUTPUT_DIR%\bin >nul
+)
+
+if %MSVC_VERSION% == 11 if %FB_PROCESSOR_ARCHITECTURE%==x86 if %FB_CFG_NAME%==Debug (
+@copy "%VS110COMNTOOLS%..\..\VC\redist\Debug_NonRedist\x86\Microsoft.VC110.DebugCRT\msvcr110d.dll" %FB_OUTPUT_DIR%\bin >nul
+)
+
 :: ------------------------------------------ MSVC runtime 2010
 if %MSVC_VERSION% == 10 if %FB_PROCESSOR_ARCHITECTURE%==AMD64 if %FB_CFG_NAME%==Release (
 @copy "%VS100COMNTOOLS%..\..\VC\redist\x64\Microsoft.VC100.CRT\msvcr100.dll" %FB_OUTPUT_DIR%\bin >nul

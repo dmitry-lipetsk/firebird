@@ -22,23 +22,26 @@
 @set FB_CLEAN=/build
 
 for %%v in ( %* ) do (
-  ( if /I "%%v"=="MSVC10" (set FB_BUILD__COMPILER=msvc10) )
-  ( if /I "%%v"=="MSVC9"  (set FB_BUILD__COMPILER=msvc9) )
-  ( if /I "%%v"=="MSVC8"  (set FB_BUILD__COMPILER=msvc8) )
-  ( if /I "%%v"=="MSVC7"  (set FB_BUILD__COMPILER=msvc7) )
+  ( if /I "%%v"=="MSVC11XP" (set FB_BUILD__COMPILER=msvc11xp) )
+  ( if /I "%%v"=="MSVC10"   (set FB_BUILD__COMPILER=msvc10) )
+  ( if /I "%%v"=="MSVC9"    (set FB_BUILD__COMPILER=msvc9) )
+  ( if /I "%%v"=="MSVC8"    (set FB_BUILD__COMPILER=msvc8) )
+  ( if /I "%%v"=="MSVC7"    (set FB_BUILD__COMPILER=msvc7) )
 
-  ( if /I "%%v"=="AMD64"  (set FB_PROCESSOR_ARCHITECTURE=AMD64) )
-  ( if /I "%%v"=="x86"    (set FB_PROCESSOR_ARCHITECTURE=x86) )
+  ( if /I "%%v"=="AMD64"    (set FB_PROCESSOR_ARCHITECTURE=AMD64) )
+  ( if /I "%%v"=="x86"      (set FB_PROCESSOR_ARCHITECTURE=x86) )
 
-  ( if /I "%%v"=="DEBUG"  (set FB_CFG_NAME=Debug) )
-  ( if /I "%%v"=="CLEAN"  (set FB_CLEAN=/rebuild) )
+  ( if /I "%%v"=="DEBUG"    (set FB_CFG_NAME=Debug) )
+  ( if /I "%%v"=="CLEAN"    (set FB_CLEAN=/rebuild) )
 )
 
-if "%FB_BUILD__COMPILER%"=="msvc10" if NOT DEFINED VS100COMNTOOLS goto :ERROR__NO_VS100COMNTOOLS
-if "%FB_BUILD__COMPILER%"=="msvc9"  if NOT DEFINED VS90COMNTOOLS  goto :ERROR__NO_VS90COMNTOOLS
-if "%FB_BUILD__COMPILER%"=="msvc8"  if NOT DEFINED VS80COMNTOOLS  goto :ERROR__NO_VS80COMNTOOLS
-if "%FB_BUILD__COMPILER%"=="msvc7"  if NOT DEFINED VS71COMNTOOLS  goto :ERROR__NO_VS71COMNTOOLS
+if "%FB_BUILD__COMPILER%"=="msvc11xp" if NOT DEFINED VS110COMNTOOLS goto :ERROR__NO_VS110COMNTOOLS
+if "%FB_BUILD__COMPILER%"=="msvc10"   if NOT DEFINED VS100COMNTOOLS goto :ERROR__NO_VS100COMNTOOLS
+if "%FB_BUILD__COMPILER%"=="msvc9"    if NOT DEFINED VS90COMNTOOLS  goto :ERROR__NO_VS90COMNTOOLS
+if "%FB_BUILD__COMPILER%"=="msvc8"    if NOT DEFINED VS80COMNTOOLS  goto :ERROR__NO_VS80COMNTOOLS
+if "%FB_BUILD__COMPILER%"=="msvc7"    if NOT DEFINED VS71COMNTOOLS  goto :ERROR__NO_VS71COMNTOOLS
 
+if "%FB_BUILD__COMPILER%"=="" if DEFINED VS110COMNTOOLS set FB_BUILD__COMPILER=msvc11xp
 if "%FB_BUILD__COMPILER%"=="" if DEFINED VS100COMNTOOLS set FB_BUILD__COMPILER=msvc10
 if "%FB_BUILD__COMPILER%"=="" if DEFINED VS90COMNTOOLS  set FB_BUILD__COMPILER=msvc9
 if "%FB_BUILD__COMPILER%"=="" if DEFINED VS80COMNTOOLS  set FB_BUILD__COMPILER=msvc8
@@ -56,10 +59,11 @@ set FB_PROCESSOR_ARCHITECTURE=%PROCESSOR_ARCHITECTURE%
 ::echo FB_CFG__NAME              : [%FB_CFG_NAME%]
 
 ::===============================
-if "%FB_BUILD__COMPILER%"=="msvc10" set MSVC_VERSION=10
-if "%FB_BUILD__COMPILER%"=="msvc9"  set MSVC_VERSION=9
-if "%FB_BUILD__COMPILER%"=="msvc8"  set MSVC_VERSION=8
-if "%FB_BUILD__COMPILER%"=="msvc7"  set MSVC_VERSION=7
+if "%FB_BUILD__COMPILER%"=="msvc11xp" set MSVC_VERSION=11
+if "%FB_BUILD__COMPILER%"=="msvc10"   set MSVC_VERSION=10
+if "%FB_BUILD__COMPILER%"=="msvc9"    set MSVC_VERSION=9
+if "%FB_BUILD__COMPILER%"=="msvc8"    set MSVC_VERSION=8
+if "%FB_BUILD__COMPILER%"=="msvc7"    set MSVC_VERSION=7
 
 if %MSVC_VERSION%=="" goto :HELP
 
@@ -67,6 +71,11 @@ if %MSVC_VERSION%=="" goto :HELP
 
 ::===============================
 ::Set up the compiler environment
+
+if "%FB_BUILD__COMPILER%"=="msvc11xp" (
+@devenv /? >nul 2>nul
+@if errorlevel 9009 (call "%VS110COMNTOOLS%\..\..\VC\vcvarsall.bat" %FB_PROCESSOR_ARCHITECTURE%) else ( echo    The file: & @echo      "%VS110COMNTOOLS%\..\..\VC\vcvarsall.bat" %FB_PROCESSOR_ARCHITECTURE% & echo    has already been executed.)
+)
 
 if "%FB_BUILD__COMPILER%"=="msvc10" (
 @devenv /? >nul 2>nul
@@ -155,6 +164,11 @@ rem @if not defined MSVC_VERSION goto :HELP
 
 goto :END
 
+
+::===========
+:ERROR__NO_VS110COMNTOOLS
+@echo "ERROR: VS2012 not installed"
+@exit /B 1
 
 ::===========
 :ERROR__NO_VS100COMNTOOLS
