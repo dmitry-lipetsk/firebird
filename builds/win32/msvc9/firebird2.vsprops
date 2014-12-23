@@ -60,6 +60,6 @@
 	/>
 	<UserMacro
 		Name="FB_ROOT_GEN_DIR"
-		Value="$(SolutionDir)..\..\..\gen\$(PlatformName)\"
+		Value="$(SolutionDir)..\..\..\gen\$(FB_COMPILER_SIGN)_$(PlatformName)_$(ConfigurationName)\fb\"
 	/>
 </VisualStudioPropertySheet>

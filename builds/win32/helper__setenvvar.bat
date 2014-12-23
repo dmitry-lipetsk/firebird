@@ -135,8 +135,8 @@ rem @if not defined MSVC_VERSION goto :HELP
 )
 
 @set FB_INSTALL_SCRIPTS=%FB_ROOT_PATH%\builds\install\arch-specific\win32
-@set FB_GEN_DIR=%FB_ROOT_PATH%\gen\%FB_TARGET_PLATFORM%
-@set FB_GEN_DB_DIR=%FB_DB_PATH%/gen/%FB_TARGET_PLATFORM%
+@set FB_GEN_DIR=%FB_ROOT_PATH%\gen\%FB_BUILD__COMPILER%_%FB_TARGET_PLATFORM%_%FB_CFG_NAME%\fb
+@set FB_GEN_DB_DIR=%FB_DB_PATH%/gen/%FB_BUILD__COMPILER%_%FB_TARGET_PLATFORM%_%FB_CFG_NAME%/fb
 
 ::===========
 @set FB_OBJ_DIR=%FB_TARGET_PLATFORM%\%FB_CFG_NAME%
@@ -214,6 +214,7 @@ if defined VS_VER_EXPRESS (
 @echo    FB_BUILD__TEMP_DIR       =[%FB_BUILD__TEMP_DIR%]
 @echo    FB_BUILD__OUT_DIR        =[%FB_BUILD__OUT_DIR%]
 @echo    FB_OUTPUT_DIR            =[%FB_OUTPUT_DIR%]
+@echo    FB_GEN_DIR               =[%FB_GEN_DIR%]
 @echo.
 @echo    (End of %0)
 @echo.
