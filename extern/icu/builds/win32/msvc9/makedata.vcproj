@@ -4,7 +4,6 @@
 	Version="9,00"
 	Name="makedata"
 	ProjectGUID="{D9DF7F2F-93B7-4810-B5CD-96F4F33C079B}"
-	RootNamespace="makedata"
 	Keyword="MakeFileProj"
 	TargetFrameworkVersion="131072"
 	>

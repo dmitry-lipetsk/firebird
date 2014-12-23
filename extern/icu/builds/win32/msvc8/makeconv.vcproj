@@ -178,6 +178,7 @@
 			/>
 			<Tool
 				Name="VCMIDLTool"
+				TargetEnvironment="3"
 				TypeLibraryName="$(IntDir)/makeconv.tlb"
 			/>
 			<Tool
