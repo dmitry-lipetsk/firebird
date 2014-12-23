@@ -60,31 +60,31 @@
     <ClCompile Include="..\..\..\src\jrd\DebugInterface.cpp">
       <Filter>JRD files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\gen\$(Platform)\jrd\dfw.cpp">
+    <ClCompile Include="$(FB_ROOT_GEN_DIR)jrd\dfw.cpp">
       <Filter>JRD files</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\src\jrd\divorce.cpp">
       <Filter>JRD files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\gen\$(Platform)\jrd\dpm.cpp">
+    <ClCompile Include="$(FB_ROOT_GEN_DIR)jrd\dpm.cpp">
       <Filter>JRD files</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\src\jrd\dsc.cpp">
       <Filter>JRD files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\gen\$(Platform)\jrd\dyn.cpp">
+    <ClCompile Include="$(FB_ROOT_GEN_DIR)jrd\dyn.cpp">
       <Filter>JRD files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\gen\$(Platform)\jrd\dyn_def.cpp">
+    <ClCompile Include="$(FB_ROOT_GEN_DIR)jrd\dyn_def.cpp">
       <Filter>JRD files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\gen\$(Platform)\jrd\dyn_del.cpp">
+    <ClCompile Include="$(FB_ROOT_GEN_DIR)jrd\dyn_del.cpp">
       <Filter>JRD files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\gen\$(Platform)\jrd\dyn_mod.cpp">
+    <ClCompile Include="$(FB_ROOT_GEN_DIR)jrd\dyn_mod.cpp">
       <Filter>JRD files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\gen\$(Platform)\jrd\dyn_util.cpp">
+    <ClCompile Include="$(FB_ROOT_GEN_DIR)jrd\dyn_util.cpp">
       <Filter>JRD files</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\src\jrd\enc.cpp">
@@ -117,7 +117,7 @@
     <ClCompile Include="..\..\..\src\jrd\flu.cpp">
       <Filter>JRD files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\gen\$(Platform)\jrd\fun.cpp">
+    <ClCompile Include="$(FB_ROOT_GEN_DIR)jrd\fun.cpp">
       <Filter>JRD files</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\src\jrd\functions.cpp">
@@ -129,7 +129,7 @@
     <ClCompile Include="..\..\..\src\jrd\GlobalRWLock.cpp">
       <Filter>JRD files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\gen\$(Platform)\jrd\grant.cpp">
+    <ClCompile Include="$(FB_ROOT_GEN_DIR)jrd\grant.cpp">
       <Filter>JRD files</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\src\jrd\os\win32\guid.cpp">
@@ -141,7 +141,7 @@
     <ClCompile Include="..\..\..\src\jrd\inf.cpp">
       <Filter>JRD files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\gen\$(Platform)\jrd\ini.cpp">
+    <ClCompile Include="$(FB_ROOT_GEN_DIR)jrd\ini.cpp">
       <Filter>JRD files</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\src\jrd\extds\InternalDS.cpp">
@@ -180,7 +180,7 @@
     <ClCompile Include="..\..\..\src\jrd\lck.cpp">
       <Filter>JRD files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\gen\$(Platform)\jrd\met.cpp">
+    <ClCompile Include="$(FB_ROOT_GEN_DIR)jrd\met.cpp">
       <Filter>JRD files</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\src\jrd\mov.cpp">
@@ -213,7 +213,7 @@
     <ClCompile Include="..\..\..\src\jrd\par.cpp">
       <Filter>JRD files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\gen\$(Platform)\jrd\pcmet.cpp">
+    <ClCompile Include="$(FB_ROOT_GEN_DIR)jrd\pcmet.cpp">
       <Filter>JRD files</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\src\jrd\PreparedStatement.cpp">
@@ -246,7 +246,7 @@
     <ClCompile Include="..\..\..\src\jrd\RuntimeStatistics.cpp">
       <Filter>JRD files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\gen\$(Platform)\jrd\scl.cpp">
+    <ClCompile Include="$(FB_ROOT_GEN_DIR)jrd\scl.cpp">
       <Filter>JRD files</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\src\jrd\sdl.cpp">

@@ -23,7 +23,7 @@
     <ClCompile Include="..\..\..\src\dudley\ddl.cpp">
       <Filter>DUDLEY files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\gen\$(Platform)\dudley\exe.cpp">
+    <ClCompile Include="$(FB_ROOT_GEN_DIR)dudley\exe.cpp">
       <Filter>DUDLEY files</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\src\dudley\expand.cpp">
@@ -32,7 +32,7 @@
     <ClCompile Include="..\..\..\src\dudley\expr.cpp">
       <Filter>DUDLEY files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\gen\$(Platform)\dudley\extract.cpp">
+    <ClCompile Include="$(FB_ROOT_GEN_DIR)dudley\extract.cpp">
       <Filter>DUDLEY files</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\src\common\fb_exception.cpp">

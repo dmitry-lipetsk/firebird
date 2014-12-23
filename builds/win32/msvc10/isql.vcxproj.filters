@@ -24,7 +24,7 @@
     <ClCompile Include="..\..\..\src\isql\Extender.cpp">
       <Filter>ISQL files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\gen\$(Platform)\isql\extract.cpp">
+    <ClCompile Include="$(FB_ROOT_GEN_DIR)isql\extract.cpp">
       <Filter>ISQL files</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\src\common\fb_exception.cpp">
@@ -33,13 +33,13 @@
     <ClCompile Include="..\..\..\src\isql\InputDevices.cpp">
       <Filter>ISQL files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\gen\$(Platform)\isql\isql.cpp">
+    <ClCompile Include="$(FB_ROOT_GEN_DIR)isql\isql.cpp">
       <Filter>ISQL files</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\src\isql\OptionsBase.cpp">
       <Filter>ISQL files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\gen\$(Platform)\isql\show.cpp">
+    <ClCompile Include="$(FB_ROOT_GEN_DIR)isql\show.cpp">
       <Filter>ISQL files</Filter>
     </ClCompile>
   </ItemGroup>

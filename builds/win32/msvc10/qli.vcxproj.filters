@@ -76,16 +76,16 @@
     <ClCompile Include="..\..\..\src\qli\report.cpp">
       <Filter>QLI files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\gen\$(Platform)\qli\help.cpp">
+    <ClCompile Include="$(FB_ROOT_GEN_DIR)qli\help.cpp">
       <Filter>QLI files\Generated files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\gen\$(Platform)\qli\meta.cpp">
+    <ClCompile Include="$(FB_ROOT_GEN_DIR)qli\meta.cpp">
       <Filter>QLI files\Generated files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\gen\$(Platform)\qli\proc.cpp">
+    <ClCompile Include="$(FB_ROOT_GEN_DIR)qli\proc.cpp">
       <Filter>QLI files\Generated files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\gen\$(Platform)\qli\show.cpp">
+    <ClCompile Include="$(FB_ROOT_GEN_DIR)qli\show.cpp">
       <Filter>QLI files\Generated files</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\src\jrd\dsc.cpp">

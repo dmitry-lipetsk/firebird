@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\gen\$(Platform)\examples\intlbld.c">
+    <ClCompile Include="$(FB_ROOT_GEN_DIR)examples\intlbld.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

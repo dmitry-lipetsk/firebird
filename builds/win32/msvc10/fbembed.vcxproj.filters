@@ -60,7 +60,7 @@
     <ClCompile Include="..\..\..\src\remote\xnet.cpp">
       <Filter>REMOTE files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\gen\$(Platform)\utilities\gstat\dba.cpp">
+    <ClCompile Include="$(FB_ROOT_GEN_DIR)utilities\gstat\dba.cpp">
       <Filter>UTILITIES files</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\src\utilities\nbackup.cpp">

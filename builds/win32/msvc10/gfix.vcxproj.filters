@@ -20,7 +20,7 @@
     <ClCompile Include="..\..\..\src\alice\alice.cpp">
       <Filter>ALICE files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\gen\$(Platform)\alice\alice_meta.cpp">
+    <ClCompile Include="$(FB_ROOT_GEN_DIR)alice\alice_meta.cpp">
       <Filter>ALICE files</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\src\alice\aliceMain.cpp">
