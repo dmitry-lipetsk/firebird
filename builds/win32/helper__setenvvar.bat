@@ -141,15 +141,15 @@ rem @if not defined MSVC_VERSION goto :HELP
 ::===========
 @set FB_OBJ_DIR=%FB_TARGET_PLATFORM%\%FB_CFG_NAME%
 
-@set ROOT_TEMP_DIR2=%FB_ROOT_PATH%\temp\%FB_BUILD__COMPILER%_%FB_TARGET_PLATFORM%_%FB_CFG_NAME%\
+@set FB_BUILD__ROOT_TEMP_DIR=%FB_ROOT_PATH%\temp\%FB_BUILD__COMPILER%_%FB_TARGET_PLATFORM%_%FB_CFG_NAME%\
 
-@set FB_COMPILE_LOG_DIR=%ROOT_TEMP_DIR2%log\
+@set FB_BUILD__COMPILE_LOG_DIR=%FB_BUILD__ROOT_TEMP_DIR%log\
 
-@set FB_ICU_SOURCE_BIN2=%ROOT_TEMP_DIR2%icu\bin\
+@set FB_BUILD__ICU_SOURCE_BIN=%FB_BUILD__ROOT_TEMP_DIR%icu\bin\
 
-@set FB_TEMP_DIR2=%ROOT_TEMP_DIR2%fb_tmp\
+@set FB_BUILD__TEMP_DIR=%FB_BUILD__ROOT_TEMP_DIR%fb_tmp\
 
-@set FB_OUT_DIR2=%ROOT_TEMP_DIR2%fb_out\
+@set FB_BUILD__OUT_DIR=%FB_BUILD__ROOT_TEMP_DIR%fb_out\
 
 @set FB_OUTPUT_DIR=%FB_ROOT_PATH%\output\%FB_BUILD__COMPILER%_%FB_TARGET_PLATFORM%_%FB_CFG_NAME%
 
@@ -209,11 +209,11 @@ if defined VS_VER_EXPRESS (
 @echo    root_path          =%FB_ROOT_PATH%
 @echo    server_name        =%SERVER_NAME%
 @echo.
-@echo    ROOT_TEMP_DIR2     =[%ROOT_TEMP_DIR2%]
-@echo    FB_ICU_SOURCE_BIN2 =[%FB_ICU_SOURCE_BIN2%]
-@echo    FB_TEMP_DIR2       =[%FB_TEMP_DIR2%]
-@echo    FB_OUT_DIR2        =[%FB_OUT_DIR2%]
-@echo    FB_OUTPUT_DIR      =[%FB_OUTPUT_DIR%]
+@echo    FB_BUILD__ROOT_TEMP_DIR  =[%FB_BUILD__ROOT_TEMP_DIR%]
+@echo    FB_BUILD__ICU_SOURCE_BIN =[%FB_BUILD__ICU_SOURCE_BIN%]
+@echo    FB_BUILD__TEMP_DIR       =[%FB_BUILD__TEMP_DIR%]
+@echo    FB_BUILD__OUT_DIR        =[%FB_BUILD__OUT_DIR%]
+@echo    FB_OUTPUT_DIR            =[%FB_OUTPUT_DIR%]
 @echo.
 @echo    (End of %0)
 @echo.

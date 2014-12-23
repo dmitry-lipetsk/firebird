@@ -28,8 +28,8 @@ if errorlevel 1 call :ERROR build failed - see make_all_%FB_TARGET_PLATFORM%.log
 ::===========
 :MOVE
 @echo Copying files to output [%FB_OUTPUT_DIR%]
-@del %FB_OUT_DIR2%bin\*.exp 2>nul
-@del %FB_OUT_DIR2%bin\*.lib 2>nul
+@del %FB_BUILD__OUT_DIR%bin\*.exp 2>nul
+@del %FB_BUILD__OUT_DIR%bin\*.lib 2>nul
 @rmdir /q /s %FB_OUTPUT_DIR% 2>nul
 
 @mkdir %FB_OUTPUT_DIR% 2>nul
@@ -45,16 +45,16 @@ if errorlevel 1 call :ERROR build failed - see make_all_%FB_TARGET_PLATFORM%.log
 @mkdir %FB_OUTPUT_DIR%\plugins 2>nul
 
 for %%v in ( icuuc30 icudt30 icuin30 ) do (
-@copy %FB_ICU_SOURCE_BIN2%\%%v.dll %FB_OUTPUT_DIR%\bin >nul
+@copy %FB_BUILD__ICU_SOURCE_BIN%\%%v.dll %FB_OUTPUT_DIR%\bin >nul
 )
 
-@copy %FB_OUT_DIR2%bin\* %FB_OUTPUT_DIR%\bin >nul
-@copy %FB_OUT_DIR2%intl\* %FB_OUTPUT_DIR%\intl >nul
-@copy %FB_OUT_DIR2%udf\* %FB_OUTPUT_DIR%\udf >nul
-@copy %FB_OUT_DIR2%system32\* %FB_OUTPUT_DIR%\system32 >nul
-@copy %FB_OUT_DIR2%plugins\fbtrace.dll %FB_OUTPUT_DIR%\plugins\fbtrace.dll >nul
-@copy %FB_TEMP_DIR2%fbclient\fbclient.lib %FB_OUTPUT_DIR%\lib\fbclient_ms.lib >nul
-@copy %FB_TEMP_DIR2%ib_util\ib_util.lib %FB_OUTPUT_DIR%\lib\ib_util_ms.lib >nul
+@copy %FB_BUILD__OUT_DIR%bin\* %FB_OUTPUT_DIR%\bin >nul
+@copy %FB_BUILD__OUT_DIR%intl\* %FB_OUTPUT_DIR%\intl >nul
+@copy %FB_BUILD__OUT_DIR%udf\* %FB_OUTPUT_DIR%\udf >nul
+@copy %FB_BUILD__OUT_DIR%system32\* %FB_OUTPUT_DIR%\system32 >nul
+@copy %FB_BUILD__OUT_DIR%plugins\fbtrace.dll %FB_OUTPUT_DIR%\plugins\fbtrace.dll >nul
+@copy %FB_BUILD__TEMP_DIR%fbclient\fbclient.lib %FB_OUTPUT_DIR%\lib\fbclient_ms.lib >nul
+@copy %FB_BUILD__TEMP_DIR%ib_util\ib_util.lib %FB_OUTPUT_DIR%\lib\ib_util_ms.lib >nul
 
 for %%v in ( btyacc gbak_embed gpre_boot gpre_embed isql_embed ) do (
 @del %FB_OUTPUT_DIR%\bin\%%v.exe >nul

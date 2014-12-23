@@ -35,11 +35,11 @@ goto loop_start
 
 :loop_end
 
-set output=%FB_COMPILE_LOG_DIR%%output%
+set output=%FB_BUILD__COMPILE_LOG_DIR%%output%
 
 @echo LOG: [%output%]
 
-@if NOT EXIST %FB_COMPILE_LOG_DIR% @md %FB_COMPILE_LOG_DIR%
+@if NOT EXIST %FB_BUILD__COMPILE_LOG_DIR% @md %FB_BUILD__COMPILE_LOG_DIR%
 
 %exec% %solution%.sln %projects% %FB_CLEAN% %config% /OUT %output%
 

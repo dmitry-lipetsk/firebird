@@ -32,7 +32,7 @@ for %%v in ( alice burp dsql dudley gpre isql journal jrd misc msgs qli examples
 ::=======
 call :btyacc
 if "%ERRLEV%"=="1" goto :END
-@copy %FB_OUT_DIR2%bin\btyacc.exe %FB_GEN_DIR%\ > nul
+@copy %FB_BUILD__OUT_DIR%bin\btyacc.exe %FB_GEN_DIR%\ > nul
 
 @echo Generating DSQL parser...
 @call helper__parse.bat
@@ -46,7 +46,7 @@ if "%ERRLEV%"=="1" goto :END
 ::=======
 call :gpre_boot
 if "%ERRLEV%"=="1" goto :END
-@copy %FB_OUT_DIR2%bin\gpre_boot.exe %FB_GEN_DIR% > nul
+@copy %FB_BUILD__OUT_DIR%bin\gpre_boot.exe %FB_GEN_DIR% > nul
 
 ::=======
 @echo Preprocessing the source files needed to build gbak_embed, gpre_embed and isql_embed...
@@ -61,13 +61,13 @@ if "%ERRLEV%"=="1" goto :END
 call :isql_embed
 if "%ERRLEV%"=="1" goto :END
 
-@copy %FB_OUT_DIR2%bin\gbak_embed.exe %FB_GEN_DIR% > nul
-@copy %FB_OUT_DIR2%bin\gpre_embed.exe %FB_GEN_DIR% > nul
-@copy %FB_OUT_DIR2%bin\isql_embed.exe %FB_GEN_DIR% > nul
-@copy %FB_OUT_DIR2%bin\fbembed.dll %FB_GEN_DIR% > nul
+@copy %FB_BUILD__OUT_DIR%bin\gbak_embed.exe %FB_GEN_DIR% > nul
+@copy %FB_BUILD__OUT_DIR%bin\gpre_embed.exe %FB_GEN_DIR% > nul
+@copy %FB_BUILD__OUT_DIR%bin\isql_embed.exe %FB_GEN_DIR% > nul
+@copy %FB_BUILD__OUT_DIR%bin\fbembed.dll %FB_GEN_DIR% > nul
 
 for %%v in ( icuuc30 icudt30 icuin30 ) do (
-@copy %FB_ICU_SOURCE_BIN2%\%%v.dll %FB_GEN_DIR% >nul 2>&1
+@copy %FB_BUILD__ICU_SOURCE_BIN%\%%v.dll %FB_GEN_DIR% >nul 2>&1
 )
 
 ::=======
@@ -159,7 +159,7 @@ goto :EOF
 @echo Building build_msg (%FB_OBJ_DIR%)...
 @call helper__compile.bat %FB_ROOT_PATH%\builds\win32\%VS_VER%\Firebird2Boot build_msg.log build_msg
 if errorlevel 1 goto :msgs2
-@copy %FB_TEMP_DIR2%build_msg\build_msg.exe   %FB_GEN_DIR%\
+@copy %FB_BUILD__TEMP_DIR%build_msg\build_msg.exe   %FB_GEN_DIR%\
 @goto :EOF
 :msgs2
 echo.
@@ -175,7 +175,7 @@ goto :EOF
 @echo Building codes (%FB_OBJ_DIR%)...
 @call helper__compile.bat %FB_ROOT_PATH%\builds\win32\%VS_VER%\Firebird2Boot codes.log codes
 if errorlevel 1 goto :codes2
-@copy %FB_TEMP_DIR2%codes\codes.exe   %FB_GEN_DIR%\
+@copy %FB_BUILD__TEMP_DIR%codes\codes.exe   %FB_GEN_DIR%\
 @goto :EOF
 :codes2
 echo.
