@@ -94,9 +94,9 @@ LONG CControlPanel::OnInquire(UINT /*uAppNum*/, NEWCPLINFO* pInfo)
     pInfo->dwHelpContext = 0;
     pInfo->lData = 0;
     pInfo->hIcon = ::LoadIcon(AfxGetResourceHandle(), MAKEINTRESOURCE(1));
-    strcpy(pInfo->szName, "Applet");
-    strcpy(pInfo->szInfo, "Raw Cpl Applet");
-    strcpy(pInfo->szHelpFile, "");
+    _tcscpy(pInfo->szName, _T("Applet"));
+    _tcscpy(pInfo->szInfo, _T("Raw Cpl Applet"));
+    _tcscpy(pInfo->szHelpFile, _T(""));
     return 0; // OK (don't send CPL_INQUIRE msg)
 }
 

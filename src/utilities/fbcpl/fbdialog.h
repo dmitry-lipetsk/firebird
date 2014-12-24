@@ -172,13 +172,13 @@ public:
 
 //Get Stuff
 
-	CString GetServiceName(const char* name) const;
+	CString GetServiceName(const TCHAR* name) const;
 	HWND GetSuperServerHandle() const;
 #ifdef MANAGE_CLASSIC
 	HWND GetClassicServerHandle() const;
 #endif
 	HWND GetFirebirdHandle() const;
-	void GetFullAppPath( CFBDialog::STATUS status, char* app);
+	void GetFullAppPath( CFBDialog::STATUS status, TCHAR* app);
 	HWND GetGuardianHandle() const;
 //	bool GetGuardianUseSpecified();
 	bool GetPreferredArchitecture();

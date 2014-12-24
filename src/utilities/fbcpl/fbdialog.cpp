@@ -222,12 +222,12 @@ void CFBDialog::UpdateServerStatus()
 	if ( fb_status.WasRunning )
 	{
 		m_Icon.SetIcon(AfxGetApp()->LoadIcon(IDI_ICON1));
-		m_Button_Stop.SetWindowText("&Stop");
+		m_Button_Stop.SetWindowText(_T("&Stop"));
 	}
 	else
 	{
 		m_Icon.SetIcon(AfxGetApp()->LoadIcon(IDI_ICON4));
-		m_Button_Stop.SetWindowText("&Start");
+		m_Button_Stop.SetWindowText(_T("&Start"));
 	}
 
 	//Reset check boxes
@@ -279,7 +279,7 @@ bool CFBDialog::ValidateInstalledServices()
 	return (!fb_status.UseService && fb_status.UseGuardian) ? false : true;
 }
 
-CString CFBDialog::GetServiceName(const char* name) const
+CString CFBDialog::GetServiceName(const TCHAR* name) const
 {
 	CString serviceName;
 	serviceName.Format(name, FB_DEFAULT_INSTANCE);
@@ -441,17 +441,17 @@ void CFBDialog::ViewRegistryEntries()
 	else //Installed as Application, so look for an entry in registry
 	{
 		HKEY hkey;
-		if (RegOpenKeyEx(HKEY_LOCAL_MACHINE, "Software\\Microsoft\\Windows\\CurrentVersion\\Run",
+		if (RegOpenKeyEx(HKEY_LOCAL_MACHINE, _T("Software\\Microsoft\\Windows\\CurrentVersion\\Run"),
 				0, KEY_QUERY_VALUE, &hkey) == ERROR_SUCCESS)
 		{
 			DWORD dwType;
 			DWORD dwSize = MAX_PATH;
-			fb_status.AutoStart = (RegQueryValueEx(hkey, "Firebird", NULL, &dwType,
+			fb_status.AutoStart = (RegQueryValueEx(hkey, _T("Firebird"), NULL, &dwType,
 				(LPBYTE) fb_status.ServerName.GetBuffer(dwSize / sizeof(TCHAR)), &dwSize) ==
 					ERROR_SUCCESS );
 			fb_status.ServerName.ReleaseBuffer(-1);
 			if (fb_status.AutoStart)
-				fb_status.UseGuardian = ( fb_status.ServerName.Find("fbguard") == ERROR_SUCCESS );
+				fb_status.UseGuardian = ( fb_status.ServerName.Find(_T("fbguard")) == ERROR_SUCCESS );
 
 			RegCloseKey (hkey);
 		}
@@ -788,10 +788,10 @@ bool CFBDialog::ServerStart(const CFBDialog::STATUS status )
 			sa.lpSecurityDescriptor = NULL;
 			sa.bInheritHandle = TRUE;
 
-			char full_name[MAX_PATH + 15] = "";
-			GetFullAppPath( status, full_name );
+			TCHAR full_name2[MAX_PATH + 15] = _T("");
+			GetFullAppPath( status, full_name2 );
 
-			if (!CreateProcess (NULL, full_name, &sa, NULL, FALSE, 0, NULL, NULL, &si, &pi))
+			if (!CreateProcess (NULL, full_name2, &sa, NULL, FALSE, 0, NULL, NULL, &si, &pi))
 				HandleError(false, "Application Start");
 			else
 			{
@@ -909,7 +909,7 @@ bool CFBDialog::ServiceInstall(CFBDialog::STATUS status )
 
 	if (hScManager)
 	{
-		const char* ServerPath = m_Root_Path;
+		const TCHAR* const ServerPath = m_Root_Path;
 
 		const CString guard_service = GetServiceName(ISCGUARD_SERVICE);
 		const CString guard_display_name = GetServiceName(ISCGUARD_DISPLAY_NAME);
@@ -1007,13 +1007,13 @@ bool CFBDialog::ConfigureRegistryForApp(const CFBDialog::STATUS status)
 	{
 		// Add line to registry
 		HKEY hkey;
-		if (RegOpenKeyEx(HKEY_LOCAL_MACHINE, "Software\\Microsoft\\Windows\\CurrentVersion\\Run",
+		if (RegOpenKeyEx(HKEY_LOCAL_MACHINE, _T("Software\\Microsoft\\Windows\\CurrentVersion\\Run"),
 				0, KEY_WRITE, &hkey) == ERROR_SUCCESS)
 		{
 
-			char full_name[MAX_PATH + 15] = "";
-			GetFullAppPath( status, full_name);
-			if (!RegSetValueEx (hkey, "Firebird", 0,REG_SZ, (CONST BYTE*) full_name, sizeof(full_name) ) ==
+			TCHAR full_name2[MAX_PATH + 15] = _T("");
+			GetFullAppPath( status, full_name2);
+			if (!RegSetValueEx (hkey, _T("Firebird"), 0,REG_SZ, (CONST BYTE*) full_name2, sizeof(full_name2) ) ==
 					ERROR_SUCCESS)
 			{
 				HandleError(false, "AppInstall");
@@ -1030,13 +1030,13 @@ bool CFBDialog::ConfigureRegistryForApp(const CFBDialog::STATUS status)
 	{
 		// Remove registry entry if set to start automatically on boot.
 		HKEY hkey;
-		if (RegOpenKeyEx(HKEY_LOCAL_MACHINE, "Software\\Microsoft\\Windows\\CurrentVersion\\Run",
+		if (RegOpenKeyEx(HKEY_LOCAL_MACHINE, _T("Software\\Microsoft\\Windows\\CurrentVersion\\Run"),
 				0, KEY_QUERY_VALUE | KEY_WRITE, &hkey) == ERROR_SUCCESS)
 
 		{
-			if (RegQueryValueEx(hkey, "Firebird", NULL, NULL, NULL, NULL) == ERROR_SUCCESS)
+			if (RegQueryValueEx(hkey, _T("Firebird"), NULL, NULL, NULL, NULL) == ERROR_SUCCESS)
 			{
-				if (RegDeleteValue(hkey, "Firebird") == ERROR_SUCCESS)
+				if (RegDeleteValue(hkey, _T("Firebird")) == ERROR_SUCCESS)
 					return true;
 
 				HandleError(false, "Removing registry entry to stop autorun failed.");
@@ -1125,9 +1125,9 @@ void CFBDialog::HandleSvcError(SLONG error_status, const TEXT* string )
 		(LPTSTR) &lpMsgBuf,	0, NULL );
 
 	if (Size)
-		error_title.Format("Error '%s' raised in %s", lpMsgBuf, string);
+		error_title.Format(_T("Error '%s' raised in %s"), lpMsgBuf, string);
 	else
-		error_title.Format("Error Code %d raised in %s", error_status, string );
+		error_title.Format(_T("Error Code %d raised in %s"), error_status, string );
 	::MessageBox( NULL, lpMsgBuf, (LPCTSTR) error_title, MB_OK | MB_ICONINFORMATION );
 	LocalFree( lpMsgBuf );
 }
@@ -1162,9 +1162,9 @@ void CFBDialog::HandleError(bool silent, const TEXT *string )
 			(LPTSTR) &lpMsgBuf,	0, NULL );
 
 		if (Size)
-			error_title.Format("Error '%s' raised in %s", lpMsgBuf, string);
+			error_title.Format(_T("Error '%s' raised in %s"), lpMsgBuf, string);
 		else
-			error_title.Format("Error Code %d raised in %s", error_code, string );
+			error_title.Format(_T("Error Code %d raised in %s"), error_code, string );
 
 		ShowError(lpMsgBuf, error_title);
 
@@ -1577,7 +1577,7 @@ void CFBDialog::CloseServiceManager()
 }
 
 
-void CFBDialog::GetFullAppPath( CFBDialog::STATUS status, char * app)
+void CFBDialog::GetFullAppPath( CFBDialog::STATUS status, TCHAR * app)
 // This returns the fully qualified path and name of the application
 // to start along with parameters -a and -c .
 {
@@ -1603,7 +1603,7 @@ void CFBDialog::GetFullAppPath( CFBDialog::STATUS status, char * app)
 		GetServerName( status, AppName );
 	}
 
-	::strcat(app, AppName);
+	_tcscat(app, AppName);
 }
 
 

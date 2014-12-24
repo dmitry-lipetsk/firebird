@@ -34,18 +34,19 @@
 #include "../utilities/install/servi_proto.h"
 #include "../utilities/install/registry.h"
 
+#define _ARRAY_SIZE(a) ((sizeof(a))/sizeof(a[0]))
 
 USHORT SERVICES_install(SC_HANDLE manager,
-						const char* service_name,
-						const char* display_name,
-						const char* display_description,
-						const char* executable,
-						const char* directory,
-						const char* switches,
-						const char* dependencies,
+						const TCHAR* service_name,
+						const TCHAR* display_name,
+						const TCHAR* display_description,
+						const TCHAR* executable,
+						const TCHAR* directory,
+						const TCHAR* switches,
+						const TCHAR* dependencies,
 						USHORT sw_startup,
-						const char* nt_user_name,
-						const char* nt_user_password,
+						const TCHAR* nt_user_name,
+						const TCHAR* nt_user_password,
 						bool interactive_mode,
 						bool auto_restart,
 						pfnSvcError err_handler)
@@ -61,35 +62,35 @@ USHORT SERVICES_install(SC_HANDLE manager,
  *
  **************************************/
 
-	char exe_name[MAX_PATH];
-	size_t len = strlen(directory);
-	const char last_char = len ? directory[len - 1] : '\\';
-	const char* exe_format = (last_char == '\\' || last_char == '/') ? "%s%s.exe" : "%s\\%s.exe";
+	TCHAR exe_name2[MAX_PATH];
+	size_t len = _tcslen(directory);
+	const TCHAR last_char2 = len ? directory[len - 1] : _T('\\');
+	const TCHAR* exe_format2 = (last_char2 == _T('\\') || last_char2 == _T('/')) ? _T("%s%s.exe") : _T("%s\\%s.exe");
 
-	int rc = snprintf(exe_name, sizeof(exe_name), exe_format, directory, executable);
-	if (rc == sizeof(exe_name) || rc < 0) {
+	int rc = _sntprintf(exe_name2, _ARRAY_SIZE(exe_name2), exe_format2, directory, executable);
+	if (rc == _ARRAY_SIZE(exe_name2) || rc < 0) {
 		return (*err_handler) (0, "service executable path name is too long", 0);
 	}
 
-	char path_name[MAX_PATH * 2];
-	const char* path_format = (strchr(exe_name, ' ') ? "\"%s\"" : "%s");
-	sprintf(path_name, path_format, exe_name);
+	TCHAR path_name2[MAX_PATH * 2];
+	const TCHAR* path_format2 = (_tcschr(exe_name2, _T(' ')) ? _T("\"%s\"") : _T("%s"));
+	_stprintf(path_name2, path_format2, exe_name2);
 
 	if (switches)
 	{
-		len = sizeof(path_name) - strlen(path_name) - 1;
-		if (len < strlen(switches) + 1) {
+		len = _ARRAY_SIZE(path_name2) - _tcslen(path_name2) - 1;
+		if (len < _tcslen(switches) + 1) {
 			return (*err_handler) (0, "service command line is too long", 0);
 		}
-		strcat(path_name, " ");
-		strcat(path_name, switches);
+		_tcscat(path_name2, _T(" "));
+		_tcscat(path_name2, switches);
 	}
 
 	DWORD dwServiceType = SERVICE_WIN32_OWN_PROCESS;
 	if (nt_user_name != 0)
 	{
 		if (nt_user_password == 0)
-			nt_user_password = "";
+			nt_user_password = _T("");
 	}
 	else if (interactive_mode)
 	{
@@ -104,7 +105,7 @@ USHORT SERVICES_install(SC_HANDLE manager,
 							(sw_startup == STARTUP_DEMAND) ?
 								SERVICE_DEMAND_START : SERVICE_AUTO_START,
 							SERVICE_ERROR_NORMAL,
-							path_name, NULL, NULL, dependencies,
+							path_name2, NULL, NULL, dependencies,
 							nt_user_name, nt_user_password);
 
 	if (service == NULL)
@@ -118,7 +119,7 @@ USHORT SERVICES_install(SC_HANDLE manager,
 
 	// Now enter the description string and failure actions into the service
 	// config, if this is available on the current platform.
-	HMODULE advapi32 = LoadLibrary("ADVAPI32.DLL");
+	HMODULE advapi32 = LoadLibrary(_T("ADVAPI32.DLL"));
 	if (advapi32 != 0)
 	{
 		typedef BOOL __stdcall proto_config2(SC_HANDLE, DWORD, LPVOID);
@@ -160,7 +161,7 @@ USHORT SERVICES_install(SC_HANDLE manager,
 
 
 USHORT SERVICES_remove(SC_HANDLE manager,
-					   const char* service_name,
+					   const TCHAR* service_name,
 					   //const char* display_name,
 					   pfnSvcError err_handler)
 {
@@ -214,7 +215,7 @@ USHORT SERVICES_remove(SC_HANDLE manager,
 
 
 USHORT SERVICES_start(SC_HANDLE manager,
-					  const char* service_name,
+					  const TCHAR* service_name,
 					  //const char* display_name,
 					  USHORT sw_mode,
 					  pfnSvcError err_handler)
@@ -234,17 +235,17 @@ USHORT SERVICES_start(SC_HANDLE manager,
 	if (service == NULL)
 		return (*err_handler) (GetLastError(), "OpenService", NULL);
 
-	const TEXT* mode;
+	const TCHAR* mode;
 	switch (sw_mode)
 	{
 		case DEFAULT_PRIORITY:
 			mode = NULL;
 			break;
 		case NORMAL_PRIORITY:
-			mode = "-r";
+			mode = _T("-r");
 			break;
 		case HIGH_PRIORITY:
-			mode = "-b";
+			mode = _T("-b");
 			break;
 	}
 
@@ -278,7 +279,7 @@ USHORT SERVICES_start(SC_HANDLE manager,
 
 
 USHORT SERVICES_stop(SC_HANDLE manager,
-					 const char* service_name,
+					 const TCHAR* service_name,
 					 //const char* display_name,
 					 pfnSvcError err_handler)
 {
@@ -325,7 +326,7 @@ USHORT SERVICES_stop(SC_HANDLE manager,
 	return FB_SUCCESS;
 }
 
-USHORT SERVICES_status (const char* service_name)
+USHORT SERVICES_status (const TCHAR* service_name)
 {
 /**************************************
  *
@@ -374,7 +375,7 @@ USHORT SERVICES_status (const char* service_name)
 	return status;
 }
 
-USHORT SERVICES_grant_privilege(const TEXT* account, pfnSvcError err_handler, const WCHAR* privilege)
+USHORT SERVICES_grant_privilege(const TCHAR* account, pfnSvcError err_handler, const WCHAR* privilege)
 {
 /***************************************************
  *
@@ -422,8 +423,8 @@ USHORT SERVICES_grant_privilege(const TEXT* account, pfnSvcError err_handler, co
 		LsaClose(PolicyHandle);
 		return (*err_handler)(err, "LocalAlloc(Sid)", NULL);
 	}
-	TEXT* pDomain = (LPTSTR) LocalAlloc(LMEM_ZEROINIT, cchDomain);
-	if (pDomain == 0)
+	TCHAR* pDomain2 = (LPTSTR) LocalAlloc(LMEM_ZEROINIT, cchDomain*sizeof(TCHAR));
+	if (pDomain2 == 0)
 	{
 		DWORD err = GetLastError();
 		LsaClose(PolicyHandle);
@@ -431,12 +432,12 @@ USHORT SERVICES_grant_privilege(const TEXT* account, pfnSvcError err_handler, co
 		return (*err_handler)(err, "LocalAlloc(Domain)", NULL);
 	}
 	// Now, really obtain the SID of the user/group.
-	if (LookupAccountName(NULL, account, pSid, &cbSid, pDomain, &cchDomain, &peUse) == 0)
+	if (LookupAccountName(NULL, account, pSid, &cbSid, pDomain2, &cchDomain, &peUse) == 0)
 	{
 		DWORD err = GetLastError();
 		LsaClose(PolicyHandle);
 		LocalFree(pSid);
-		LocalFree(pDomain);
+		LocalFree(pDomain2);
 		return (*err_handler)(err, "LookupAccountName", NULL);
 	}
 
@@ -469,7 +470,7 @@ USHORT SERVICES_grant_privilege(const TEXT* account, pfnSvcError err_handler, co
 		{
 			LsaClose(PolicyHandle);
 			LocalFree(pSid);
-			LocalFree(pDomain);
+			LocalFree(pDomain2);
 			return (*err_handler)(LsaNtStatusToWinError(lsaErr), "LsaAddAccountRights", NULL);
 		}
 	}
@@ -477,19 +478,19 @@ USHORT SERVICES_grant_privilege(const TEXT* account, pfnSvcError err_handler, co
 	{
 		LsaClose(PolicyHandle);
 		LocalFree(pSid);
-		LocalFree(pDomain);
+		LocalFree(pDomain2);
 		return FB_PRIVILEGE_ALREADY_GRANTED;
 	}
 
 	LsaClose(PolicyHandle);
 	LocalFree(pSid);
-	LocalFree(pDomain);
+	LocalFree(pDomain2);
 
 	return FB_SUCCESS;
 }
 
 
-USHORT SERVICES_grant_access_rights(const char* service_name, const TEXT* account, pfnSvcError err_handler)
+USHORT SERVICES_grant_access_rights(const TCHAR* service_name, const TCHAR* account, pfnSvcError err_handler)
 {
 /*********************************************************
  *
@@ -519,7 +520,7 @@ USHORT SERVICES_grant_access_rights(const char* service_name, const TEXT* accoun
 	// not allowed to do this. Administrators should be allowed, by default.
 	// CVC: Only GetNamedSecurityInfoEx has the first param declared const, so we need
 	// to make the compiler happy after Blas' cleanup.
-	if (GetNamedSecurityInfo(const_cast<CHAR*>(service_name), SE_SERVICE, DACL_SECURITY_INFORMATION,
+	if (GetNamedSecurityInfo(const_cast<TCHAR*>(service_name), SE_SERVICE, DACL_SECURITY_INFORMATION,
 		NULL /*Owner Sid*/, NULL /*Group Sid*/,
 		&pOldDACL, NULL /*Sacl*/, &pSD) != ERROR_SUCCESS)
 	{
@@ -535,7 +536,7 @@ USHORT SERVICES_grant_access_rights(const char* service_name, const TEXT* accoun
 	ea.Trustee.MultipleTrusteeOperation = NO_MULTIPLE_TRUSTEE;
 	ea.Trustee.TrusteeForm = TRUSTEE_IS_NAME;
 	ea.Trustee.TrusteeType = TRUSTEE_IS_USER;
-	ea.Trustee.ptstrName = const_cast<char*>(account); // safe
+	ea.Trustee.ptstrName = const_cast<TCHAR*>(account); // safe
 
 	// Create a new DACL, adding this right to whatever exists.
 	PACL pNewDACL = NULL;
@@ -547,7 +548,7 @@ USHORT SERVICES_grant_access_rights(const char* service_name, const TEXT* accoun
 	}
 
 	// Updates the new rights in the object
-	if (SetNamedSecurityInfo(const_cast<CHAR*>(service_name), SE_SERVICE, DACL_SECURITY_INFORMATION,
+	if (SetNamedSecurityInfo(const_cast<TCHAR*>(service_name), SE_SERVICE, DACL_SECURITY_INFORMATION,
 		NULL /*Owner Sid*/, NULL /*Group Sid*/,
 		pNewDACL, NULL /*Sacl*/) != ERROR_SUCCESS)
 	{

@@ -58,9 +58,9 @@ LONG CFBPanel::OnInquire(UINT /*uAppNum*/, NEWCPLINFO* pInfo)
     pInfo->lData = 0;
     pInfo->hIcon = ::LoadIcon(AfxGetResourceHandle(), MAKEINTRESOURCE(IDI_ICON1));
     // Shouldn't this read FB 2 without fixing the minor version?
-    strcpy(pInfo->szName, "Firebird Server Manager");
-    strcpy(pInfo->szInfo, "Configure Firebird Database Server");
-    strcpy(pInfo->szHelpFile, "");
+    _tcscpy(pInfo->szName, _T("Firebird Server Manager"));
+    _tcscpy(pInfo->szInfo, _T("Configure Firebird Database Server"));
+    _tcscpy(pInfo->szHelpFile, _T(""));
     return 0; // OK (don't send CPL_INQUIRE msg)
 }
 
@@ -79,7 +79,7 @@ LONG CFBPanel::OnDblclk(HWND hwndCPl, UINT /*uAppNum*/, LONG /*lData*/)
 		if (RegOpenKeyEx(HKEY_LOCAL_MACHINE, REG_KEY_ROOT_INSTANCES, 0, KEY_QUERY_VALUE, &hkey)
 			== ERROR_SUCCESS)
 		{
-			char rootpath[MAX_PATH - 2];
+			TCHAR rootpath[MAX_PATH - 2];
 			DWORD buffer_size = sizeof(rootpath);
 			if (RegQueryValueEx(hkey, FB_DEFAULT_INSTANCE, NULL, NULL, LPBYTE(rootpath), &buffer_size)
 				== ERROR_SUCCESS)
@@ -100,26 +100,26 @@ LONG CFBPanel::OnDblclk(HWND hwndCPl, UINT /*uAppNum*/, LONG /*lData*/)
 			UINT ValueSize;
 			if ( GetFileVersionInfo((LPCTSTR) afilename, 0, buffer_size, VersionInfo) )
 			{
-				VerQueryValue( VersionInfo, "\\StringFileInfo\\040904E4\\ProductVersion",
+				VerQueryValue( VersionInfo, _T("\\StringFileInfo\\040904E4\\ProductVersion"),
 								&ProductVersion, &ValueSize);
 				if (ValueSize)
 				{
-					dlg.m_FB_Version = "Version ";
-					dlg.m_FB_Version += (char*) ProductVersion;
+					dlg.m_FB_Version = _T("Version ");
+					dlg.m_FB_Version += (TCHAR*) ProductVersion;
 				}
-				VerQueryValue( VersionInfo, "\\StringFileInfo\\040904E4\\SpecialBuild",
+				VerQueryValue( VersionInfo, _T("\\StringFileInfo\\040904E4\\SpecialBuild"),
 								&SpecialBuild, &ValueSize);
 				if (ValueSize)
 				{
-					dlg.m_FB_Version += " ";
-					dlg.m_FB_Version += (char*) SpecialBuild;
+					dlg.m_FB_Version += _T(" ");
+					dlg.m_FB_Version += (TCHAR*) SpecialBuild;
 				}
-				VerQueryValue( VersionInfo, "\\StringFileInfo\\040904E4\\PrivateBuild",
+				VerQueryValue( VersionInfo, _T("\\StringFileInfo\\040904E4\\PrivateBuild"),
 								&PrivateBuild, &ValueSize);
 				if (ValueSize)
 				{
-					dlg.m_FB_Version += " ";
-					dlg.m_FB_Version += (char*) PrivateBuild;
+					dlg.m_FB_Version += _T(" ");
+					dlg.m_FB_Version += (TCHAR*) PrivateBuild;
 				}
 /**/
 			}
@@ -133,7 +133,7 @@ LONG CFBPanel::OnDblclk(HWND hwndCPl, UINT /*uAppNum*/, LONG /*lData*/)
 	catch ( ... )
 	{
 		//raise an error
-		dlg.MessageBox("Firebird does not appear to be installed correctly.", "Installation Error", MB_OK);
+		dlg.MessageBox(_T("Firebird does not appear to be installed correctly."), _T("Installation Error"), MB_OK);
 	}
     return 0;
 }
