@@ -127,6 +127,7 @@
       <NoEntryPoint>true</NoEntryPoint>
       <IgnoreSpecificDefaultLibraries>
       </IgnoreSpecificDefaultLibraries>
+      <SubSystem>Windows</SubSystem>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -159,6 +160,7 @@
       <IgnoreSpecificDefaultLibraries>
       </IgnoreSpecificDefaultLibraries>
       <NoEntryPoint>true</NoEntryPoint>
+      <SubSystem>Windows</SubSystem>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -187,6 +189,7 @@
       </DataExecutionPrevention>
       <ImportLibrary>$(IntDir)icudata.lib</ImportLibrary>
       <NoEntryPoint>true</NoEntryPoint>
+      <SubSystem>Windows</SubSystem>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -216,6 +219,7 @@
       <ImportLibrary>$(IntDir)icudata.lib</ImportLibrary>
       <TargetMachine>MachineX64</TargetMachine>
       <NoEntryPoint>true</NoEntryPoint>
+      <SubSystem>Windows</SubSystem>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
