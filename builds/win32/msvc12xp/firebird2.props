@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Label="UserMacros">
+    <FB_COMPILER_SIGN>msvc12xp</FB_COMPILER_SIGN>
+    <ROOT_TMP_DIR>$(SolutionDir)..\..\..\temp\$(FB_COMPILER_SIGN)_$(Platform)_$(Configuration)\</ROOT_TMP_DIR>
+    <ICU_LIB_DIR>$(ROOT_TMP_DIR)icu\lib\</ICU_LIB_DIR>
+    <ICU_INCLUDE_DIR>$(SolutionDir)..\..\..\gen\$(FB_COMPILER_SIGN)_$(Platform)_$(Configuration)\icu\include\</ICU_INCLUDE_DIR>
+    <FB_ROOT_TMP_DIR>$(ROOT_TMP_DIR)fb_tmp\</FB_ROOT_TMP_DIR>
+    <FB_ROOT_OUT_DIR>$(ROOT_TMP_DIR)fb_out\</FB_ROOT_OUT_DIR>
+    <FB_ROOT_GEN_DIR>$(SolutionDir)..\..\..\gen\$(FB_COMPILER_SIGN)_$(Platform)_$(Configuration)\fb\</FB_ROOT_GEN_DIR>
+  </PropertyGroup>
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.30319.1</_ProjectFileVersion>
+    <OutDir>$(FB_ROOT_TMP_DIR)$(ProjectName)\</OutDir>
+    <IntDir>$(FB_ROOT_TMP_DIR)$(ProjectName)\</IntDir>
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemGroup>
+    <BuildMacro Include="FB_COMPILER_SIGN">
+      <Value>$(FB_COMPILER_SIGN)</Value>
+    </BuildMacro>
+    <BuildMacro Include="ROOT_TMP_DIR">
+      <Value>$(ROOT_TMP_DIR)</Value>
+    </BuildMacro>
+    <BuildMacro Include="ICU_LIB_DIR">
+      <Value>$(ICU_LIB_DIR)</Value>
+    </BuildMacro>
+    <BuildMacro Include="ICU_INCLUDE_DIR">
+      <Value>$(ICU_INCLUDE_DIR)</Value>
+    </BuildMacro>
+    <BuildMacro Include="FB_ROOT_TMP_DIR">
+      <Value>$(FB_ROOT_TMP_DIR)</Value>
+    </BuildMacro>
+    <BuildMacro Include="FB_ROOT_OUT_DIR">
+      <Value>$(FB_ROOT_OUT_DIR)</Value>
+    </BuildMacro>
+    <BuildMacro Include="FB_ROOT_GEN_DIR">
+      <Value>$(FB_ROOT_GEN_DIR)</Value>
+    </BuildMacro>
+  </ItemGroup>
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <AdditionalOptions>/EHsc- %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalIncludeDirectories>../../../src/include;../../../src/include/gen;../../../extern/libtommath;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <ExceptionHandling>
+      </ExceptionHandling>
+      <RuntimeTypeInfo>false</RuntimeTypeInfo>
+      <PrecompiledHeaderOutputFile>$(FB_ROOT_TMP_DIR)$(ProjectName)\$(ProjectName).pch</PrecompiledHeaderOutputFile>
+      <AssemblerListingLocation>$(FB_ROOT_TMP_DIR)$(ProjectName)/</AssemblerListingLocation>
+      <ObjectFileName>$(FB_ROOT_TMP_DIR)$(ProjectName)/</ObjectFileName>
+      <ProgramDataBaseFileName>$(FB_ROOT_TMP_DIR)$(ProjectName)/</ProgramDataBaseFileName>
+      <BrowseInformation>true</BrowseInformation>
+      <BrowseInformationFile>$(FB_ROOT_TMP_DIR)$(ProjectName)\</BrowseInformationFile>
+      <WarningLevel>Level3</WarningLevel>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <CompileAs>Default</CompileAs>
+      <UseFullPaths>false</UseFullPaths>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <StringPooling>true</StringPooling>
+    </ClCompile>
+    <Link>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <ProgramDatabaseFile>$(IntDir)$(TargetName).pdb</ProgramDatabaseFile>
+      <ImportLibrary>$(IntDir)$(TargetName).lib</ImportLibrary>
+    </Link>
+    <Bscmake>
+      <OutputFile>$(IntDir)$(TargetName).bsc</OutputFile>
+    </Bscmake>
+  </ItemDefinitionGroup>
+</Project>

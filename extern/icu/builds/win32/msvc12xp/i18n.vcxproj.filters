@@ -1,0 +1,562 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="collation">
+      <UniqueIdentifier>{87eab428-dec4-4879-8b72-9867b55753aa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="formatting">
+      <UniqueIdentifier>{e56a6981-8e28-471c-a85e-7499ee271d06}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="misc">
+      <UniqueIdentifier>{a2d2f52e-cc36-4086-b727-ff4f71661b10}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="regex">
+      <UniqueIdentifier>{912b21df-8b5f-4482-976f-90ddf96ee923}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="transforms">
+      <UniqueIdentifier>{093c3977-2a95-4f3b-9244-a2d78e3e57c7}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\source\i18n\bocsu.c">
+      <Filter>collation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\i18n\coleitr.cpp">
+      <Filter>collation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\i18n\coll.cpp">
+      <Filter>collation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\i18n\search.cpp">
+      <Filter>collation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\i18n\sortkey.cpp">
+      <Filter>collation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\i18n\stsearch.cpp">
+      <Filter>collation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\i18n\tblcoll.cpp">
+      <Filter>collation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\i18n\ucol.cpp">
+      <Filter>collation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\i18n\ucol_bld.cpp">
+      <Filter>collation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\i18n\ucol_cnt.cpp">
+      <Filter>collation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\i18n\ucol_elm.cpp">
+      <Filter>collation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\i18n\ucol_sit.cpp">
+      <Filter>collation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\i18n\ucol_tok.cpp">
+      <Filter>collation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\i18n\ucol_wgt.c">
+      <Filter>collation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\i18n\ucoleitr.cpp">
+      <Filter>collation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\i18n\usearch.cpp">
+      <Filter>collation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\i18n\astro.cpp">
+      <Filter>formatting</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\i18n\buddhcal.cpp">
+      <Filter>formatting</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\i18n\calendar.cpp">
+      <Filter>formatting</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\i18n\chnsecal.cpp">
+      <Filter>formatting</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\i18n\choicfmt.cpp">
+      <Filter>formatting</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\i18n\curramt.cpp">
+      <Filter>formatting</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\i18n\currfmt.cpp">
+      <Filter>formatting</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\i18n\currunit.cpp">
+      <Filter>formatting</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\i18n\datefmt.cpp">
+      <Filter>formatting</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\i18n\dcfmtsym.cpp">
+      <Filter>formatting</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\i18n\decimfmt.cpp">
+      <Filter>formatting</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\i18n\digitlst.cpp">
+      <Filter>formatting</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\i18n\dtfmtsym.cpp">
+      <Filter>formatting</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\i18n\fmtable.cpp">
+      <Filter>formatting</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\i18n\format.cpp">
+      <Filter>formatting</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\i18n\gregocal.cpp">
+      <Filter>formatting</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\i18n\gregoimp.cpp">
+      <Filter>formatting</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\i18n\hebrwcal.cpp">
+      <Filter>formatting</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\i18n\islamcal.cpp">
+      <Filter>formatting</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\i18n\japancal.cpp">
+      <Filter>formatting</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\i18n\measfmt.cpp">
+      <Filter>formatting</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\i18n\measure.cpp">
+      <Filter>formatting</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\i18n\msgfmt.cpp">
+      <Filter>formatting</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\i18n\nfrs.cpp">
+      <Filter>formatting</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\i18n\nfrule.cpp">
+      <Filter>formatting</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\i18n\nfsubs.cpp">
+      <Filter>formatting</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\i18n\numfmt.cpp">
+      <Filter>formatting</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\i18n\olsontz.cpp">
+      <Filter>formatting</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\i18n\rbnf.cpp">
+      <Filter>formatting</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\i18n\simpletz.cpp">
+      <Filter>formatting</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\i18n\smpdtfmt.cpp">
+      <Filter>formatting</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\i18n\timezone.cpp">
+      <Filter>formatting</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\i18n\ucal.cpp">
+      <Filter>formatting</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\i18n\ucurr.cpp">
+      <Filter>formatting</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\i18n\udat.cpp">
+      <Filter>formatting</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\i18n\ulocdata.c">
+      <Filter>formatting</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\i18n\umsg.cpp">
+      <Filter>formatting</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\i18n\unum.cpp">
+      <Filter>formatting</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\i18n\ucln_in.c">
+      <Filter>misc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\i18n\regexcmp.cpp">
+      <Filter>regex</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\i18n\regexst.cpp">
+      <Filter>regex</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\i18n\rematch.cpp">
+      <Filter>regex</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\i18n\remtrans.cpp">
+      <Filter>regex</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\i18n\repattrn.cpp">
+      <Filter>regex</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\i18n\uregex.cpp">
+      <Filter>regex</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\i18n\anytrans.cpp">
+      <Filter>transforms</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\i18n\cpdtrans.cpp">
+      <Filter>transforms</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\i18n\esctrn.cpp">
+      <Filter>transforms</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\i18n\funcrepl.cpp">
+      <Filter>transforms</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\i18n\name2uni.cpp">
+      <Filter>transforms</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\i18n\nortrans.cpp">
+      <Filter>transforms</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\i18n\nultrans.cpp">
+      <Filter>transforms</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\i18n\quant.cpp">
+      <Filter>transforms</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\i18n\rbt.cpp">
+      <Filter>transforms</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\i18n\rbt_data.cpp">
+      <Filter>transforms</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\i18n\rbt_pars.cpp">
+      <Filter>transforms</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\i18n\rbt_rule.cpp">
+      <Filter>transforms</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\i18n\rbt_set.cpp">
+      <Filter>transforms</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\i18n\strmatch.cpp">
+      <Filter>transforms</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\i18n\strrepl.cpp">
+      <Filter>transforms</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\i18n\titletrn.cpp">
+      <Filter>transforms</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\i18n\tolowtrn.cpp">
+      <Filter>transforms</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\i18n\toupptrn.cpp">
+      <Filter>transforms</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\i18n\translit.cpp">
+      <Filter>transforms</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\i18n\transreg.cpp">
+      <Filter>transforms</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\i18n\tridpars.cpp">
+      <Filter>transforms</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\i18n\unesctrn.cpp">
+      <Filter>transforms</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\i18n\uni2name.cpp">
+      <Filter>transforms</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\i18n\utrans.cpp">
+      <Filter>transforms</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\source\i18n\bocsu.h">
+      <Filter>collation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\i18n\ucol_bld.h">
+      <Filter>collation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\i18n\ucol_cnt.h">
+      <Filter>collation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\i18n\ucol_elm.h">
+      <Filter>collation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\i18n\ucol_imp.h">
+      <Filter>collation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\i18n\ucol_tok.h">
+      <Filter>collation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\i18n\ucol_wgt.h">
+      <Filter>collation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\i18n\usrchimp.h">
+      <Filter>collation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\i18n\astro.h">
+      <Filter>formatting</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\i18n\buddhcal.h">
+      <Filter>formatting</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\i18n\chnsecal.h">
+      <Filter>formatting</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\i18n\currfmt.h">
+      <Filter>formatting</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\i18n\digitlst.h">
+      <Filter>formatting</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\i18n\gregoimp.h">
+      <Filter>formatting</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\i18n\hebrwcal.h">
+      <Filter>formatting</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\i18n\islamcal.h">
+      <Filter>formatting</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\i18n\japancal.h">
+      <Filter>formatting</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\i18n\nfrlist.h">
+      <Filter>formatting</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\i18n\nfrs.h">
+      <Filter>formatting</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\i18n\nfrule.h">
+      <Filter>formatting</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\i18n\nfsubs.h">
+      <Filter>formatting</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\i18n\olsontz.h">
+      <Filter>formatting</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\i18n\ucurrimp.h">
+      <Filter>formatting</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\i18n\umsg_imp.h">
+      <Filter>formatting</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\i18n\ucln_in.h">
+      <Filter>misc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\i18n\regexcmp.h">
+      <Filter>regex</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\i18n\regexcst.h">
+      <Filter>regex</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\i18n\regeximp.h">
+      <Filter>regex</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\i18n\regexst.h">
+      <Filter>regex</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\i18n\anytrans.h">
+      <Filter>transforms</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\i18n\cpdtrans.h">
+      <Filter>transforms</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\i18n\esctrn.h">
+      <Filter>transforms</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\i18n\funcrepl.h">
+      <Filter>transforms</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\i18n\name2uni.h">
+      <Filter>transforms</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\i18n\nortrans.h">
+      <Filter>transforms</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\i18n\nultrans.h">
+      <Filter>transforms</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\i18n\quant.h">
+      <Filter>transforms</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\i18n\rbt.h">
+      <Filter>transforms</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\i18n\rbt_data.h">
+      <Filter>transforms</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\i18n\rbt_pars.h">
+      <Filter>transforms</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\i18n\rbt_rule.h">
+      <Filter>transforms</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\i18n\rbt_set.h">
+      <Filter>transforms</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\i18n\remtrans.h">
+      <Filter>transforms</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\i18n\strmatch.h">
+      <Filter>transforms</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\i18n\titletrn.h">
+      <Filter>transforms</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\i18n\tolowtrn.h">
+      <Filter>transforms</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\i18n\toupptrn.h">
+      <Filter>transforms</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\i18n\transreg.h">
+      <Filter>transforms</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\i18n\tridpars.h">
+      <Filter>transforms</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\i18n\unesctrn.h">
+      <Filter>transforms</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\i18n\uni2name.h">
+      <Filter>transforms</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="..\..\..\source\i18n\i18n.rc">
+      <Filter>misc</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="..\..\..\source\i18n\unicode\coleitr.h">
+      <Filter>collation</Filter>
+    </CustomBuild>
+    <CustomBuild Include="..\..\..\source\i18n\unicode\coll.h">
+      <Filter>collation</Filter>
+    </CustomBuild>
+    <CustomBuild Include="..\..\..\source\i18n\unicode\search.h">
+      <Filter>collation</Filter>
+    </CustomBuild>
+    <CustomBuild Include="..\..\..\source\i18n\unicode\sortkey.h">
+      <Filter>collation</Filter>
+    </CustomBuild>
+    <CustomBuild Include="..\..\..\source\i18n\unicode\stsearch.h">
+      <Filter>collation</Filter>
+    </CustomBuild>
+    <CustomBuild Include="..\..\..\source\i18n\unicode\tblcoll.h">
+      <Filter>collation</Filter>
+    </CustomBuild>
+    <CustomBuild Include="..\..\..\source\i18n\unicode\ucol.h">
+      <Filter>collation</Filter>
+    </CustomBuild>
+    <CustomBuild Include="..\..\..\source\i18n\unicode\ucoleitr.h">
+      <Filter>collation</Filter>
+    </CustomBuild>
+    <CustomBuild Include="..\..\..\source\i18n\unicode\usearch.h">
+      <Filter>collation</Filter>
+    </CustomBuild>
+    <CustomBuild Include="..\..\..\source\i18n\unicode\calendar.h">
+      <Filter>formatting</Filter>
+    </CustomBuild>
+    <CustomBuild Include="..\..\..\source\i18n\unicode\choicfmt.h">
+      <Filter>formatting</Filter>
+    </CustomBuild>
+    <CustomBuild Include="..\..\..\source\i18n\unicode\curramt.h">
+      <Filter>formatting</Filter>
+    </CustomBuild>
+    <CustomBuild Include="..\..\..\source\i18n\unicode\currunit.h">
+      <Filter>formatting</Filter>
+    </CustomBuild>
+    <CustomBuild Include="..\..\..\source\i18n\unicode\datefmt.h">
+      <Filter>formatting</Filter>
+    </CustomBuild>
+    <CustomBuild Include="..\..\..\source\i18n\unicode\dcfmtsym.h">
+      <Filter>formatting</Filter>
+    </CustomBuild>
+    <CustomBuild Include="..\..\..\source\i18n\unicode\decimfmt.h">
+      <Filter>formatting</Filter>
+    </CustomBuild>
+    <CustomBuild Include="..\..\..\source\i18n\unicode\dtfmtsym.h">
+      <Filter>formatting</Filter>
+    </CustomBuild>
+    <CustomBuild Include="..\..\..\source\i18n\unicode\fieldpos.h">
+      <Filter>formatting</Filter>
+    </CustomBuild>
+    <CustomBuild Include="..\..\..\source\i18n\unicode\fmtable.h">
+      <Filter>formatting</Filter>
+    </CustomBuild>
+    <CustomBuild Include="..\..\..\source\i18n\unicode\format.h">
+      <Filter>formatting</Filter>
+    </CustomBuild>
+    <CustomBuild Include="..\..\..\source\i18n\unicode\gregocal.h">
+      <Filter>formatting</Filter>
+    </CustomBuild>
+    <CustomBuild Include="..\..\..\source\i18n\unicode\measfmt.h">
+      <Filter>formatting</Filter>
+    </CustomBuild>
+    <CustomBuild Include="..\..\..\source\i18n\unicode\measunit.h">
+      <Filter>formatting</Filter>
+    </CustomBuild>
+    <CustomBuild Include="..\..\..\source\i18n\unicode\measure.h">
+      <Filter>formatting</Filter>
+    </CustomBuild>
+    <CustomBuild Include="..\..\..\source\i18n\unicode\msgfmt.h">
+      <Filter>formatting</Filter>
+    </CustomBuild>
+    <CustomBuild Include="..\..\..\source\i18n\unicode\numfmt.h">
+      <Filter>formatting</Filter>
+    </CustomBuild>
+    <CustomBuild Include="..\..\..\source\i18n\unicode\rbnf.h">
+      <Filter>formatting</Filter>
+    </CustomBuild>
+    <CustomBuild Include="..\..\..\source\i18n\unicode\simpletz.h">
+      <Filter>formatting</Filter>
+    </CustomBuild>
+    <CustomBuild Include="..\..\..\source\i18n\unicode\smpdtfmt.h">
+      <Filter>formatting</Filter>
+    </CustomBuild>
+    <CustomBuild Include="..\..\..\source\i18n\unicode\timezone.h">
+      <Filter>formatting</Filter>
+    </CustomBuild>
+    <CustomBuild Include="..\..\..\source\i18n\unicode\ucal.h">
+      <Filter>formatting</Filter>
+    </CustomBuild>
+    <CustomBuild Include="..\..\..\source\i18n\unicode\ucurr.h">
+      <Filter>formatting</Filter>
+    </CustomBuild>
+    <CustomBuild Include="..\..\..\source\i18n\unicode\udat.h">
+      <Filter>formatting</Filter>
+    </CustomBuild>
+    <CustomBuild Include="..\..\..\source\i18n\unicode\ulocdata.h">
+      <Filter>formatting</Filter>
+    </CustomBuild>
+    <CustomBuild Include="..\..\..\source\i18n\unicode\umsg.h">
+      <Filter>formatting</Filter>
+    </CustomBuild>
+    <CustomBuild Include="..\..\..\source\i18n\unicode\unum.h">
+      <Filter>formatting</Filter>
+    </CustomBuild>
+    <CustomBuild Include="..\..\..\source\i18n\unicode\regex.h">
+      <Filter>regex</Filter>
+    </CustomBuild>
+    <CustomBuild Include="..\..\..\source\i18n\unicode\uregex.h">
+      <Filter>regex</Filter>
+    </CustomBuild>
+    <CustomBuild Include="..\..\..\source\i18n\unicode\translit.h">
+      <Filter>transforms</Filter>
+    </CustomBuild>
+    <CustomBuild Include="..\..\..\source\i18n\unicode\unirepl.h">
+      <Filter>transforms</Filter>
+    </CustomBuild>
+    <CustomBuild Include="..\..\..\source\i18n\unicode\utrans.h">
+      <Filter>transforms</Filter>
+    </CustomBuild>
+  </ItemGroup>
+</Project>

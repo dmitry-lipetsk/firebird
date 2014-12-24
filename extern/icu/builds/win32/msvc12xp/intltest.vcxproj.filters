@@ -1,0 +1,649 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="break iteration">
+      <UniqueIdentifier>{1d678774-0016-4b15-bddf-d26f9d3490dc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="collation">
+      <UniqueIdentifier>{b58366e1-308f-43d8-96eb-442fceab10b9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="collections">
+      <UniqueIdentifier>{6669fb42-b34f-4b42-8000-bdb564ebff7f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="configuration">
+      <UniqueIdentifier>{cd5263a7-bb95-46f0-ae9a-9f39ac2c2c74}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="conversion">
+      <UniqueIdentifier>{ef67f98f-5dbd-442b-a4a2-3ccec9501b90}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="data &amp; memory">
+      <UniqueIdentifier>{44326257-15bb-4705-9807-74b4d69f624c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="formatting">
+      <UniqueIdentifier>{6b917aa5-33b8-4e35-be45-db679b30db35}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="idna">
+      <UniqueIdentifier>{a716c338-6131-417d-99ba-c743678e085f}</UniqueIdentifier>
+      <Extensions>*.c,*.h</Extensions>
+    </Filter>
+    <Filter Include="locales &amp; resources">
+      <UniqueIdentifier>{9a468865-9bf9-4813-9328-dc923174217f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="misc">
+      <UniqueIdentifier>{e96c5972-c7ca-42b4-90c8-b63350fe09dd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="normalization">
+      <UniqueIdentifier>{e9d4d553-dcdf-467c-b391-b9b8f1192e14}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="properties &amp; sets">
+      <UniqueIdentifier>{080a9cce-44b2-48a9-9d5f-a2774037010f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="regex">
+      <UniqueIdentifier>{efeaf5e1-3fea-4255-8781-618cc8c43d21}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="registration">
+      <UniqueIdentifier>{50362664-d984-48de-a322-986f0258ea77}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="strings">
+      <UniqueIdentifier>{033edf71-b924-4506-a402-d99a8b6668b2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="transforms">
+      <UniqueIdentifier>{47dc9e5a-a96b-4803-914d-a05376ffca16}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\source\test\intltest\itrbbi.cpp">
+      <Filter>break iteration</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\test\intltest\rbbiapts.cpp">
+      <Filter>break iteration</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\test\intltest\rbbitst.cpp">
+      <Filter>break iteration</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\test\intltest\allcoll.cpp">
+      <Filter>collation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\test\intltest\apicoll.cpp">
+      <Filter>collation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\test\intltest\cntabcol.cpp">
+      <Filter>collation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\test\intltest\currcoll.cpp">
+      <Filter>collation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\test\intltest\dacoll.cpp">
+      <Filter>collation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\test\intltest\dadrcoll.cpp">
+      <Filter>collation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\test\intltest\decoll.cpp">
+      <Filter>collation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\test\intltest\encoll.cpp">
+      <Filter>collation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\test\intltest\escoll.cpp">
+      <Filter>collation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\test\intltest\ficoll.cpp">
+      <Filter>collation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\test\intltest\frcoll.cpp">
+      <Filter>collation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\test\intltest\g7coll.cpp">
+      <Filter>collation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\test\intltest\itercoll.cpp">
+      <Filter>collation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\test\intltest\jacoll.cpp">
+      <Filter>collation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\test\intltest\lcukocol.cpp">
+      <Filter>collation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\test\intltest\mnkytst.cpp">
+      <Filter>collation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\test\intltest\regcoll.cpp">
+      <Filter>collation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\test\intltest\srchtest.cpp">
+      <Filter>collation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\test\intltest\svccoll.cpp">
+      <Filter>collation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\test\intltest\thcoll.cpp">
+      <Filter>collation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\test\intltest\trcoll.cpp">
+      <Filter>collation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\test\intltest\tscoll.cpp">
+      <Filter>collation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\test\intltest\ucaconf.cpp">
+      <Filter>collation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\test\intltest\v32test.cpp">
+      <Filter>collections</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\test\intltest\strtest.cpp">
+      <Filter>configuration</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\test\intltest\tsmthred.cpp">
+      <Filter>configuration</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\test\intltest\tsputil.cpp">
+      <Filter>configuration</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\test\intltest\convtest.cpp">
+      <Filter>conversion</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\test\intltest\uobjtest.cpp">
+      <Filter>data &amp; memory</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\test\intltest\astrotst.cpp">
+      <Filter>formatting</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\test\intltest\calcasts.cpp">
+      <Filter>formatting</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\test\intltest\callimts.cpp">
+      <Filter>formatting</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\test\intltest\calregts.cpp">
+      <Filter>formatting</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\test\intltest\caltest.cpp">
+      <Filter>formatting</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\test\intltest\caltztst.cpp">
+      <Filter>formatting</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\test\intltest\dcfmapts.cpp">
+      <Filter>formatting</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\test\intltest\dtfmapts.cpp">
+      <Filter>formatting</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\test\intltest\dtfmrgts.cpp">
+      <Filter>formatting</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\test\intltest\dtfmtrtts.cpp">
+      <Filter>formatting</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\test\intltest\dtfmttst.cpp">
+      <Filter>formatting</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\test\intltest\incaltst.cpp">
+      <Filter>formatting</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\test\intltest\itformat.cpp">
+      <Filter>formatting</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\test\intltest\itrbnf.cpp">
+      <Filter>formatting</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\test\intltest\itrbnfp.cpp">
+      <Filter>formatting</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\test\intltest\itrbnfrt.cpp">
+      <Filter>formatting</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\test\intltest\miscdtfm.cpp">
+      <Filter>formatting</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\test\intltest\msfmrgts.cpp">
+      <Filter>formatting</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\test\intltest\nmfmapts.cpp">
+      <Filter>formatting</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\test\intltest\nmfmtrt.cpp">
+      <Filter>formatting</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\test\intltest\numfmtst.cpp">
+      <Filter>formatting</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\test\intltest\numrgts.cpp">
+      <Filter>formatting</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\test\intltest\pptest.cpp">
+      <Filter>formatting</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\test\intltest\sdtfmtts.cpp">
+      <Filter>formatting</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\test\intltest\tchcfmt.cpp">
+      <Filter>formatting</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\test\intltest\tfsmalls.cpp">
+      <Filter>formatting</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\test\intltest\tmsgfmt.cpp">
+      <Filter>formatting</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\test\intltest\tsdate.cpp">
+      <Filter>formatting</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\test\intltest\tsdcfmsy.cpp">
+      <Filter>formatting</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\test\intltest\tsdtfmsy.cpp">
+      <Filter>formatting</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\test\intltest\tsnmfmt.cpp">
+      <Filter>formatting</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\test\intltest\tzbdtest.cpp">
+      <Filter>formatting</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\test\intltest\tzregts.cpp">
+      <Filter>formatting</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\test\intltest\tztest.cpp">
+      <Filter>formatting</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\test\intltest\idnaref.cpp">
+      <Filter>idna</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\test\intltest\nptrans.cpp">
+      <Filter>idna</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\test\intltest\punyref.c">
+      <Filter>idna</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\test\intltest\testidn.cpp">
+      <Filter>idna</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\test\intltest\testidna.cpp">
+      <Filter>idna</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\test\intltest\loctest.cpp">
+      <Filter>locales &amp; resources</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\test\intltest\restest.cpp">
+      <Filter>locales &amp; resources</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\test\intltest\restsnew.cpp">
+      <Filter>locales &amp; resources</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\test\intltest\intltest.cpp">
+      <Filter>misc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\test\intltest\itmajor.cpp">
+      <Filter>misc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\test\intltest\itutil.cpp">
+      <Filter>misc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\test\intltest\testutil.cpp">
+      <Filter>misc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\test\intltest\textfile.cpp">
+      <Filter>misc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\test\intltest\tokiter.cpp">
+      <Filter>misc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\test\intltest\canittst.cpp">
+      <Filter>normalization</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\test\intltest\normconf.cpp">
+      <Filter>normalization</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\test\intltest\tstnorm.cpp">
+      <Filter>normalization</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\test\intltest\tstnrapi.cpp">
+      <Filter>normalization</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\test\intltest\ucdtest.cpp">
+      <Filter>properties &amp; sets</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\test\intltest\usettest.cpp">
+      <Filter>properties &amp; sets</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\test\intltest\regextst.cpp">
+      <Filter>regex</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\test\intltest\icusvtst.cpp">
+      <Filter>registration</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\test\intltest\citrtest.cpp">
+      <Filter>strings</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\test\intltest\reptest.cpp">
+      <Filter>strings</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\test\intltest\sfwdchit.cpp">
+      <Filter>strings</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\test\intltest\strcase.cpp">
+      <Filter>strings</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\test\intltest\ustrtest.cpp">
+      <Filter>strings</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\test\intltest\cpdtrtst.cpp">
+      <Filter>transforms</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\test\intltest\ittrans.cpp">
+      <Filter>transforms</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\test\intltest\jamotest.cpp">
+      <Filter>transforms</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\test\intltest\transapi.cpp">
+      <Filter>transforms</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\test\intltest\transrt.cpp">
+      <Filter>transforms</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\test\intltest\transtst.cpp">
+      <Filter>transforms</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\test\intltest\trnserr.cpp">
+      <Filter>transforms</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\source\test\intltest\itrbbi.h">
+      <Filter>break iteration</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\test\intltest\rbbiapts.h">
+      <Filter>break iteration</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\test\intltest\rbbitst.h">
+      <Filter>break iteration</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\test\intltest\allcoll.h">
+      <Filter>collation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\test\intltest\apicoll.h">
+      <Filter>collation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\test\intltest\cntabcol.h">
+      <Filter>collation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\test\intltest\currcoll.h">
+      <Filter>collation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\test\intltest\dacoll.h">
+      <Filter>collation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\test\intltest\dadrcoll.h">
+      <Filter>collation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\test\intltest\decoll.h">
+      <Filter>collation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\test\intltest\encoll.h">
+      <Filter>collation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\test\intltest\escoll.h">
+      <Filter>collation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\test\intltest\ficoll.h">
+      <Filter>collation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\test\intltest\frcoll.h">
+      <Filter>collation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\test\intltest\g7coll.h">
+      <Filter>collation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\test\intltest\itercoll.h">
+      <Filter>collation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\test\intltest\jacoll.h">
+      <Filter>collation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\test\intltest\lcukocol.h">
+      <Filter>collation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\test\intltest\mnkytst.h">
+      <Filter>collation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\test\intltest\regcoll.h">
+      <Filter>collation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\test\intltest\srchtest.h">
+      <Filter>collation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\test\intltest\svccoll.h">
+      <Filter>collation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\test\intltest\thcoll.h">
+      <Filter>collation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\test\intltest\trcoll.h">
+      <Filter>collation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\test\intltest\tscoll.h">
+      <Filter>collation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\test\intltest\ucaconf.h">
+      <Filter>collation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\test\intltest\v32test.h">
+      <Filter>collections</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\test\intltest\strtest.h">
+      <Filter>configuration</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\test\intltest\tsmthred.h">
+      <Filter>configuration</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\test\intltest\tsputil.h">
+      <Filter>configuration</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\test\intltest\convtest.h">
+      <Filter>conversion</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\test\intltest\uobjtest.h">
+      <Filter>data &amp; memory</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\test\intltest\astrotst.h">
+      <Filter>formatting</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\test\intltest\calcasts.h">
+      <Filter>formatting</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\test\intltest\callimts.h">
+      <Filter>formatting</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\test\intltest\calregts.h">
+      <Filter>formatting</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\test\intltest\caltest.h">
+      <Filter>formatting</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\test\intltest\caltztst.h">
+      <Filter>formatting</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\test\intltest\dcfmapts.h">
+      <Filter>formatting</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\test\intltest\dtfmapts.h">
+      <Filter>formatting</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\test\intltest\dtfmrgts.h">
+      <Filter>formatting</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\test\intltest\dtfmtrtts.h">
+      <Filter>formatting</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\test\intltest\dtfmttst.h">
+      <Filter>formatting</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\test\intltest\incaltst.h">
+      <Filter>formatting</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\test\intltest\itformat.h">
+      <Filter>formatting</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\test\intltest\itrbnf.h">
+      <Filter>formatting</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\test\intltest\itrbnfp.h">
+      <Filter>formatting</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\test\intltest\itrbnfrt.h">
+      <Filter>formatting</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\test\intltest\miscdtfm.h">
+      <Filter>formatting</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\test\intltest\msfmrgts.h">
+      <Filter>formatting</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\test\intltest\nmfmapts.h">
+      <Filter>formatting</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\test\intltest\nmfmtrt.h">
+      <Filter>formatting</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\test\intltest\numfmtst.h">
+      <Filter>formatting</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\test\intltest\numrgts.h">
+      <Filter>formatting</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\test\intltest\pptest.h">
+      <Filter>formatting</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\test\intltest\sdtfmtts.h">
+      <Filter>formatting</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\test\intltest\tchcfmt.h">
+      <Filter>formatting</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\test\intltest\tfsmalls.h">
+      <Filter>formatting</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\test\intltest\tmsgfmt.h">
+      <Filter>formatting</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\test\intltest\tsdate.h">
+      <Filter>formatting</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\test\intltest\tsdcfmsy.h">
+      <Filter>formatting</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\test\intltest\tsdtfmsy.h">
+      <Filter>formatting</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\test\intltest\tsnmfmt.h">
+      <Filter>formatting</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\test\intltest\tzbdtest.h">
+      <Filter>formatting</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\test\intltest\tzregts.h">
+      <Filter>formatting</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\test\intltest\tztest.h">
+      <Filter>formatting</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\test\intltest\idnaref.h">
+      <Filter>idna</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\test\intltest\nptrans.h">
+      <Filter>idna</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\test\intltest\punyref.h">
+      <Filter>idna</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\test\intltest\testidna.h">
+      <Filter>idna</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\test\intltest\loctest.h">
+      <Filter>locales &amp; resources</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\test\intltest\restest.h">
+      <Filter>locales &amp; resources</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\test\intltest\restsnew.h">
+      <Filter>locales &amp; resources</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\test\intltest\intltest.h">
+      <Filter>misc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\test\intltest\itmajor.h">
+      <Filter>misc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\test\intltest\itutil.h">
+      <Filter>misc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\test\intltest\testutil.h">
+      <Filter>misc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\test\intltest\textfile.h">
+      <Filter>misc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\test\intltest\tokiter.h">
+      <Filter>misc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\test\intltest\canittst.h">
+      <Filter>normalization</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\test\intltest\normconf.h">
+      <Filter>normalization</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\test\intltest\tstnorm.h">
+      <Filter>normalization</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\test\intltest\ucdtest.h">
+      <Filter>properties &amp; sets</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\test\intltest\usettest.h">
+      <Filter>properties &amp; sets</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\test\intltest\regextst.h">
+      <Filter>regex</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\test\intltest\icusvtst.h">
+      <Filter>registration</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\test\intltest\citrtest.h">
+      <Filter>strings</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\test\intltest\reptest.h">
+      <Filter>strings</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\test\intltest\sfwdchit.h">
+      <Filter>strings</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\test\intltest\ustrtest.h">
+      <Filter>strings</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\test\intltest\cpdtrtst.h">
+      <Filter>transforms</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\test\intltest\ittrans.h">
+      <Filter>transforms</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\test\intltest\jamotest.h">
+      <Filter>transforms</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\test\intltest\transapi.h">
+      <Filter>transforms</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\test\intltest\transrt.h">
+      <Filter>transforms</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\test\intltest\transtst.h">
+      <Filter>transforms</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\test\intltest\trnserr.h">
+      <Filter>transforms</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
