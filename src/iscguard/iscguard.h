@@ -19,9 +19,11 @@
 #ifndef ISCGUARD_H
 #define ISCGUARD_H
 
-static const char* const GUARDIAN_APP_NAME		= "Firebird Guardian";
-static const char* const GUARDIAN_APP_LABEL		= "Firebird Guardian";
-static const char* const GUARDIAN_CLASS_NAME	= "FB_Guard";
+#include <tchar.h>
+
+static const TCHAR* const GUARDIAN_APP_NAME		= _T("Firebird Guardian");
+static const TCHAR* const GUARDIAN_APP_LABEL	= _T("Firebird Guardian");
+static const TCHAR* const GUARDIAN_CLASS_NAME	= _T("FB_Guard");
 static const char* const FBSERVER				= "fbserver.exe";
 
 // Help Constants

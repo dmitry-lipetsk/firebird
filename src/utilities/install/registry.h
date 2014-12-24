@@ -25,8 +25,10 @@
 #ifndef REGISTRY_DEFINES_H
 #define REGISTRY_DEFINES_H
 
-static const char* const REG_KEY_ROOT_COMPANY	= "SOFTWARE\\Firebird Project";
-static const char* const REG_KEY_ROOT_PRODUCT	= "SOFTWARE\\Firebird Project\\Firebird Server";
-static const char* const REG_KEY_ROOT_INSTANCES	= "SOFTWARE\\Firebird Project\\Firebird Server\\Instances";
+#include <tchar.h>
+
+static const TCHAR* const REG_KEY_ROOT_COMPANY	= _T("SOFTWARE\\Firebird Project");
+static const TCHAR* const REG_KEY_ROOT_PRODUCT	= _T("SOFTWARE\\Firebird Project\\Firebird Server");
+static const TCHAR* const REG_KEY_ROOT_INSTANCES	= _T("SOFTWARE\\Firebird Project\\Firebird Server\\Instances");
 
 #endif // REGISTRY_DEFINES_H

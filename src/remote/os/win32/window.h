@@ -24,6 +24,8 @@
 #ifndef OS_WIN32_WINDOW_H
 #define OS_WIN32_WINDOW_H
 
+#include <tchar.h>
+
 const int APP_HSIZE			= 220;
 const int APP_VSIZE			= 150;
 
@@ -42,8 +44,8 @@ static const char* const APP_LABEL	= "Firebird Server";
 // This is the class name used by the hidden msgs window in the engine.
 // Both fbclient.dll and fbserver.exe should use the same.
 
-static const char* const szClassName	= "FB_Server";
-static const char* const szWindowName	= "Firebird Server"; // Used in iscguard.cpp
+static const TCHAR* const szClassName	= _T("FB_Server");
+static const TCHAR* const szWindowName	= _T("Firebird Server"); // Used in iscguard.cpp
 
 // Defines to make 32-bit only compilers happy
 

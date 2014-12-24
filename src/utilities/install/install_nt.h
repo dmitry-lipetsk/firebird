@@ -24,21 +24,23 @@
 #ifndef UTILITIES_INSTALL_NT_H
 #define UTILITIES_INSTALL_NT_H
 
-static const char* const REMOTE_SERVICE			= "FirebirdServer%s";
-static const char* const REMOTE_DISPLAY_NAME	= "Firebird Server - %s";
-static const char* const REMOTE_DISPLAY_DESCR	= "Firebird Database Server - www.firebirdsql.org";
+#include <tchar.h>
+
+static const TCHAR* const REMOTE_SERVICE	    = _T("FirebirdServer%s");
+static const TCHAR* const REMOTE_DISPLAY_NAME	= _T("Firebird Server - %s");
+static const TCHAR* const REMOTE_DISPLAY_DESCR	= _T("Firebird Database Server - www.firebirdsql.org");
 static const char* const REMOTE_SS_EXECUTABLE	= "bin\\fbserver";
 static const char* const REMOTE_CS_EXECUTABLE	= "bin\\fb_inet_server";
 
-static const char* const ISCGUARD_SERVICE		= "FirebirdGuardian%s";
-static const char* const ISCGUARD_DISPLAY_NAME	= "Firebird Guardian - %s";
-static const char* const ISCGUARD_DISPLAY_DESCR	= "Firebird Server Guardian - www.firebirdsql.org";
-static const char* const ISCGUARD_EXECUTABLE	= "bin\\fbguard";
+static const TCHAR* const ISCGUARD_SERVICE		= _T("FirebirdGuardian%s");
+static const TCHAR* const ISCGUARD_DISPLAY_NAME	= _T("Firebird Guardian - %s");
+static const TCHAR* const ISCGUARD_DISPLAY_DESCR	= _T("Firebird Server Guardian - www.firebirdsql.org");
+static const TCHAR* const ISCGUARD_EXECUTABLE	= _T("bin\\fbguard");
 
 static const char* const SERVER_MUTEX			= "FirebirdServerMutex%s";
 static const char* const GUARDIAN_MUTEX			= "FirebirdGuardianMutex%s";
 
-static const char* const FB_DEFAULT_INSTANCE	= "DefaultInstance";
+static const TCHAR* const FB_DEFAULT_INSTANCE	= _T("DefaultInstance");
 
 // Starting with 128 the service params are user defined
 const DWORD SERVICE_CREATE_GUARDIAN_MUTEX	= 128;
