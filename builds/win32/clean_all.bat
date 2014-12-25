@@ -12,13 +12,6 @@
 @echo Cleaning gen...
 @rmdir /S /Q %FB_GEN_DIR% 2>nul
 
-:: Removing this might screw up parallel builds.
-:: So let's be sure we mean it.
-if defined FB_CLEAN_SHARED (
-@echo Cleaning INTL Shared dirs...
-@rmdir /S /Q %FB_ROOT_PATH%\extern\icu\include 2>nul
-)
-
 if defined FB_CLEAN_SHARED (
 @echo Cleaning shared gen and dsql files...
 @del %FB_ROOT_PATH%\src\include\gen\autoconfig.h 2>nul
@@ -27,9 +20,7 @@ if defined FB_CLEAN_SHARED (
 @del %FB_ROOT_PATH%\src\dsql\parse.cpp 2>nul
 )
 
-@del %FB_ROOT_PATH%\builds\win32\msvc6\*.plg 2>nul
 @rmdir /s /q %FB_ROOT_PATH%\builds\win32\install_image 2>nul
-
 
 @echo Completed executing %0
 @echo.
