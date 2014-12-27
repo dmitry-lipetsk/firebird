@@ -77,13 +77,9 @@ public:
 	UCHAR getBufferTag() const;
 	size_t getBufferLength() const
 	{
-		size_t rc = getBufferEnd() - getBuffer();
-		if (rc == 1 && kind != UnTagged     && kind != SpbStart &&
-					   kind != WideUnTagged && kind != SpbItems)
-		{
-			rc = 0;
-		}
-		return rc;
+		fb_assert(this->getBuffer()<=this->getBufferEnd());
+
+		return this->getBufferEnd()-this->getBuffer();
 	}
 	size_t getCurOffset() const { return cur_offset; }
 	void setCurOffset(size_t newOffset) { cur_offset = newOffset; }
