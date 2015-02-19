@@ -1,4 +1,3 @@
-# Firebird
 Firebird git mirror
 
 - Contains the the improvements and correction, which increase the quality and stability of Firebird's work.
