@@ -1,6 +1,6 @@
 Firebird git mirror
 
-- Contains the the improvements and correction, which increase the quality and stability of Firebird's work.
+- Contains the the improvements and corrections, which increase the quality and stability of Firebird's work.
 - Changes in the compilation process.
 - Added support for VS2012 and VS2013.
 
