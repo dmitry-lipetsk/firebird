@@ -5,4 +5,4 @@ Firebird git mirror
 - Changes in the compilation process.
 - Added support for VS2012 and VS2013.
 
-Binaries, created from these sources, are used in load and stress tests IBProvider (OLEDB provider for Forebird and Interbase).
+Binaries, created from these sources, are used in load and stress tests IBProvider (OLEDB Provider for Firebird and Interbase).
