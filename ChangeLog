@@ -1,3 +1,86 @@
+ 2015-03-30 13:23  mapopa 
+   M src/jrd/os/win32/mod_loader.cpp
+commit vs2013 patch from libreoffice http://cgit.freedesktop.org/libreoffice/core/plain/external/firebird/firebird-vs2013.patch.1
+
+ 2015-03-25 10:31  dimitr 
+   M src/jrd/Relation.h
+Avoid compiler warnings.
+
+ 2015-03-24 13:18  dimitr 
+   M doc/WhatsNew
+Updated the docs.
+
+ 2015-03-24 00:55  robocop 
+   M src/common/utils.cpp
+   M src/jrd/Relation.cpp
+   M src/jrd/Relation.h
+   M src/jrd/lck_proto.h
+   M src/jrd/validation.cpp
+   M src/jrd/vio.cpp
+Misc.
+
+ 2015-03-23 05:36  robocop 
+   M doc/README.online_validation
+   M src/jrd/vio.cpp
+Misc.
+
+ 2015-03-22 22:07  hvlad 
+   A doc/README.online_validation
+   M doc/README.services_extension
+Feature CORE-4707 : Implement ability to validate tables and indices online
+Documentation
+
+ 2015-03-22 22:06  hvlad 
+   M src/common/classes/ClumpletReader.cpp
+   M src/common/utils.cpp
+   M src/common/utils_proto.h
+   M src/include/consts_pub.h
+   M src/jrd/Relation.cpp
+   M src/jrd/Relation.h
+   M src/jrd/cmp.cpp
+   M src/jrd/lck.cpp
+   M src/jrd/lck.h
+   M src/jrd/lck_proto.h
+   M src/jrd/rlck.cpp
+   M src/jrd/svc.cpp
+   M src/jrd/val_proto.h
+   M src/jrd/validation.cpp
+   M src/jrd/vio.cpp
+   M src/utilities/fbsvcmgr.cpp
+Feature CORE-4707 : Implement ability to validate tables and indices online
+
+ 2015-03-18 17:19  hvlad 
+   M src/jrd/vio.cpp
+Fixed bug CORE-4713 : "BLOB not found" error at rollback after insert into table with expression index
+
+ 2015-03-17 09:16  paulbeach 
+   M builds/install/arch-specific/darwin/launchdss.org.firebird.gds.plist
+Use RunAtLoad rather than KeepAlive
+
+ 2015-03-13 03:03  robocop 
+   M src/jrd/fun.epp
+   M src/jrd/isc_file.cpp
+   M src/jrd/vio.cpp
+Misc.
+
+ 2015-03-06 10:20  dimitr 
+   M src/jrd/Optimizer.cpp
+Minor adjustments to the join order selection.
+
+ 2015-03-06 08:55  paulbeach 
+   M builds/install/arch-specific/darwin/install-script
+   A builds/install/arch-specific/darwin/launchdss.org.firebird.gds.plist
+   M builds/posix/postfix.darwin
+StartupItems is now deprecated on Yosemite (10.10), use launchctl for SuperServer as well as Classic
+
+ 2015-03-04 09:30  hvlad 
+   M src/jrd/btr.cpp
+   M src/jrd/pcmet.epp
+Additional patch for CORE-4671 : Release internal temporary blobs early to free some memory\disk space
+The patch dedicated to expression indices with blob-based expression (see CORE-952, for example):
+a) fixed AV when such index is built
+b) makes such index creation a bit faster and use less memory
+
  2015-02-26 09:45  hvlad 
    M src/jrd/jrd.cpp
 Backport fix from fb3. It fixes bug CORE-4700 : Mistake in GDS_DROP_DATABASE?
