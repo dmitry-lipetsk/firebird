@@ -1,3 +1,57 @@
+ 2015-05-13 15:49  asfernandes 
+   M src/jrd/SysFunction.cpp
+Backported fix for CORE-4789 - Prohibit ability to cast timestamps that out of valid range to varchar.
+
+ 2015-05-13 15:49  asfernandes 
+   M src/jrd/dpm.epp
+Correction.
+
+ 2015-05-13 13:25  alexpeshkoff 
+   M src/dsql/dsql.cpp
+Backported fix for CORE-4785: Bad packet of op_execute kills the server
+
+ 2015-05-12 12:17  alexpeshkoff 
+   M src/remote/inet.cpp
+Backported fix for CORE-4788: Superclassic server hangs when receiving network packet
+
+ 2015-05-08 17:47  dimitr 
+   M src/jrd/btr.cpp
+Fixed CORE-4786: Problematic key value (when attempt to insert duplicate in PK/UK) is not shown where length of key >= 127 characters.
+
+ 2015-04-21 19:33  asfernandes 
+   M src/jrd/blb.cpp
+Backport fix for CORE-4752 - EXECUTE STATEMENT using BLOB parameters results in "Invalid BLOB ID" error.
+
+ 2015-04-21 19:23  robocop 
+   M src/jrd/extds/InternalDS.cpp
+Misc.
+
+ 2015-04-21 13:28  hvlad 
+   M src/jrd/met.epp
+Fixed bug CORE-4761 : Db on connect triggers fail to execute some time
+
+ 2015-04-21 10:23  hvlad 
+   M src/jrd/btr.cpp
+Fixed bug CORE-4759 : request synchronization error when build expression index
+
+ 2015-04-20 12:11  hvlad 
+   M src/jrd/pcmet.epp
+   M src/jrd/pcmet_proto.h
+Fixed bug CORE-4754 : Manipulations with GTT from several attachments (using ES/EDS and different roles) leads to: "internal Firebird consistency check (invalid SEND request (167), file: JrdStatement.cpp line: 325)"
+
+ 2015-04-15 22:10  hvlad 
+   M src/jrd/isc_sync.cpp
+   M src/jrd/os/win32/isc_ipc.cpp
+This should fix bug CORE-4753 : Firebird hangs in embed mode
+
+ 2015-04-15 21:56  hvlad 
+   M src/jrd/extds/InternalDS.cpp
+Fixed bug CORE-4747 : Error "invalid BLOB ID" can occur when retrieving MON$STATEMENTS.MON$SQL_TEXT using ES/EDS and db_connect argument is not specified
+
+ 2015-04-13 12:54  dimitr 
+   M src/misc/writeBuildNum.sh
+Bumped the version number.
+
  2015-03-30 13:23  mapopa 
    M src/jrd/os/win32/mod_loader.cpp
 commit vs2013 patch from libreoffice http://cgit.freedesktop.org/libreoffice/core/plain/external/firebird/firebird-vs2013.patch.1
