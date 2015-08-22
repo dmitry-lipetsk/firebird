@@ -160,11 +160,6 @@ static void SOCLOSE(SOCKET& socket)
 	}
 };
 
-// Can't find were it's used.
-//#ifndef SIGURG
-//#define SIGURG	SIGINT
-//#endif
-
 #ifndef ENOBUFS
 #define ENOBUFS	0
 #endif
@@ -1077,10 +1072,23 @@ rem_port* INET_connect(const TEXT* name,
 			}
 			return NULL;
 		}
+
 #ifdef WIN_NT
 		if (flag & SRVR_debug)
 #else
-		if ((flag & SRVR_debug) || !fork())
+		int pid = 0;
+		if (!(flag & SRVR_debug))
+		{
+			pid = fork();
+			if (pid < 0)
+			{
+				inet_error(port, "fork", isc_net_connect_err, inetErrNo);
+				disconnect(port);
+				return NULL;
+			}
+		}
+
+		if (!pid)
 #endif
 		{
 			SOCLOSE(port->port_handle);
@@ -2611,7 +2619,7 @@ static bool_t inet_getbytes( XDR* xdrs, SCHAR* buff, u_int count)
  **************************************/
 #ifdef REM_SERVER
 	const rem_port* port = (rem_port*) xdrs->x_public;
-	if ((port->port_flags & PORT_server) && !(port->port_server_flags & SRVR_debug))
+	if (port->port_flags & PORT_server)
 	{
 		return REMOTE_getbytes(xdrs, buff, count);
 	}

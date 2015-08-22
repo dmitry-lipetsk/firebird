@@ -559,8 +559,11 @@ void MET_clear_cache(thread_db* tdbb)
 				{
 					MET_release_procedure_request(tdbb, procedure);
 
-					LCK_release(tdbb, procedure->prc_existence_lock);
-					procedure->prc_existence_lock = NULL;
+					if (procedure->prc_existence_lock)
+					{
+						LCK_release(tdbb, procedure->prc_existence_lock);
+						procedure->prc_existence_lock = NULL;
+					}
 					procedure->prc_flags |= PRC_obsolete;
 				}
 				// Leave it in state 0 to avoid extra pass next time to clear it
@@ -4219,7 +4222,7 @@ static DSqlCacheItem* get_dsql_cache_item(thread_db* tdbb, int type, const Fireb
 	{
 		item->obsolete = false;
 		item->locked = false;
-		item->lock = FB_NEW_RPT(*dbb->dbb_permanent, key.length()) Lock();
+		item->lock = FB_NEW_RPT(*attachment->att_pool, key.length()) Lock();
 
 		item->lock->lck_type = LCK_dsql_cache;
 		item->lock->lck_owner_handle = LCK_get_owner_handle(tdbb, item->lock->lck_type);

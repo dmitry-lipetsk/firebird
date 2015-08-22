@@ -1,3 +1,243 @@
+ 2015-08-21 11:16  alexpeshkoff 
+   M src/jrd/svc.cpp
+Postfix for CORE-4908 - need to hold dbInitMutex up to the execution of ~InitHolder
+
+ 2015-08-19 12:23  alexpeshkoff 
+   M src/jrd/jrd.cpp
+   M src/jrd/jrd.h
+   M src/jrd/svc.cpp
+Fixed CORE-4908: Firebird 2.5.3 hangs on simultaneous connection to the Services API and database
+
+ 2015-08-14 15:26  asfernandes 
+   M src/jrd/gds.cpp
+Fixed CORE-4905 - Invalid internal BLR filter conversion.
+
+ 2015-08-13 04:06  robocop 
+   M src/jrd/btr.cpp
+Misc.
+
+ 2015-08-09 20:58  hvlad 
+   M src/jrd/btr.cpp
+   M src/jrd/validation.cpp
+Backport fix for bug CORE-4904 : Index corruption when add data in long-key-indexed field
+
+ 2015-07-30 10:00  dimitr 
+   M src/jrd/build_no.h
+   M src/misc/writeBuildNum.sh
+Manual update: changelog + buildno.
+
+ 2015-07-30 09:59  dimitr 
+   M ChangeLog
+Manual update: changelog + buildno.
+
+ 2015-07-26 15:18  asfernandes 
+   M src/jrd/validation.cpp
+On behalf of hvlad after sourceforge crash - Backport fix for bug CORE-4860 : Online validation fails on WINDOWS if `dbname` argument contains forward slash ('/') and concurrent attachment which also uses '/' exists.
+
+ 2015-07-15 14:15  hvlad 
+   M src/utilities/fbsvcmgr.cpp
+Fixed bug CORE-4876
+fbsvcmgr shows wrong options for some Trace API services in help screen
+
+ 2015-07-13 16:10  alexpeshkoff 
+   M src/alice/exe.cpp
+Backported fix for CORE-3548: GFIX returns an error after correctly shutting down a database
+
+ 2015-07-09 17:21  alexpeshkoff 
+   M src/jrd/met.epp
+Fixed CORE-4869: Segfault when cleaning metadata cache
+
+ 2015-07-09 16:59  alexpeshkoff 
+   M src/jrd/isc_file.cpp
+Solaris port
+
+ 2015-07-09 15:37  dimitr 
+   M src/dsql/pass1.cpp
+Fixed CORE-4867: Server crash when preparing a query with PLAN clause at some CTE.
+
+ 2015-07-08 09:58  hvlad 
+   M src/jrd/validation.cpp
+Fixed bug CORE-4865 :  Online validation could wrongly report double allocated pages
+
+ 2015-07-07 16:02  asfernandes 
+   M src/intl/ld.cpp
+Backported fix for CORE-4276 - Error on create table with "CHARACTER SET DOS775" field.
+
+ 2015-07-07 08:39  paulbeach 
+   M configure.in
+I stand corrected, ia64=so, but can be sl
+
+ 2015-07-03 08:03  hvlad 
+   M src/jrd/vio.cpp
+Wrong check, thanks to Claudio
+
+ 2015-07-03 06:44  paulbeach 
+   M builds/posix/Makefile.in.extern.editline
+Typo, adjust AR redefinition in extern.editline
+
+ 2015-07-02 11:33  paulbeach 
+   M configure.in
+Need to disable extras in ICU for successful build on HPUX ia64
+
+ 2015-07-02 11:15  paulbeach 
+   M builds/posix/Makefile.in.extern.editline
+   M builds/posix/prefix.hpux_ia64
+Solve compilation problem on HPUX with symbols and empty.vers
+
+ 2015-07-02 09:52  paulbeach 
+   A builds/posix/empty.hpux.vers
+   M builds/posix/prefix.hpux
+   M builds/posix/prefix.hpux_aCC
+Solve compilation problem on HPUX with symbols and empty.vers
+
+ 2015-07-02 08:46  paulbeach 
+   M builds/install/arch-specific/darwin/launchdss.org.firebird.gds.plist
+improved plist for SuperServer on Yosemite (10.10), thanks to David Nock
+
+ 2015-07-01 09:36  hvlad 
+   M src/jrd/os/posix/unix.cpp
+Reworked patch for bug CORE-4615 : Classic Server could hung with (near) 100% CPU load
+Missed piece
+
+ 2015-07-01 09:28  hvlad 
+   M src/jrd/Database.h
+   M src/jrd/os/posix/unix.cpp
+   M src/jrd/os/win32/winnt.cpp
+Reworked patch for bug CORE-4615 : Classic Server could hung with (near) 100% CPU load
+
+ 2015-06-26 08:14  paulbeach 
+   M configure.in
+shared lib extension on ia64 hpux is sl
+
+ 2015-06-22 08:17  paulbeach 
+   M builds/posix/empty.exp
+add default header
+
+ 2015-06-18 08:36  paulbeach 
+   M builds/posix/prefix.aix_powerpc
+   M builds/posix/prefix.aix_powerpc_xlc
+
+ 2015-06-18 08:35  paulbeach 
+   A builds/posix/empty.exp
+Link problems on AIX
+
+ 2015-06-18 07:57  alexpeshkoff 
+   M src/jrd/SysFunction.cpp
+   M src/jrd/os/guid.h
+   M src/jrd/os/posix/guid.cpp
+HP-UX port - HP's aCC does not like anonymous struct inside anonymous union
+
+ 2015-06-17 13:54  alexpeshkoff 
+   M src/common/classes/semaphore.h
+AIX port, avoid posix semaphore on AIX due to buggy implementation
+
+ 2015-06-16 11:36  paulbeach 
+   M src/jrd/common.h
+This undef should not be necessary from C/aCC+ A.06.26+
+
+ 2015-06-16 11:24  paulbeach 
+   M builds/posix/darwin.defaults
+Fix for gcc 4.1 problem is no longer needed. gcc 4.2 from MacOSX 10.8 
+
+ 2015-06-15 15:11  mapopa 
+   M builds/posix/darwin.defaults
+Apply libo patch for El Capitan https://github.com/LibreOffice/core/commit/a799d7c9a66464f33bd8ee42d535e29a976d64ae
+
+ 2015-06-15 14:54  mapopa 
+   M builds/posix/postfix.darwin
+gds_relay was removed by alex
+
+ 2015-06-12 09:04  paulbeach 
+   M src/jrd/ThreadStart.cpp
+Typo
+
+ 2015-06-12 08:59  paulbeach 
+   M src/jrd/ThreadStart.cpp
+Default stack size is too small on HPUX - its 64 KB on PA, and 256 KB on Itanium
+
+ 2015-06-06 17:20  hvlad 
+   M src/jrd/met.epp
+Fixed bug CORE-4830 : Memory leak in SuperServer
+
+ 2015-06-06 12:19  mapopa 
+   M src/jrd/os/win32/mod_loader.cpp
+Fix from libreoffice patch http://cgit.freedesktop.org/libreoffice/core/tree/external/firebird/firebird-cygwin-msvc.patch.1
+
+ 2015-06-03 10:39  mapopa 
+   M src/jrd/isc_sync.cpp
+   M src/remote/inet.cpp
+SIGURG is not used anywhere , cleanup comments
+
+ 2015-06-03 08:30  mapopa 
+   M configure.in
+Misc
+
+ 2015-06-03 08:22  mapopa 
+   M src/common/classes/alloc.cpp
+   M src/common/classes/alloc.h
+Libreoffice patch : C++11: new/delete replacement functions cannot be inline https://www.mail-archive.com/libreoffice@lists.freedesktop.org/msg79870.html
+
+ 2015-06-03 08:11  mapopa 
+   M src/common/classes/alloc.cpp
+   M src/common/cvt.cpp
+   M src/gpre/c_cxx.cpp
+   M src/gpre/exp.cpp
+   M src/gpre/gpre.cpp
+   M src/gpre/int_cxx.cpp
+   M src/gpre/pat.cpp
+   M src/jrd/perf.cpp
+Apply Partial patch for C++11 compilation of the Firebird code in libreoffice http://cgit.freedesktop.org/libreoffice/core/commit/?id=9fe159ef7cb7cfe5c1c91a6fbf1aa02fe79fec69
+
+ 2015-06-03 08:01  mapopa 
+   M configure.in
+add cygwin target from libreoffice
+
+ 2015-06-03 07:54  mapopa 
+   M builds/posix/prefix.mingw
+   M configure.in
+no-cygwin is deprecated
+
+ 2015-06-01 13:59  alexpeshkoff 
+   M src/remote/inet.cpp
+Added check for failed fork() system call
+
+ 2015-05-31 16:26  dimitr 
+   M src/jrd/evl.cpp
+   M src/jrd/exe.h
+   M src/jrd/opt.cpp
+Fixed CORE-214: Count ( DISTINCT ... ) is too slow.
+
+ 2015-05-31 13:10  dimitr 
+   M src/jrd/btr.cpp
+Postfix for CORE-4786: Problematic key value (when attempt to insert duplicate in PK/UK) is not shown where length of key >= 127 characters.
+
+ 2015-05-31 13:05  dimitr 
+   M src/jrd/dsc.h
+Fixed CORE-4809: HASH/MERGE JOIN is not used for more than two streams if they are joined via USING/NATURAL clauses and join is based on DBKEY concatenations.
+
+ 2015-05-31 13:00  dimitr 
+   M src/jrd/opt.cpp
+Fixed CORE-4822: MERGE JOIN cannot be used for DBKEY based expressions.
+
+ 2015-05-27 17:15  mapopa 
+   M builds/posix/prefix.darwin_i386
+   M builds/posix/prefix.darwin_x86_64
+-fno-weak is unknown in the Clang 3.4 in current Xcode (5.1)
+http://article.gmane.org/gmane.comp.documentfoundation.libreoffice.scm/46191/
+
+ 2015-05-26 11:07  alexpeshkoff 
+   M src/common/classes/ClumpletReader.h
+Disable debug code by default
+
+ 2015-05-22 14:34  alexpeshkoff 
+   M src/remote/inet.cpp
+Fixed -s(tandalone) switch in posix server
+
+ 2015-05-17 02:21  asfernandes 
+   M src/common/classes/timestamp.h
+   M src/jrd/SysFunction.cpp
+Postfix for CORE-4789 - Prohibit ability to cast timestamps that out of valid range to varchar.
+
  2015-05-13 15:49  asfernandes 
    M src/jrd/SysFunction.cpp
 Backported fix for CORE-4789 - Prohibit ability to cast timestamps that out of valid range to varchar.

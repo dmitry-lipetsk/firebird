@@ -806,8 +806,14 @@ Service::Service(const TEXT* service_name, USHORT spb_length, const UCHAR* spb_d
 		ClumpletReader spb(ClumpletReader::SpbAttach, spb_data, spb_length);
 		Options options(spb);
 
-		// Perhaps checkout the user in the security database.
+#ifdef REEXPAND_DBNAME
+		// Needed to ensure correct locking order with security database mutex
+		MutexLockGuard dbInitGuard(JRD_get_dbinitmutex());
+#endif
+
 		SecurityDatabase::InitHolder siHolder;
+
+		// Perhaps checkout the user in the security database.
 		USHORT user_flag;
 		if (!strcmp(serv->serv_name, "anonymous")) {
 			user_flag = SVC_user_none;

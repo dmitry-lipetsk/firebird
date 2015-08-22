@@ -574,6 +574,7 @@ VI. ADDITIONAL NOTES
 #include "../common/classes/PublicHandle.h"
 #include "../jrd/intl_proto.h"
 #include "../jrd/lck_proto.h"
+#include "../jrd/isc_f_proto.h"
 
 #ifdef DEBUG_VAL_VERBOSE
 #include "../jrd/dmp_proto.h"
@@ -1003,10 +1004,16 @@ static int validate(Service* svc)
 		dpb.insertString(isc_dpb_trusted_auth, userName);
 	}
 
+	PathName expandedFilename = dbName;
+	ISC_expand_filename(expandedFilename, NULL);
+
+	if (dbName != expandedFilename)
+		dpb.insertPath(isc_dpb_org_filename, dbName);
+
 	ISC_STATUS_ARRAY status = {0};
 	Attachment *att = NULL;
 
-	if (jrd8_attach_database(status, dbName.c_str(), &att, dpb.getBufferLength(), dpb.getBuffer()))
+	if (jrd8_attach_database(status, expandedFilename.c_str(), &att, dpb.getBufferLength(), dpb.getBuffer()))
 	{
 		svc->setServiceStatus(status);
 		return FB_FAILURE;
@@ -1547,6 +1554,11 @@ void Validation::walk_database(thread_db* tdbb)
 					continue;
 			}
 
+			// We can't realiable track double allocated page's when validating online.
+			// All we can check is that page is not double allocated at the same relation.
+			if (vdr_flags & VDR_online)
+				vdr_page_bitmap->clear();
+
 			string relName;
 			relName.printf("Relation %d (%s)", relation->rel_id, relation->rel_name.c_str());
 			output("%s\n", relName.c_str());
@@ -1872,13 +1884,14 @@ RTN Validation::walk_index(thread_db* tdbb, jrd_rel* relation, index_root_page& 
 			}
 
 			USHORT n = jumpInfo.jumpers;
-			USHORT jumpersSize = 0;
+			USHORT firstNodeOffset = (UCHAR*)page->btr_nodes - (UCHAR*)page; 
+			USHORT jumpDataLen = 0;
 			IndexNode checknode;
 			IndexJumpNode jumpNode;
 			while (n)
 			{
 				pointer = BTreeNode::readJumpNode(&jumpNode, pointer, flags);
-				jumpersSize += BTreeNode::getJumpNodeSize(&jumpNode, flags);
+				firstNodeOffset += BTreeNode::getJumpNodeSize(&jumpNode, flags);
 				// Check if jump node offset is inside page.
 				if ((jumpNode.offset < jumpInfo.firstNodeOffset) ||
 					(jumpNode.offset > page->btr_length))
@@ -1893,9 +1906,29 @@ RTN Validation::walk_index(thread_db* tdbb, jrd_rel* relation, index_root_page& 
 					if ((jumpNode.prefix + jumpNode.length) != checknode.prefix) {
 						corrupt(tdbb, VAL_INDEX_PAGE_CORRUPT, relation,
 								id + 1, next, page->btr_level, jumpNode.offset, __FILE__, __LINE__);
+
 					}
+
+					// First jump node should have zero prefix
+					if (n == jumpInfo.jumpers && jumpNode.prefix) {
+						corrupt(tdbb, VAL_INDEX_PAGE_CORRUPT, relation,
+								id + 1, next, page->btr_level, jumpNode.offset, __FILE__, __LINE__);
+					}
+
+					// jump node prefix can't be more than previous jump data length
+					if (n != jumpInfo.jumpers && jumpNode.prefix > jumpDataLen) {
+						corrupt(tdbb, VAL_INDEX_PAGE_CORRUPT, relation,
+								id + 1, next, page->btr_level, jumpNode.offset, __FILE__, __LINE__);
+					}
+
+					jumpDataLen = jumpNode.prefix + jumpNode.length;
 				}
 				n--;
+			}
+
+			if (firstNodeOffset > jumpInfo.firstNodeOffset) {
+				corrupt(tdbb, VAL_INDEX_PAGE_CORRUPT, relation,
+						id + 1, next, page->btr_level, jumpInfo.firstNodeOffset, __FILE__, __LINE__);
 			}
 		}
 

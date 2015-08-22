@@ -387,6 +387,7 @@ dnl CPU_TYPE=ppc64
     EDITLINE_FLG=Y
     SHRLIB_EXT=so
     libdir=/usr/lib/pa20_64
+    ICU_EXTRAS=--disable-extras
     ;;
 
   hppa*-*-hpux*)
@@ -455,7 +456,7 @@ dnl CPU_TYPE=ppc64
     SHRLIB_EXT=so
     ;;
 
-  *-*-mingw*)
+  *-*-mingw* | *-*-cygwin*)
     MAKEFILE_PREFIX=mingw
     PLATFORM=win32
     AC_DEFINE(WIN_NT, 1, [Define this if OS is Windows NT])
@@ -1049,7 +1050,7 @@ case "$PLATFORM" in
 #define FB_PIPE_NAME "interbas"])
     AC_DEFINE_UNQUOTED(FB_PIPE_NAME,"$FB_PIPE_NAME")
     AC_SUBST(FB_PIPE_NAME)
-    XE_PREPEND( -mno-cygwin -mthreads -lmpr -lversion -lws2_32 -lole32,LIBS)
+    XE_PREPEND( -mthreads -lmpr -lversion -lws2_32 -lole32,LIBS)
     ;;
 
   *)
@@ -1524,7 +1525,7 @@ else
 AC_OUTPUT
 (cd extern/icu/source
 chmod +x runConfigureICU configure install-sh
-./runConfigureICU "$ICU_PLATFORM" "$DEBUG_ICU" --prefix=`pwd`/..)
+./runConfigureICU "$ICU_PLATFORM" "$DEBUG_ICU" "$ICU_EXTRAS" --prefix=`pwd`/..)
 fi
 
 dnl Print out the build configuration (the most interesting thing)

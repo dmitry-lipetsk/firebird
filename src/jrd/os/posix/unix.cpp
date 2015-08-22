@@ -72,6 +72,29 @@
 using namespace Jrd;
 using namespace Firebird;
 
+namespace {
+
+#ifdef SUPERSERVER
+
+typedef Database::Checkout PioCheckout;
+
+#else
+
+class PioCheckout
+{
+public:
+	PioCheckout(Database*) {}
+	~PioCheckout() {}
+
+private:
+	PioCheckout(const PioCheckout&);
+	PioCheckout& operator=(const PioCheckout&);
+};
+
+#endif
+
+};
+
 // Some operating systems have problems with use of write/read with
 // big (>2Gb) files. On the other hand, pwrite/pread works fine for them.
 // Therefore:
@@ -366,9 +389,8 @@ void PIO_flush(Database* dbb, jrd_file* main_file)
 
 	// Since all SUPERSERVER_V2 database and shadow I/O is synchronous, this is a no-op.
 #ifndef SUPERSERVER_V2
+	PioCheckout dcoHolder(dbb);
 	MutexLockGuard guard(main_file->fil_mutex);
-
-	Database::CheckoutIfNotInAst dcoHolder(dbb);
 	for (jrd_file* file = main_file; file; file = file->fil_next)
 	{
 		if (file->fil_desc != -1)
@@ -590,6 +612,8 @@ USHORT PIO_init_data(Database* dbb, jrd_file* main_file, ISC_STATUS* status_vect
 	const char* const zero_buff = zeros().getBuffer();
 	const size_t zero_buff_size = zeros().getSize();
 
+	PioCheckout dcoHolder(dbb);
+
 	// Fake buffer, used in seek_file. Page space ID have no matter there
 	// as we already know file to work with
 	BufferDesc bdb;
@@ -597,9 +621,6 @@ USHORT PIO_init_data(Database* dbb, jrd_file* main_file, ISC_STATUS* status_vect
 	bdb.bdb_page = PageNumber(0, startPage);
 
 	FB_UINT64 offset;
-
-	Database::CheckoutIfNotInAst dcoHolder(dbb);
-
 	jrd_file* file = seek_file(main_file, &bdb, &offset, status_vector);
 
 	if (!file)
@@ -721,7 +742,7 @@ bool PIO_read(jrd_file* file, BufferDesc* bdb, Ods::pag* page, ISC_STATUS* statu
 	}
 
 	Database* dbb = bdb->bdb_dbb;
-	Database::CheckoutIfNotInAst dcoHolder(dbb);
+	PioCheckout dcoHolder(dbb);
 
 	const FB_UINT64 size = dbb->dbb_page_size;
 
@@ -802,7 +823,7 @@ bool PIO_write(jrd_file* file, BufferDesc* bdb, Ods::pag* page, ISC_STATUS* stat
 		return unix_error("write", file, isc_io_write_err, status_vector);
 
 	Database* dbb = bdb->bdb_dbb;
-	Database::CheckoutIfNotInAst dcoHolder(dbb);
+	PioCheckout dcoHolder(dbb);
 
 	const SLONG size = dbb->dbb_page_size;
 

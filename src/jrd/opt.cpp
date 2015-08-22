@@ -4139,6 +4139,9 @@ static RecordSource* gen_aggregate(thread_db* tdbb, OptimizerBlk* opt, jrd_nod* 
 				asb->asb_length += sort_key->skd_length;
 
 			asb->asb_length = ROUNDUP(asb->asb_length, sizeof(SLONG));
+			// dimitr:	allocate an extra longword for the purely artificial counter,
+			// 			see AggNode::aggPass() for details; the length remains rounded properly
+			asb->asb_length += sizeof(ULONG);
 
 			sort_key->skd_flags = SKD_ascending;
 			asb->nod_impure = CMP_impure(csb, sizeof(impure_agg_sort));
@@ -7575,8 +7578,7 @@ static bool river_reference(const River* river, const jrd_nod* node, bool* field
 
 	switch (node->nod_type)
 	{
-
-	case nod_field :
+	case nod_field:
 		{
 			// Check if field references to the river.
 			const UCHAR* streams = river->riv_streams;
@@ -7591,7 +7593,23 @@ static bool river_reference(const River* river, const jrd_nod* node, bool* field
 			return false;
 		}
 
-	default :
+	case nod_rec_version:
+	case nod_dbkey:
+		{
+			// Check if field references to the river.
+			const UCHAR* streams = river->riv_streams;
+			for (const UCHAR* const end = streams + river->riv_count; streams < end; streams++)
+			{
+				if ((USHORT)(IPTR) node->nod_arg[0] == *streams)
+				{
+					*field_found = true;
+					return true;
+				}
+			}
+			return false;
+		}
+
+	default:
 		{
 			const jrd_nod* const* ptr = node->nod_arg;
 			// Check all sub-nodes of this node.
