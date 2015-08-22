@@ -1,0 +1,771 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectName>i18n</ProjectName>
+    <ProjectGuid>{0178B127-6269-407D-B112-93877BB62776}</ProjectGuid>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v140_xp</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v140_xp</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v140_xp</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v140_xp</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC71.props" />
+    <Import Project="firebird2intl.props" />
+    <Import Project="firebird2debug.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC71.props" />
+    <Import Project="firebird2intl.props" />
+    <Import Project="firebird2release.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC71.props" />
+    <Import Project="firebird2intl.props" />
+    <Import Project="firebird2debug.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC71.props" />
+    <Import Project="firebird2intl.props" />
+    <Import Project="firebird2release.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.30319.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(ICU_OUT_BIN_DIR)</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(ICU_OUT_BIN_DIR)</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(ICU_OUT_BIN_DIR)</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(ICU_OUT_BIN_DIR)</OutDir>
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" />
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" />
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" />
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Release|x64'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Release|x64'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Release|x64'" />
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">icuin30</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">icuin30</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">icuin30</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">icuin30</TargetName>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Midl>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MkTypLibCompatible>true</MkTypLibCompatible>
+      <TargetEnvironment>Win32</TargetEnvironment>
+    </Midl>
+    <ClCompile>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <AdditionalIncludeDirectories>..\..\..\source\common;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;U_I18N_IMPLEMENTATION;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <CompileAs>Default</CompileAs>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0409</Culture>
+      <AdditionalIncludeDirectories>..\..\..\source\common;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Link>
+      <BaseAddress>0x4a900000</BaseAddress>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <DataExecutionPrevention>
+      </DataExecutionPrevention>
+      <ImportLibrary>$(ICU_OUT_LIB_DIR)icuin.lib</ImportLibrary>
+      <IgnoreSpecificDefaultLibraries>
+      </IgnoreSpecificDefaultLibraries>
+      <SubSystem>Windows</SubSystem>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Midl>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MkTypLibCompatible>true</MkTypLibCompatible>
+      <TargetEnvironment>X64</TargetEnvironment>
+    </Midl>
+    <ClCompile>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <AdditionalIncludeDirectories>..\..\..\source\common;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;U_I18N_IMPLEMENTATION;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <CompileAs>Default</CompileAs>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0409</Culture>
+      <AdditionalIncludeDirectories>..\..\..\source\common;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Link>
+      <BaseAddress>0x4a900000</BaseAddress>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <DataExecutionPrevention>
+      </DataExecutionPrevention>
+      <ImportLibrary>$(ICU_OUT_LIB_DIR)icuin.lib</ImportLibrary>
+      <TargetMachine>MachineX64</TargetMachine>
+      <IgnoreSpecificDefaultLibraries>
+      </IgnoreSpecificDefaultLibraries>
+      <SubSystem>Windows</SubSystem>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Midl>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MkTypLibCompatible>true</MkTypLibCompatible>
+      <TargetEnvironment>Win32</TargetEnvironment>
+    </Midl>
+    <ClCompile>
+      <AdditionalIncludeDirectories>..\..\..\source\common;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;U_I18N_IMPLEMENTATION;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <CompileAs>Default</CompileAs>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0409</Culture>
+      <AdditionalIncludeDirectories>..\..\..\source\common;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Link>
+      <BaseAddress>0x4a900000</BaseAddress>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <DataExecutionPrevention>
+      </DataExecutionPrevention>
+      <ImportLibrary>$(ICU_OUT_LIB_DIR)icuin.lib</ImportLibrary>
+      <SubSystem>Windows</SubSystem>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Midl>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MkTypLibCompatible>true</MkTypLibCompatible>
+      <TargetEnvironment>X64</TargetEnvironment>
+    </Midl>
+    <ClCompile>
+      <AdditionalIncludeDirectories>..\..\..\source\common;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;U_I18N_IMPLEMENTATION;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <CompileAs>Default</CompileAs>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0409</Culture>
+      <AdditionalIncludeDirectories>..\..\..\source\common;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Link>
+      <BaseAddress>0x4a900000</BaseAddress>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <DataExecutionPrevention>
+      </DataExecutionPrevention>
+      <ImportLibrary>$(ICU_OUT_LIB_DIR)icuin.lib</ImportLibrary>
+      <TargetMachine>MachineX64</TargetMachine>
+      <SubSystem>Windows</SubSystem>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\source\i18n\bocsu.c" />
+    <ClCompile Include="..\..\..\source\i18n\coleitr.cpp" />
+    <ClCompile Include="..\..\..\source\i18n\coll.cpp" />
+    <ClCompile Include="..\..\..\source\i18n\search.cpp" />
+    <ClCompile Include="..\..\..\source\i18n\sortkey.cpp" />
+    <ClCompile Include="..\..\..\source\i18n\stsearch.cpp" />
+    <ClCompile Include="..\..\..\source\i18n\tblcoll.cpp" />
+    <ClCompile Include="..\..\..\source\i18n\ucol.cpp" />
+    <ClCompile Include="..\..\..\source\i18n\ucol_bld.cpp" />
+    <ClCompile Include="..\..\..\source\i18n\ucol_cnt.cpp" />
+    <ClCompile Include="..\..\..\source\i18n\ucol_elm.cpp" />
+    <ClCompile Include="..\..\..\source\i18n\ucol_sit.cpp" />
+    <ClCompile Include="..\..\..\source\i18n\ucol_tok.cpp" />
+    <ClCompile Include="..\..\..\source\i18n\ucol_wgt.c" />
+    <ClCompile Include="..\..\..\source\i18n\ucoleitr.cpp" />
+    <ClCompile Include="..\..\..\source\i18n\usearch.cpp" />
+    <ClCompile Include="..\..\..\source\i18n\astro.cpp" />
+    <ClCompile Include="..\..\..\source\i18n\buddhcal.cpp" />
+    <ClCompile Include="..\..\..\source\i18n\calendar.cpp" />
+    <ClCompile Include="..\..\..\source\i18n\chnsecal.cpp" />
+    <ClCompile Include="..\..\..\source\i18n\choicfmt.cpp" />
+    <ClCompile Include="..\..\..\source\i18n\curramt.cpp" />
+    <ClCompile Include="..\..\..\source\i18n\currfmt.cpp" />
+    <ClCompile Include="..\..\..\source\i18n\currunit.cpp" />
+    <ClCompile Include="..\..\..\source\i18n\datefmt.cpp" />
+    <ClCompile Include="..\..\..\source\i18n\dcfmtsym.cpp" />
+    <ClCompile Include="..\..\..\source\i18n\decimfmt.cpp" />
+    <ClCompile Include="..\..\..\source\i18n\digitlst.cpp" />
+    <ClCompile Include="..\..\..\source\i18n\dtfmtsym.cpp" />
+    <ClCompile Include="..\..\..\source\i18n\fmtable.cpp" />
+    <ClCompile Include="..\..\..\source\i18n\format.cpp" />
+    <ClCompile Include="..\..\..\source\i18n\gregocal.cpp" />
+    <ClCompile Include="..\..\..\source\i18n\gregoimp.cpp" />
+    <ClCompile Include="..\..\..\source\i18n\hebrwcal.cpp" />
+    <ClCompile Include="..\..\..\source\i18n\islamcal.cpp" />
+    <ClCompile Include="..\..\..\source\i18n\japancal.cpp" />
+    <ClCompile Include="..\..\..\source\i18n\measfmt.cpp" />
+    <ClCompile Include="..\..\..\source\i18n\measure.cpp" />
+    <ClCompile Include="..\..\..\source\i18n\msgfmt.cpp" />
+    <ClCompile Include="..\..\..\source\i18n\nfrs.cpp" />
+    <ClCompile Include="..\..\..\source\i18n\nfrule.cpp" />
+    <ClCompile Include="..\..\..\source\i18n\nfsubs.cpp" />
+    <ClCompile Include="..\..\..\source\i18n\numfmt.cpp" />
+    <ClCompile Include="..\..\..\source\i18n\olsontz.cpp" />
+    <ClCompile Include="..\..\..\source\i18n\rbnf.cpp" />
+    <ClCompile Include="..\..\..\source\i18n\simpletz.cpp" />
+    <ClCompile Include="..\..\..\source\i18n\smpdtfmt.cpp" />
+    <ClCompile Include="..\..\..\source\i18n\timezone.cpp" />
+    <ClCompile Include="..\..\..\source\i18n\ucal.cpp" />
+    <ClCompile Include="..\..\..\source\i18n\ucurr.cpp" />
+    <ClCompile Include="..\..\..\source\i18n\udat.cpp" />
+    <ClCompile Include="..\..\..\source\i18n\ulocdata.c" />
+    <ClCompile Include="..\..\..\source\i18n\umsg.cpp" />
+    <ClCompile Include="..\..\..\source\i18n\unum.cpp" />
+    <ClCompile Include="..\..\..\source\i18n\ucln_in.c" />
+    <ClCompile Include="..\..\..\source\i18n\regexcmp.cpp" />
+    <ClCompile Include="..\..\..\source\i18n\regexst.cpp" />
+    <ClCompile Include="..\..\..\source\i18n\rematch.cpp" />
+    <ClCompile Include="..\..\..\source\i18n\remtrans.cpp" />
+    <ClCompile Include="..\..\..\source\i18n\repattrn.cpp" />
+    <ClCompile Include="..\..\..\source\i18n\uregex.cpp" />
+    <ClCompile Include="..\..\..\source\i18n\anytrans.cpp" />
+    <ClCompile Include="..\..\..\source\i18n\cpdtrans.cpp" />
+    <ClCompile Include="..\..\..\source\i18n\esctrn.cpp" />
+    <ClCompile Include="..\..\..\source\i18n\funcrepl.cpp" />
+    <ClCompile Include="..\..\..\source\i18n\name2uni.cpp" />
+    <ClCompile Include="..\..\..\source\i18n\nortrans.cpp" />
+    <ClCompile Include="..\..\..\source\i18n\nultrans.cpp" />
+    <ClCompile Include="..\..\..\source\i18n\quant.cpp" />
+    <ClCompile Include="..\..\..\source\i18n\rbt.cpp" />
+    <ClCompile Include="..\..\..\source\i18n\rbt_data.cpp" />
+    <ClCompile Include="..\..\..\source\i18n\rbt_pars.cpp" />
+    <ClCompile Include="..\..\..\source\i18n\rbt_rule.cpp" />
+    <ClCompile Include="..\..\..\source\i18n\rbt_set.cpp" />
+    <ClCompile Include="..\..\..\source\i18n\strmatch.cpp" />
+    <ClCompile Include="..\..\..\source\i18n\strrepl.cpp" />
+    <ClCompile Include="..\..\..\source\i18n\titletrn.cpp" />
+    <ClCompile Include="..\..\..\source\i18n\tolowtrn.cpp" />
+    <ClCompile Include="..\..\..\source\i18n\toupptrn.cpp" />
+    <ClCompile Include="..\..\..\source\i18n\translit.cpp" />
+    <ClCompile Include="..\..\..\source\i18n\transreg.cpp" />
+    <ClCompile Include="..\..\..\source\i18n\tridpars.cpp" />
+    <ClCompile Include="..\..\..\source\i18n\unesctrn.cpp" />
+    <ClCompile Include="..\..\..\source\i18n\uni2name.cpp" />
+    <ClCompile Include="..\..\..\source\i18n\utrans.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\source\i18n\bocsu.h" />
+    <CustomBuild Include="..\..\..\source\i18n\unicode\coleitr.h">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">copy "%(FullPath)" "$(ICU_OUT_INCLUDE_DIR)unicode"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(ICU_OUT_INCLUDE_DIR)unicode\%(Filename)%(Extension);%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">copy "%(FullPath)" "$(ICU_OUT_INCLUDE_DIR)unicode"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(ICU_OUT_INCLUDE_DIR)unicode\%(Filename)%(Extension);%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">copy "%(FullPath)" "$(ICU_OUT_INCLUDE_DIR)unicode"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(ICU_OUT_INCLUDE_DIR)unicode\%(Filename)%(Extension);%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">copy "%(FullPath)" "$(ICU_OUT_INCLUDE_DIR)unicode"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(ICU_OUT_INCLUDE_DIR)unicode\%(Filename)%(Extension);%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="..\..\..\source\i18n\unicode\coll.h">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">copy "%(FullPath)" "$(ICU_OUT_INCLUDE_DIR)unicode"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(ICU_OUT_INCLUDE_DIR)unicode\%(Filename)%(Extension);%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">copy "%(FullPath)" "$(ICU_OUT_INCLUDE_DIR)unicode"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(ICU_OUT_INCLUDE_DIR)unicode\%(Filename)%(Extension);%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">copy "%(FullPath)" "$(ICU_OUT_INCLUDE_DIR)unicode"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(ICU_OUT_INCLUDE_DIR)unicode\%(Filename)%(Extension);%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">copy "%(FullPath)" "$(ICU_OUT_INCLUDE_DIR)unicode"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(ICU_OUT_INCLUDE_DIR)unicode\%(Filename)%(Extension);%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="..\..\..\source\i18n\unicode\search.h">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">copy "%(FullPath)" "$(ICU_OUT_INCLUDE_DIR)unicode"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(ICU_OUT_INCLUDE_DIR)unicode\%(Filename)%(Extension);%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">copy "%(FullPath)" "$(ICU_OUT_INCLUDE_DIR)unicode"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(ICU_OUT_INCLUDE_DIR)unicode\%(Filename)%(Extension);%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">copy "%(FullPath)" "$(ICU_OUT_INCLUDE_DIR)unicode"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(ICU_OUT_INCLUDE_DIR)unicode\%(Filename)%(Extension);%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">copy "%(FullPath)" "$(ICU_OUT_INCLUDE_DIR)unicode"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(ICU_OUT_INCLUDE_DIR)unicode\%(Filename)%(Extension);%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="..\..\..\source\i18n\unicode\sortkey.h">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">copy "%(FullPath)" "$(ICU_OUT_INCLUDE_DIR)unicode"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(ICU_OUT_INCLUDE_DIR)unicode\%(Filename)%(Extension);%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">copy "%(FullPath)" "$(ICU_OUT_INCLUDE_DIR)unicode"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(ICU_OUT_INCLUDE_DIR)unicode\%(Filename)%(Extension);%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">copy "%(FullPath)" "$(ICU_OUT_INCLUDE_DIR)unicode"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(ICU_OUT_INCLUDE_DIR)unicode\%(Filename)%(Extension);%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">copy "%(FullPath)" "$(ICU_OUT_INCLUDE_DIR)unicode"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(ICU_OUT_INCLUDE_DIR)unicode\%(Filename)%(Extension);%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="..\..\..\source\i18n\unicode\stsearch.h">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">copy "%(FullPath)" "$(ICU_OUT_INCLUDE_DIR)unicode"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(ICU_OUT_INCLUDE_DIR)unicode\%(Filename)%(Extension);%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">copy "%(FullPath)" "$(ICU_OUT_INCLUDE_DIR)unicode"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(ICU_OUT_INCLUDE_DIR)unicode\%(Filename)%(Extension);%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">copy "%(FullPath)" "$(ICU_OUT_INCLUDE_DIR)unicode"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(ICU_OUT_INCLUDE_DIR)unicode\%(Filename)%(Extension);%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">copy "%(FullPath)" "$(ICU_OUT_INCLUDE_DIR)unicode"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(ICU_OUT_INCLUDE_DIR)unicode\%(Filename)%(Extension);%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="..\..\..\source\i18n\unicode\tblcoll.h">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">copy "%(FullPath)" "$(ICU_OUT_INCLUDE_DIR)unicode"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(ICU_OUT_INCLUDE_DIR)unicode\%(Filename)%(Extension);%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">copy "%(FullPath)" "$(ICU_OUT_INCLUDE_DIR)unicode"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(ICU_OUT_INCLUDE_DIR)unicode\%(Filename)%(Extension);%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">copy "%(FullPath)" "$(ICU_OUT_INCLUDE_DIR)unicode"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(ICU_OUT_INCLUDE_DIR)unicode\%(Filename)%(Extension);%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">copy "%(FullPath)" "$(ICU_OUT_INCLUDE_DIR)unicode"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(ICU_OUT_INCLUDE_DIR)unicode\%(Filename)%(Extension);%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="..\..\..\source\i18n\unicode\ucol.h">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">copy "%(FullPath)" "$(ICU_OUT_INCLUDE_DIR)unicode"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(ICU_OUT_INCLUDE_DIR)unicode\%(Filename)%(Extension);%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">copy "%(FullPath)" "$(ICU_OUT_INCLUDE_DIR)unicode"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(ICU_OUT_INCLUDE_DIR)unicode\%(Filename)%(Extension);%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">copy "%(FullPath)" "$(ICU_OUT_INCLUDE_DIR)unicode"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(ICU_OUT_INCLUDE_DIR)unicode\%(Filename)%(Extension);%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">copy "%(FullPath)" "$(ICU_OUT_INCLUDE_DIR)unicode"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(ICU_OUT_INCLUDE_DIR)unicode\%(Filename)%(Extension);%(Outputs)</Outputs>
+    </CustomBuild>
+    <ClInclude Include="..\..\..\source\i18n\ucol_bld.h" />
+    <ClInclude Include="..\..\..\source\i18n\ucol_cnt.h" />
+    <ClInclude Include="..\..\..\source\i18n\ucol_elm.h" />
+    <ClInclude Include="..\..\..\source\i18n\ucol_imp.h" />
+    <ClInclude Include="..\..\..\source\i18n\ucol_tok.h" />
+    <ClInclude Include="..\..\..\source\i18n\ucol_wgt.h" />
+    <CustomBuild Include="..\..\..\source\i18n\unicode\ucoleitr.h">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">copy "%(FullPath)" "$(ICU_OUT_INCLUDE_DIR)unicode"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(ICU_OUT_INCLUDE_DIR)unicode\%(Filename)%(Extension);%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">copy "%(FullPath)" "$(ICU_OUT_INCLUDE_DIR)unicode"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(ICU_OUT_INCLUDE_DIR)unicode\%(Filename)%(Extension);%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">copy "%(FullPath)" "$(ICU_OUT_INCLUDE_DIR)unicode"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(ICU_OUT_INCLUDE_DIR)unicode\%(Filename)%(Extension);%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">copy "%(FullPath)" "$(ICU_OUT_INCLUDE_DIR)unicode"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(ICU_OUT_INCLUDE_DIR)unicode\%(Filename)%(Extension);%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="..\..\..\source\i18n\unicode\usearch.h">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">copy "%(FullPath)" "$(ICU_OUT_INCLUDE_DIR)unicode"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(ICU_OUT_INCLUDE_DIR)unicode\%(Filename)%(Extension);%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">copy "%(FullPath)" "$(ICU_OUT_INCLUDE_DIR)unicode"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(ICU_OUT_INCLUDE_DIR)unicode\%(Filename)%(Extension);%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">copy "%(FullPath)" "$(ICU_OUT_INCLUDE_DIR)unicode"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(ICU_OUT_INCLUDE_DIR)unicode\%(Filename)%(Extension);%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">copy "%(FullPath)" "$(ICU_OUT_INCLUDE_DIR)unicode"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(ICU_OUT_INCLUDE_DIR)unicode\%(Filename)%(Extension);%(Outputs)</Outputs>
+    </CustomBuild>
+    <ClInclude Include="..\..\..\source\i18n\usrchimp.h" />
+    <ClInclude Include="..\..\..\source\i18n\astro.h" />
+    <ClInclude Include="..\..\..\source\i18n\buddhcal.h" />
+    <CustomBuild Include="..\..\..\source\i18n\unicode\calendar.h">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">copy "%(FullPath)" "$(ICU_OUT_INCLUDE_DIR)unicode"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(ICU_OUT_INCLUDE_DIR)unicode\%(Filename)%(Extension);%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">copy "%(FullPath)" "$(ICU_OUT_INCLUDE_DIR)unicode"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(ICU_OUT_INCLUDE_DIR)unicode\%(Filename)%(Extension);%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">copy "%(FullPath)" "$(ICU_OUT_INCLUDE_DIR)unicode"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(ICU_OUT_INCLUDE_DIR)unicode\%(Filename)%(Extension);%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">copy "%(FullPath)" "$(ICU_OUT_INCLUDE_DIR)unicode"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(ICU_OUT_INCLUDE_DIR)unicode\%(Filename)%(Extension);%(Outputs)</Outputs>
+    </CustomBuild>
+    <ClInclude Include="..\..\..\source\i18n\chnsecal.h" />
+    <CustomBuild Include="..\..\..\source\i18n\unicode\choicfmt.h">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">copy "%(FullPath)" "$(ICU_OUT_INCLUDE_DIR)unicode"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(ICU_OUT_INCLUDE_DIR)unicode\%(Filename)%(Extension);%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">copy "%(FullPath)" "$(ICU_OUT_INCLUDE_DIR)unicode"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(ICU_OUT_INCLUDE_DIR)unicode\%(Filename)%(Extension);%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">copy "%(FullPath)" "$(ICU_OUT_INCLUDE_DIR)unicode"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(ICU_OUT_INCLUDE_DIR)unicode\%(Filename)%(Extension);%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">copy "%(FullPath)" "$(ICU_OUT_INCLUDE_DIR)unicode"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(ICU_OUT_INCLUDE_DIR)unicode\%(Filename)%(Extension);%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="..\..\..\source\i18n\unicode\curramt.h">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">copy "%(FullPath)" "$(ICU_OUT_INCLUDE_DIR)unicode"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(ICU_OUT_INCLUDE_DIR)unicode\%(Filename)%(Extension);%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">copy "%(FullPath)" "$(ICU_OUT_INCLUDE_DIR)unicode"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(ICU_OUT_INCLUDE_DIR)unicode\%(Filename)%(Extension);%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">copy "%(FullPath)" "$(ICU_OUT_INCLUDE_DIR)unicode"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(ICU_OUT_INCLUDE_DIR)unicode\%(Filename)%(Extension);%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">copy "%(FullPath)" "$(ICU_OUT_INCLUDE_DIR)unicode"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(ICU_OUT_INCLUDE_DIR)unicode\%(Filename)%(Extension);%(Outputs)</Outputs>
+    </CustomBuild>
+    <ClInclude Include="..\..\..\source\i18n\currfmt.h" />
+    <CustomBuild Include="..\..\..\source\i18n\unicode\currunit.h">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">copy "%(FullPath)" "$(ICU_OUT_INCLUDE_DIR)unicode"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(ICU_OUT_INCLUDE_DIR)unicode\%(Filename)%(Extension);%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">copy "%(FullPath)" "$(ICU_OUT_INCLUDE_DIR)unicode"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(ICU_OUT_INCLUDE_DIR)unicode\%(Filename)%(Extension);%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">copy "%(FullPath)" "$(ICU_OUT_INCLUDE_DIR)unicode"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(ICU_OUT_INCLUDE_DIR)unicode\%(Filename)%(Extension);%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">copy "%(FullPath)" "$(ICU_OUT_INCLUDE_DIR)unicode"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(ICU_OUT_INCLUDE_DIR)unicode\%(Filename)%(Extension);%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="..\..\..\source\i18n\unicode\datefmt.h">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">copy "%(FullPath)" "$(ICU_OUT_INCLUDE_DIR)unicode"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(ICU_OUT_INCLUDE_DIR)unicode\%(Filename)%(Extension);%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">copy "%(FullPath)" "$(ICU_OUT_INCLUDE_DIR)unicode"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(ICU_OUT_INCLUDE_DIR)unicode\%(Filename)%(Extension);%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">copy "%(FullPath)" "$(ICU_OUT_INCLUDE_DIR)unicode"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(ICU_OUT_INCLUDE_DIR)unicode\%(Filename)%(Extension);%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">copy "%(FullPath)" "$(ICU_OUT_INCLUDE_DIR)unicode"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(ICU_OUT_INCLUDE_DIR)unicode\%(Filename)%(Extension);%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="..\..\..\source\i18n\unicode\dcfmtsym.h">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">copy "%(FullPath)" "$(ICU_OUT_INCLUDE_DIR)unicode"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(ICU_OUT_INCLUDE_DIR)unicode\%(Filename)%(Extension);%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">copy "%(FullPath)" "$(ICU_OUT_INCLUDE_DIR)unicode"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(ICU_OUT_INCLUDE_DIR)unicode\%(Filename)%(Extension);%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">copy "%(FullPath)" "$(ICU_OUT_INCLUDE_DIR)unicode"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(ICU_OUT_INCLUDE_DIR)unicode\%(Filename)%(Extension);%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">copy "%(FullPath)" "$(ICU_OUT_INCLUDE_DIR)unicode"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(ICU_OUT_INCLUDE_DIR)unicode\%(Filename)%(Extension);%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="..\..\..\source\i18n\unicode\decimfmt.h">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">copy "%(FullPath)" "$(ICU_OUT_INCLUDE_DIR)unicode"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(ICU_OUT_INCLUDE_DIR)unicode\%(Filename)%(Extension);%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">copy "%(FullPath)" "$(ICU_OUT_INCLUDE_DIR)unicode"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(ICU_OUT_INCLUDE_DIR)unicode\%(Filename)%(Extension);%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">copy "%(FullPath)" "$(ICU_OUT_INCLUDE_DIR)unicode"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(ICU_OUT_INCLUDE_DIR)unicode\%(Filename)%(Extension);%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">copy "%(FullPath)" "$(ICU_OUT_INCLUDE_DIR)unicode"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(ICU_OUT_INCLUDE_DIR)unicode\%(Filename)%(Extension);%(Outputs)</Outputs>
+    </CustomBuild>
+    <ClInclude Include="..\..\..\source\i18n\digitlst.h" />
+    <CustomBuild Include="..\..\..\source\i18n\unicode\dtfmtsym.h">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">copy "%(FullPath)" "$(ICU_OUT_INCLUDE_DIR)unicode"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(ICU_OUT_INCLUDE_DIR)unicode\%(Filename)%(Extension);%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">copy "%(FullPath)" "$(ICU_OUT_INCLUDE_DIR)unicode"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(ICU_OUT_INCLUDE_DIR)unicode\%(Filename)%(Extension);%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">copy "%(FullPath)" "$(ICU_OUT_INCLUDE_DIR)unicode"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(ICU_OUT_INCLUDE_DIR)unicode\%(Filename)%(Extension);%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">copy "%(FullPath)" "$(ICU_OUT_INCLUDE_DIR)unicode"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(ICU_OUT_INCLUDE_DIR)unicode\%(Filename)%(Extension);%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="..\..\..\source\i18n\unicode\fieldpos.h">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">copy "%(FullPath)" "$(ICU_OUT_INCLUDE_DIR)unicode"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(ICU_OUT_INCLUDE_DIR)unicode\%(Filename)%(Extension);%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">copy "%(FullPath)" "$(ICU_OUT_INCLUDE_DIR)unicode"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(ICU_OUT_INCLUDE_DIR)unicode\%(Filename)%(Extension);%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">copy "%(FullPath)" "$(ICU_OUT_INCLUDE_DIR)unicode"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(ICU_OUT_INCLUDE_DIR)unicode\%(Filename)%(Extension);%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">copy "%(FullPath)" "$(ICU_OUT_INCLUDE_DIR)unicode"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(ICU_OUT_INCLUDE_DIR)unicode\%(Filename)%(Extension);%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="..\..\..\source\i18n\unicode\fmtable.h">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">copy "%(FullPath)" "$(ICU_OUT_INCLUDE_DIR)unicode"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(ICU_OUT_INCLUDE_DIR)unicode\%(Filename)%(Extension);%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">copy "%(FullPath)" "$(ICU_OUT_INCLUDE_DIR)unicode"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(ICU_OUT_INCLUDE_DIR)unicode\%(Filename)%(Extension);%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">copy "%(FullPath)" "$(ICU_OUT_INCLUDE_DIR)unicode"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(ICU_OUT_INCLUDE_DIR)unicode\%(Filename)%(Extension);%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">copy "%(FullPath)" "$(ICU_OUT_INCLUDE_DIR)unicode"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(ICU_OUT_INCLUDE_DIR)unicode\%(Filename)%(Extension);%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="..\..\..\source\i18n\unicode\format.h">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">copy "%(FullPath)" "$(ICU_OUT_INCLUDE_DIR)unicode"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(ICU_OUT_INCLUDE_DIR)unicode\%(Filename)%(Extension);%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">copy "%(FullPath)" "$(ICU_OUT_INCLUDE_DIR)unicode"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(ICU_OUT_INCLUDE_DIR)unicode\%(Filename)%(Extension);%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">copy "%(FullPath)" "$(ICU_OUT_INCLUDE_DIR)unicode"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(ICU_OUT_INCLUDE_DIR)unicode\%(Filename)%(Extension);%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">copy "%(FullPath)" "$(ICU_OUT_INCLUDE_DIR)unicode"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(ICU_OUT_INCLUDE_DIR)unicode\%(Filename)%(Extension);%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="..\..\..\source\i18n\unicode\gregocal.h">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">copy "%(FullPath)" "$(ICU_OUT_INCLUDE_DIR)unicode"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(ICU_OUT_INCLUDE_DIR)unicode\%(Filename)%(Extension);%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">copy "%(FullPath)" "$(ICU_OUT_INCLUDE_DIR)unicode"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(ICU_OUT_INCLUDE_DIR)unicode\%(Filename)%(Extension);%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">copy "%(FullPath)" "$(ICU_OUT_INCLUDE_DIR)unicode"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(ICU_OUT_INCLUDE_DIR)unicode\%(Filename)%(Extension);%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">copy "%(FullPath)" "$(ICU_OUT_INCLUDE_DIR)unicode"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(ICU_OUT_INCLUDE_DIR)unicode\%(Filename)%(Extension);%(Outputs)</Outputs>
+    </CustomBuild>
+    <ClInclude Include="..\..\..\source\i18n\gregoimp.h" />
+    <ClInclude Include="..\..\..\source\i18n\hebrwcal.h" />
+    <ClInclude Include="..\..\..\source\i18n\islamcal.h" />
+    <ClInclude Include="..\..\..\source\i18n\japancal.h" />
+    <CustomBuild Include="..\..\..\source\i18n\unicode\measfmt.h">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">copy "%(FullPath)" "$(ICU_OUT_INCLUDE_DIR)unicode"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(ICU_OUT_INCLUDE_DIR)unicode\%(Filename)%(Extension);%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">copy "%(FullPath)" "$(ICU_OUT_INCLUDE_DIR)unicode"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(ICU_OUT_INCLUDE_DIR)unicode\%(Filename)%(Extension);%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">copy "%(FullPath)" "$(ICU_OUT_INCLUDE_DIR)unicode"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(ICU_OUT_INCLUDE_DIR)unicode\%(Filename)%(Extension);%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">copy "%(FullPath)" "$(ICU_OUT_INCLUDE_DIR)unicode"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(ICU_OUT_INCLUDE_DIR)unicode\%(Filename)%(Extension);%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="..\..\..\source\i18n\unicode\measunit.h">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">copy "%(FullPath)" "$(ICU_OUT_INCLUDE_DIR)unicode"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(ICU_OUT_INCLUDE_DIR)unicode\%(Filename)%(Extension);%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">copy "%(FullPath)" "$(ICU_OUT_INCLUDE_DIR)unicode"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(ICU_OUT_INCLUDE_DIR)unicode\%(Filename)%(Extension);%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">copy "%(FullPath)" "$(ICU_OUT_INCLUDE_DIR)unicode"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(ICU_OUT_INCLUDE_DIR)unicode\%(Filename)%(Extension);%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">copy "%(FullPath)" "$(ICU_OUT_INCLUDE_DIR)unicode"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(ICU_OUT_INCLUDE_DIR)unicode\%(Filename)%(Extension);%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="..\..\..\source\i18n\unicode\measure.h">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">copy "%(FullPath)" "$(ICU_OUT_INCLUDE_DIR)unicode"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(ICU_OUT_INCLUDE_DIR)unicode\%(Filename)%(Extension);%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">copy "%(FullPath)" "$(ICU_OUT_INCLUDE_DIR)unicode"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(ICU_OUT_INCLUDE_DIR)unicode\%(Filename)%(Extension);%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">copy "%(FullPath)" "$(ICU_OUT_INCLUDE_DIR)unicode"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(ICU_OUT_INCLUDE_DIR)unicode\%(Filename)%(Extension);%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">copy "%(FullPath)" "$(ICU_OUT_INCLUDE_DIR)unicode"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(ICU_OUT_INCLUDE_DIR)unicode\%(Filename)%(Extension);%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="..\..\..\source\i18n\unicode\msgfmt.h">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">copy "%(FullPath)" "$(ICU_OUT_INCLUDE_DIR)unicode"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(ICU_OUT_INCLUDE_DIR)unicode\%(Filename)%(Extension);%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">copy "%(FullPath)" "$(ICU_OUT_INCLUDE_DIR)unicode"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(ICU_OUT_INCLUDE_DIR)unicode\%(Filename)%(Extension);%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">copy "%(FullPath)" "$(ICU_OUT_INCLUDE_DIR)unicode"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(ICU_OUT_INCLUDE_DIR)unicode\%(Filename)%(Extension);%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">copy "%(FullPath)" "$(ICU_OUT_INCLUDE_DIR)unicode"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(ICU_OUT_INCLUDE_DIR)unicode\%(Filename)%(Extension);%(Outputs)</Outputs>
+    </CustomBuild>
+    <ClInclude Include="..\..\..\source\i18n\nfrlist.h" />
+    <ClInclude Include="..\..\..\source\i18n\nfrs.h" />
+    <ClInclude Include="..\..\..\source\i18n\nfrule.h" />
+    <ClInclude Include="..\..\..\source\i18n\nfsubs.h" />
+    <CustomBuild Include="..\..\..\source\i18n\unicode\numfmt.h">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">copy "%(FullPath)" "$(ICU_OUT_INCLUDE_DIR)unicode"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(ICU_OUT_INCLUDE_DIR)unicode\%(Filename)%(Extension);%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">copy "%(FullPath)" "$(ICU_OUT_INCLUDE_DIR)unicode"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(ICU_OUT_INCLUDE_DIR)unicode\%(Filename)%(Extension);%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">copy "%(FullPath)" "$(ICU_OUT_INCLUDE_DIR)unicode"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(ICU_OUT_INCLUDE_DIR)unicode\%(Filename)%(Extension);%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">copy "%(FullPath)" "$(ICU_OUT_INCLUDE_DIR)unicode"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(ICU_OUT_INCLUDE_DIR)unicode\%(Filename)%(Extension);%(Outputs)</Outputs>
+    </CustomBuild>
+    <ClInclude Include="..\..\..\source\i18n\olsontz.h" />
+    <CustomBuild Include="..\..\..\source\i18n\unicode\rbnf.h">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">copy "%(FullPath)" "$(ICU_OUT_INCLUDE_DIR)unicode"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(ICU_OUT_INCLUDE_DIR)unicode\%(Filename)%(Extension);%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">copy "%(FullPath)" "$(ICU_OUT_INCLUDE_DIR)unicode"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(ICU_OUT_INCLUDE_DIR)unicode\%(Filename)%(Extension);%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">copy "%(FullPath)" "$(ICU_OUT_INCLUDE_DIR)unicode"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(ICU_OUT_INCLUDE_DIR)unicode\%(Filename)%(Extension);%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">copy "%(FullPath)" "$(ICU_OUT_INCLUDE_DIR)unicode"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(ICU_OUT_INCLUDE_DIR)unicode\%(Filename)%(Extension);%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="..\..\..\source\i18n\unicode\simpletz.h">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">copy "%(FullPath)" "$(ICU_OUT_INCLUDE_DIR)unicode"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(ICU_OUT_INCLUDE_DIR)unicode\%(Filename)%(Extension);%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">copy "%(FullPath)" "$(ICU_OUT_INCLUDE_DIR)unicode"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(ICU_OUT_INCLUDE_DIR)unicode\%(Filename)%(Extension);%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">copy "%(FullPath)" "$(ICU_OUT_INCLUDE_DIR)unicode"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(ICU_OUT_INCLUDE_DIR)unicode\%(Filename)%(Extension);%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">copy "%(FullPath)" "$(ICU_OUT_INCLUDE_DIR)unicode"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(ICU_OUT_INCLUDE_DIR)unicode\%(Filename)%(Extension);%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="..\..\..\source\i18n\unicode\smpdtfmt.h">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">copy "%(FullPath)" "$(ICU_OUT_INCLUDE_DIR)unicode"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(ICU_OUT_INCLUDE_DIR)unicode\%(Filename)%(Extension);%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">copy "%(FullPath)" "$(ICU_OUT_INCLUDE_DIR)unicode"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(ICU_OUT_INCLUDE_DIR)unicode\%(Filename)%(Extension);%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">copy "%(FullPath)" "$(ICU_OUT_INCLUDE_DIR)unicode"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(ICU_OUT_INCLUDE_DIR)unicode\%(Filename)%(Extension);%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">copy "%(FullPath)" "$(ICU_OUT_INCLUDE_DIR)unicode"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(ICU_OUT_INCLUDE_DIR)unicode\%(Filename)%(Extension);%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="..\..\..\source\i18n\unicode\timezone.h">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">copy "%(FullPath)" "$(ICU_OUT_INCLUDE_DIR)unicode"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(ICU_OUT_INCLUDE_DIR)unicode\%(Filename)%(Extension);%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">copy "%(FullPath)" "$(ICU_OUT_INCLUDE_DIR)unicode"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(ICU_OUT_INCLUDE_DIR)unicode\%(Filename)%(Extension);%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">copy "%(FullPath)" "$(ICU_OUT_INCLUDE_DIR)unicode"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(ICU_OUT_INCLUDE_DIR)unicode\%(Filename)%(Extension);%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">copy "%(FullPath)" "$(ICU_OUT_INCLUDE_DIR)unicode"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(ICU_OUT_INCLUDE_DIR)unicode\%(Filename)%(Extension);%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="..\..\..\source\i18n\unicode\ucal.h">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">copy "%(FullPath)" "$(ICU_OUT_INCLUDE_DIR)unicode"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(ICU_OUT_INCLUDE_DIR)unicode\%(Filename)%(Extension);%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">copy "%(FullPath)" "$(ICU_OUT_INCLUDE_DIR)unicode"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(ICU_OUT_INCLUDE_DIR)unicode\%(Filename)%(Extension);%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">copy "%(FullPath)" "$(ICU_OUT_INCLUDE_DIR)unicode"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(ICU_OUT_INCLUDE_DIR)unicode\%(Filename)%(Extension);%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">copy "%(FullPath)" "$(ICU_OUT_INCLUDE_DIR)unicode"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(ICU_OUT_INCLUDE_DIR)unicode\%(Filename)%(Extension);%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="..\..\..\source\i18n\unicode\ucurr.h">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">copy "%(FullPath)" "$(ICU_OUT_INCLUDE_DIR)unicode"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(ICU_OUT_INCLUDE_DIR)unicode\%(Filename)%(Extension);%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">copy "%(FullPath)" "$(ICU_OUT_INCLUDE_DIR)unicode"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(ICU_OUT_INCLUDE_DIR)unicode\%(Filename)%(Extension);%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">copy "%(FullPath)" "$(ICU_OUT_INCLUDE_DIR)unicode"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(ICU_OUT_INCLUDE_DIR)unicode\%(Filename)%(Extension);%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">copy "%(FullPath)" "$(ICU_OUT_INCLUDE_DIR)unicode"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(ICU_OUT_INCLUDE_DIR)unicode\%(Filename)%(Extension);%(Outputs)</Outputs>
+    </CustomBuild>
+    <ClInclude Include="..\..\..\source\i18n\ucurrimp.h" />
+    <CustomBuild Include="..\..\..\source\i18n\unicode\udat.h">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">copy "%(FullPath)" "$(ICU_OUT_INCLUDE_DIR)unicode"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(ICU_OUT_INCLUDE_DIR)unicode\%(Filename)%(Extension);%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">copy "%(FullPath)" "$(ICU_OUT_INCLUDE_DIR)unicode"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(ICU_OUT_INCLUDE_DIR)unicode\%(Filename)%(Extension);%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">copy "%(FullPath)" "$(ICU_OUT_INCLUDE_DIR)unicode"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(ICU_OUT_INCLUDE_DIR)unicode\%(Filename)%(Extension);%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">copy "%(FullPath)" "$(ICU_OUT_INCLUDE_DIR)unicode"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(ICU_OUT_INCLUDE_DIR)unicode\%(Filename)%(Extension);%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="..\..\..\source\i18n\unicode\ulocdata.h">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">copy "%(FullPath)" "$(ICU_OUT_INCLUDE_DIR)unicode"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(ICU_OUT_INCLUDE_DIR)unicode\%(Filename)%(Extension);%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">copy "%(FullPath)" "$(ICU_OUT_INCLUDE_DIR)unicode"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(ICU_OUT_INCLUDE_DIR)unicode\%(Filename)%(Extension);%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">copy "%(FullPath)" "$(ICU_OUT_INCLUDE_DIR)unicode"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(ICU_OUT_INCLUDE_DIR)unicode\%(Filename)%(Extension);%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">copy "%(FullPath)" "$(ICU_OUT_INCLUDE_DIR)unicode"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(ICU_OUT_INCLUDE_DIR)unicode\%(Filename)%(Extension);%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="..\..\..\source\i18n\unicode\umsg.h">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">copy "%(FullPath)" "$(ICU_OUT_INCLUDE_DIR)unicode"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(ICU_OUT_INCLUDE_DIR)unicode\%(Filename)%(Extension);%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">copy "%(FullPath)" "$(ICU_OUT_INCLUDE_DIR)unicode"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(ICU_OUT_INCLUDE_DIR)unicode\%(Filename)%(Extension);%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">copy "%(FullPath)" "$(ICU_OUT_INCLUDE_DIR)unicode"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(ICU_OUT_INCLUDE_DIR)unicode\%(Filename)%(Extension);%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">copy "%(FullPath)" "$(ICU_OUT_INCLUDE_DIR)unicode"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(ICU_OUT_INCLUDE_DIR)unicode\%(Filename)%(Extension);%(Outputs)</Outputs>
+    </CustomBuild>
+    <ClInclude Include="..\..\..\source\i18n\umsg_imp.h" />
+    <CustomBuild Include="..\..\..\source\i18n\unicode\unum.h">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">copy "%(FullPath)" "$(ICU_OUT_INCLUDE_DIR)unicode"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(ICU_OUT_INCLUDE_DIR)unicode\%(Filename)%(Extension);%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">copy "%(FullPath)" "$(ICU_OUT_INCLUDE_DIR)unicode"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(ICU_OUT_INCLUDE_DIR)unicode\%(Filename)%(Extension);%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">copy "%(FullPath)" "$(ICU_OUT_INCLUDE_DIR)unicode"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(ICU_OUT_INCLUDE_DIR)unicode\%(Filename)%(Extension);%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">copy "%(FullPath)" "$(ICU_OUT_INCLUDE_DIR)unicode"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(ICU_OUT_INCLUDE_DIR)unicode\%(Filename)%(Extension);%(Outputs)</Outputs>
+    </CustomBuild>
+    <ClInclude Include="..\..\..\source\i18n\ucln_in.h" />
+    <CustomBuild Include="..\..\..\source\i18n\unicode\regex.h">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">copy "%(FullPath)" "$(ICU_OUT_INCLUDE_DIR)unicode"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(ICU_OUT_INCLUDE_DIR)unicode\%(Filename)%(Extension);%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">copy "%(FullPath)" "$(ICU_OUT_INCLUDE_DIR)unicode"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(ICU_OUT_INCLUDE_DIR)unicode\%(Filename)%(Extension);%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">copy "%(FullPath)" "$(ICU_OUT_INCLUDE_DIR)unicode"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(ICU_OUT_INCLUDE_DIR)unicode\%(Filename)%(Extension);%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">copy "%(FullPath)" "$(ICU_OUT_INCLUDE_DIR)unicode"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(ICU_OUT_INCLUDE_DIR)unicode\%(Filename)%(Extension);%(Outputs)</Outputs>
+    </CustomBuild>
+    <ClInclude Include="..\..\..\source\i18n\regexcmp.h" />
+    <ClInclude Include="..\..\..\source\i18n\regexcst.h" />
+    <ClInclude Include="..\..\..\source\i18n\regeximp.h" />
+    <ClInclude Include="..\..\..\source\i18n\regexst.h" />
+    <CustomBuild Include="..\..\..\source\i18n\unicode\uregex.h">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">copy "%(FullPath)" "$(ICU_OUT_INCLUDE_DIR)unicode"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(ICU_OUT_INCLUDE_DIR)unicode\%(Filename)%(Extension);%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">copy "%(FullPath)" "$(ICU_OUT_INCLUDE_DIR)unicode"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(ICU_OUT_INCLUDE_DIR)unicode\%(Filename)%(Extension);%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">copy "%(FullPath)" "$(ICU_OUT_INCLUDE_DIR)unicode"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(ICU_OUT_INCLUDE_DIR)unicode\%(Filename)%(Extension);%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">copy "%(FullPath)" "$(ICU_OUT_INCLUDE_DIR)unicode"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(ICU_OUT_INCLUDE_DIR)unicode\%(Filename)%(Extension);%(Outputs)</Outputs>
+    </CustomBuild>
+    <ClInclude Include="..\..\..\source\i18n\anytrans.h" />
+    <ClInclude Include="..\..\..\source\i18n\cpdtrans.h" />
+    <ClInclude Include="..\..\..\source\i18n\esctrn.h" />
+    <ClInclude Include="..\..\..\source\i18n\funcrepl.h" />
+    <ClInclude Include="..\..\..\source\i18n\name2uni.h" />
+    <ClInclude Include="..\..\..\source\i18n\nortrans.h" />
+    <ClInclude Include="..\..\..\source\i18n\nultrans.h" />
+    <ClInclude Include="..\..\..\source\i18n\quant.h" />
+    <ClInclude Include="..\..\..\source\i18n\rbt.h" />
+    <ClInclude Include="..\..\..\source\i18n\rbt_data.h" />
+    <ClInclude Include="..\..\..\source\i18n\rbt_pars.h" />
+    <ClInclude Include="..\..\..\source\i18n\rbt_rule.h" />
+    <ClInclude Include="..\..\..\source\i18n\rbt_set.h" />
+    <ClInclude Include="..\..\..\source\i18n\remtrans.h" />
+    <ClInclude Include="..\..\..\source\i18n\strmatch.h" />
+    <ClInclude Include="..\..\..\source\i18n\titletrn.h" />
+    <ClInclude Include="..\..\..\source\i18n\tolowtrn.h" />
+    <ClInclude Include="..\..\..\source\i18n\toupptrn.h" />
+    <CustomBuild Include="..\..\..\source\i18n\unicode\translit.h">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">copy "%(FullPath)" "$(ICU_OUT_INCLUDE_DIR)unicode"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(ICU_OUT_INCLUDE_DIR)unicode\%(Filename)%(Extension);%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">copy "%(FullPath)" "$(ICU_OUT_INCLUDE_DIR)unicode"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(ICU_OUT_INCLUDE_DIR)unicode\%(Filename)%(Extension);%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">copy "%(FullPath)" "$(ICU_OUT_INCLUDE_DIR)unicode"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(ICU_OUT_INCLUDE_DIR)unicode\%(Filename)%(Extension);%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">copy "%(FullPath)" "$(ICU_OUT_INCLUDE_DIR)unicode"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(ICU_OUT_INCLUDE_DIR)unicode\%(Filename)%(Extension);%(Outputs)</Outputs>
+    </CustomBuild>
+    <ClInclude Include="..\..\..\source\i18n\transreg.h" />
+    <ClInclude Include="..\..\..\source\i18n\tridpars.h" />
+    <ClInclude Include="..\..\..\source\i18n\unesctrn.h" />
+    <ClInclude Include="..\..\..\source\i18n\uni2name.h" />
+    <CustomBuild Include="..\..\..\source\i18n\unicode\unirepl.h">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">copy "%(FullPath)" "$(ICU_OUT_INCLUDE_DIR)unicode"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(ICU_OUT_INCLUDE_DIR)unicode\%(Filename)%(Extension);%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">copy "%(FullPath)" "$(ICU_OUT_INCLUDE_DIR)unicode"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(ICU_OUT_INCLUDE_DIR)unicode\%(Filename)%(Extension);%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">copy "%(FullPath)" "$(ICU_OUT_INCLUDE_DIR)unicode"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(ICU_OUT_INCLUDE_DIR)unicode\%(Filename)%(Extension);%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">copy "%(FullPath)" "$(ICU_OUT_INCLUDE_DIR)unicode"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(ICU_OUT_INCLUDE_DIR)unicode\%(Filename)%(Extension);%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="..\..\..\source\i18n\unicode\utrans.h">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">copy "%(FullPath)" "$(ICU_OUT_INCLUDE_DIR)unicode"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(ICU_OUT_INCLUDE_DIR)unicode\%(Filename)%(Extension);%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">copy "%(FullPath)" "$(ICU_OUT_INCLUDE_DIR)unicode"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(ICU_OUT_INCLUDE_DIR)unicode\%(Filename)%(Extension);%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">copy "%(FullPath)" "$(ICU_OUT_INCLUDE_DIR)unicode"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(ICU_OUT_INCLUDE_DIR)unicode\%(Filename)%(Extension);%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">copy "%(FullPath)" "$(ICU_OUT_INCLUDE_DIR)unicode"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(ICU_OUT_INCLUDE_DIR)unicode\%(Filename)%(Extension);%(Outputs)</Outputs>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="..\..\..\source\i18n\i18n.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="common.vcxproj">
+      <Project>{73c0a65b-d1f2-4de1-b3a6-15dad2c23f3d}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
