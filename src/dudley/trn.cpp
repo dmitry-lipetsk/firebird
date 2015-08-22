@@ -1722,12 +1722,12 @@ static void raw_cobol( STR dyn)
 		if (dudleyGlob.language == lan_ansi_cobol)
 			fprintf(output_file,
 					   "           03  GDS-DYN-%d PIC S9(10) USAGE COMP VALUE IS %"
-					   SLONGFORMAT".\n",
+					   SLONGFORMAT ".\n",
 					   length++, blr_hunk.longword_blr);
 		else
 			fprintf(output_file,
 					   "           03  GDS__DYN_%d PIC S9(10) USAGE COMP VALUE IS %"
-					   SLONGFORMAT".\n",
+					   SLONGFORMAT ".\n",
 					   length++, blr_hunk.longword_blr);
 	}
 }
@@ -1766,9 +1766,9 @@ static void raw_ftn( STR dyn)
 				break;
 		}
 		if (blr_length)
-			sprintf(p, "%"SLONGFORMAT",", blr_hunk.longword_blr);
+			sprintf(p, "%" SLONGFORMAT ",", blr_hunk.longword_blr);
 		else
-			sprintf(p, "%"SLONGFORMAT"/", blr_hunk.longword_blr);
+			sprintf(p, "%" SLONGFORMAT "/", blr_hunk.longword_blr);
 		while (*p)
 			p++;
 		if (p - buffer > 50) {

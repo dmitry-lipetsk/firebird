@@ -345,7 +345,7 @@ int DBG_precedence()
 	for (unsigned int i = 0; i < bcb->bcb_count; i++) {
 		const BufferDesc* bdb = bcb->bcb_rpt[i].bcb_bdb;
 		if (bdb->bdb_flags || bdb->bdb_ast_flags) {
-			fprintf(dbg_file, "BufferDesc %d:\tpage %"SLONGFORMAT"", i, bdb->bdb_page);
+			fprintf(dbg_file, "BufferDesc %d:\tpage %" SLONGFORMAT "", i, bdb->bdb_page);
 			if (bdb->bdb_flags & BDB_dirty)
 				fprintf(dbg_file, ", dirty");
 			if (bdb->bdb_ast_flags & BDB_blocking)
@@ -380,7 +380,7 @@ int DBG_precedence()
 				{
 					precedence = BLOCK(que_inst, Precedence*, pre_higher);
 					hi_bdb = precedence->pre_hi;
-					fprintf(dbg_file, " %"SLONGFORMAT"", hi_bdb->bdb_page);
+					fprintf(dbg_file, " %" SLONGFORMAT "", hi_bdb->bdb_page);
 					if (precedence->pre_flags & PRE_cleared)
 						fprintf(dbg_file, "(cleared)");
 				}
@@ -393,7 +393,7 @@ int DBG_precedence()
 				{
 					precedence = BLOCK(que_inst, Precedence*, pre_lower);
 					lo_bdb = precedence->pre_low;
-					fprintf(dbg_file, " %"SLONGFORMAT"", lo_bdb->bdb_page);
+					fprintf(dbg_file, " %" SLONGFORMAT "", lo_bdb->bdb_page);
 					if (precedence->pre_flags & PRE_cleared)
 						fprintf(dbg_file, "(cleared)");
 				}
@@ -737,7 +737,7 @@ int DBG_pretty(const jrd_nod* node, int column)
 		return fprintf(dbg_file, "*** bad node ***\n");
 	*/
 
-	fprintf(dbg_file, "%s (%"SLONGFORMAT")", node_names[(int) node->nod_type],
+	fprintf(dbg_file, "%s (%" SLONGFORMAT ")", node_names[(int) node->nod_type],
 			   node->nod_impure);
 	column += 4;
 
