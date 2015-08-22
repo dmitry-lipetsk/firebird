@@ -20,9 +20,9 @@
 @echo.
 @echo Building %FB_OBJ_DIR%
 
-@call helper__compile.bat.bat %FB_ROOT_PATH%\builds\win32\%VS_VER%\Firebird2_Examples empbuild_%FB_TARGET_PLATFORM%.log empbuild
+@call helper__compile.bat %FB_ROOT_PATH%\builds\win32\%VS_VER%\Firebird2_Examples empbuild_%FB_TARGET_PLATFORM%.log empbuild
 @if defined FB2_INTLEMP (
-  @call helper__compile.bat.bat %FB_ROOT_PATH%\builds\win32\%VS_VER%\Firebird2_Examples intlbuild_%FB_TARGET_PLATFORM%.log intlbuild
+  @call helper__compile.bat %FB_ROOT_PATH%\builds\win32\%VS_VER%\Firebird2_Examples intlbuild_%FB_TARGET_PLATFORM%.log intlbuild
 )
 
 @echo.
