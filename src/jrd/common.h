@@ -213,7 +213,7 @@
 //format for __LINE__
 #define LINEFORMAT "d"
 
-//#define SLONGFORMAT	"ld"
+//#define SLONGFORMAT "ld"
 //#define ULONGFORMAT "lu"
 //#define XLONGFORMAT "lX"
 //#define xLONGFORMAT "lx"
@@ -665,8 +665,8 @@ struct ISC_TIMESTAMP
 #define XLONGFORMAT "lX"
 #define xLONGFORMAT "lx"
 #else
-#define SLONGFORMAT	"d"
-#define ULONGFORMAT	"u"
+#define SLONGFORMAT "d"
+#define ULONGFORMAT "u"
 #define XLONGFORMAT "X"
 #define xLONGFORMAT "x"
 #endif
