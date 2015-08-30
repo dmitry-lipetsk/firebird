@@ -65,7 +65,6 @@ RMessage* PARSE_messages(const UCHAR* blr, USHORT blr_length)
 	if (*blr++ != blr_begin)
 		return 0;
 
-
 	RMessage* message = NULL;
 	USHORT net_length = 0;
 
