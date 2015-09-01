@@ -1684,7 +1684,8 @@ ISC_STATUS GDS_DSQL_FETCH(ISC_STATUS* user_status,
 	{
 		// make sure the protocol supports it
 
-		if (rdb->rdb_port->port_protocol < PROTOCOL_VERSION7) {
+		if (rdb->rdb_port->port_protocol < PROTOCOL_VERSION7)
+        {
 			return unsupported(user_status);
 		}
 
@@ -1706,7 +1707,8 @@ ISC_STATUS GDS_DSQL_FETCH(ISC_STATUS* user_status,
 				{
 					message->msg_address = NULL;
 					message = message->msg_next;
-					if (message == statement->rsr_message) {
+					if (message == statement->rsr_message)
+                    {
 						break;
 					}
 				}
@@ -1729,24 +1731,32 @@ ISC_STATUS GDS_DSQL_FETCH(ISC_STATUS* user_status,
 			{
 				FB_DeletePtrAndSetNull(statement->rsr_user_select_format);
 			}
+
 			RMessage* message = PARSE_messages(blr, blr_length);
+
 			if (message != (RMessage*) - 1)
 			{
 				statement->rsr_user_select_format = (rem_fmt*) message->msg_address;
 				FB_DeletePtrAndSetNull(message);
 			}
 			else
+			{
 				statement->rsr_user_select_format = NULL;
+            }
+
 			if (statement->rsr_flags.test(Rsr::FETCHED))
+			{
 				blr_length = 0;
+			}
 			else
 			{
 				FB_DeletePtrAndSetNull(statement->rsr_select_format);
 				statement->rsr_select_format = statement->rsr_user_select_format;
 			}
-		}
+		}//if blr_length
 
-		if (statement->rsr_flags.test(Rsr::BLOB)) {
+		if (statement->rsr_flags.test(Rsr::BLOB))
+        {
 			return fetch_blob(user_status, statement, blr_length, blr, msg_type, msg_length, msg);
 		}
 
@@ -1821,7 +1831,8 @@ ISC_STATUS GDS_DSQL_FETCH(ISC_STATUS* user_status,
 
 			// Make the batch request - and force the packet over the wire
 
-			if (!send_packet(rdb->rdb_port, packet, user_status)) {
+			if (!send_packet(rdb->rdb_port, packet, user_status))
+			{
 				return user_status[1];
 			}
 
@@ -1839,13 +1850,15 @@ ISC_STATUS GDS_DSQL_FETCH(ISC_STATUS* user_status,
 
 		// We've either got data, or some is on the way, or we have an error, or we have EOF
 
-		fb_assert(statement->rsr_msgs_waiting || (statement->rsr_rows_pending > 0) ||
-			   statement->haveException() || statement->rsr_flags.test(Rsr::EOF_SET));
+		fb_assert(statement->rsr_msgs_waiting ||
+				  (statement->rsr_rows_pending > 0) ||
+				  statement->haveException() ||
+				  statement->rsr_flags.test(Rsr::EOF_SET));
 
 		while (!statement->haveException() &&			// received a database error
-			!statement->rsr_flags.test(Rsr::EOF_SET) &&	// reached end of cursor
-			statement->rsr_msgs_waiting < 2	&&			// Have looked ahead for end of batch
-			statement->rsr_rows_pending != 0)
+			   !statement->rsr_flags.test(Rsr::EOF_SET) &&	// reached end of cursor
+			   statement->rsr_msgs_waiting < 2	&&			// Have looked ahead for end of batch
+			   statement->rsr_rows_pending != 0)
 		{
 			// Hit end of batch
 			if (!receive_queued_packet(port, user_status, statement->rsr_id))
@@ -1860,7 +1873,8 @@ ISC_STATUS GDS_DSQL_FETCH(ISC_STATUS* user_status,
 			{
 				// hvlad: we may have queued fetch packet but received EOF before start
 				// handling of this packet. Handle it now.
-				if (!clear_stmt_que(port, user_status, statement)) {
+				if (!clear_stmt_que(port, user_status, statement))
+				{
 					return user_status[1];
 				}
 
@@ -1889,6 +1903,7 @@ ISC_STATUS GDS_DSQL_FETCH(ISC_STATUS* user_status,
 				statement->raiseException();
 			}
 		}
+
 		statement->rsr_msgs_waiting--;
 
 		message = statement->rsr_message;
@@ -1899,6 +1914,7 @@ ISC_STATUS GDS_DSQL_FETCH(ISC_STATUS* user_status,
 			status_exception::raise(Arg::Gds(isc_port_len) <<
 				Arg::Num(msg_length) << Arg::Num(statement->rsr_user_select_format->fmt_length));
 		}
+
 		if (statement->rsr_user_select_format == statement->rsr_select_format) {
 			memcpy(msg, message->msg_address, msg_length);
 		}
@@ -4928,7 +4944,9 @@ static bool batch_dsql_fetch(rem_port*	port,
 	// In addtion to the above we grab all the records in case of XNET as
 	// we need to clear the queue
 	bool clear_queue = false;
-	if (id != statement->rsr_id || port->port_type == rem_port::XNET) {
+
+	if (id != statement->rsr_id || port->port_type == rem_port::XNET)
+    {
 		clear_queue = true;
 	}
 
@@ -4954,9 +4972,11 @@ static bool batch_dsql_fetch(rem_port*	port,
 			prior->msg_next = new_msg;
 			new_msg->msg_prior = prior;
 #else
-			while (message->msg_next != new_msg->msg_next) {
+			while (message->msg_next != new_msg->msg_next)
+			{
 				message = message->msg_next;
 			}
+
 			message->msg_next = new_msg;
 #endif
 		}
@@ -4990,7 +5010,8 @@ static bool batch_dsql_fetch(rem_port*	port,
 
 		// See if we're at end of the batch
 
-		if (packet->p_sqldata.p_sqldata_status || !packet->p_sqldata.p_sqldata_messages ||
+		if (packet->p_sqldata.p_sqldata_status ||
+			!packet->p_sqldata.p_sqldata_messages ||
 			(port->port_flags & PORT_rpc))
 		{
 			if (packet->p_sqldata.p_sqldata_status == 100)
@@ -5002,16 +5023,22 @@ static bool batch_dsql_fetch(rem_port*	port,
 						   statement->rsr_rows_pending);
 #endif
 			}
+
 			--statement->rsr_batch_count;
-			if (statement->rsr_batch_count == 0) {
+
+			if (statement->rsr_batch_count == 0)
+			{
 				statement->rsr_rows_pending = 0;
 			}
+
 			dequeue_receive(port);
 
 			// clear next queued batch(es) if present
-			if (packet->p_sqldata.p_sqldata_status == 100) {
+			if (packet->p_sqldata.p_sqldata_status == 100)
+			{
 				clear_stmt_que(port, tmp_status, statement);
 			}
+
 			break;
 		}
 		statement->rsr_msgs_waiting++;
@@ -5020,11 +5047,14 @@ static bool batch_dsql_fetch(rem_port*	port,
 		fprintf(stdout, "Decrementing Rows Pending in batch_dsql_fetch=%lu\n",
 				   statement->rsr_rows_pending);
 #endif
-		if (!clear_queue) {
+		if (!clear_queue)
+		{
 			break;
 		}
 	}
+
 	packet->p_resp.p_resp_status_vector = save_status;
+
 	return true;
 }
 
