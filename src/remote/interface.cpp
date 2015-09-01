@@ -1970,7 +1970,7 @@ ISC_STATUS GDS_DSQL_FREE(ISC_STATUS* user_status, Rsr** stmt_handle, USHORT opti
 			return unsupported(user_status);
 		}
 
-		fb_assert(statement->haveException() == 0);
+		//fb_assert(statement->haveException() == 0);
 		statement->clearException();
 
 		if (statement->rsr_flags.test(Rsr::LAZY))
