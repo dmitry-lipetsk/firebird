@@ -4877,7 +4877,8 @@ static bool clear_stmt_que(rem_port* port, ISC_STATUS* user_status, Rsr* stateme
 
 	// hvlad: clear isc_req_sync error as it is received because of our batch
 	// fetching code, not because of wrong client application
-	if (statement->haveException() == isc_req_sync) {
+	if (statement->haveException() == isc_req_sync)
+    {
 		statement->clearException();
 	}
 
