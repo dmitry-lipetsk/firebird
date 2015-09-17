@@ -1,3 +1,21 @@
+ 2015-09-14 14:46  dimitr 
+   M doc/WhatsNew
+Updated docs.
+
+ 2015-09-11 09:18  dimitr 
+   M src/jrd/opt.cpp
+   M src/jrd/rse.cpp
+   M src/jrd/rse.h
+Fixed CORE-4909 re. sort/merge joins.
+
+ 2015-09-07 09:56  dimitr 
+   M src/jrd/opt.cpp
+Fixed CORE-4927: IIF function prevents the condition from being pushed into the union for better optimization.
+
+ 2015-09-03 21:22  hvlad 
+   M src/jrd/btr.cpp
+Postfix for CORE-4904
+
  2015-09-01 20:54  dimitr 
    M src/jrd/opt.cpp
 Fixed CORE-4921: Predicate IS [NOT] DISTINCT FROM is not pushed into unions/aggregates thus causing sub-optimal plans.
