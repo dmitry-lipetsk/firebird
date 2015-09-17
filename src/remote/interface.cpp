@@ -2626,7 +2626,7 @@ ISC_STATUS GDS_GET_SEGMENT(ISC_STATUS* user_status,
 				{
 					break;
 				}
-			}
+			}//if blob->rbl_length
 
 			// We're done with buffer.  If this was the last, we're done
 
