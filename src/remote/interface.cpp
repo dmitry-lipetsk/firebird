@@ -6509,7 +6509,7 @@ static void release_statement( Rsr** statement)
 	REMOTE_release_messages((*statement)->rsr_message);
 
 	FB_DeletePtrAndSetNull(*statement);
-}
+}//release_statement
 
 
 static void release_sql_request( Rsr* statement)
