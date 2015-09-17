@@ -6491,6 +6491,8 @@ static void release_statement( Rsr** statement)
  *	Release a GDML or SQL statement block ?
  *
  **************************************/
+	fb_assert(statement);
+	fb_assert(*statement);
 
 	FB_DeletePtrAndSetNull((*statement)->rsr_bind_format);
 
