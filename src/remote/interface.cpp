@@ -2563,7 +2563,7 @@ ISC_STATUS GDS_GET_SEGMENT(ISC_STATUS* user_status,
 		//   Our buffer (described by the structure blob) is counted strings
 		//   <count word> <string> <count word> <string>...
 
-		while (true)
+		for(;;)
 		{
 			// If there's data to be given away, give some away (p points to the local data)
 
@@ -2683,7 +2683,7 @@ ISC_STATUS GDS_GET_SEGMENT(ISC_STATUS* user_status,
 				blob->rbl_flags |= Rbl::SEGMENT;
 			else if (response->p_resp_object == 2)
 				blob->rbl_flags |= Rbl::EOF_PENDING;
-		}
+		}//for
 
 		response->p_resp_data = temp;
 	}
