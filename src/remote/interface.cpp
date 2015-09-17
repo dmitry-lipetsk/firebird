@@ -2612,7 +2612,8 @@ ISC_STATUS GDS_GET_SEGMENT(ISC_STATUS* user_status,
 				blob->rbl_offset += l;
 				buffer_length -= l;
 
-				if (l) {
+				if (l)
+                {
 					memcpy(buffer, p, l);
 				}
 
@@ -6492,15 +6493,19 @@ static void release_statement( Rsr** statement)
  **************************************/
 
 	FB_DeletePtrAndSetNull((*statement)->rsr_bind_format);
-	if ((*statement)->rsr_user_select_format &&
+
+    if ((*statement)->rsr_user_select_format &&
 		(*statement)->rsr_user_select_format != (*statement)->rsr_select_format)
 	{
 		FB_DeletePtrAndSetNull((*statement)->rsr_user_select_format);
 	}
+
 	FB_DeletePtrAndSetNull((*statement)->rsr_select_format);
+
 	(*statement)->releaseException();
 
 	REMOTE_release_messages((*statement)->rsr_message);
+
 	FB_DeletePtrAndSetNull(*statement);
 }
 
