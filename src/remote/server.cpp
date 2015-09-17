@@ -61,6 +61,7 @@
 #include "../common/classes/init.h"
 #include "../common/classes/semaphore.h"
 #include "../common/classes/ClumpletWriter.h"
+#include "../common/utilities/fb_delete_and_set_null.h"
 #include "../common/config/config.h"
 #include "../common/utils_proto.h"
 #ifdef DEBUG
@@ -4261,8 +4262,7 @@ static void release_statement( Rsr** statement)
 	(*statement)->releaseException();
 	REMOTE_release_messages((*statement)->rsr_message);
 
-	delete *statement;
-	*statement = NULL;
+	FB_DeletePtrAndSetNull(*statement);
 }
 
 
