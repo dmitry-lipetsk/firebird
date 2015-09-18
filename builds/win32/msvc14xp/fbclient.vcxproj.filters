@@ -47,9 +47,6 @@
     <ClCompile Include="..\..\..\src\jrd\dsc.cpp">
       <Filter>JRD files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\src\jrd\enc.cpp">
-      <Filter>JRD files</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\..\src\jrd\gds.cpp">
       <Filter>JRD files</Filter>
     </ClCompile>
@@ -139,6 +136,15 @@
     </ClCompile>
     <ClCompile Include="..\..\..\src\utilities\gsec\call_service.cpp">
       <Filter>UTILITIES files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\jrd\enc2.cpp">
+      <Filter>JRD files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\jrd\fb__enc_crypt.cpp">
+      <Filter>JRD files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\jrd\fb__enc_crypt__helper.cpp">
+      <Filter>JRD files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
