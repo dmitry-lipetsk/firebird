@@ -872,8 +872,9 @@ static void cleanup(void*)
 	if (DSQL_failures)
 		gds__free(DSQL_failures);
 
-	gds__unregister_cleanup(cleanup, 0);
 	DSQL_failures = NULL;
+
+	gds__unregister_cleanup(cleanup, 0);
 }
 
 
