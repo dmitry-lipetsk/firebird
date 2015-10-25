@@ -450,10 +450,15 @@ ISC_STATUS	UTLD_parse_sqlda(ISC_STATUS* status,
 
 		if (blr_len > pClause->dasup_blr_buf_len)
 		{
-			if (pClause->dasup_blr) {
+			if (pClause->dasup_blr)
+            {
 				gds__free(pClause->dasup_blr);
-			}
+
+                pClause->dasup_blr = NULL;
+			}//if
+
 			pClause->dasup_blr = static_cast<char*>(gds__alloc((SLONG) blr_len));
+
 			// FREE: unknown
 			if (!pClause->dasup_blr)	// NOMEM:
 				return error_dsql_804(status, isc_virmemexh);
@@ -611,7 +616,12 @@ ISC_STATUS	UTLD_parse_sqlda(ISC_STATUS* status,
 		if (msg_len > pClause->dasup_msg_buf_len)
 		{
 			if (pClause->dasup_msg)
+			{
 				gds__free(pClause->dasup_msg);
+
+				pClause->dasup_msg = NULL;
+			}
+
 			pClause->dasup_msg = static_cast<char*>(gds__alloc((SLONG) msg_len));
 			// FREE: unknown
 			if (!pClause->dasup_msg)	// NOMEM:
