@@ -2932,6 +2932,7 @@ static bool expression_possible_unknown(const jrd_nod* node)
 
 		case nod_or:
 		case nod_and:
+		case nod_not:
 
 		case nod_add:
 		case nod_add2:
@@ -2948,7 +2949,6 @@ static bool expression_possible_unknown(const jrd_nod* node)
 		case nod_lowcase:
 		case nod_substr:
 		case nod_trim:
-		case nod_value_if:
 		case nod_sys_function:
 		case nod_derived_expr:
 		case nod_list:
@@ -3110,6 +3110,10 @@ static bool expression_contains_stream(CompilerScratch* csb,
 			break;
 
 		// go into the node arguments
+		case nod_or:
+		case nod_and:
+		case nod_not:
+
 		case nod_add:
 		case nod_add2:
 		case nod_agg_average:
@@ -6214,6 +6218,10 @@ static jrd_nod* get_unmapped_node(thread_db* tdbb, jrd_nod* node,
 		case nod_variable:
 			returnNode = node;
 			break;
+
+		case nod_or:
+		case nod_and:
+		case nod_not:
 
 		case nod_add:
 		case nod_add2:

@@ -104,6 +104,8 @@ darwin_finish_cs_framework:
 			$(FB_FW)/Resources/org.firebird.gds.plist
 	cp ../builds/install/arch-specific/darwin/Readme.txt \
 			$(FB_FW)/Resources/Readme.txt
+	cp ../builds/install/arch-specific/darwin/License.txt \
+			$(FB_FW)/Resources/License.txt
 	cp ../gen/install/misc/firebird.conf $(FB_FW)/Resources/English.lproj/var
 	cp ../builds/install/arch-specific/darwin/aliases.conf.in \
 			$(FB_FW)/Resources/English.lproj/var/aliases.conf
