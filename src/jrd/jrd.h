@@ -40,6 +40,7 @@
 
 #include "../common/classes/fb_atomic.h"
 #include "../common/classes/fb_string.h"
+#include "../common/classes/fb_list_external.h"
 #include "../common/classes/MetaName.h"
 #include "../common/classes/array.h"
 #include "../common/classes/objects_array.h"
@@ -236,7 +237,33 @@ typedef Firebird::GenericMap<Firebird::Pair<Firebird::Left<
 //
 class Attachment : public pool_alloc<type_att>, public Firebird::PublicHandle
 {
-public:
+ public:
+  class tag_req_list_traits
+  {
+   private:
+    typedef tag_req_list_traits             self_type;
+  
+   public:
+    typedef jrd_req                         node_type;
+    typedef jrd_req*                        node_ptr_type;
+  
+   public:
+    tag_req_list_traits();
+  
+    static node_ptr_type null_ptr();
+  
+    node_ptr_type get_prev(node_ptr_type node)const;
+  
+    node_ptr_type get_next(node_ptr_type node)const;
+  
+    void set_prev(node_ptr_type node,node_ptr_type x)const;
+  
+    void set_next(node_ptr_type node,node_ptr_type x)const;
+  };//class jrd_req::tag_req_list_traits
+
+  typedef Firebird::FB_ListExternal<tag_req_list_traits>  req_list_type;
+
+ public:
 	static Attachment* create(Database* dbb)
 	{
 		MemoryPool* const pool = dbb->createPool();
@@ -292,7 +319,8 @@ public:
 	jrd_tra*	att_dbkey_trans;			// transaction to control db-key scope
 	SLONG		att_oldest_snapshot;		// GTT's record versions older than this can be gargage-collected
 
-	jrd_req*	att_requests;				// Requests belonging to attachment
+	req_list_type	att_requests;			// Requests belonging to attachment
+
 	sort_context*	att_active_sorts;		// Active sorts
 	Lock*		att_id_lock;				// Attachment lock (if any)
 	SLONG		att_attachment_id;			// Attachment ID

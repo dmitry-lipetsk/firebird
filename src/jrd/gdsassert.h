@@ -25,6 +25,9 @@
 
 #ifdef DEV_BUILD
 
+#define FB_RELEASE_CODE(x)
+#define FB_DEBUG_CODE(x)                    x
+
 #include <stdlib.h>		// abort()
 #include <stdio.h>
 
@@ -47,6 +50,9 @@
 #endif	// SUPERCLIENT
 
 #else	// DEV_BUILD
+
+#define FB_RELEASE_CODE(x)                  x
+#define FB_DEBUG_CODE(x)                    
 
 #define fb_assert(ex)				// nothing
 #define fb_assert_continue(ex)		// nothing

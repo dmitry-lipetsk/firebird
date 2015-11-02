@@ -2464,8 +2464,8 @@ static void restart_requests(thread_db* tdbb, jrd_tra* trans)
  *
  **************************************/
 	SET_TDBB(tdbb);
-	for (jrd_req* request = trans->tra_attachment->att_requests; request;
-		request = request->req_request)
+	for (jrd_req* request = trans->tra_attachment->att_requests.head(); request;
+		request = request->req_request_next)
 	{
 		if (request->req_transaction)
 		{

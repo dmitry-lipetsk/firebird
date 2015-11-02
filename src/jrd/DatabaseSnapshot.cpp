@@ -836,7 +836,7 @@ void DatabaseSnapshot::dumpData(thread_db* tdbb)
 
 		// Request information
 
-		for (request = attachment->att_requests; request; request = request->req_request)
+		for (request = attachment->att_requests.head(); request; request = request->req_request_next)
 		{
 			if (!(request->req_flags & (req_internal | req_sys_trigger)))
 			{

@@ -2482,28 +2482,12 @@ void CMP_release(thread_db* tdbb, jrd_req* request)
 
 	EXE_unwind(tdbb, request);
 
-	if (request->req_attachment) {
-		for (jrd_req** next = &request->req_attachment->att_requests;
-			*next; next = &(*next)->req_request)
-		{
-			if (*next == request) {
-				*next = request->req_request;
-#ifdef DEV_BUILD
-				// Once I've seen att_requests == 0x00000014,
-				// so some debugging code added to catch it earlier in dev_builds.
-				// This place is one of two, where att_requests modified.
-				// In another one (jrd.cpp/GDS_COMPILE()), it's value is used
-				// right before pointer assignment. So make some use of pointer here
-				// to try to detect false in it earlier ...
-				if (*next) {
-					jrd_req* req = (*next)->req_request;
-					req++;
-				}
-#endif
-				break;
-			}
-		}
-	}
+	if (request->req_attachment)
+    {
+		request->req_attachment->att_requests.remove(Attachment::tag_req_list_traits(), request);
+
+        request->req_attachment=NULL;
+	}//if request->req_attachment
 
 	request->req_sql_text = NULL;
 

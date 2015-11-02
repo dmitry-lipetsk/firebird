@@ -203,15 +203,30 @@ class jrd_req : public pool_alloc_rpt<record_param, type_req>
 {
 public:
 	jrd_req(MemoryPool* pool, Firebird::MemoryStats* parent_stats)
-	:	req_pool(pool), req_memory_stats(parent_stats),
-		req_blobs(pool), req_external(*pool), req_access(*pool), req_resources(*pool),
-		req_trg_name(*pool), req_stats(*pool), req_base_stats(*pool), req_fors(*pool),
-		req_exec_sta(*pool), req_ext_stmt(NULL), req_invariants(*pool),
-		req_blr(*pool), req_domain_validation(NULL),
-		req_map_field_info(*pool), req_map_item_info(*pool), req_auto_trans(*pool),
-		req_sorts(*pool)
+	:req_pool(pool)
+    ,req_memory_stats(parent_stats)
+    ,req_request_prev(NULL)
+    ,req_request_next(NULL)
+    ,req_blobs(pool)
+    ,req_external(*pool)
+    ,req_access(*pool)
+    ,req_resources(*pool)
+    ,req_trg_name(*pool)
+    ,req_stats(*pool)
+    ,req_base_stats(*pool)
+    ,req_fors(*pool)
+    ,req_exec_sta(*pool)
+    ,req_ext_stmt(NULL)
+    ,req_invariants(*pool)
+    ,req_blr(*pool)
+    ,req_domain_validation(NULL)
+    ,req_map_field_info(*pool)
+    ,req_map_item_info(*pool)
+    ,req_auto_trans(*pool)
+    ,req_sorts(*pool)
 	{}
 
+public:
 	Attachment*	req_attachment;			// database attachment
 	SLONG		req_id;					// request identifier
 	USHORT		req_count;				// number of streams
@@ -227,8 +242,10 @@ public:
 	jrd_req*	req_tra_next;
 	jrd_req*	req_tra_prev;
 
-	jrd_req*	req_request;			// next request in Database
-	jrd_req*	req_caller;				// Caller of this request
+	jrd_req*	req_request_prev;		// prev request in Database
+	jrd_req*	req_request_next;		// next request in Database
+	
+    jrd_req*	req_caller;				// Caller of this request
 										// This field may be used to reconstruct the whole call stack
 	TempBlobIdTree req_blobs;			// Temporary BLOBs owned by this request
 	ExternalAccessList req_external;	// Access to procedures/triggers to be checked

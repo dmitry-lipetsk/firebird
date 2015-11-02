@@ -5487,9 +5487,13 @@ static void release_attachment(thread_db* tdbb, Attachment* attachment)
 	}
 
     // CMP_release() advances the pointer before the deallocation.
-	jrd_req* request;
-	while ( (request = attachment->att_requests) )
-		CMP_release(tdbb, request);
+	while ( !attachment->att_requests.empty() )
+    {
+		fb_assert(attachment->att_requests.head());
+        fb_assert(attachment->att_requests.head()->req_attachment==attachment);
+        
+        CMP_release(tdbb, attachment->att_requests.head());
+    }
 
 	if (attachment->att_id_lock)
 		LCK_release(tdbb, attachment->att_id_lock);
@@ -5565,6 +5569,55 @@ static void release_attachment(thread_db* tdbb, Attachment* attachment)
 	tdbb->setAttachment(NULL);
 }
 
+////////////////////////////////////////////////////////////////////////////////
+//class Attachment::tag_req_list_traits
+
+Attachment::tag_req_list_traits::tag_req_list_traits()
+{;}
+  
+//------------------------------------------------------------------------
+Attachment::tag_req_list_traits::node_ptr_type
+ Attachment::tag_req_list_traits::null_ptr()
+{
+ return NULL;
+}//null_ptr
+
+//------------------------------------------------------------------------
+Attachment::tag_req_list_traits::node_ptr_type
+ Attachment::tag_req_list_traits::get_prev(node_ptr_type node)const
+{
+ fb_assert(node);
+
+ return node->req_request_prev;
+}//get_prev
+
+//------------------------------------------------------------------------
+Attachment::tag_req_list_traits::node_ptr_type
+ Attachment::tag_req_list_traits::get_next(node_ptr_type node)const
+{
+ fb_assert(node);
+
+ return node->req_request_next;
+}//get_next
+
+//------------------------------------------------------------------------
+void Attachment::tag_req_list_traits::set_prev(node_ptr_type node,node_ptr_type x)const
+{
+ fb_assert(node);
+
+ node->req_request_prev=x;
+}//set_prev
+
+//------------------------------------------------------------------------
+void Attachment::tag_req_list_traits::set_next(node_ptr_type node,node_ptr_type x)const
+{
+ fb_assert(node);
+
+ node->req_request_next=x;
+}//set_next
+
+////////////////////////////////////////////////////////////////////////////////
+//class Attachment
 
 void Attachment::destroy(Attachment* const attachment)
 {
@@ -5690,6 +5743,8 @@ Attachment::Attachment(MemoryPool* pool, Database* dbb)
 
 Attachment::~Attachment()
 {
+    fb_assert(this->att_requests.empty());
+
 	delete att_trace_manager;
 
 	if (att_fini_sec_db)
@@ -7289,8 +7344,8 @@ void JRD_compile(thread_db* tdbb,
 	jrd_req* request = CMP_compile2(tdbb, blr, blr_length, false, dbginfo_length, dbginfo);
 
 	request->req_attachment = attachment;
-	request->req_request = attachment->att_requests;
-	attachment->att_requests = request;
+
+	attachment->att_requests.push_front(Attachment::tag_req_list_traits(), request);
 
 	if (!ref_str)
 	{
