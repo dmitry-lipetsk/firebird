@@ -3328,7 +3328,8 @@ static void blr_print_verb(gds_ctl* control, SSHORT level)
 
 		case op_exec_into:
 			blr_print_verb(control, level);
-			if (! blr_print_byte(control)) {
+			if (! blr_print_byte(control))
+            {
 				blr_print_verb(control, level);
 			}
 			while (n-- > 0) {
