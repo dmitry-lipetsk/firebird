@@ -623,7 +623,7 @@ void MAKE_desc(CompiledStatement* statement, dsc* desc, dsql_nod* node, dsql_nod
 
 	case nod_cast:
 		field = (dsql_fld*) node->nod_arg[e_cast_target];
-		MAKE_desc_from_field(desc, field);
+		MAKE_desc_from_field(desc, field, /*IsElement*/false);
 		MAKE_desc(statement, &desc1, node->nod_arg[e_cast_source], NULL);
 		desc->dsc_flags = desc1.dsc_flags & DSC_nullable;
 		return;
@@ -1518,18 +1518,31 @@ void MAKE_desc(CompiledStatement* statement, dsc* desc, dsql_nod* node, dsql_nod
 
     @param desc
     @param field
+    @param IsElement
 
  **/
-void MAKE_desc_from_field(dsc* desc, const dsql_fld* field)
+void MAKE_desc_from_field(dsc*            const desc,
+                          const dsql_fld* const field,
+                          bool            const IsElement)
 {
 
 	DEV_BLKCHK(field, dsql_type_fld);
 
-	desc->dsc_dtype = static_cast<UCHAR>(field->fld_dtype);
+    if(IsElement)
+    {
+     desc->dsc_dtype = static_cast<UCHAR>(field->fld_element_dtype);
+	 desc->dsc_length = field->fld_element_length;
+    }
+    else
+    {
+     desc->dsc_dtype = static_cast<UCHAR>(field->fld_dtype);
+     desc->dsc_length = field->fld_length;
+    }
+
 	desc->dsc_scale = static_cast<SCHAR>(field->fld_scale);
 	desc->dsc_sub_type = field->fld_sub_type;
-	desc->dsc_length = field->fld_length;
 	desc->dsc_flags = (field->fld_flags & FLD_nullable) ? DSC_nullable : 0;
+
 	if (desc->dsc_dtype <= dtype_any_text)
     {
 		INTL_ASSIGN_DSC(desc, field->fld_character_set_id, field->fld_collation_id);
@@ -1617,20 +1630,8 @@ dsql_nod* MAKE_field(dsql_ctx* context, dsql_fld* field, dsql_nod* indices)
 		if (indices)
 		{
 			node->nod_arg[e_fld_indices] = indices;
-			MAKE_desc_from_field(&node->nod_desc, field);
-			node->nod_desc.dsc_dtype = static_cast<UCHAR>(field->fld_element_dtype);
-			node->nod_desc.dsc_length = field->fld_element_length;
 
-			// node->nod_desc.dsc_scale = field->fld_scale;
-			// node->nod_desc.dsc_sub_type = field->fld_sub_type;
-
-			// UNICODE_FSS_HACK
-			// check if the field is a system domain and the type is CHAR/VARCHAR CHARACTER SET UNICODE_FSS
-			if ((field->fld_flags & FLD_system) && node->nod_desc.dsc_dtype <= dtype_varying &&
-				INTL_GET_CHARSET(&node->nod_desc) == CS_METADATA)
-			{
-				adjustLength(&node->nod_desc);
-			}
+			MAKE_desc_from_field(&node->nod_desc, field, /*IsElement*/true);
 		}
 		else
 		{
@@ -1648,7 +1649,7 @@ dsql_nod* MAKE_field(dsql_ctx* context, dsql_fld* field, dsql_nod* indices)
 					  Arg::Gds(isc_dsql_only_can_subscript_array) << Arg::Str(field->fld_name));
 		}
 
-		MAKE_desc_from_field(&node->nod_desc, field);
+		MAKE_desc_from_field(&node->nod_desc, field, /*IsElement*/false);
 	}
 
 	if ((field->fld_flags & FLD_nullable) || (context->ctx_flags & CTX_outer_join))
@@ -1947,7 +1948,7 @@ dsql_nod* MAKE_variable(dsql_fld* field, const TEXT* name, const dsql_var_type t
 	//variable->var_flags = 0;
 	variable->var_type = type;
 	if (field)
-		MAKE_desc_from_field(&node->nod_desc, field);
+		MAKE_desc_from_field(&node->nod_desc, field, /*IsElement*/false);
 
 	return node;
 }

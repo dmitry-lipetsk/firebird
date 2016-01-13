@@ -6312,7 +6312,7 @@ static void put_local_variables(CompiledStatement* statement, dsql_nod* paramete
 				// Some field attributes are calculated inside
 				// put_local_variable(), so we reinitialize the
 				// descriptor
-				MAKE_desc_from_field(&var_node->nod_desc, field);
+				MAKE_desc_from_field(&var_node->nod_desc, field, /*IsElement*/false);
 
 				locals++;
 			}
