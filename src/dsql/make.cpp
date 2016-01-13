@@ -471,7 +471,9 @@ void MAKE_desc(CompiledStatement* statement, dsc* desc, dsql_nod* node, dsql_nod
 			ERRD_post(Arg::Gds(isc_expression_eval_err) <<
 						Arg::Gds(isc_dsql_agg_wrongarg) << Arg::Str("AVG"));
 		}
-		else if (DTYPE_IS_TEXT(desc->dsc_dtype)) {
+		else
+        if (DTYPE_IS_TEXT(desc->dsc_dtype))
+        {
 			desc->dsc_dtype = dtype_double;
 			desc->dsc_length = sizeof(double);
 		}
@@ -481,16 +483,20 @@ void MAKE_desc(CompiledStatement* statement, dsc* desc, dsql_nod* node, dsql_nod
 		MAKE_desc(statement, desc, node->nod_arg[0], null_replacement);
 		desc->dsc_flags = DSC_nullable;
 		dtype = desc->dsc_dtype;
-		if (!DTYPE_IS_NUMERIC(dtype)) {
+		if (!DTYPE_IS_NUMERIC(dtype))
+        {
 			ERRD_post(Arg::Gds(isc_expression_eval_err) <<
 						Arg::Gds(isc_dsql_agg2_wrongarg) << Arg::Str("AVG"));
 		}
-		else if (DTYPE_IS_EXACT(dtype)) {
+		else
+        if (DTYPE_IS_EXACT(dtype))
+        {
 			desc->dsc_dtype = dtype_int64;
 			desc->dsc_length = sizeof(SINT64);
 			node->nod_flags |= NOD_COMP_DIALECT;
 		}
-		else {
+		else
+        {
 			desc->dsc_dtype = dtype_double;
 			desc->dsc_length = sizeof(double);
 		}
@@ -503,15 +509,20 @@ void MAKE_desc(CompiledStatement* statement, dsc* desc, dsql_nod* node, dsql_nod
 			ERRD_post(Arg::Gds(isc_expression_eval_err) <<
 						Arg::Gds(isc_dsql_agg_wrongarg) << Arg::Str("SUM"));
 		}
-		else if (desc->dsc_dtype == dtype_short) {
+		else
+        if (desc->dsc_dtype == dtype_short)
+        {
 			desc->dsc_dtype = dtype_long;
 			desc->dsc_length = sizeof(SLONG);
 		}
-		else if (desc->dsc_dtype == dtype_int64) {
+		else
+        if (desc->dsc_dtype == dtype_int64)
+        {
 			desc->dsc_dtype = dtype_double;
 			desc->dsc_length = sizeof(double);
 		}
-		else if (DTYPE_IS_TEXT(desc->dsc_dtype)) {
+		else if (DTYPE_IS_TEXT(desc->dsc_dtype))
+        {
 			desc->dsc_dtype = dtype_double;
 			desc->dsc_length = sizeof(double);
 		}
@@ -521,16 +532,20 @@ void MAKE_desc(CompiledStatement* statement, dsc* desc, dsql_nod* node, dsql_nod
 	case nod_agg_total2:
 		MAKE_desc(statement, desc, node->nod_arg[0], null_replacement);
 		dtype = desc->dsc_dtype;
-		if (!DTYPE_IS_NUMERIC(dtype)) {
+		if (!DTYPE_IS_NUMERIC(dtype))
+        {
 			ERRD_post(Arg::Gds(isc_expression_eval_err) <<
 						Arg::Gds(isc_dsql_agg2_wrongarg) << Arg::Str("SUM"));
 		}
-		else if (DTYPE_IS_EXACT(dtype)) {
+		else
+        if (DTYPE_IS_EXACT(dtype))
+        {
 			desc->dsc_dtype = dtype_int64;
 			desc->dsc_length = sizeof(SINT64);
 			node->nod_flags |= NOD_COMP_DIALECT;
 		}
-		else {
+		else
+        {
 			desc->dsc_dtype = dtype_double;
 			desc->dsc_length = sizeof(double);
 		}
@@ -659,7 +674,8 @@ void MAKE_desc(CompiledStatement* statement, dsc* desc, dsql_nod* node, dsql_nod
 
 		dtype = MAX(dtype1, dtype2);
 
-		if (DTYPE_IS_BLOB(dtype)) {
+		if (DTYPE_IS_BLOB(dtype))
+        {
 			ERRD_post(Arg::Gds(isc_sqlerr) << Arg::Num(-607) <<
 					  Arg::Gds(isc_dsql_no_blob_array));
 		}
@@ -698,50 +714,68 @@ void MAKE_desc(CompiledStatement* statement, dsc* desc, dsql_nod* node, dsql_nod
 					// <string> - <string>
 
 					if (DTYPE_IS_TEXT(desc1.dsc_dtype))
+					{
 						dtype = dtype_timestamp;
-					else if (DTYPE_IS_TEXT(desc2.dsc_dtype))
+					}
+					else
+                    if (DTYPE_IS_TEXT(desc2.dsc_dtype))
+					{
 						dtype = dtype_timestamp;
-					else if (desc1.dsc_dtype == desc2.dsc_dtype)
+					}
+					else
+                    if (desc1.dsc_dtype == desc2.dsc_dtype)
+					{
 						dtype = desc1.dsc_dtype;
-					else if ((desc1.dsc_dtype == dtype_timestamp) && (desc2.dsc_dtype == dtype_sql_date))
+					}
+					else
+                    if ((desc1.dsc_dtype == dtype_timestamp) && (desc2.dsc_dtype == dtype_sql_date))
 					{
 						dtype = dtype_timestamp;
 					}
-					else if ((desc2.dsc_dtype == dtype_timestamp) && (desc1.dsc_dtype == dtype_sql_date))
+					else
+                    if ((desc2.dsc_dtype == dtype_timestamp) && (desc1.dsc_dtype == dtype_sql_date))
 					{
 						dtype = dtype_timestamp;
 					}
-					else {
+					else
+                    {
 						ERRD_post(Arg::Gds(isc_expression_eval_err) <<
 									Arg::Gds(isc_dsql_invalid_datetime_subtract));
 					}
 
-					if (dtype == dtype_sql_date) {
+					if (dtype == dtype_sql_date)
+                    {
 						desc->dsc_dtype = dtype_long;
 						desc->dsc_length = sizeof(SLONG);
 						desc->dsc_scale = 0;
 					}
-					else if (dtype == dtype_sql_time) {
+					else
+                    if (dtype == dtype_sql_time)
+                    {
 						desc->dsc_dtype = dtype_long;
 						desc->dsc_length = sizeof(SLONG);
 						desc->dsc_scale = ISC_TIME_SECONDS_PRECISION_SCALE;
 						desc->dsc_sub_type = dsc_num_type_numeric;
 					}
-					else {
+					else
+                    {
 						fb_assert(dtype == dtype_timestamp);
 						desc->dsc_dtype = dtype_double;
 						desc->dsc_length = sizeof(double);
 						desc->dsc_scale = 0;
 					}
 				}
-				else if (is_date_and_time(desc1, desc2)) {
+				else
+                if (is_date_and_time(desc1, desc2))
+                {
 					// <date> + <time>
 					// <time> + <date>
 					desc->dsc_dtype = dtype_timestamp;
 					desc->dsc_length = type_lengths[dtype_timestamp];
 					desc->dsc_scale = 0;
 				}
-				else {
+				else
+                {
 					// <date> + <date>
 					// <time> + <time>
 					// CVC: Hard to see it, since we are in dialect 1.
@@ -749,7 +783,8 @@ void MAKE_desc(CompiledStatement* statement, dsc* desc, dsql_nod* node, dsql_nod
 								Arg::Gds(isc_dsql_invalid_dateortime_add));
 				}
 			}
-			else if (DTYPE_IS_DATE(desc1.dsc_dtype) || (node->nod_type == nod_add))
+			else
+            if (DTYPE_IS_DATE(desc1.dsc_dtype) || (node->nod_type == nod_add))
 			{
 				// <date> +/- <non-date>
 				// <non-date> + <date>
@@ -760,7 +795,8 @@ void MAKE_desc(CompiledStatement* statement, dsc* desc, dsql_nod* node, dsql_nod
 				desc->dsc_length = type_lengths[desc->dsc_dtype];
 				desc->dsc_scale = 0;
 			}
-			else {
+			else
+            {
 				// <non-date> - <date>
 				fb_assert(node->nod_type == nod_subtract);
 				ERRD_post(Arg::Gds(isc_expression_eval_err) <<
@@ -804,7 +840,8 @@ void MAKE_desc(CompiledStatement* statement, dsc* desc, dsql_nod* node, dsql_nod
 		dtype2 = desc2.dsc_dtype;
 
 		// Arrays and blobs can never partipate in addition/subtraction
-		if (DTYPE_IS_BLOB(dtype1) || DTYPE_IS_BLOB(dtype2)) {
+		if (DTYPE_IS_BLOB(dtype1) || DTYPE_IS_BLOB(dtype2))
+        {
 			ERRD_post(Arg::Gds(isc_sqlerr) << Arg::Num(-607) <<
 					  Arg::Gds(isc_dsql_no_blob_array));
 		}
@@ -825,12 +862,14 @@ void MAKE_desc(CompiledStatement* statement, dsc* desc, dsql_nod* node, dsql_nod
 		{
 			dtype = dtype_int64;
 		}
-		else if (DTYPE_IS_NUMERIC(dtype1) && DTYPE_IS_NUMERIC(dtype2))
+		else
+        if (DTYPE_IS_NUMERIC(dtype1) && DTYPE_IS_NUMERIC(dtype2))
 		{
 			fb_assert(DTYPE_IS_APPROX(dtype1) || DTYPE_IS_APPROX(dtype2));
 			dtype = dtype_double;
 		}
-		else {
+		else
+        {
 			// mixed numeric and non-numeric:
 
 			// The MAX(dtype) rule doesn't apply with dtype_int64
@@ -880,7 +919,8 @@ void MAKE_desc(CompiledStatement* statement, dsc* desc, dsql_nod* node, dsql_nod
 						desc->dsc_length = sizeof(SLONG);
 						desc->dsc_scale = 0;
 					}
-					else if (dtype == dtype_sql_time)
+					else
+                    if (dtype == dtype_sql_time)
 					{
 						desc->dsc_dtype = dtype_long;
 						desc->dsc_length = sizeof(SLONG);
@@ -896,7 +936,8 @@ void MAKE_desc(CompiledStatement* statement, dsc* desc, dsql_nod* node, dsql_nod
 						desc->dsc_sub_type = dsc_num_type_numeric;
 					}
 				}
-				else if (is_date_and_time(desc1, desc2))
+				else
+                if (is_date_and_time(desc1, desc2))
 				{
 					// <date> + <time>
 					// <time> + <date>
@@ -912,7 +953,8 @@ void MAKE_desc(CompiledStatement* statement, dsc* desc, dsql_nod* node, dsql_nod
 								Arg::Gds(isc_dsql_invalid_dateortime_add));
 				}
 			}
-			else if (DTYPE_IS_DATE(desc1.dsc_dtype) || (node->nod_type == nod_add2))
+			else
+            if (DTYPE_IS_DATE(desc1.dsc_dtype) || (node->nod_type == nod_add2))
 			{
 				// <date> +/- <non-date>
 				// <non-date> + <date>
@@ -979,7 +1021,8 @@ void MAKE_desc(CompiledStatement* statement, dsc* desc, dsql_nod* node, dsql_nod
 		}
 
 		// Arrays and blobs can never partipate in multiplication
-		if (DTYPE_IS_BLOB(desc1.dsc_dtype) || DTYPE_IS_BLOB(desc2.dsc_dtype)) {
+		if (DTYPE_IS_BLOB(desc1.dsc_dtype) || DTYPE_IS_BLOB(desc2.dsc_dtype))
+        {
 			ERRD_post(Arg::Gds(isc_sqlerr) << Arg::Num(-607) <<
 					  Arg::Gds(isc_dsql_no_blob_array));
 		}
@@ -1029,7 +1072,8 @@ void MAKE_desc(CompiledStatement* statement, dsc* desc, dsql_nod* node, dsql_nod
 		}
 
 		// Arrays and blobs can never partipate in multiplication
-		if (DTYPE_IS_BLOB(desc1.dsc_dtype) || DTYPE_IS_BLOB(desc2.dsc_dtype)) {
+		if (DTYPE_IS_BLOB(desc1.dsc_dtype) || DTYPE_IS_BLOB(desc2.dsc_dtype))
+        {
 			ERRD_post(Arg::Gds(isc_sqlerr) << Arg::Num(-607) <<
 					  Arg::Gds(isc_dsql_no_blob_array));
 		}
@@ -1082,7 +1126,8 @@ void MAKE_desc(CompiledStatement* statement, dsc* desc, dsql_nod* node, dsql_nod
 		}
 
 		// Arrays and blobs can never partipate in division
-		if (DTYPE_IS_BLOB(desc1.dsc_dtype) || DTYPE_IS_BLOB(desc2.dsc_dtype)) {
+		if (DTYPE_IS_BLOB(desc1.dsc_dtype) || DTYPE_IS_BLOB(desc2.dsc_dtype))
+        {
 			ERRD_post(Arg::Gds(isc_sqlerr) << Arg::Num(-607) <<
 					  Arg::Gds(isc_dsql_no_blob_array));
 		}
@@ -1097,7 +1142,8 @@ void MAKE_desc(CompiledStatement* statement, dsc* desc, dsql_nod* node, dsql_nod
 
 		dtype = MAX(dtype1, dtype2);
 
-		if (!DTYPE_IS_NUMERIC(dtype)) {
+		if (!DTYPE_IS_NUMERIC(dtype))
+        {
 			ERRD_post(Arg::Gds(isc_expression_eval_err) <<
 						Arg::Gds(isc_dsql_mustuse_numeric_div_dial1));
 		}
@@ -1128,7 +1174,8 @@ void MAKE_desc(CompiledStatement* statement, dsc* desc, dsql_nod* node, dsql_nod
 		}
 
 		// Arrays and blobs can never partipate in division
-		if (DTYPE_IS_BLOB(desc1.dsc_dtype) || DTYPE_IS_BLOB(desc2.dsc_dtype)) {
+		if (DTYPE_IS_BLOB(desc1.dsc_dtype) || DTYPE_IS_BLOB(desc2.dsc_dtype))
+        {
 			ERRD_post(Arg::Gds(isc_sqlerr) << Arg::Num(-607) <<
 					  Arg::Gds(isc_dsql_no_blob_array));
 		}
@@ -1169,8 +1216,10 @@ void MAKE_desc(CompiledStatement* statement, dsc* desc, dsql_nod* node, dsql_nod
 
 		// In Dialect 2 or 3, a string can never partipate in negation
 		// (use a specific cast instead)
-		if (DTYPE_IS_TEXT(desc->dsc_dtype)) {
-			if (statement->req_client_dialect >= SQL_DIALECT_V6_TRANSITION) {
+		if (DTYPE_IS_TEXT(desc->dsc_dtype))
+        {
+			if (statement->req_client_dialect >= SQL_DIALECT_V6_TRANSITION)
+            {
 				ERRD_post(Arg::Gds(isc_expression_eval_err) <<
 							Arg::Gds(isc_dsql_nostring_neg_dial3));
 			}
@@ -1178,13 +1227,16 @@ void MAKE_desc(CompiledStatement* statement, dsc* desc, dsql_nod* node, dsql_nod
 			desc->dsc_length = sizeof(double);
 		}
 		// Forbid blobs and arrays
-		else if (DTYPE_IS_BLOB(desc->dsc_dtype))
+		else
+        if (DTYPE_IS_BLOB(desc->dsc_dtype))
 		{
 			ERRD_post(Arg::Gds(isc_sqlerr) << Arg::Num(-607) <<
 					  Arg::Gds(isc_dsql_no_blob_array));
 		}
 		// Forbid other not numeric datatypes
-		else if (!DTYPE_IS_NUMERIC(desc->dsc_dtype)) {
+		else
+        if (!DTYPE_IS_NUMERIC(desc->dsc_dtype))
+        {
 			ERRD_post(Arg::Gds(isc_expression_eval_err) <<
 						Arg::Gds(isc_dsql_invalid_type_neg));
 		}
@@ -1208,7 +1260,8 @@ void MAKE_desc(CompiledStatement* statement, dsc* desc, dsql_nod* node, dsql_nod
 			desc->dsc_flags = DSC_nullable;
 			desc->dsc_ttype() = ttype_binary;
 		}
-		else {
+		else
+        {
 			ERRD_post(Arg::Gds(isc_sqlerr) << Arg::Num(-607) <<
 					  Arg::Gds(isc_dsql_dbkey_from_non_table));
 		}
@@ -1225,10 +1278,12 @@ void MAKE_desc(CompiledStatement* statement, dsc* desc, dsql_nod* node, dsql_nod
 			// pointer.
 			desc->dsc_flags = DSC_nullable;
 
-			if (desc->dsc_dtype <= dtype_any_text) {
+			if (desc->dsc_dtype <= dtype_any_text)
+            {
 				desc->dsc_ttype() = userFunc->udf_character_set_id;
 			}
-			else {
+			else
+            {
 				desc->dsc_ttype() = userFunc->udf_sub_type;
 			}
 			return;
@@ -1278,11 +1333,13 @@ void MAKE_desc(CompiledStatement* statement, dsc* desc, dsql_nod* node, dsql_nod
 
 	case nod_limit:
 	case nod_rows:
-		if (statement->req_client_dialect <= SQL_DIALECT_V5) {
+		if (statement->req_client_dialect <= SQL_DIALECT_V5)
+        {
 			desc->dsc_dtype = dtype_long;
 			desc->dsc_length = sizeof (SLONG);
 		}
-		else {
+		else
+        {
 			desc->dsc_dtype = dtype_int64;
 			desc->dsc_length = sizeof (SINT64);
 		}
@@ -1473,7 +1530,8 @@ void MAKE_desc_from_field(dsc* desc, const dsql_fld* field)
 	desc->dsc_sub_type = field->fld_sub_type;
 	desc->dsc_length = field->fld_length;
 	desc->dsc_flags = (field->fld_flags & FLD_nullable) ? DSC_nullable : 0;
-	if (desc->dsc_dtype <= dtype_any_text) {
+	if (desc->dsc_dtype <= dtype_any_text)
+    {
 		INTL_ASSIGN_DSC(desc, field->fld_character_set_id, field->fld_collation_id);
 	}
 	else if (desc->dsc_dtype == dtype_blob)
@@ -1685,7 +1743,8 @@ dsql_nod* MAKE_node(NOD_TYPE type, int count)
 dsql_par* MAKE_parameter(dsql_msg* message, bool sqlda_flag, bool null_flag,
 	USHORT sqlda_index, const dsql_nod* node)
 {
-	if (!message) {
+	if (!message)
+    {
 		ERRD_post(Arg::Gds(isc_sqlerr) << Arg::Num(-901) <<
 				  Arg::Gds(isc_badmsgnum));
 	}
@@ -1695,7 +1754,8 @@ dsql_par* MAKE_parameter(dsql_msg* message, bool sqlda_flag, bool null_flag,
 	if (sqlda_flag && sqlda_index && sqlda_index <= message->msg_index)
 	{
 		// This parameter possibly already here. Look for it
-		for (dsql_par* temp = message->msg_parameters; temp; temp = temp->par_next) {
+		for (dsql_par* temp = message->msg_parameters; temp; temp = temp->par_next)
+        {
 			if (temp->par_index == sqlda_index)
 				return temp;
 		}
@@ -1713,26 +1773,30 @@ dsql_par* MAKE_parameter(dsql_msg* message, bool sqlda_flag, bool null_flag,
 	parameter->par_owner_name = NULL;
 	parameter->par_rel_alias = NULL;
 
-	if (node) {
+	if (node)
+    {
 		make_parameter_names(parameter, node);
 	}
 
 	// If the parameter is used declared, set SQLDA index
 	if (sqlda_flag)
 	{
-		if (sqlda_index) {
+		if (sqlda_index)
+        {
 			parameter->par_index = sqlda_index;
 			if (message->msg_index < sqlda_index)
 				message->msg_index = sqlda_index;
 		}
-		else {
+		else
+        {
 			parameter->par_index = ++message->msg_index;
 		}
 	}
 
 	// If a null handing has been requested, set up a null flag
 
-	if (null_flag) {
+	if (null_flag)
+    {
 		dsql_par* null = MAKE_parameter(message, false, false, 0, NULL);
 		parameter->par_null = null;
 		null->par_desc.dsc_dtype = dtype_short;
@@ -1944,12 +2008,15 @@ static void make_parameter_names(dsql_par* parameter, const dsql_nod* item)
 		string = (dsql_str*) item->nod_arg[e_alias_alias];
 		parameter->par_alias = string->str_data;
 		alias = item->nod_arg[e_alias_value];
-		if (alias->nod_type == nod_field) {
+		if (alias->nod_type == nod_field)
+        {
 			field = (dsql_fld*) alias->nod_arg[e_fld_field];
 			parameter->par_name = field->fld_name.c_str();
 			context = (dsql_ctx*) alias->nod_arg[e_fld_context];
 		}
-		else if (alias->nod_type == nod_dbkey) {
+		else
+        if (alias->nod_type == nod_dbkey)
+        {
 			parameter->par_name = DB_KEY_NAME;
 			context = (dsql_ctx*) alias->nod_arg[0]->nod_arg[0];
 		}
@@ -1962,12 +2029,14 @@ static void make_parameter_names(dsql_par* parameter, const dsql_nod* item)
 		string = (dsql_str*) item->nod_arg[e_derived_field_name];
 		parameter->par_alias = string->str_data;
 		alias = item->nod_arg[e_derived_field_value];
-		if (alias->nod_type == nod_field) {
+		if (alias->nod_type == nod_field)
+        {
 			field = (dsql_fld*) alias->nod_arg[e_fld_field];
 			parameter->par_name = field->fld_name.c_str();
 			context = (dsql_ctx*) alias->nod_arg[e_fld_context];
 		}
-		else if (alias->nod_type == nod_dbkey) {
+		else if (alias->nod_type == nod_dbkey)
+        {
 			parameter->par_name = DB_KEY_NAME;
 			context = (dsql_ctx*) alias->nod_arg[0]->nod_arg[0];
 		}
@@ -1976,7 +2045,8 @@ static void make_parameter_names(dsql_par* parameter, const dsql_nod* item)
 		{
 			const dsql_map* map = (dsql_map*) item->nod_arg[e_map_map];
 			const dsql_nod* map_node = map->map_node;
-			while (map_node->nod_type == nod_map) {
+			while (map_node->nod_type == nod_map)
+            {
 				// skip all the nod_map nodes
 				map = (dsql_map*) map_node->nod_arg[e_map_map];
 				map_node = map->map_node;
@@ -1992,7 +2062,8 @@ static void make_parameter_names(dsql_par* parameter, const dsql_nod* item)
 				string = (dsql_str*) map_node->nod_arg[e_alias_alias];
 				parameter->par_alias = string->str_data;
 				alias = map_node->nod_arg[e_alias_value];
-				if (alias->nod_type == nod_field) {
+				if (alias->nod_type == nod_field)
+                {
 					field = (dsql_fld*) alias->nod_arg[e_fld_field];
 					parameter->par_name = field->fld_name.c_str();
 					context = (dsql_ctx*) alias->nod_arg[e_fld_context];
@@ -2002,7 +2073,8 @@ static void make_parameter_names(dsql_par* parameter, const dsql_nod* item)
 				string = (dsql_str*) map_node->nod_arg[e_derived_field_name];
 				parameter->par_alias = string->str_data;
 				alias = map_node->nod_arg[e_derived_field_value];
-				if (alias->nod_type == nod_field) {
+				if (alias->nod_type == nod_field)
+                {
 					field = (dsql_fld*) alias->nod_arg[e_fld_field];
 					parameter->par_name = field->fld_name.c_str();
 					context = (dsql_ctx*) alias->nod_arg[e_fld_context];
@@ -2207,7 +2279,8 @@ static void make_parameter_names(dsql_par* parameter, const dsql_nod* item)
 		break;
 	}
 
-	if (name_alias) {
+	if (name_alias)
+    {
 		parameter->par_name = parameter->par_alias = name_alias;
 	}
 
@@ -2218,7 +2291,8 @@ static void make_parameter_names(dsql_par* parameter, const dsql_nod* item)
 			parameter->par_rel_name = context->ctx_relation->rel_name.c_str();
 			parameter->par_owner_name = context->ctx_relation->rel_owner.c_str();
 		}
-		else if (context->ctx_procedure)
+		else
+        if (context->ctx_procedure)
 		{
 			parameter->par_rel_name = context->ctx_procedure->prc_name.c_str();
 			parameter->par_owner_name = context->ctx_procedure->prc_owner.c_str();
