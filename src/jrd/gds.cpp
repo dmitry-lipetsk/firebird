@@ -3225,7 +3225,7 @@ static void blr_print_verb(gds_ctl* control, SSHORT level)
 			break;
 
 		case op_literal:
-			while (--n >= 0)
+			for(;n>0;--n)
 				blr_print_char(control);
 			break;
 
@@ -3234,7 +3234,7 @@ static void blr_print_verb(gds_ctl* control, SSHORT level)
 			break;
 
 		case op_message:
-			while (--n >= 0)
+			for(;n>0;--n)
 			{
 				blr_indent(control, level);
 				blr_print_dtype(control);
@@ -3244,13 +3244,13 @@ static void blr_print_verb(gds_ctl* control, SSHORT level)
 
 		case op_parameters:
 			level++;
-			while (--n >= 0)
+			for(;n>0;--n)
 				blr_print_verb(control, level);
 			level--;
 			break;
 
 		case op_error_handler:
-			while (--n >= 0)
+			for(;n>0;--n)
 			{
 				blr_indent(control, level);
 				blr_print_cond(control);
@@ -3272,7 +3272,7 @@ static void blr_print_verb(gds_ctl* control, SSHORT level)
 			break;
 
 		case op_map:
-			while (--n >= 0)
+			for(;n>0;--n)
 			{
 				blr_indent(control, level);
 				blr_print_word(control);
@@ -3282,23 +3282,22 @@ static void blr_print_verb(gds_ctl* control, SSHORT level)
 			break;
 
 		case op_args:
-			while (--n >= 0)
+			for(;n>0;--n)
 				blr_print_verb(control, level);
 			break;
 
 		case op_literals:
-			while (--n >= 0)
+			for(;n>0;--n)
 			{
 				blr_indent(control, level);
-				SSHORT n2 = blr_print_byte(control);
-				while (--n2 >= 0)
+				for(SSHORT n2 = blr_print_byte(control);n2>0;--n2)
 					blr_print_char(control);
 				offset = blr_print_line(control, (SSHORT) offset);
 			}
 			break;
 
 		case op_union:
-			while (--n >= 0)
+			for(;n>0;--n)
 			{
 				blr_print_verb(control, level);
 				blr_print_verb(control, level);
@@ -3319,7 +3318,7 @@ static void blr_print_verb(gds_ctl* control, SSHORT level)
 			if (blr_operator == blr_relation)
 			{
 				n = blr_print_byte(control);
-				while (--n >= 0)
+				for(;n>0;--n)
 					blr_print_char(control);
 			}
 			else
@@ -3332,7 +3331,8 @@ static void blr_print_verb(gds_ctl* control, SSHORT level)
             {
 				blr_print_verb(control, level);
 			}
-			while (n-- > 0) {
+			for(;n>0;--n)
+            {
 				blr_print_verb(control, level);
 			}
 			break;
