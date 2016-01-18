@@ -2179,9 +2179,8 @@ static bool create_index(thread_db*	tdbb,
 						const USHORT id = IDX.RDB$INDEX_ID - 1;
 						IDX_statistics(tdbb, relation, id, selectivity);
 						DFW_update_index(work->dfw_name.c_str(), id, selectivity, transaction);
-
-						EXE_unwind(tdbb, request);
 					}
+					EXE_unwind(tdbb, request);
 					return false;
 				}
 
@@ -3872,6 +3871,9 @@ static bool delete_relation(thread_db* tdbb, SSHORT phase, DeferredWork* work,
 		if (relation->rel_partners_lock) {
 			LCK_release(tdbb, relation->rel_partners_lock);
 		}
+		if (relation->rel_rescan_lock) {
+			LCK_release(tdbb, relation->rel_rescan_lock);
+		}
 
 		// Mark relation in the cache as dropped
 		relation->rel_flags |= REL_deleted;
@@ -4970,6 +4972,10 @@ static bool make_version(thread_db* tdbb, SSHORT phase, DeferredWork* work,
 
 		relation->rel_flags &= ~REL_scanned;
 		DFW_post_work(transaction, dfw_scan_relation, NULL, relation->rel_id);
+
+		// signal others about new format presence
+		LCK_lock(tdbb, relation->rel_rescan_lock, LCK_EX, LCK_WAIT);
+		LCK_release(tdbb, relation->rel_rescan_lock);
 
 		break;
 	}

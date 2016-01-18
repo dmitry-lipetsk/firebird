@@ -1,3 +1,34 @@
+ 2016-01-09 17:10  alexpeshkoff 
+   M src/jrd/Relation.h
+   M src/jrd/cmp.cpp
+   M src/jrd/dfw.epp
+   M src/jrd/evl.cpp
+   M src/jrd/lck.cpp
+   M src/jrd/lck.h
+   M src/jrd/met.epp
+Backported fix for CORE-3024: Error "no current record for fetch operation" after ALTER VIEW
+
+ 2016-01-06 18:33  asfernandes 
+   M src/jrd/SysFunction.cpp
+Misc.
+
+ 2016-01-06 18:26  asfernandes 
+   M src/dsql/dsql.cpp
+   M src/jrd/SysFunction.cpp
+Revert to the bad (that works) commit for CORE-5062. It's difficult to work when both the original architects and the users do bad things in relation to CHAR and MBCS.
+
+ 2016-01-06 07:43  hvlad 
+   M src/burp/burp.cpp
+Fixed bug CORE-5068 : gbak with invalid parameter crashes FB
+
+ 2016-01-03 02:56  asfernandes 
+   M src/dsql/dsql.cpp
+Fixed CORE-5062 - CHAR_TO_UUID on column with index throws expression evaluation not supported Human readable UUID argument for CHAR_TO_UUID must be of exact length 36.
+
+ 2015-12-17 19:14  roman-simakov 
+   M src/jrd/dfw.epp
+Fixed request leakage due modify indecies
+
  2015-11-29 15:16  dimitr 
    M src/jrd/jrd.cpp
 Fixed processing of asynchronous errors if they're thrown directly via checkCancelState().
