@@ -23,6 +23,11 @@
 
 #include "../jrd/gds_proto.h"
 
+inline void fb_abort()
+{
+ abort();
+}
+
 #ifdef DEV_BUILD
 
 #define FB_RELEASE_CODE(x)
@@ -43,7 +48,7 @@
 #else	// !SUPERCLIENT
 
 #if !defined(fb_assert)
-#define fb_assert(ex)	{if (!(ex)) {gds__log(FB_ASSERT_FAILURE_STRING, #ex, __FILE__, __LINE__); abort();}}
+#define fb_assert(ex)	{if (!(ex)) {gds__log(FB_ASSERT_FAILURE_STRING, #ex, __FILE__, __LINE__); fb_abort();}}
 #define fb_assert_continue(ex)	{if (!(ex)) {gds__log(FB_ASSERT_FAILURE_STRING, #ex, __FILE__, __LINE__);}}
 #endif
 
@@ -68,7 +73,7 @@ namespace DtorException {
 		// losing original exception information. Not good for us.
 		// Therefore ignore in release and abort in debug.
 #ifdef DEV_BUILD
-		abort();
+		fb_abort();
 #endif
 	}
 }
