@@ -550,14 +550,14 @@ static bool link_request(rem_port* port, server_req_t* request)
 #endif
 					break;
 				}
-			}
+			} // for queue
 
 			if (queue || !active)
 				break;
 
 			queue = request_que;
 			active = false;
-		}
+		} // for[ever]
 
 		if (!queue) {
 			append_request_next(request, &request_que);
@@ -2360,6 +2360,9 @@ ISC_STATUS rem_port::execute_statement(P_OP op, P_SQLDATA* sqldata, PACKET* send
 		statement->rsr_rtr = transaction;
 	}
 
+	// \todo
+	//  WTF ?????
+	//  Why we should detect the deferred execution through not empty of receive buffer?
 	const bool defer = this->haveRecvData();
 
 	return this->send_response(	sendL, (OBJCT) (transaction ? transaction->rtr_id : 0),
