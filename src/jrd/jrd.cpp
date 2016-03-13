@@ -4413,15 +4413,10 @@ bool JRD_reschedule(thread_db* tdbb, SLONG quantum, bool punt)
 		const Arg::StatusVector status(ex.value());
 
 		if (punt)
-		{
-			CCH_unwind(tdbb, false);
 			ERR_post(status);
-		}
-		else
-		{
-			ERR_build_status(tdbb->tdbb_status_vector, status);
-			return true;
-		}
+
+		ERR_build_status(tdbb->tdbb_status_vector, status);
+		return true;
 	}
 
 	// Enable signal handler for the monitoring stuff
@@ -5937,6 +5932,8 @@ static bool shutdown_database(Database* dbb, const bool release_pools)
 #ifdef SUPERSERVER_V2
 		TRA_header_write(tdbb, dbb, 0L);	// Update transaction info on header page.
 #endif
+		if (release_pools)
+			TRA_update_counters(tdbb, dbb);
 
 		MET_clear_cache(tdbb);
 
@@ -6818,7 +6815,7 @@ static THREAD_ENTRY_DECLARE shutdown_thread(THREAD_ENTRY_PARAM arg)
 
 		// Extra shutdown operations
 		Service::shutdownServices();
-		TraceManager::getStorage()->shutdown();
+		TraceManager::shutdown();
 	}
 	catch (const Exception&)
 	{
@@ -6900,6 +6897,7 @@ bool thread_db::checkCancelState(bool punt)
 	catch (const Exception&)
 	{
 		tdbb_flags |= TDBB_sys_error;
+		CCH_unwind(this, false);
 		throw;
 	}
 

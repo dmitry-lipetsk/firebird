@@ -522,12 +522,9 @@ bool OPT_expression_equal2(jrd_nod* node1, jrd_nod* node2, bool ignoreStreams)
 		case nod_literal:
 			{
 				const dsc* const desc1 = &((Literal*) node1)->lit_desc;
-				const UCHAR* const ptr1 = desc1->dsc_address;
-
 				const dsc* const desc2 = &((Literal*) node2)->lit_desc;
-				const UCHAR* const ptr2 = desc2->dsc_address;
 
-				if (DSC_EQUIV(desc1, desc2, true) && !memcmp(ptr1, ptr2, desc1->dsc_length))
+				if (!MOV_compare(desc1, desc2))
 				{
 					return true;
 				}
@@ -2192,11 +2189,13 @@ InversionCandidate* OptimizerRetrieval::makeInversion(InversionCandidateList* in
 	// when the table grows. In this case, let's consider all available indices.
 	const bool smallTable = (streamCardinality <= THRESHOLD_CARDINALITY);
 
-	// This flag disables our smart index selection algorithm.
-	// It's set for any explicit (i.e. user specified) plan which
-	// requires all existing indices to be considered for a retrieval.
-	// It's also set for internal (system) requests used by the engine itself.
-	const bool acceptAll = csb->csb_rpt[stream].csb_plan || (csb->csb_g_flags & csb_internal);
+	// These flags work around our smart index selection algorithm. Any explicit
+	// (i.e. user specified) plan requires all existing indices to be considered
+	// for a retrieval. Internal (system) requests used by the engine itself are
+	// often optimized using zero or non-actual statistics, so they are processed
+	// using somewhat relaxed rules.
+	const bool customPlan = csb->csb_rpt[stream].csb_plan;
+	const bool sysRequest = (csb->csb_g_flags & csb_internal);
 
 	double totalSelectivity = MAXIMUM_SELECTIVITY; // worst selectivity
 	double totalIndexCost = 0;
@@ -2273,7 +2272,7 @@ InversionCandidate* OptimizerRetrieval::makeInversion(InversionCandidateList* in
 						}
 					}
 					invCandidate->matches.join(matches);
-					if (acceptAll) {
+					if (customPlan) {
 						continue;
 					}
 
@@ -2291,7 +2290,7 @@ InversionCandidate* OptimizerRetrieval::makeInversion(InversionCandidateList* in
 					}
 				}
 
-				if (anyMatchAlreadyUsed && !acceptAll)
+				if (anyMatchAlreadyUsed && !customPlan)
 				{
 					currentInv->used = true;
 					// If a match on this index was already used by another
@@ -2443,7 +2442,7 @@ InversionCandidate* OptimizerRetrieval::makeInversion(InversionCandidateList* in
 
 			// Test if the new totalCost will be higher than the previous totalCost
 			// and if the current selectivity (without the bestCandidate) is already good enough.
-			if (acceptAll || smallTable || firstCandidate ||
+			if (customPlan || sysRequest || smallTable || firstCandidate ||
 				(totalCost < previousTotalCost && totalSelectivity > minimumSelectivity))
 			{
 				// Exclude index from next pass
@@ -2520,7 +2519,7 @@ InversionCandidate* OptimizerRetrieval::makeInversion(InversionCandidateList* in
 				if (invCandidate->unique)
 				{
 					// Single unique full equal match is enough
-					if (!acceptAll)
+					if (!customPlan)
 						break;
 				}
 			}

@@ -1,3 +1,79 @@
+ 2016-03-07 22:27  hvlad 
+   M src/jrd/tra.cpp
+Fixed bug CORE-4645 : internal Firebird consistency check (cannot find tip page (165), file: tra.cpp line: 2375)
+
+ 2016-02-29 19:41  dimitr 
+   M src/jrd/Optimizer.cpp
+Misc (simplified the code).
+
+ 2016-02-29 19:19  dimitr 
+   M src/jrd/Optimizer.cpp
+Fixed CORE-5122: Expression index may not be used by the optimizer if created and used in different connection charsets.
+
+ 2016-02-28 15:51  hvlad 
+   M src/jrd/jrd.cpp
+   M src/jrd/trace/TraceConfigStorage.h
+   M src/jrd/trace/TraceManager.h
+Fixed bug CORE-5117 : Firebird embedded could crash on unload if was used as pure client only
+
+ 2016-02-23 13:38  alexpeshkoff 
+   M src/jrd/evl.cpp
+One more postfix for CORE-3024 - thanks to Dmitry
+
+ 2016-02-21 09:03  dimitr 
+   M src/jrd/Optimizer.cpp
+Misc.
+
+ 2016-02-21 09:00  dimitr 
+   M src/jrd/Optimizer.cpp
+Corrected my old commit re. optimization of the system requests.
+
+ 2016-02-12 13:04  hvlad 
+   M src/jrd/vio.cpp
+Simplest fix for bug CORE-5110 : False PK\FK violation could be reported when attachment used isc_dpb_no_garbage_collect flag
+
+ 2016-02-11 12:09  hvlad 
+   M src/jrd/tpc.cpp
+Missed check (CORE-5067). 
+
+ 2016-02-07 11:48  dimitr 
+   M src/jrd/jrd.cpp
+Backported from trunk: unwind the cache if checkCancelState(true) is called directly.
+
+ 2016-02-04 17:14  hvlad 
+   M src/jrd/extds/InternalDS.cpp
+Additional fix for bug CORE-5087 : Database shutdown can cause server crash if multiple attachments run EXECUTE STATEMENT
+
+ 2016-02-03 13:35  alexpeshkoff 
+   M src/common/classes/ClumpletWriter.cpp
+Backported fix for very old bug in clumplets processing code.
+Looks like we never used to step on it (resetting writer to buffer with 0 length), but anyway it's better to have it fixed.
+
+ 2016-02-03 11:06  hvlad 
+   M src/jrd/exe.cpp
+Backport fix bug CORE-5087 : Database shutdown can cause server crash if multiple attachments run EXECUTE STATEMENT
+
+ 2016-02-02 10:08  hvlad 
+   M src/jrd/tra.cpp
+Postfix for CORE-5067. 
+Avoid crashing in TRA_update_counters() with not initialized Database object
+
+ 2016-02-01 15:39  hvlad 
+   M src/jrd/jrd.cpp
+   M src/jrd/tpc.cpp
+   M src/jrd/tpc_proto.h
+   M src/jrd/tra.cpp
+   M src/jrd/tra_proto.h
+Fixed bug CORE-5067 : Blocking new connections as a consequence of the too long sweep security2.fdb
+
+ 2016-01-21 10:51  hvlad 
+   M src/jrd/blb.cpp
+Fixed bug CORE-5078 : "Invalid BLOB ID" error
+
+ 2016-01-20 09:49  hvlad 
+   M src/gpre/sqe.cpp
+This should fix compilation error by GCC6
+
  2016-01-09 17:10  alexpeshkoff 
    M src/jrd/Relation.h
    M src/jrd/cmp.cpp
