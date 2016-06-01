@@ -5,3 +5,6 @@ Firebird git mirror
 - Added project files for VS2012, VS2013 and VS2015.
 
 Binaries, created from these sources, are used in load and stress tests of IBProvider (OLE DB Provider for Firebird and InterBase).
+
+-------------
+This repository is deprecated. Please look the https://github.com/dmitry-lipetsk/firebirdsql-core/tree/B2_5_Release.
