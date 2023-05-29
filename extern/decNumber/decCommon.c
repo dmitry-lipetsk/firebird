@@ -254,7 +254,7 @@ static decFloat * decFinalize(decFloat *df, bcdnum *num,
   // decShowNum(num, "final");
   #endif
 
-  assert(num->msd<=num->lsd);
+  assert(umsd<=ulsd);
 
   // A special will have an 'exponent' which is very positive and a
   // coefficient < DECPMAX
