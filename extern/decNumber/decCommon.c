@@ -254,6 +254,8 @@ static decFloat * decFinalize(decFloat *df, bcdnum *num,
   // decShowNum(num, "final");
   #endif
 
+  assert(num->msd<=num->lsd);
+
   // A special will have an 'exponent' which is very positive and a
   // coefficient < DECPMAX
   length=(uInt)(ulsd-umsd+1);                // coefficient length
@@ -905,16 +907,31 @@ decFloat * decFloatFromString(decFloat *result, const char *string,
        else {                                // too long for buffer
         // [This is a rare and unusual case; arbitrary-length input]
         // strip leading zeros [but leave final 0 if all 0's]
-        if (*cfirst=='.') cfirst++;          // step past dot at start
-        if (*cfirst=='0') {                  // [cfirst always -> digit]
-          for (; cfirst<clast; cfirst++) {
-            if (*cfirst!='0') {              // non-zero found
-              if (*cfirst=='.') continue;    // [ignore]
-              break;                         // done
-              }
-            digits--;                        // 0 stripped
+        {
+          const char* cfirst2=NULL;
+
+          assert(digits>0);
+
+          for (; cfirst<=clast; cfirst++) {
+            if (*cfirst == '.') continue;  // [ignore]
+            assert(digits>0);
+            cfirst2=cfirst;                // let's save the position of this digit
+            if (*cfirst!='0') break;       // done
+            digits--;                      // 0 stripped
             } // cfirst
-          } // at least one leading 0
+
+          assert(cfirst2!=NULL);
+          assert(cfirst2<=clast);
+
+          if(clast<cfirst) { // all the symbols are ZEROs
+            assert(digits==0);
+            digits=1;
+            } else {
+                assert(digits>0);
+              }
+
+          cfirst=cfirst2;
+        } // local - at least one leading 0
 
         // the coefficient is now as short as possible, but may still
         // be too long; copy up to Pmax+1 digits to the buffer, then

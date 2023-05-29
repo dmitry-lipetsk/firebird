@@ -19,6 +19,8 @@
 /* This module comprises decSingle operations (including conversions) */
 /* ------------------------------------------------------------------ */
 
+#include <assert.h>
+
 #include "decContext.h"       // public includes
 #include "decSingle.h"        // public includes
 

@@ -19,6 +19,7 @@
 /* This module comprises decQuad operations (including conversions)   */
 /* ------------------------------------------------------------------ */
 
+#include <assert.h>
 
 /* Constant mappings for shared code */
 #define DECPMAX     DECQUAD_Pmax

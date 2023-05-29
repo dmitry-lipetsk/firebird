@@ -19,6 +19,8 @@
 /* This module comprises decDouble operations (including conversions) */
 /* ------------------------------------------------------------------ */
 
+#include <assert.h>
+
 #include "decContext.h"       // public includes
 #include "decDouble.h"        // ..
 
