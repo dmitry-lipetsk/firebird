@@ -59,6 +59,9 @@
 #define decFloatToWider            decQuadToWider
 #define decFloatZero               decQuadZero
 
+/* Firebird DBMS extension */
+#define decFloatFromString_fb     decQuadFromString_fb
+
 // Computational (result is a decFloat)
 #define decFloatAbs                decQuadAbs
 #define decFloatAdd                decQuadAdd
@@ -131,5 +134,6 @@
 #include "decQuad.h"          // ..
 #include "decNumberLocal.h"   // local includes (need DECPMAX)
 #include "decCommon.c"        // non-arithmetic decFloat routines
+#include "decCommon_fb.c"     // Firebird DBMS extension
 #include "decBasic.c"         // basic formats routines
 

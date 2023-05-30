@@ -3008,9 +3008,12 @@ Decimal64 CVT_get_dec64(const dsc* desc, DecimalStatus decSt, ErrorFunction err)
 		case dtype_varying:
 		case dtype_cstring:
 		case dtype_text:
-			CVT_make_null_string(desc, ttype_ascii, &p, &buffer, sizeof(buffer) - 1, decSt, err);
-			return d64.set(buffer.vary_string, decSt);
+		{
+			const char* p = nullptr;
+			const USHORT length = CVT_make_string(desc, ttype_ascii, &p, &buffer, sizeof(buffer), decSt, err);
 
+			return d64.set(p, length, decSt);
+        }
 		case dtype_real:
 			return d64.set(*((float*) p), decSt);
 
@@ -3084,8 +3087,12 @@ Decimal128 CVT_get_dec128(const dsc* desc, DecimalStatus decSt, ErrorFunction er
 		case dtype_varying:
 		case dtype_cstring:
 		case dtype_text:
-			CVT_make_null_string(desc, ttype_ascii, &p, &buffer, sizeof(buffer) - 1, decSt, err);
-			return d128.set(buffer.vary_string, decSt);
+		{
+			const char* p = nullptr;
+			const USHORT length = CVT_make_string(desc, ttype_ascii, &p, &buffer, sizeof(buffer), decSt, err);
+
+			return d128.set(p, length, decSt);
+        }
 
 		case dtype_real:
 			return d128.set(*((float*) p), decSt);

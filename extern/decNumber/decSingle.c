@@ -61,11 +61,15 @@
 #define decFloatToWider            decSingleToWider
 #define decFloatZero               decSingleZero
 
+/* Firebird DBMS extension */
+#define decFloatFromString_fb      decSingleFromString_fb
+
 // Non-computational
 #define decFloatRadix              decSingleRadix
 #define decFloatVersion            decSingleVersion
 
 #include "decNumberLocal.h"   // local includes (need DECPMAX)
 #include "decCommon.c"        // non-basic decFloat routines
+#include "decCommon_fb.c"     // Firebird DBMS extension
 // [Do not include decBasic.c for decimal32]
 

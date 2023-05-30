@@ -101,6 +101,9 @@
   extern uint32_t  decQuadToUInt32Exact(const decQuad *, decContext *, enum rounding);
   extern decQuad * decQuadZero(decQuad *);
 
+  /* Firebird DBMS extension */
+  extern decQuad * decQuadFromString_fb(decQuad *, const char *, size_t, decContext *);
+
   /* Computational (result is a decQuad) */
   extern decQuad * decQuadAbs(decQuad *, const decQuad *, decContext *);
   extern decQuad * decQuadAdd(decQuad *, const decQuad *, const decQuad *, decContext *);

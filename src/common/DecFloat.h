@@ -155,6 +155,7 @@ public:
 	Decimal64 set(SLONG value, DecimalStatus decSt, int scale);
 	Decimal64 set(SINT64 value, DecimalStatus decSt, int scale);
 	Decimal64 set(const char* value, DecimalStatus decSt);
+	Decimal64 set(const char* value, size_t valueLen, DecimalStatus decSt);
 	Decimal64 set(double value, DecimalStatus decSt);
 	Decimal64 set(Int128 value, DecimalStatus decSt, int scale);
 
@@ -207,6 +208,7 @@ public:
 	Decimal128 set(SLONG value, DecimalStatus decSt, int scale);
 	Decimal128 set(SINT64 value, DecimalStatus decSt, int scale);
 	Decimal128 set(const char* value, DecimalStatus decSt);
+	Decimal128 set(const char* value, size_t valueLen, DecimalStatus decSt);
 	Decimal128 set(double value, DecimalStatus decSt);
 	Decimal128 set(Int128 value, DecimalStatus decSt, int scale);
 

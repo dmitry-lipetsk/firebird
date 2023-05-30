@@ -79,6 +79,9 @@
   extern decQuad   * decDoubleToWider(const decDouble *, decQuad *);
   extern decDouble * decDoubleZero(decDouble *);
 
+  /* Firebird DBMS extension */
+  extern decDouble * decDoubleFromString_fb(decDouble *, const char *, size_t, decContext *);
+
   /* Computational (result is a decDouble) */
   extern decDouble * decDoubleAbs(decDouble *, const decDouble *, decContext *);
   extern decDouble * decDoubleAdd(decDouble *, const decDouble *, const decDouble *, decContext *);

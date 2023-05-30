@@ -71,6 +71,9 @@
   extern decDouble * decSingleToWider(const decSingle *, decDouble *);
   extern decSingle * decSingleZero(decSingle *);
 
+  /* Firebird DBMS extension */
+  extern decSingle * decSingleFromString_fb(decSingle *, const char *, size_t, decContext *);
+
   /* (No Arithmetic routines for decSingle) */
 
   /* Non-computational */
