@@ -53,9 +53,6 @@ decFloat* decFloatFromString_fb(decFloat*   result,
                                 size_t      stringLen,
                                 decContext* set)
 {
- #define MAKE_SPTR(p)   (p)
- #define GET_PTR(p)     (p)
-
  #define GET_CH(pCH)    (*(pCH))
 
  #define LOCAL_UTILS__is_digit(ch)         ((ch)>='0' && (ch)<='9')
