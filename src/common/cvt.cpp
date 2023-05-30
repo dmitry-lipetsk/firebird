@@ -3013,7 +3013,8 @@ Decimal64 CVT_get_dec64(const dsc* desc, DecimalStatus decSt, ErrorFunction err)
 			const USHORT length = CVT_make_string(desc, ttype_ascii, &p, &buffer, sizeof(buffer), decSt, err);
 
 			return d64.set(p, length, decSt);
-        }
+		}
+
 		case dtype_real:
 			return d64.set(*((float*) p), decSt);
 
@@ -3092,7 +3093,7 @@ Decimal128 CVT_get_dec128(const dsc* desc, DecimalStatus decSt, ErrorFunction er
 			const USHORT length = CVT_make_string(desc, ttype_ascii, &p, &buffer, sizeof(buffer), decSt, err);
 
 			return d128.set(p, length, decSt);
-        }
+		}
 
 		case dtype_real:
 			return d128.set(*((float*) p), decSt);
