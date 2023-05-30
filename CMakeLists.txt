@@ -371,6 +371,7 @@ project_group               (libtomcrypt Extern)
 file(GLOB_RECURSE decNumber_src "extern/decNumber/*.c" "extern/decNumber/*.h")
 list(FILTER decNumber_src EXCLUDE REGEX ".*decBasic.c")
 list(FILTER decNumber_src EXCLUDE REGEX ".*decCommon.c")
+list(FILTER decNumber_src EXCLUDE REGEX ".*decCommon_fb.c")
 
 add_library                 (decNumber ${decNumber_src})
 project_group               (decNumber Extern)
