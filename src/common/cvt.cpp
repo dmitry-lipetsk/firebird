@@ -3132,7 +3132,7 @@ Int128 CVT_get_int128(const dsc* desc, SSHORT scale, DecimalStatus decSt, ErrorF
  *      of given scale.
  *
  **************************************/
-	VaryStr<1024> buffer;			// represents unreasonably long decfloat literal in ASCII
+	VaryStr<1024> buffer;			// represents unreasonably INT128 literal in ASCII
 	Int128 int128;
 	Decimal128 tmp;
 	double d, eps;
