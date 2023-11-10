@@ -738,7 +738,7 @@ dsql_udf* METD_get_function(jrd_tra* transaction, DsqlCompilerScratch* dsqlScrat
 				{
 					DSC d;
 
-					if(X.RDB$MECHANISM == FUN_scalar_array)
+					if (X.RDB$MECHANISM == FUN_scalar_array)
 					{
 						d.dsc_dtype = dtype_array;
 						d.dsc_scale = 0;
@@ -824,7 +824,7 @@ dsql_udf* METD_get_function(jrd_tra* transaction, DsqlCompilerScratch* dsqlScrat
 			{
 				DSC d;
 
-				if(X.RDB$MECHANISM == FUN_scalar_array)
+				if (X.RDB$MECHANISM == FUN_scalar_array)
 				{
 					d.dsc_dtype = dtype_array;
 					d.dsc_scale = 0;
