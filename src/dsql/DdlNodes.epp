@@ -1635,19 +1635,61 @@ DdlNode* CreateAlterFunctionNode::dsqlPass(DsqlCompilerScratch* dsqlScratch)
 
 	StrArray names;
 
-	for (FB_SIZE_T i = 0; i < parameters.getCount(); ++i)
+	if (this->isUdf())
 	{
-		const ParameterClause* const parameter = parameters[i];
+		// Generation of UDF input argument names.
+		// They will be used for work with SCALAR_ARRAY-arguments.
 
-		if (names.exist(parameter->name.c_str()))
+		unsigned argNum = 0;
+
+		for (FB_SIZE_T i = 0; i < parameters.getCount(); ++i)
 		{
-			status_exception::raise(
-				Arg::Gds(isc_sqlerr) << Arg::Num(-901) <<
-				Arg::Gds(isc_dsql_duplicate_spec) << Arg::Str(parameter->name));
-		}
+			ParameterClause* const parameter = parameters[i];
 
-		if (parameter->name.hasData())	// legacy UDFs has unnamed parameters
+			fb_assert(!parameter->name.hasData());
+
+			if (this->returnType == NULL && this->udfReturnPos == (i + 1))
+			{
+				// It is a parameter that is marked as RETURN
+
+				fb_assert(!names.exist(parameter->name.c_str()));
+				continue;
+			}
+
+			// It is an input argument
+			++argNum;
+			parameter->name.printf("ARG%d", argNum);
+			fb_assert(parameter->name.hasData());
+
+			if (names.exist(parameter->name.c_str()))
+			{
+				status_exception::raise(
+					Arg::Gds(isc_sqlerr) << Arg::Num(-901) <<
+					Arg::Gds(isc_dsql_duplicate_spec) << Arg::Str(parameter->name));
+			}
+
 			names.add(parameter->name.c_str());
+		}
+	}
+	else
+	{
+		fb_assert(!this->isUdf());
+
+		for (FB_SIZE_T i = 0; i < parameters.getCount(); ++i)
+		{
+			const ParameterClause* const parameter = parameters[i];
+
+			fb_assert(parameter->name.hasData());
+
+			if (names.exist(parameter->name.c_str()))
+			{
+				status_exception::raise(
+					Arg::Gds(isc_sqlerr) << Arg::Num(-901) <<
+					Arg::Gds(isc_dsql_duplicate_spec) << Arg::Str(parameter->name));
+			}
+
+			names.add(parameter->name.c_str());
+		}
 	}
 
 	PASS1_check_unique_fields_names(names, localDeclList);
