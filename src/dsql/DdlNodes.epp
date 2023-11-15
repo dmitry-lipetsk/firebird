@@ -1648,9 +1648,12 @@ DdlNode* CreateAlterFunctionNode::dsqlPass(DsqlCompilerScratch* dsqlScratch)
 
 			fb_assert(!parameter->name.hasData());
 
-			if (this->returnType == NULL && this->udfReturnPos == (i + 1))
+			if (this->udfReturnPos == (i + 1))
 			{
 				// It is a parameter that is marked as RETURN
+
+				fb_assert(this->returnType == nullptr); // research. it is assumed.
+				fb_assert(this->udfReturnPos > 0); // paranoia
 
 				fb_assert(!names.exist(parameter->name.c_str()));
 				continue;
