@@ -558,6 +558,7 @@
 #define isc_spb_res_create				0x2000
 #define isc_spb_res_use_all_space		0x4000
 #define isc_spb_res_replica_mode		20
+#define isc_spb_res_gen_udf_arg_names	21
 
 /*****************************************
  * Parameters for isc_action_svc_validate *

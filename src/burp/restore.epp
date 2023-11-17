@@ -133,7 +133,7 @@ bool	get_field_dimensions(BurpGlobals* tdgbl);
 bool	get_files(BurpGlobals* tdgbl);
 bool	get_filter(BurpGlobals* tdgbl);
 bool	get_function(BurpGlobals* tdgbl);
-void	get_function_arg(BurpGlobals* tdgbl, bool skip_arguments);
+void	get_function_arg(BurpGlobals* tdgbl, bool skip_arguments, SLONG func_desc__legacyFlag, SLONG func_desc__returnArg);
 bool	get_generator(BurpGlobals* tdgbl);
 bool	get_global_field(BurpGlobals* tdgbl);
 bool	get_index(BurpGlobals* tdgbl, const burp_rel*);
@@ -4963,6 +4963,9 @@ bool get_function(BurpGlobals* tdgbl)
 
 	Firebird::ITransaction* local_trans = tdgbl->global_trans ? tdgbl->global_trans : gds_trans;
 
+	SLONG func_desc__legacyFlag = 0;
+	SLONG func_desc__returnArg = 0;
+
 	if (tdgbl->runtimeODS >= DB_VERSION_DDL12)
 	{
 		GDS_NAME function_name;
@@ -5039,7 +5042,9 @@ bool get_function(BurpGlobals* tdgbl)
 					break;
 
 				case att_function_return_arg:
-					X.RDB$RETURN_ARGUMENT = (USHORT) get_int32(tdgbl);
+					func_desc__returnArg = get_int32(tdgbl);
+
+					X.RDB$RETURN_ARGUMENT = (USHORT) func_desc__returnArg;
 					break;
 
 				case att_function_query_name:
@@ -5147,7 +5152,9 @@ bool get_function(BurpGlobals* tdgbl)
 				case att_function_legacy_flag:
 					if (tdgbl->RESTORE_format >= 10)
 					{
-						X.RDB$LEGACY_FLAG = get_int32(tdgbl);
+						func_desc__legacyFlag=get_int32(tdgbl);
+
+						X.RDB$LEGACY_FLAG = func_desc__legacyFlag;
 						X.RDB$LEGACY_FLAG.NULL = FALSE;
 					}
 					else
@@ -5195,6 +5202,8 @@ bool get_function(BurpGlobals* tdgbl)
 	}
 	else
 	{
+		func_desc__legacyFlag = 1;
+
 		STORE (TRANSACTION_HANDLE local_trans
 				REQUEST_HANDLE tdgbl->handles_get_function_req_handle1)
 			X IN RDB$FUNCTIONS
@@ -5233,7 +5242,9 @@ bool get_function(BurpGlobals* tdgbl)
 					break;
 
 				case att_function_return_arg:
-					X.RDB$RETURN_ARGUMENT = (USHORT) get_int32(tdgbl);
+					func_desc__returnArg = get_int32(tdgbl);
+
+					X.RDB$RETURN_ARGUMENT = (USHORT) func_desc__returnArg;
 					break;
 
 				case att_function_query_name:
@@ -5323,12 +5334,12 @@ bool get_function(BurpGlobals* tdgbl)
 
 	// at the end of args for a function is the rec_function_end marker
 	while (get(tdgbl) == rec_function_arg)
-		get_function_arg(tdgbl, existFlag);
+		get_function_arg(tdgbl, existFlag, func_desc__legacyFlag, func_desc__returnArg);
 
 	return true;
 }
 
-void get_function_arg(BurpGlobals* tdgbl, bool skip_arguments)
+void get_function_arg(BurpGlobals* tdgbl, bool skip_arguments, SLONG func_desc__legacyFlag, SLONG func_desc__returnArg)
 {
 /**************************************
  *
@@ -5646,6 +5657,51 @@ void get_function_arg(BurpGlobals* tdgbl, bool skip_arguments)
 					break;
 				}
 			}
+
+			if (func_desc__legacyFlag != 1)
+			{
+				// It is not UDF.
+			}
+			else
+			if (func_desc__returnArg == X.RDB$ARGUMENT_POSITION)
+			{
+				// It is a return-argument. Do not touch it.
+			}
+			else
+			if (!tdgbl->gbl_sw_gen_udf_arg_names)
+			{
+				// Generation is not enabled. Do nothing.
+			}
+			else
+			if ( X.RDB$ARGUMENT_NAME.NULL = FALSE)
+			{
+				// The name is already defined!
+			}
+			else
+			if (!(tdgbl->runtimeODS >= DB_VERSION_DDL13))
+			{
+				// This ODS is not supported.
+			}
+			else
+			{
+				// Let's generate the name "ARG<number>"
+				auto inputPos = X.RDB$ARGUMENT_POSITION;
+
+				fb_assert(inputPos > 0);
+
+				if (func_desc__returnArg != 0 && func_desc__returnArg < inputPos)
+				{
+					// correction of input-argument number
+					fb_assert(inputPos > 1);
+					--inputPos;
+				}
+
+				fb_assert(inputPos > 0);
+				fb_assert((3 + 10 + 1) <= sizeof(X.RDB$ARGUMENT_NAME));
+
+				sprintf(X.RDB$ARGUMENT_NAME, "ARG%d", inputPos);
+				X.RDB$ARGUMENT_NAME.NULL = FALSE;
+			}//else
 		END_STORE;
 		ON_ERROR
 			general_on_error ();

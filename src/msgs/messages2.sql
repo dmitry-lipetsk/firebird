@@ -2581,6 +2581,12 @@ ERROR: Backup incomplete', NULL, NULL);
 ('gbak_opt_replica', 'burp_usage', 'burp.c', NULL, 12, 403, NULL, '    @1REPLICA <mode>      "none", "read_only" or "read_write" replica mode', NULL, NULL);
 ('gbak_replica_req', 'BURP_gbak', 'burp.c', NULL, 12, 404, NULL, '"none", "read_only" or "read_write" required', NULL, NULL);
 (NULL, 'get_blob', 'restore.epp', NULL, 12, 405, NULL, 'could not access batch parameters', NULL, NULL);
+-- 406 FB5+
+-- 407 FB5+
+-- 408 FB5+
+-- 409 FB5+
+-- 410 FB5+
+(NULL, 'burp_usage' 'burp.cpp', NULL, 12, 411, NULL, '    @1GEN_UDF_ARG_NAMES    generate udf argument names (ODS 13.0 and older)', NULL, NULL);
 -- SQLERR
 (NULL, NULL, NULL, NULL, 13, 1, NULL, 'Firebird error', NULL, NULL);
 (NULL, NULL, NULL, NULL, 13, 74, NULL, 'Rollback not performed', NULL, NULL);

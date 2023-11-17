@@ -99,6 +99,8 @@ const int IN_SW_BURP_CRYPT				= 51;	// name of crypt plugin
 const int IN_SW_BURP_INCLUDE_DATA		= 52;	// backup data from tables
 const int IN_SW_BURP_REPLICA			= 53;	// replica mode
 
+const int IN_SW_BURP_GEN_UDF_ARG_NAMES	= 54;	// generation udf argument names
+
 /**************************************************************************/
 
 static const char* const BURP_SW_MODE_NONE = "NONE";
@@ -172,7 +174,10 @@ static const Switches::in_sw_tab_t reference_burp_in_sw_table[] =
 				// msg 112: @1REP(LACE_DATABASE) replace database from backup file
 	{IN_SW_BURP_REPLICA,	isc_spb_res_replica_mode,	"REPLICA", 0, 0, 0, false, false,	403,	7, NULL, boRestore},
 				// msg 403: @1REPLICA replica mode
-/**************************************************************
+	{IN_SW_BURP_GEN_UDF_ARG_NAMES,		isc_spb_res_gen_udf_arg_names,
+												"GEN_UDF_ARG_NAMES", 	0, 0, 0, false, false,	411,	17, NULL, boRestore},
+												// msg 411: @1GEN_UDF_ARG_NAMES    generate udf argument names
+								/**************************************************************
 ** msg 252: @1RO(LE) Firebird SQL role
 ***************************************************************/
 	{IN_SW_BURP_ROLE, isc_spb_sql_role_name,	"ROLE",				0, 0, 0, false, false,	252,	2, NULL, boGeneral},

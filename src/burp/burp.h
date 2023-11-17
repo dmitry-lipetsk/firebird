@@ -1005,6 +1005,7 @@ public:
 	bool		gbl_sw_mode_val;
 	bool		gbl_sw_overwrite;
 	bool		gbl_sw_zip;
+	bool		gbl_sw_gen_udf_arg_names;
 	const SCHAR*	gbl_sw_keyholder;
 	const SCHAR*	gbl_sw_crypt;
 	const SCHAR*	gbl_sw_keyname;

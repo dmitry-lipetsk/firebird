@@ -1070,6 +1070,11 @@ int gbak(Firebird::UtilSvc* uSvc)
 			}
 			replicaMode = str;
 			break;
+		case IN_SW_BURP_GEN_UDF_ARG_NAMES:
+			if (tdgbl->gbl_sw_gen_udf_arg_names)
+				BURP_error(334, true, SafeArg() << in_sw_tab->in_sw_name);
+			tdgbl->gbl_sw_gen_udf_arg_names = true;
+			break;
 		}
 	}						// for
 
@@ -1281,6 +1286,8 @@ int gbak(Firebird::UtilSvc* uSvc)
 			errNum = IN_SW_BURP_FIX_FSS_DATA;
 		else if (tdgbl->gbl_sw_fix_fss_metadata)
 			errNum = IN_SW_BURP_FIX_FSS_METADATA;
+		else if (tdgbl->gbl_sw_gen_udf_arg_names)
+			errNum = IN_SW_BURP_GEN_UDF_ARG_NAMES;
 		else if (tdgbl->gbl_sw_deactivate_indexes)
 			errNum = IN_SW_BURP_I;
 		else if (tdgbl->gbl_sw_kill)
