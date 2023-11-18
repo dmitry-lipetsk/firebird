@@ -5682,7 +5682,7 @@ void get_function_arg(BurpGlobals* tdgbl, bool skip_arguments, SLONG func_desc__
 				// Generation is not enabled. Do nothing.
 			}
 			else
-			if ( X.RDB$ARGUMENT_NAME.NULL = FALSE)
+			if ( X.RDB$ARGUMENT_NAME.NULL == FALSE)
 			{
 				// The name is already defined!
 			}
