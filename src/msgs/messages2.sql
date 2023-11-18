@@ -2587,6 +2587,7 @@ ERROR: Backup incomplete', NULL, NULL);
 -- 409 FB5+
 -- 410 FB5+
 (NULL, 'burp_usage' 'burp.cpp', NULL, 12, 411, NULL, '    @1GEN_UDF_ARG_NAMES    generate udf argument names (ODS 13.0 and older)', NULL, NULL);
+(NULL, 'get_function_arg', 'restore.epp', NULL, 12, 412, NULL, '    argument name @1 for position @2 is generated', NULL, NULL);
 -- SQLERR
 (NULL, NULL, NULL, NULL, 13, 1, NULL, 'Firebird error', NULL, NULL);
 (NULL, NULL, NULL, NULL, 13, 74, NULL, 'Rollback not performed', NULL, NULL);

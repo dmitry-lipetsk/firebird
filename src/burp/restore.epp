@@ -5701,6 +5701,9 @@ void get_function_arg(BurpGlobals* tdgbl, bool skip_arguments, SLONG func_desc__
 
 				sprintf(X.RDB$ARGUMENT_NAME, "ARG%d", inputPos);
 				X.RDB$ARGUMENT_NAME.NULL = FALSE;
+
+				// msg 412 argument name @1 for position @2 is generated
+				BURP_verbose(412, SafeArg() << X.RDB$ARGUMENT_NAME << X.RDB$ARGUMENT_POSITION);
 			}//else
 		END_STORE;
 		ON_ERROR
