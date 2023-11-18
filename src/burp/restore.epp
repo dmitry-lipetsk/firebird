@@ -5398,7 +5398,10 @@ void get_function_arg(BurpGlobals* tdgbl, bool skip_arguments, SLONG func_desc__
 				break;
 
 			case att_functionarg_field_precision:
-				get_int32(tdgbl);
+				if (tdgbl->RESTORE_format >= 6)
+					get_int32(tdgbl);
+				else
+					bad_attribute(scan_next_attr, attribute, 90);
 				break;
 
 			case att_functionarg_package_name:
@@ -5454,7 +5457,264 @@ void get_function_arg(BurpGlobals* tdgbl, bool skip_arguments, SLONG func_desc__
 	SSHORT		l;
 	TEXT		temp[GDS_NAME_LEN * 2];
 
-	if (tdgbl->runtimeODS >= DB_VERSION_DDL12)
+	if (tdgbl->runtimeODS >= DB_VERSION_DDL13)
+	{
+		// with RDB$FIELD_PRECISION
+		// with support of GEN_UDF_ARG_NAMES command line argument
+		STORE (TRANSACTION_HANDLE local_trans
+				REQUEST_HANDLE tdgbl->handles_get_function_arg_req_handle1)
+			X IN RDB$FUNCTION_ARGUMENTS
+			X.RDB$FIELD_SUB_TYPE.NULL = TRUE;
+			X.RDB$CHARACTER_SET_ID.NULL = TRUE;
+			X.RDB$FIELD_PRECISION.NULL = TRUE;
+			X.RDB$PACKAGE_NAME.NULL = TRUE;
+			X.RDB$ARGUMENT_NAME.NULL = TRUE;
+			X.RDB$FIELD_SOURCE.NULL = TRUE;
+			X.RDB$DEFAULT_VALUE.NULL = TRUE;
+			X.RDB$DEFAULT_SOURCE.NULL = TRUE;
+			X.RDB$COLLATION_ID.NULL = TRUE;
+			X.RDB$NULL_FLAG.NULL = TRUE;
+			X.RDB$ARGUMENT_MECHANISM.NULL = TRUE;
+			X.RDB$FIELD_NAME.NULL = TRUE;
+			X.RDB$RELATION_NAME.NULL = TRUE;
+			X.RDB$DESCRIPTION.NULL = TRUE;
+
+			X.RDB$SYSTEM_FLAG = 0;
+			X.RDB$SYSTEM_FLAG.NULL = FALSE;
+
+			skip_init(&scan_next_attr);
+			while (skip_scan(&scan_next_attr), get_attribute(&attribute, tdgbl) != att_end)
+			{
+				switch (attribute)
+				{
+				case att_functionarg_name:
+					{
+						SSHORT prefixLen = 0;
+						if (!X.RDB$PACKAGE_NAME.NULL)
+						{
+							prefixLen = static_cast<SSHORT>(strlen(X.RDB$PACKAGE_NAME));
+							memcpy(temp, X.RDB$PACKAGE_NAME, prefixLen);
+							temp[prefixLen++] = '.';
+						}
+
+						l = GET_TEXT(X.RDB$FUNCTION_NAME);
+						MISC_terminate(X.RDB$FUNCTION_NAME, temp + prefixLen, l,
+							sizeof(temp) - prefixLen);
+
+						// msg 119 restoring argument for function %s
+						BURP_verbose(119, temp);
+					}
+					break;
+
+				case att_functionarg_position:
+					X.RDB$ARGUMENT_POSITION = (USHORT) get_int32(tdgbl);
+					break;
+
+				case att_functionarg_passing_mechanism:
+					X.RDB$MECHANISM = (USHORT) get_int32(tdgbl);
+					break;
+
+				case att_functionarg_field_type:
+					X.RDB$FIELD_TYPE = (USHORT) get_int32(tdgbl);
+					break;
+
+				case att_functionarg_field_scale:
+					X.RDB$FIELD_SCALE = (USHORT) get_int32(tdgbl);
+					break;
+
+				case att_functionarg_field_length:
+					X.RDB$FIELD_LENGTH = (USHORT) get_int32(tdgbl);
+					break;
+
+				case att_functionarg_field_sub_type:
+					X.RDB$FIELD_SUB_TYPE.NULL = FALSE;
+					X.RDB$FIELD_SUB_TYPE = (USHORT) get_int32(tdgbl);
+					break;
+
+				case att_functionarg_character_set:
+					X.RDB$CHARACTER_SET_ID.NULL = FALSE;
+					X.RDB$CHARACTER_SET_ID = (USHORT) get_int32(tdgbl);
+					break;
+
+				case att_functionarg_field_precision:
+					if (tdgbl->RESTORE_format >= 6)
+					{
+						X.RDB$FIELD_PRECISION.NULL = FALSE;
+						X.RDB$FIELD_PRECISION = (USHORT) get_int32(tdgbl);
+					}
+					else
+						bad_attribute(scan_next_attr, attribute, 90);
+					break;
+
+				case att_functionarg_package_name:
+					if (tdgbl->RESTORE_format >= 10)
+					{
+						GET_TEXT(X.RDB$PACKAGE_NAME);
+						X.RDB$PACKAGE_NAME.NULL = FALSE;
+						fb_utils::exact_name(X.RDB$PACKAGE_NAME);
+					}
+					else
+						bad_attribute(scan_next_attr, attribute, 90);
+					break;
+
+				case att_functionarg_arg_name:
+					if (tdgbl->RESTORE_format >= 10)
+					{
+						GET_TEXT(X.RDB$ARGUMENT_NAME);
+						X.RDB$ARGUMENT_NAME.NULL = FALSE;
+					}
+					else
+						bad_attribute(scan_next_attr, attribute, 90);
+					break;
+
+				case att_functionarg_field_source:
+					if (tdgbl->RESTORE_format >= 10)
+					{
+						GET_TEXT(X.RDB$FIELD_SOURCE);
+						X.RDB$FIELD_SOURCE.NULL = FALSE;
+					}
+					else
+						bad_attribute(scan_next_attr, attribute, 90);
+					break;
+
+				case att_functionarg_default_value:
+					if (tdgbl->RESTORE_format >= 10)
+					{
+						get_blr_blob(tdgbl, X.RDB$DEFAULT_VALUE, true);
+						X.RDB$DEFAULT_VALUE.NULL = FALSE;
+					}
+					else
+						bad_attribute(scan_next_attr, attribute, 90);
+					break;
+
+				case att_functionarg_default_source:
+					if (tdgbl->RESTORE_format >= 10)
+					{
+						get_source_blob(tdgbl, X.RDB$DEFAULT_SOURCE, true);
+						X.RDB$DEFAULT_SOURCE.NULL = FALSE;
+					}
+					else
+						bad_attribute(scan_next_attr, attribute, 90);
+					break;
+
+				case att_functionarg_collation_id:
+					if (tdgbl->RESTORE_format >= 10)
+					{
+						X.RDB$COLLATION_ID = get_int32(tdgbl);
+						X.RDB$COLLATION_ID.NULL = FALSE;
+					}
+					else
+						bad_attribute(scan_next_attr, attribute, 90);
+					break;
+
+				case att_functionarg_null_flag:
+					if (tdgbl->RESTORE_format >= 10)
+					{
+						X.RDB$NULL_FLAG = get_int32(tdgbl);
+						X.RDB$NULL_FLAG.NULL = FALSE;
+					}
+					else
+						bad_attribute(scan_next_attr, attribute, 90);
+					break;
+
+				case att_functionarg_type_mechanism:
+					if (tdgbl->RESTORE_format >= 10)
+					{
+						X.RDB$ARGUMENT_MECHANISM = get_int32(tdgbl);
+						X.RDB$ARGUMENT_MECHANISM.NULL = FALSE;
+					}
+					else
+						bad_attribute(scan_next_attr, attribute, 90);
+					break;
+
+				case att_functionarg_field_name:
+					if (tdgbl->RESTORE_format >= 10)
+					{
+						GET_TEXT(X.RDB$FIELD_NAME);
+						X.RDB$FIELD_NAME.NULL = FALSE;
+					}
+					else
+						bad_attribute(scan_next_attr, attribute, 90);
+					break;
+
+				case att_functionarg_relation_name:
+					if (tdgbl->RESTORE_format >= 10)
+					{
+						GET_TEXT(X.RDB$RELATION_NAME);
+						X.RDB$RELATION_NAME.NULL = FALSE;
+					}
+					else
+						bad_attribute(scan_next_attr, attribute, 90);
+					break;
+
+				case att_functionarg_description:
+					if (tdgbl->RESTORE_format >= 10)
+					{
+						get_source_blob(tdgbl, X.RDB$DESCRIPTION, true);
+						X.RDB$DESCRIPTION.NULL = FALSE;
+					}
+					else
+						bad_attribute(scan_next_attr, attribute, 90);
+					break;
+
+				default:
+					bad_attribute(scan_next_attr, attribute, 90);
+					// msg 90 function argument
+					break;
+				}
+			}
+
+			//
+			// The support of GEN_UDF_ARG_NAMES command line argument.
+			//
+			if (func_desc__legacyFlag != 1)
+			{
+				// It is not UDF.
+			}
+			else
+			if (func_desc__returnArg == X.RDB$ARGUMENT_POSITION)
+			{
+				// It is a return-argument. Do not touch it.
+			}
+			else
+			if (!tdgbl->gbl_sw_gen_udf_arg_names)
+			{
+				// Generation is not enabled. Do nothing.
+			}
+			else
+			if ( X.RDB$ARGUMENT_NAME.NULL = FALSE)
+			{
+				// The name is already defined!
+			}
+			else
+			{
+				// Let's generate the name "ARG<number>"
+				auto inputPos = X.RDB$ARGUMENT_POSITION;
+
+				fb_assert(inputPos > 0);
+
+				if (func_desc__returnArg != 0 && func_desc__returnArg < inputPos)
+				{
+					// correction of input-argument number
+					fb_assert(inputPos > 1);
+					--inputPos;
+				}
+
+				fb_assert(inputPos > 0);
+				fb_assert((3 + 10 + 1) <= sizeof(X.RDB$ARGUMENT_NAME));
+
+				sprintf(X.RDB$ARGUMENT_NAME, "ARG%d", inputPos);
+				X.RDB$ARGUMENT_NAME.NULL = FALSE;
+
+				// msg 412 argument name @1 for position @2 is generated
+				BURP_verbose(412, SafeArg() << X.RDB$ARGUMENT_NAME << X.RDB$ARGUMENT_POSITION);
+			}//else
+		END_STORE;
+		ON_ERROR
+			general_on_error ();
+		END_ERROR;
+	}
+	else if (tdgbl->runtimeODS >= DB_VERSION_DDL12)
 	{
 		// with RDB$FIELD_PRECISION
 		STORE (TRANSACTION_HANDLE local_trans
@@ -5659,54 +5919,6 @@ void get_function_arg(BurpGlobals* tdgbl, bool skip_arguments, SLONG func_desc__
 					break;
 				}
 			}
-
-			if (func_desc__legacyFlag != 1)
-			{
-				// It is not UDF.
-			}
-			else
-			if (func_desc__returnArg == X.RDB$ARGUMENT_POSITION)
-			{
-				// It is a return-argument. Do not touch it.
-			}
-			else
-			if (!tdgbl->gbl_sw_gen_udf_arg_names)
-			{
-				// Generation is not enabled. Do nothing.
-			}
-			else
-			if ( X.RDB$ARGUMENT_NAME.NULL = FALSE)
-			{
-				// The name is already defined!
-			}
-			else
-			if (!(tdgbl->runtimeODS >= DB_VERSION_DDL13))
-			{
-				// This ODS is not supported.
-			}
-			else
-			{
-				// Let's generate the name "ARG<number>"
-				auto inputPos = X.RDB$ARGUMENT_POSITION;
-
-				fb_assert(inputPos > 0);
-
-				if (func_desc__returnArg != 0 && func_desc__returnArg < inputPos)
-				{
-					// correction of input-argument number
-					fb_assert(inputPos > 1);
-					--inputPos;
-				}
-
-				fb_assert(inputPos > 0);
-				fb_assert((3 + 10 + 1) <= sizeof(X.RDB$ARGUMENT_NAME));
-
-				sprintf(X.RDB$ARGUMENT_NAME, "ARG%d", inputPos);
-				X.RDB$ARGUMENT_NAME.NULL = FALSE;
-
-				// msg 412 argument name @1 for position @2 is generated
-				BURP_verbose(412, SafeArg() << X.RDB$ARGUMENT_NAME << X.RDB$ARGUMENT_POSITION);
-			}//else
 		END_STORE;
 		ON_ERROR
 			general_on_error ();
