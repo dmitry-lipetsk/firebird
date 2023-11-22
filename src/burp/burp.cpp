@@ -104,6 +104,23 @@ enum gbak_action
 	//FDESC	=	3 // CVC: Unused
 };
 
+const char* get_burp_fix_udf_arg_names_mode_name(burp_fix_udf_arg_names_mode const id)
+{
+	static_assert(BURP_FIX_UDF_ARG_NAMES_MODE__DO_NOTHING == 0, "");
+	static_assert(BURP_FIX_UDF_ARG_NAMES_MODE__GEN_IF_NULL == 1, "");
+	static_assert(BURP_FIX_UDF_ARG_NAMES_MODE__SET_NULL == 2, "");
+
+	fb_assert(id == 0 || id > 0);
+	fb_assert(id < FB_NELEM(BURP_SW_FIX_UDF_ARG_NAMES_MODES));
+	if (unsigned(id) < FB_NELEM(BURP_SW_FIX_UDF_ARG_NAMES_MODES))
+	{
+		fb_assert(BURP_SW_FIX_UDF_ARG_NAMES_MODES[id] != nullptr);
+		return BURP_SW_FIX_UDF_ARG_NAMES_MODES[id];
+	}
+	fb_assert(false);
+	return "???";
+}
+
 static void close_out_transaction(gbak_action, Firebird::ITransaction**);
 //static void enable_signals();
 //static void excp_handler();
@@ -604,6 +621,7 @@ int gbak(Firebird::UtilSvc* uSvc)
 	bool noGarbage = false, ignoreDamaged = false, noDbTrig = false;
 	bool transportableMentioned = false;
 	Firebird::string replicaMode;
+	Firebird::string fixUdfArgNamesMode;
 
 	for (int itr = 1; itr < argc; ++itr)
 	{
@@ -1070,6 +1088,30 @@ int gbak(Firebird::UtilSvc* uSvc)
 			}
 			replicaMode = str;
 			break;
+		case IN_SW_BURP_FIX_UDF_ARG_NAMES:
+			if (!fixUdfArgNamesMode.empty())
+				BURP_error(333, true, SafeArg() << in_sw_tab->in_sw_name << fixUdfArgNamesMode.c_str());
+			fb_assert(tdgbl->gbl_sw_fix_udf_arg_names.isUnknown());
+			if (++itr >= argc)
+			{
+				BURP_error(416, true);
+				// msg 416: FIX_UDF_ARG_NAMES requires "DO_NOTHING", "GEN_IF_NULL" or "SET_NULL" parameter
+			}
+			str = argv[itr];
+			str.upper();
+			if (str == BURP_SW_FIX_UDF_ARG_NAMES_MODE__DO_NOTHING)
+				tdgbl->gbl_sw_fix_udf_arg_names = BURP_FIX_UDF_ARG_NAMES_MODE__DO_NOTHING;
+			else if (str == BURP_SW_FIX_UDF_ARG_NAMES_MODE__GEN_IF_NULL)
+				tdgbl->gbl_sw_fix_udf_arg_names = BURP_FIX_UDF_ARG_NAMES_MODE__GEN_IF_NULL;
+			else if (str == BURP_SW_FIX_UDF_ARG_NAMES_MODE__SET_NULL)
+				tdgbl->gbl_sw_fix_udf_arg_names = BURP_FIX_UDF_ARG_NAMES_MODE__SET_NULL;
+			else
+			{
+				BURP_error(416, true);
+				// msg 416: FIX_UDF_ARG_NAMES requires "DO_NOTHING", "GEN_IF_NULL" or "SET_NULL" parameter
+			}
+			fixUdfArgNamesMode = str;
+			break;
 		}
 	}						// for
 
@@ -1297,6 +1339,8 @@ int gbak(Firebird::UtilSvc* uSvc)
 			errNum = IN_SW_BURP_US;
 		else if (tdgbl->gbl_sw_replica.isAssigned())
 			errNum = IN_SW_BURP_REPLICA;
+		else if (tdgbl->gbl_sw_fix_udf_arg_names.isAssigned())
+			errNum = IN_SW_BURP_FIX_UDF_ARG_NAMES;
 
 		if (errNum != IN_SW_BURP_0)
 		{

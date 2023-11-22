@@ -453,6 +453,7 @@ const SvcSwitches restoreOptions[] =
 	{"res_keyname", putStringArgument, 0, isc_spb_res_keyname, 0 },
 	{"res_crypt", putStringArgument, 0, isc_spb_res_crypt, 0 },
 	{"res_replica_mode", putReplicaMode, 0, isc_spb_res_replica_mode, 0},
+	{"res_fix_udf_arg_names", putStringArgument, 0, isc_spb_res_fix_udf_arg_names, 0},
 	{0, 0, 0, 0, 0}
 };
 

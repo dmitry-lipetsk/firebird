@@ -2581,6 +2581,21 @@ ERROR: Backup incomplete', NULL, NULL);
 ('gbak_opt_replica', 'burp_usage', 'burp.c', NULL, 12, 403, NULL, '    @1REPLICA <mode>      "none", "read_only" or "read_write" replica mode', NULL, NULL);
 ('gbak_replica_req', 'BURP_gbak', 'burp.c', NULL, 12, 404, NULL, '"none", "read_only" or "read_write" required', NULL, NULL);
 (NULL, 'get_blob', 'restore.epp', NULL, 12, 405, NULL, 'could not access batch parameters', NULL, NULL);
+-- 406 FB5+
+-- 407 FB5+
+-- 408 FB5+
+-- 409 FB5+
+-- 410 FB5+
+(NULL, 'burp_usage' 'burp.cpp', NULL, 12, 411, NULL, '    @1FIX_UDF_ARG_NAMES    fix udf argument names mode (ODS>=12):', NULL, NULL);
+(NULL, 'get_function_arg', 'restore.epp', NULL, 12, 412, NULL, '    argument name @1 for position @2 is generated', NULL, NULL);
+(NULL, 'burp_usage', 'burp.cpp', NULL, 12, 413, NULL, '        DO_NOTHING           do nothing', NULL, NULL);
+(NULL, 'burp_usage', 'burp.cpp', NULL, 12, 414, NULL, '        GEN_IF_NULL          generate a new name of input-argument if it is NULL (upgrade)\n                             is valid for target ODS>=13', NULL, NULL);
+(NULL, 'burp_usage', 'burp.cpp', NULL, 12, 415, NULL, '        SET_NULL             set NULL in input-argument (downgrade)\n                             is valid for target ODS 12.x', NULL, NULL);
+(NULL, 'burp_usage', 'burp.cpp', NULL, 12, 416, NULL, 'FIX_UDF_ARG_NAMES requires "DO_NOTHING", "GEN_IF_NULL" or "SET_NULL" parameter', NULL, NULL);
+(NULL, 'get_function_arg', 'restore.epp', NULL, 12, 417, NULL, 'FIX_UDF_ARG_NAMES mode @1 is not supported for target ODS with runtime id @2', NULL, NULL);
+(NULL, 'get_function_arg', 'restore.epp', NULL, 12, 418, NULL, '[BUG CHECK] Unknown internal id of FIX_UDF_ARG_NAMES mode: @1', NULL, NULL);
+(NULL, 'get_function_arg', 'restore.epp', NULL, 12, 419, NULL, '[BUG CHECK] value @3 is not assigned! Check point [@1][@2]', NULL, NULL);
+(NULL, 'get_function_arg', 'restore.epp', NULL, 12, 420, NULL, '    argument name @1 for position @2 is set to NULL', NULL, NULL);
 -- SQLERR
 (NULL, NULL, NULL, NULL, 13, 1, NULL, 'Firebird error', NULL, NULL);
 (NULL, NULL, NULL, NULL, 13, 74, NULL, 'Rollback not performed', NULL, NULL);

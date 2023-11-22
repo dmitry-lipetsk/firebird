@@ -133,7 +133,7 @@ bool	get_field_dimensions(BurpGlobals* tdgbl);
 bool	get_files(BurpGlobals* tdgbl);
 bool	get_filter(BurpGlobals* tdgbl);
 bool	get_function(BurpGlobals* tdgbl);
-void	get_function_arg(BurpGlobals* tdgbl, bool skip_arguments);
+void	get_function_arg(BurpGlobals* tdgbl, bool skip_arguments, SLONG func_desc__legacyFlag, SLONG func_desc__returnArg);
 bool	get_generator(BurpGlobals* tdgbl);
 bool	get_global_field(BurpGlobals* tdgbl);
 bool	get_index(BurpGlobals* tdgbl, const burp_rel*);
@@ -4956,6 +4956,8 @@ bool get_function(BurpGlobals* tdgbl)
  *	Reconstruct a function.
  *
  **************************************/
+	const char* const c_bugcheck_src = "restore.epp::get_function";
+
 	att_type	attribute;
 	TEXT		temp[GDS_NAME_LEN * 2];
 	SSHORT		l;
@@ -4964,6 +4966,9 @@ bool get_function(BurpGlobals* tdgbl)
 	bool existFlag = false;
 
 	Firebird::ITransaction* local_trans = tdgbl->global_trans ? tdgbl->global_trans : gds_trans;
+
+	Nullable<SLONG> func_desc__legacyFlag;
+	Nullable<SLONG> func_desc__returnArg;
 
 	if (tdgbl->runtimeODS >= DB_VERSION_DDL12)
 	{
@@ -5187,6 +5192,9 @@ bool get_function(BurpGlobals* tdgbl)
 			}
 
 			strcpy(function_name, X.RDB$FUNCTION_NAME);
+			func_desc__legacyFlag = X.RDB$LEGACY_FLAG;
+			if(X.RDB$RETURN_ARGUMENT.NULL == FALSE)
+				func_desc__returnArg = X.RDB$RETURN_ARGUMENT;
 		END_STORE;
 		ON_ERROR
 			if (gds_status->getErrors()[1] != isc_no_dup)
@@ -5199,6 +5207,8 @@ bool get_function(BurpGlobals* tdgbl)
 	}
 	else
 	{
+		func_desc__legacyFlag = 1;
+
 		STORE (TRANSACTION_HANDLE local_trans
 				REQUEST_HANDLE tdgbl->handles_get_function_req_handle1)
 			X IN RDB$FUNCTIONS
@@ -5318,6 +5328,8 @@ bool get_function(BurpGlobals* tdgbl)
 				}
 			}
 
+			if(X.RDB$RETURN_ARGUMENT.NULL == FALSE)
+				func_desc__returnArg = X.RDB$RETURN_ARGUMENT;
 		END_STORE;
 		ON_ERROR
 			if (gds_status->getErrors()[1] != isc_no_dup)
@@ -5327,14 +5339,27 @@ bool get_function(BurpGlobals* tdgbl)
 		END_ERROR;
 	}
 
+	fb_assert(func_desc__legacyFlag.isAssigned()); // it is the fact!
+
+	if (tdgbl->gbl_sw_fix_udf_arg_names == BURP_FIX_UDF_ARG_NAMES_MODE__DO_NOTHING)
+	{
+		// Do nothing - no checks and no work.
+	}
+	else
+	if (func_desc__legacyFlag.value == 1 && func_desc__returnArg.isUnknown())
+	{
+		// msg 419: [BUG CHECK] value @3 is not assigned! Check point [@1][@2]
+		BURP_error(419, /*abort*/true, SafeArg() << c_bugcheck_src << "#001" << "func_desc__returnArg");
+	}
+
 	// at the end of args for a function is the rec_function_end marker
 	while (get(tdgbl) == rec_function_arg)
-		get_function_arg(tdgbl, existFlag);
+		get_function_arg(tdgbl, existFlag, func_desc__legacyFlag.value, func_desc__returnArg.orElse(0));
 
 	return true;
 }
 
-void get_function_arg(BurpGlobals* tdgbl, bool skip_arguments)
+void get_function_arg(BurpGlobals* tdgbl, bool skip_arguments, SLONG func_desc__legacyFlag, SLONG func_desc__returnArg)
 {
 /**************************************
  *
@@ -5346,6 +5371,8 @@ void get_function_arg(BurpGlobals* tdgbl, bool skip_arguments)
  *	Reconstruct function argument.
  *
  **************************************/
+	const char* const c_bugcheck_src = "restore.epp::get_function_arg";
+
 	att_type	attribute;
 	scan_attr_t		scan_next_attr;
 
@@ -5450,7 +5477,7 @@ void get_function_arg(BurpGlobals* tdgbl, bool skip_arguments)
 	SSHORT		l;
 	TEXT		temp[GDS_NAME_LEN * 2];
 
-	if (tdgbl->runtimeODS >= DB_VERSION_DDL12)
+	if (tdgbl->runtimeODS >= DB_VERSION_DDL13)
 	{
 		// with RDB$FIELD_PRECISION
 		STORE (TRANSACTION_HANDLE local_trans
@@ -5657,6 +5684,355 @@ void get_function_arg(BurpGlobals* tdgbl, bool skip_arguments)
 					break;
 				}
 			}
+
+			//
+			// The support of FIX_UDF_ARG_NAMES command line argument.
+			//
+			if (func_desc__legacyFlag != 1)
+			{
+				// It is not UDF.
+			}
+			else
+			if (tdgbl->gbl_sw_fix_udf_arg_names == BURP_FIX_UDF_ARG_NAMES_MODE__DO_NOTHING)
+			{
+				// Do nothing
+			}
+			else
+			if (X.RDB$ARGUMENT_POSITION.NULL == TRUE)
+			{
+				// msg 419: [BUG CHECK] value @3 is not assigned! Check point [@1][@2]
+				BURP_error(419, /*abort*/true, SafeArg() << c_bugcheck_src << "#001" << "X.RDB$ARGUMENT_POSITION");
+			}
+			else
+			if (func_desc__returnArg == X.RDB$ARGUMENT_POSITION)
+			{
+				// It is a return-argument. Do not touch it.
+			}
+			else
+			{
+				// It is an input-argument.
+
+				if (tdgbl->gbl_sw_fix_udf_arg_names.isUnknown())
+				{
+					// Fix mode is not defined
+				}
+				else
+				if (tdgbl->gbl_sw_fix_udf_arg_names.value == BURP_FIX_UDF_ARG_NAMES_MODE__GEN_IF_NULL)
+				{
+					if ( X.RDB$ARGUMENT_NAME.NULL == FALSE)
+					{
+						// The name is already defined!
+					}
+					else
+					{
+						// Let's generate the name "ARG<number>"
+						auto inputPos = X.RDB$ARGUMENT_POSITION;
+
+						fb_assert(inputPos > 0);
+
+						if (func_desc__returnArg != 0 && func_desc__returnArg < inputPos)
+						{
+							// correction of input-argument number
+							fb_assert(inputPos > 1);
+							--inputPos;
+						}
+
+						fb_assert(inputPos > 0);
+						fb_assert((3 + 10 + 1) <= sizeof(X.RDB$ARGUMENT_NAME));
+
+						sprintf(X.RDB$ARGUMENT_NAME, "ARG%d", inputPos);
+						X.RDB$ARGUMENT_NAME.NULL = FALSE;
+
+						// msg 412 argument name @1 for position @2 is generated
+						BURP_verbose(412, SafeArg() << X.RDB$ARGUMENT_NAME << X.RDB$ARGUMENT_POSITION);
+					}//else
+				}
+				else
+				if (tdgbl->gbl_sw_fix_udf_arg_names.value == BURP_FIX_UDF_ARG_NAMES_MODE__SET_NULL)
+				{
+					// msg 417: FIX_UDF_ARG_NAMES mode @1 is not supported for target ODS with runtime id @2
+					BURP_error(417, /*abort*/true,
+								SafeArg() << get_burp_fix_udf_arg_names_mode_name(BURP_FIX_UDF_ARG_NAMES_MODE__SET_NULL) << tdgbl->runtimeODS);
+				}
+				else
+				{
+					// ERROR - [BUG CHECK] unexpected mode
+					fb_assert(false);
+					// msg 418: [BUG CHECK] Unknown internal id of FIX_UDF_ARG_NAMES mode: @1
+					BURP_error(418, /*abort*/true, SafeArg() << tdgbl->gbl_sw_fix_udf_arg_names.value);
+				}
+			}//else - it is an input-argument
+		END_STORE;
+		ON_ERROR
+			general_on_error ();
+		END_ERROR;
+	}
+	else if (tdgbl->runtimeODS >= DB_VERSION_DDL12)
+	{
+		// with RDB$FIELD_PRECISION
+		STORE (TRANSACTION_HANDLE local_trans
+				REQUEST_HANDLE tdgbl->handles_get_function_arg_req_handle1)
+			X IN RDB$FUNCTION_ARGUMENTS
+			X.RDB$ARGUMENT_POSITION.NULL = TRUE;
+			X.RDB$FIELD_SUB_TYPE.NULL = TRUE;
+			X.RDB$CHARACTER_SET_ID.NULL = TRUE;
+			X.RDB$FIELD_PRECISION.NULL = TRUE;
+			X.RDB$PACKAGE_NAME.NULL = TRUE;
+			X.RDB$ARGUMENT_NAME.NULL = TRUE;
+			X.RDB$FIELD_SOURCE.NULL = TRUE;
+			X.RDB$DEFAULT_VALUE.NULL = TRUE;
+			X.RDB$DEFAULT_SOURCE.NULL = TRUE;
+			X.RDB$COLLATION_ID.NULL = TRUE;
+			X.RDB$NULL_FLAG.NULL = TRUE;
+			X.RDB$ARGUMENT_MECHANISM.NULL = TRUE;
+			X.RDB$FIELD_NAME.NULL = TRUE;
+			X.RDB$RELATION_NAME.NULL = TRUE;
+			X.RDB$DESCRIPTION.NULL = TRUE;
+
+			X.RDB$SYSTEM_FLAG = 0;
+			X.RDB$SYSTEM_FLAG.NULL = FALSE;
+
+			skip_init(&scan_next_attr);
+			while (skip_scan(&scan_next_attr), get_attribute(&attribute, tdgbl) != att_end)
+			{
+				switch (attribute)
+				{
+				case att_functionarg_name:
+					{
+						SSHORT prefixLen = 0;
+						if (!X.RDB$PACKAGE_NAME.NULL)
+						{
+							prefixLen = static_cast<SSHORT>(strlen(X.RDB$PACKAGE_NAME));
+							memcpy(temp, X.RDB$PACKAGE_NAME, prefixLen);
+							temp[prefixLen++] = '.';
+						}
+
+						l = GET_TEXT(X.RDB$FUNCTION_NAME);
+						MISC_terminate(X.RDB$FUNCTION_NAME, temp + prefixLen, l,
+							sizeof(temp) - prefixLen);
+
+						// msg 119 restoring argument for function %s
+						BURP_verbose(119, temp);
+					}
+					break;
+
+				case att_functionarg_position:
+					X.RDB$ARGUMENT_POSITION.NULL = FALSE;
+					X.RDB$ARGUMENT_POSITION = (USHORT) get_int32(tdgbl);
+					break;
+
+				case att_functionarg_passing_mechanism:
+					X.RDB$MECHANISM = (USHORT) get_int32(tdgbl);
+					break;
+
+				case att_functionarg_field_type:
+					X.RDB$FIELD_TYPE = (USHORT) get_int32(tdgbl);
+					break;
+
+				case att_functionarg_field_scale:
+					X.RDB$FIELD_SCALE = (USHORT) get_int32(tdgbl);
+					break;
+
+				case att_functionarg_field_length:
+					X.RDB$FIELD_LENGTH = (USHORT) get_int32(tdgbl);
+					break;
+
+				case att_functionarg_field_sub_type:
+					X.RDB$FIELD_SUB_TYPE.NULL = FALSE;
+					X.RDB$FIELD_SUB_TYPE = (USHORT) get_int32(tdgbl);
+					break;
+
+				case att_functionarg_character_set:
+					X.RDB$CHARACTER_SET_ID.NULL = FALSE;
+					X.RDB$CHARACTER_SET_ID = (USHORT) get_int32(tdgbl);
+					break;
+
+				case att_functionarg_field_precision:
+					if (tdgbl->RESTORE_format >= 6)
+					{
+						X.RDB$FIELD_PRECISION.NULL = FALSE;
+						X.RDB$FIELD_PRECISION = (USHORT) get_int32(tdgbl);
+					}
+					else
+						bad_attribute(scan_next_attr, attribute, 90);
+					break;
+
+				case att_functionarg_package_name:
+					if (tdgbl->RESTORE_format >= 10)
+					{
+						GET_TEXT(X.RDB$PACKAGE_NAME);
+						X.RDB$PACKAGE_NAME.NULL = FALSE;
+						fb_utils::exact_name(X.RDB$PACKAGE_NAME);
+					}
+					else
+						bad_attribute(scan_next_attr, attribute, 90);
+					break;
+
+				case att_functionarg_arg_name:
+					if (tdgbl->RESTORE_format >= 10)
+					{
+						GET_TEXT(X.RDB$ARGUMENT_NAME);
+						X.RDB$ARGUMENT_NAME.NULL = FALSE;
+					}
+					else
+						bad_attribute(scan_next_attr, attribute, 90);
+					break;
+
+				case att_functionarg_field_source:
+					if (tdgbl->RESTORE_format >= 10)
+					{
+						GET_TEXT(X.RDB$FIELD_SOURCE);
+						X.RDB$FIELD_SOURCE.NULL = FALSE;
+					}
+					else
+						bad_attribute(scan_next_attr, attribute, 90);
+					break;
+
+				case att_functionarg_default_value:
+					if (tdgbl->RESTORE_format >= 10)
+					{
+						get_blr_blob(tdgbl, X.RDB$DEFAULT_VALUE, true);
+						X.RDB$DEFAULT_VALUE.NULL = FALSE;
+					}
+					else
+						bad_attribute(scan_next_attr, attribute, 90);
+					break;
+
+				case att_functionarg_default_source:
+					if (tdgbl->RESTORE_format >= 10)
+					{
+						get_source_blob(tdgbl, X.RDB$DEFAULT_SOURCE, true);
+						X.RDB$DEFAULT_SOURCE.NULL = FALSE;
+					}
+					else
+						bad_attribute(scan_next_attr, attribute, 90);
+					break;
+
+				case att_functionarg_collation_id:
+					if (tdgbl->RESTORE_format >= 10)
+					{
+						X.RDB$COLLATION_ID = get_int32(tdgbl);
+						X.RDB$COLLATION_ID.NULL = FALSE;
+					}
+					else
+						bad_attribute(scan_next_attr, attribute, 90);
+					break;
+
+				case att_functionarg_null_flag:
+					if (tdgbl->RESTORE_format >= 10)
+					{
+						X.RDB$NULL_FLAG = get_int32(tdgbl);
+						X.RDB$NULL_FLAG.NULL = FALSE;
+					}
+					else
+						bad_attribute(scan_next_attr, attribute, 90);
+					break;
+
+				case att_functionarg_type_mechanism:
+					if (tdgbl->RESTORE_format >= 10)
+					{
+						X.RDB$ARGUMENT_MECHANISM = get_int32(tdgbl);
+						X.RDB$ARGUMENT_MECHANISM.NULL = FALSE;
+					}
+					else
+						bad_attribute(scan_next_attr, attribute, 90);
+					break;
+
+				case att_functionarg_field_name:
+					if (tdgbl->RESTORE_format >= 10)
+					{
+						GET_TEXT(X.RDB$FIELD_NAME);
+						X.RDB$FIELD_NAME.NULL = FALSE;
+					}
+					else
+						bad_attribute(scan_next_attr, attribute, 90);
+					break;
+
+				case att_functionarg_relation_name:
+					if (tdgbl->RESTORE_format >= 10)
+					{
+						GET_TEXT(X.RDB$RELATION_NAME);
+						X.RDB$RELATION_NAME.NULL = FALSE;
+					}
+					else
+						bad_attribute(scan_next_attr, attribute, 90);
+					break;
+
+				case att_functionarg_description:
+					if (tdgbl->RESTORE_format >= 10)
+					{
+						get_source_blob(tdgbl, X.RDB$DESCRIPTION, true);
+						X.RDB$DESCRIPTION.NULL = FALSE;
+					}
+					else
+						bad_attribute(scan_next_attr, attribute, 90);
+					break;
+
+				default:
+					bad_attribute(scan_next_attr, attribute, 90);
+					// msg 90 function argument
+					break;
+				}
+			}
+
+			//
+			// The support of FIX_UDF_ARG_NAMES command line argument. Downgrade mode.
+			//
+			if (func_desc__legacyFlag != 1)
+			{
+				// It is not UDF.
+			}
+			else
+			if (tdgbl->gbl_sw_fix_udf_arg_names == BURP_FIX_UDF_ARG_NAMES_MODE__DO_NOTHING)
+			{
+				// Do nothing
+			}
+			else
+			if (X.RDB$ARGUMENT_POSITION.NULL == TRUE)
+			{
+				// msg 419: [BUG CHECK] value @3 is not assigned! Check point [@1][@2]
+				BURP_error(419, /*abort*/true, SafeArg() << c_bugcheck_src << "#001" << "X.RDB$ARGUMENT_POSITION");
+			}
+			else
+			if (func_desc__returnArg == X.RDB$ARGUMENT_POSITION)
+			{
+				// It is a return-argument. Do not touch it.
+			}
+			else
+			{
+				// It is an input-argument.
+
+				if (tdgbl->gbl_sw_fix_udf_arg_names.isUnknown())
+				{
+					// Fix mode is not defined
+				}
+				else
+				if (tdgbl->gbl_sw_fix_udf_arg_names.value == BURP_FIX_UDF_ARG_NAMES_MODE__GEN_IF_NULL)
+				{
+					// msg 417: FIX_UDF_ARG_NAMES mode @1 is not supported for target ODS with runtime id @2
+					BURP_error(417, /*abort*/true,
+								SafeArg() << get_burp_fix_udf_arg_names_mode_name(BURP_FIX_UDF_ARG_NAMES_MODE__GEN_IF_NULL) << tdgbl->runtimeODS);
+				}
+				else
+				if (tdgbl->gbl_sw_fix_udf_arg_names.value == BURP_FIX_UDF_ARG_NAMES_MODE__SET_NULL)
+				{
+					//downgrade mode
+					if ( X.RDB$ARGUMENT_NAME.NULL == FALSE)
+					{
+						// The name is defined!
+						// msg 420 argument name @1 for position @2 is set to NULL
+						BURP_verbose(420, SafeArg() << X.RDB$ARGUMENT_NAME << X.RDB$ARGUMENT_POSITION);
+						X.RDB$ARGUMENT_NAME.NULL = TRUE;
+					}
+				}
+				else
+				{
+					// ERROR - [BUG CHECK] unexpected mode
+					fb_assert(false);
+					// msg 418: [BUG CHECK] Unknown internal id of FIX_UDF_ARG_NAMES mode: @1
+					BURP_error(418, /*abort*/true, SafeArg() << tdgbl->gbl_sw_fix_udf_arg_names.value);
+				}
+			}//else - it is an input-argument
 		END_STORE;
 		ON_ERROR
 			general_on_error ();
@@ -5773,6 +6149,10 @@ void get_function_arg(BurpGlobals* tdgbl, bool skip_arguments)
 					break;
 				}
 			}
+
+			//
+			// This ODS does not have RDB$ARGUMENT_NAME. FIX_UDF_ARG_NAMES is ignored.
+			//
 		END_STORE;
 		ON_ERROR
 			general_on_error ();
@@ -5885,6 +6265,10 @@ void get_function_arg(BurpGlobals* tdgbl, bool skip_arguments)
 					break;
 				}
 			}
+
+			//
+			// This ODS does not have RDB$ARGUMENT_NAME. FIX_UDF_ARG_NAMES is ignored.
+			//
 		END_STORE;
 		ON_ERROR
 			general_on_error ();

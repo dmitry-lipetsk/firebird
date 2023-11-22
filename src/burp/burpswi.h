@@ -99,6 +99,8 @@ const int IN_SW_BURP_CRYPT				= 51;	// name of crypt plugin
 const int IN_SW_BURP_INCLUDE_DATA		= 52;	// backup data from tables
 const int IN_SW_BURP_REPLICA			= 53;	// replica mode
 
+const int IN_SW_BURP_FIX_UDF_ARG_NAMES	= 54;	// fix udf argument names
+
 /**************************************************************************/
 
 static const char* const BURP_SW_MODE_NONE = "NONE";
@@ -106,6 +108,19 @@ static const char* const BURP_SW_MODE_RO = "READ_ONLY";
 static const char* const BURP_SW_MODE_RW = "READ_WRITE";
 static const char* const BURP_SW_OVERWRITE = "OVERWRITE"; // recreate with overwrite
 
+/* FIX_UDF_ARG_NAMES mode names */
+static const char* const BURP_SW_FIX_UDF_ARG_NAMES_MODE__DO_NOTHING = "DO_NOTHING";
+static const char* const BURP_SW_FIX_UDF_ARG_NAMES_MODE__GEN_IF_NULL = "GEN_IF_NULL";
+static const char* const BURP_SW_FIX_UDF_ARG_NAMES_MODE__SET_NULL = "SET_NULL";
+
+static const char* const BURP_SW_FIX_UDF_ARG_NAMES_MODES[]=
+{
+	// See enum burp_fix_udf_arg_names_mode	and get_burp_fix_udf_arg_names_mode_name
+
+	BURP_SW_FIX_UDF_ARG_NAMES_MODE__DO_NOTHING,			// 0
+	BURP_SW_FIX_UDF_ARG_NAMES_MODE__GEN_IF_NULL,		// 1
+	BURP_SW_FIX_UDF_ARG_NAMES_MODE__SET_NULL,			// 2
+};
 
 enum BurpOptionType { boGeneral, boMain, boBackup, boRestore };
 
@@ -172,6 +187,15 @@ static const Switches::in_sw_tab_t reference_burp_in_sw_table[] =
 				// msg 112: @1REP(LACE_DATABASE) replace database from backup file
 	{IN_SW_BURP_REPLICA,	isc_spb_res_replica_mode,	"REPLICA", 0, 0, 0, false, false,	403,	7, NULL, boRestore},
 				// msg 403: @1REPLICA replica mode
+	{IN_SW_BURP_FIX_UDF_ARG_NAMES,		isc_spb_res_fix_udf_arg_names,
+												"FIX_UDF_ARG_NAMES", 	0, 0, 0, false, false,	411,	17, NULL, boRestore},
+				// msg 411: @1FIX_UDF_ARG_NAMES fix udf argument names mode (ODS>=12):
+	{-1,				0,							" ",			0, 0, 0, false, false,	413,	0, NULL, boRestore},
+	// msg 413: DO_NOTHING           do nothing
+	{-1,				0,							" ",			0, 0, 0, false, false,	414,	0, NULL, boRestore},
+	// msg 414: GEN_IF_NULL          generate a new name of input-argument if it is NULL (upgrade) is valid for target ODS>=13)
+	{-1,				0,							" ",			0, 0, 0, false, false,	415,	0, NULL, boRestore},
+	// msg 415: SET_NULL             set NULL in input-argument (downgrade) is valid for target ODS 12.x)
 /**************************************************************
 ** msg 252: @1RO(LE) Firebird SQL role
 ***************************************************************/

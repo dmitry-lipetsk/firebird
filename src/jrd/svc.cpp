@@ -2980,6 +2980,7 @@ bool Service::process_switches(ClumpletReader& spb, string& switches)
 				break;
 			case isc_spb_res_fix_fss_data:
 			case isc_spb_res_fix_fss_metadata:
+			case isc_spb_res_fix_udf_arg_names:
 			case isc_spb_bkp_stat:
 			case isc_spb_bkp_skip_data:
 			case isc_spb_bkp_include_data:

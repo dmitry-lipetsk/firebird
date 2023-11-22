@@ -920,6 +920,16 @@ static const char HDR_SPLIT_TAG6[]	= "InterBase/gbak,   ";
 #define HDR_SPLIT_TAG HDR_SPLIT_TAG6
 const FB_UINT64 MIN_SPLIT_SIZE	= FB_CONST64(2048);		// bytes
 
+/* FIX_UDF_ARG_NAMES mode internal ids */
+enum burp_fix_udf_arg_names_mode : unsigned {
+	// See BURP_SW_FIX_UDF_ARG_NAMES_MODES
+
+	BURP_FIX_UDF_ARG_NAMES_MODE__DO_NOTHING = 0,
+	BURP_FIX_UDF_ARG_NAMES_MODE__GEN_IF_NULL = 1,
+	BURP_FIX_UDF_ARG_NAMES_MODE__SET_NULL = 2
+};
+
+const char* get_burp_fix_udf_arg_names_mode_name(burp_fix_udf_arg_names_mode id);
 
 // Global switches and data
 
@@ -1025,6 +1035,7 @@ public:
 	redirect_vals	sw_redirect;
 	bool		burp_throw;
 	Nullable<ReplicaMode>	gbl_sw_replica;
+	Nullable<burp_fix_udf_arg_names_mode>	gbl_sw_fix_udf_arg_names;
 
 	UCHAR*		blk_io_ptr;
 	int			blk_io_cnt;

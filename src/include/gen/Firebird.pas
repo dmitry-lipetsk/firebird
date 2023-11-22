@@ -4103,6 +4103,7 @@ const
 	isc_spb_res_create = $2000;
 	isc_spb_res_use_all_space = $4000;
 	isc_spb_res_replica_mode = byte(20);
+	isc_spb_res_fix_udf_arg_names = byte(21);
 	isc_spb_val_tab_incl = byte(1);
 	isc_spb_val_tab_excl = byte(2);
 	isc_spb_val_idx_incl = byte(3);
