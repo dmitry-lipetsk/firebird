@@ -1760,6 +1760,42 @@ DdlNode* CreateAlterFunctionNode::dsqlPass(DsqlCompilerScratch* dsqlScratch)
 	if (returnType && returnType->type)
 		returnType->type->resolve(dsqlScratch);
 
+	// check UDF argument types
+	if (this->isUdf())
+	{
+		for (FB_SIZE_T i = 0; i < parameters.getCount(); ++i)
+		{
+			ParameterClause* const parameter = parameters[i];
+
+			if (this->udfReturnPos == (i + 1))
+			{
+				// It is a parameter that is marked as RETURN
+
+				// We'll verify that SCALAR_ARRAY can't be used as a return type.
+				// The support for SCALAR_ARRAY is only for input parameters.
+				if (parameter->udfMechanism == FUN_scalar_array)
+				{
+					status_exception::raise(
+						Arg::Gds(isc_sqlerr) << Arg::Num(-607) <<
+						Arg::Gds(isc_dsql_command_err) <<
+						Arg::Gds(isc_random) << "BY SCALAR_ARRAY can't be used as a return parameter");
+				}
+				continue;
+			}
+
+			// It is an input argument
+
+			if (parameter->udfMechanism == FUN_scalar_array &&
+				parameter->type->dtype == dtype_blob)
+			{
+				status_exception::raise(
+					Arg::Gds(isc_sqlerr) << Arg::Num(-607) <<
+					Arg::Gds(isc_dsql_command_err) <<
+					Arg::Gds(isc_random) << "BY SCALAR_ARRAY can't be used with BLOB datatype");
+			}
+		}
+	}
+
 	// check SQL SECURITY is not set if function declared in package
 	if (package.hasData() && ssDefiner.specified)
 	{
@@ -2020,17 +2056,9 @@ bool CreateAlterFunctionNode::executeAlter(thread_db* tdbb, DsqlCompilerScratch*
 						// It was checked in CreateAlterFunctionNode::dsqlPass
 						fb_assert(!(udfReturnPos < 1 || ULONG(udfReturnPos) > parameters.getCount()));
 
-						// We'll verify that SCALAR_ARRAY can't be used as a return type.
 						// The support for SCALAR_ARRAY is only for input parameters.
-
-						if (parameters[udfReturnPos - 1]->udfMechanism.specified &&
-							parameters[udfReturnPos - 1]->udfMechanism.value == FUN_scalar_array)
-						{
-							status_exception::raise(
-								Arg::Gds(isc_sqlerr) << Arg::Num(-607) <<
-								Arg::Gds(isc_dsql_command_err) <<
-								Arg::Gds(isc_random) << "BY SCALAR_ARRAY can't be used as a return parameter");
-						}
+						// It was checked in CreateAlterFunctionNode::dsqlPass
+						fb_assert(!(parameters[udfReturnPos - 1]->udfMechanism == FUN_scalar_array));
 
 						FUN.RDB$RETURN_ARGUMENT = (SSHORT) udfReturnPos;
 					}
