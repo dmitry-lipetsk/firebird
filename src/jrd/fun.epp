@@ -479,7 +479,7 @@ void FUN_evaluate(thread_db* tdbb, const Function* function, const NestValueArra
 		{
 			scalar_array_desc* const scalar_array = get_scalar_array(tdbb, parameter, input, array_stack);
 
-			*arg_ptr++ = (UDF_ARG)(IPTR)scalar_array;
+			*arg_ptr++ = reinterpret_cast<UDF_ARG*>(scalar_array);
 			continue;
 		}
 		else
