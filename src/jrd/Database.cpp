@@ -55,6 +55,14 @@ namespace Jrd
 		return pageSpace->onRawDevice();
 	}
 
+	ULONG Database::getIOBlockSize() const
+	{
+		if ((dbb_flags & DBB_no_fs_cache) || onRawDevice())
+			return DIRECT_IO_BLOCK_SIZE;
+
+		return PAGE_ALIGNMENT;
+	}
+
 	AttNumber Database::generateAttachmentId()
 	{
 		fb_assert(dbb_tip_cache);
@@ -456,6 +464,25 @@ namespace Jrd
 			dbb_filename, dbb_config));
 	}
 
+	void Database::startTipCache(thread_db* tdbb)
+	{
+		fb_assert(!dbb_tip_cache);
+
+		TipCache* cache = FB_NEW_POOL(*dbb_permanent) TipCache(this);
+		try
+		{
+			cache->initializeTpc(tdbb);
+		}
+		catch(const Exception&)
+		{
+			cache->finalizeTpc(tdbb);
+			delete cache;
+			throw;
+		}
+
+		dbb_tip_cache = cache;
+	}
+
 	// Database::Linger class implementation
 
 	void Database::Linger::handler()
@@ -539,6 +566,8 @@ namespace Jrd
 		m_replMgr = nullptr;
 
 		delete entry;
+
+		fb_assert(m_tempCacheUsage == 0);
 	}
 
 	LockManager* Database::GlobalObjectHolder::getLockManager()
@@ -578,6 +607,28 @@ namespace Jrd
 				m_replMgr = FB_NEW Replication::Manager(m_id, m_replConfig);
 		}
 		return m_replMgr;
+	}
+
+	bool Database::GlobalObjectHolder::incTempCacheUsage(FB_SIZE_T size)
+	{
+		if (m_tempCacheUsage + size > m_tempCacheLimit)
+			return false;
+
+		const auto old = m_tempCacheUsage.fetch_add(size);
+		if (old + size > m_tempCacheLimit)
+		{
+			m_tempCacheUsage.fetch_sub(size);
+			return false;
+		}
+
+		return true;
+	}
+
+	void Database::GlobalObjectHolder::decTempCacheUsage(FB_SIZE_T size)
+	{
+		fb_assert(m_tempCacheUsage >= size);
+
+		m_tempCacheUsage.fetch_sub(size);
 	}
 
 	GlobalPtr<Database::GlobalObjectHolder::DbIdHash>
