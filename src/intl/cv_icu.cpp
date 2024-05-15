@@ -31,9 +31,9 @@
 #include <unicode/ucnv.h>
 #include "../common/unicode_util.h"
 
-namespace{
+namespace {
 
-static void U_EXPORT2 FB_UCNV_FROM_U_CALLBACK_STOP (
+static void U_EXPORT2 FB_UCNV_FROM_U_CALLBACK_STOP(
                 const void* /*context*/,
                 UConverterFromUnicodeArgs* /*fromUArgs*/,
                 const UChar* /*codeUnits*/,
